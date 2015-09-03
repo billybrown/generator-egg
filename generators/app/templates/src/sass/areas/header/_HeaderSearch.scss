@@ -1,0 +1,28 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Primary site search in the header
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+.HeaderSearch {
+
+    .InputGroup {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: -.35em;
+
+        @include mq($from: mobilemenu-bp) {
+            margin-right: 0;
+            margin-left: -.35em;
+        }
+
+        input {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+
+
+

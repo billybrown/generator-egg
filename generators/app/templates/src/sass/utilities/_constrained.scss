@@ -1,0 +1,59 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// u-constrained
+// Constrained class to center content so text does run the full width of the screen
+// on large screens. Adds default spacing against the browser as well.
+//
+// typically appears like so:
+//
+//  <div class="Frame">
+//    <div class="u-constrained">
+//      <article> ... </article>
+//    </div>
+//  </div>
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+
+$cspace_small: 20px;
+$cspace_medium: 40px;
+$cspace_large: 50px;
+$cspace_giant: 100px;
+
+.u-constrained {
+    max-width: $content-max-width + ($cspace_small * 2);
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $cspace_small;
+    padding-left: $cspace_small;
+
+    @include mq($from: small-bp) {
+        padding-right: $cspace_medium;
+        padding-left: $cspace_medium;
+        max-width: $content-max-width + ($cspace_medium * 2);
+    }
+
+    @include mq($from: mobilemenu-bp) {
+        padding-right: $cspace_large;
+        padding-left: $cspace_large;
+        max-width: $content-max-width + ($cspace_large * 2);
+    }
+
+    @include mq($from: $comp-max-width) {
+        padding-right: $cspace_giant;
+        padding-left: $cspace_giant;
+        max-width: $content-max-width + ($cspace_giant * 2);
+    }
+}
+
+
+// some constrained variations
+
+.u-constrained--noMobilePadding {
+
+    @include mq($until: mobilemenu-bp) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

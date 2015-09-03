@@ -1,0 +1,26 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// <a>
+//
+// If the a element has an href attribute, then it represents a hyperlink
+//
+// http://html5doctor.com/element-index/#a
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+// the u-fakeLink utility class is for elements that you want to look and act
+// like a link, but they aren't <a> tags. Typically you might want this for 
+// something that you click to trigger some javascript.
+
+a,
+.u-fakeLink {
+    color: $link-color;
+    text-decoration: none;
+    transition: color $animation;
+    
+
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+        color: $link-colorHover;
+    }
+}

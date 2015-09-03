@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="{{ htmlClass }}">
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1" />
+
+		<!-- google webfonts -->
+		<link href='https://fonts.googleapis.com/css?family=Raleway:800,500|Neuton:400,800,700' rel='stylesheet' type='text/css'>
+
+		<!-- Minified and Concatenated Vendor CSS -->
+		<link rel="stylesheet" href="../../../../build/css/plugins.min.css?{{ cacheBuster }}" media="all" />
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="../../../../build/css/main.min.css?{{ cacheBuster }}" media="all" />
+		
+		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+		{{ patternLabHead | raw }}
+		<!-- End Pattern Lab -->
+
+		<!-- Takana (delete before moving to production) -->
+		<script type="text/javascript" src="http://localhost:48626/takana.js"></script>
+		<script type="text/javascript">
+		  takanaClient.run({host: 'localhost:48626'});
+		</script>
+
+		<!--[if (gte IE 6)&(lte IE 8)]>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+			<link rel="stylesheet" href="../../../../build/css/ie8.css" />
+		<![endif]-->
+		
+		<!-- Modernizr (must be in the head) -->
+        <script src="../../../../build/js/modernizr.js"></script>
+
+	</head>
+	<body class="{{ bodyClass }}">
+
+		<div class="SiteWrapper">
+	

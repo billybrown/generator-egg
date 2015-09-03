@@ -1,0 +1,14 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Mixin for placeholder text vendor prefixes
+// autoprefixer has trouble getting these to work right
+// via http://spacebase.space150.com/
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+@mixin placeholder {
+  &:-moz-placeholder { @content; } // Firefox 4-18
+  &::-moz-placeholder { opacity: 1; @content; } // Firefox 19+
+  &:-ms-input-placeholder { @content; } // Internet Explorer 10+
+  &::-webkit-input-placeholder { @content; } // Safari and Chrome
+}

@@ -1,0 +1,94 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Absolute
+//
+// Mixins to easily position something absolutely.
+//
+// absolute centering supports ie9+
+//
+// @todo - Need better fallback solution for browsers that don't have css transforms
+// for the absolute centering mixin. 
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+@mixin u-absolute__defaults($top, $right, $bottom, $left) {
+    position: absolute;
+    @if ($top != null) { top: $top; }
+    @if ($right != null) { right: $right; }
+    @if ($bottom != null) { bottom: $bottom; }
+    @if ($left != null) { left: $left; }    
+}
+
+@mixin u-absolute($top, $right, $bottom, $left, $bp:"") {
+
+    @if $bp != "" {
+        position: relative;
+
+        @include mq($from: $bp) {
+            @include u-absolute__defaults($top, $right, $bottom, $left);
+        }
+
+    } @else {
+       @include u-absolute__defaults($top, $right, $bottom, $left);
+    }
+}
+
+
+
+
+/////////////////////////////////////-+++-
+// A version for centering something absolutely
+
+@mixin u-absoluteCenter__defaults($position) {
+    position: absolute;
+
+    @if ($position == "center") { 
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @if $ie8 == true {
+            .no-csstransforms & {
+                // @todo
+                // some kind of sass function that outputs all selectors that get this style
+                // that i can then tell js to calc height/width and add hard centering
+            }
+        }
+    
+    } @else if ($position == "left") { 
+        top: 50%;
+        left: 0;
+        transform: translatey(-50%);  
+
+    } @else if ($position == "right") {
+        top: 50%;
+        right: 0;
+        transform: translatey(-50%);    
+
+    } @else if ($position == "top") {
+        top: 0;
+        left: 50%;
+        transform: translatex(-50%);     
+
+    } @else if ($position == "bottom") {
+        bottom: 0;
+        left: 50%;
+        transform: translatex(-50%);   
+    }
+}
+
+@mixin u-absoluteCenter($position, $bp:"") {
+
+    @if $bp != "" {
+        position: relative;
+
+        @include mq($from: $bp) {
+            @include u-absoluteCenter__defaults($position);
+        }
+
+    } @else {
+        @include u-absoluteCenter__defaults($position);
+    }
+}
+

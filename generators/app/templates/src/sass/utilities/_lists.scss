@@ -1,0 +1,229 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Custom List styles
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+/////////////////////////////////////-+++-
+// Reset lists
+
+%u-nolist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.u-nolist > ul,
+.u-nolist {
+    @extend %u-nolist;
+}
+
+
+/////////////////////////////////////-+++-
+// Custom Lists
+
+// a special list with special brand dots
+%u-brandList {
+    overflow: auto;
+
+    li {
+        list-style: none;
+        position: relative;
+
+        &:before {
+            @extend %u-icomoon;
+            content: '\f111';
+            color: $link-color;
+            font-size: 6px;
+            position: relative;
+            top: -4px;
+            padding-right: 10px;
+        }
+    }
+}
+
+/////////////////////////////////////-+++-
+// Inline lists
+
+$inlineList-bp: small-bp;
+$inlineList-spacing: 40px;
+$inlineList-smallSpacing: 10px;
+$inlineList-pipeBorder: 1px solid $text;
+
+// default inline list
+%u-inlineList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    > li,
+    > div {
+        display: inline-block;
+    }
+}
+
+// inline list that only triggers on large screens
+%u-inlineList--largeScreens {
+    @extend %u-inlineList;
+
+    > li,
+    > div {
+        display: block;
+
+        @include mq($from: $inlineList-bp) {
+        	display: inline-block;
+        }
+    }
+}
+
+// inline list with some spacing in between the items
+%u-inlineList--spacing {
+    @extend %u-inlineList--largeScreens;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+
+        @include mq($from: $inlineList-bp) {
+	        margin-right: $inlineList-spacing;
+        }
+    }
+}
+
+// inline list with small amount of space between items
+%u-inlineList--smallSpacing {
+    @extend %u-inlineList--largeScreens;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+
+        @include mq($from: $inlineList-bp) {
+	        margin-right: $inlineList-smallSpacing;
+        }
+    }
+}
+
+// inline list of elements seperated by a comma
+%u-commaList {
+    @extend %u-inlineList;
+
+    > li:not(:last-child) {
+
+        &:after {
+            content: ',';
+        }
+    }
+}
+
+// inline list seperated by pipes
+%u-pipeList {
+    @extend %u-inlineList;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        border-right: $inlineList-pipeBorder;
+        margin-right: 8px;
+        padding-right: 10px;
+    }
+}
+
+
+
+/////////////////////////////////////-+++-
+// Basic stacked list
+
+
+$stackedList-spacing: 20px;
+$stackedList-largeSpacing: 50px;
+$stackedList-smallSpacing: 5px;
+
+%u-stackedList--spacing {
+    @extend %u-nolist;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: $stackedList-spacing;
+    }
+}
+
+%u-stackedList--largeSpacing {
+    @extend %u-nolist;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: $stackedList-largeSpacing;
+    }
+}
+
+%u-stackedList--smallSpacing {
+    @extend %u-nolist;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: $stackedList-smallSpacing;
+    }
+}
+
+$borderList-spacing: 20px;
+$borderList-largeSpacing: 50px;
+$borderList-smallSpacing: 5px;
+$borderList-border: 1px solid $gray-light;
+
+// a simple stacked list with borders
+%u-borderList {
+    @extend %u-nolist;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        border-bottom: $borderList-border;
+    }
+}
+
+%u-borderList--spacing {
+    @extend %u-borderList;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: $borderList-spacing * .5;
+        padding-bottom: $borderList-spacing * .5;
+    }
+}
+
+%u-borderList--smallSpacing {
+    @extend %u-borderList;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: $borderList-smallSpacing * .5;
+        padding-bottom: $borderList-smallSpacing * .5;
+    }
+}
+
+%u-borderList--largeSpacing {
+    @extend %u-borderList;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: $borderList-largeSpacing * .5;
+        padding-bottom: $borderList-largeSpacing * .5;
+    }
+}
+
+
+$list-collection: 
+brandList
+inlineList
+inlineList--largeScreens
+inlineList--spacing
+inlineList--smallSpacing
+commaList
+pipeList
+stackedList--spacing
+stackedList--largeSpacing
+stackedList--smallSpacing
+borderList
+borderList--spacing
+borderList--smallSpacing
+borderList--largeSpacing
+;
+
+@each $i in $list-collection { .u-#{$i} { @extend %u-#{$i}; } }

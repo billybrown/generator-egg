@@ -1,0 +1,23 @@
+<article class="Slat">
+	<div class="Slat__textGroup">
+		<header class="Slat__header">
+			<h3 class="Slat__title">
+				<a href="">{{ post.heading.medium }}</a>
+			</h3>
+			<div class="u-pipeList u-smallText">
+				<div class="Slat__author">{{ post.author }}</div>
+				<div class="Slat__date">{{ post.date }}</div>
+			</div><!-- /u-pipeList -->
+		</header>
+		<div class="Slat__summary u-smallText">
+			<p>{{ post.excerpt.medium }}</p>
+		</div><!-- /.Slat__Summary -->
+	</div><!-- /.Slat__textGroup -->
+	{% if post.img %}
+		<div class="Slat__imageGroup">
+			<a href="">
+				<img src="{{ post.img.smallRectangle.src }}" alt="" />
+			</a>
+		</div>
+	{% endif %}
+</article>

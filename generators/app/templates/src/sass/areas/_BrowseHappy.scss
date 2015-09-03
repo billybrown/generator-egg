@@ -1,0 +1,34 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Styles for the browsehappy message for people still using old versions if ie
+// it directs them here: http://browsehappy.com/
+//
+// Markup for this section looks like this:
+//
+//    <!--[if lte IE 9]>
+//        <div class="BrowseHappy">
+//            <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+//        </div>
+//    <![endif]-->
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+.BrowseHappy {
+    @include u-absolute(0, null, null, 0);
+    background: $link-color;
+    padding: 10px;
+    color: $text;
+    width: 100%;
+    z-index: 100;
+    font-size: 13px;
+    line-height: 16px;
+
+    a {
+        color: #FFF;
+    }
+    
+    p {
+        margin: 0;
+    }
+}

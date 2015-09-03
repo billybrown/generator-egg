@@ -1,0 +1,19 @@
+<article class="Post">
+
+	<header class="Post__header">
+		<h2 class="Post__title u-giantSerif">{{ post.heading.short }}</h2>
+		<p class="Post__subTitle u-text--strong">{{ post.excerpt.medium }}</p>
+	</header>
+
+	<div class="Post__content">
+
+		<div class="Post__body">
+			{% block post_body %}
+				{{ post.excerpt.long }}
+			{% endblock %}
+		</div><!-- /.Post__body -->
+
+	</div><!-- /.Post__content -->
+
+</article><!-- /.Post -->
+

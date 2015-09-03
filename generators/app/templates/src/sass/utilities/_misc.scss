@@ -1,0 +1,89 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Misc. Utility classes
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+
+/////////////////////////////////////-+++-
+// Utility classes for hiding or replacing text
+
+
+// Image replacement - via html5 boilerplate
+.u-ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.u-ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+.u-hidden {
+    display: none; //consider putting !important in here
+    visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+.u-visuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+// Extends the .visuallyhidden class to allow the element to be focusable
+// when navigated to via the keyboard: h5bp.com/p
+.u-visuallyHidden.focusable:active,
+.u-visuallyHidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+// Hide visually and from screenreaders, but maintain layout
+.u-invisible {
+    visibility: hidden;
+}
+
+
+/////////////////////////////////////-+++-
+// Some misc. text treatment classes
+
+
+// wrap text with a span with this class if you don't want its content
+// to break onto two lines
+.u-nobr {
+    white-space: nowrap;
+}
+
+// remove the link color from the link
+.u-decolorLink {
+    a {
+        color: $text;
+    }
+}
+
+// to give something block level layout
+.u-block {
+    display: block;
+}
+
+// sometimes you need to remove the default margin that comes with elements (like headers, paragraphs, etc.)
+.u-removeMargin {
+    margin-bottom: 0;
+}

@@ -1,0 +1,37 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Post
+//
+// Styles for the main article or post. On a blog page this would be the actual
+// blog text. It has sidebars sometimes, it has lots of 'fields'.
+//
+//
+//
+//    +--------------------------------+
+//    |                                |
+//    |          Post Title            |
+//    |                                |
+//    |   rail  |  Lorem ipsum sit     |
+//    |   text  |  dolor ...           |
+//    |         |                      |
+//    |         |                      |
+//    |                                |
+//    +--------------------------------+
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+$Post-bp: mobilemenu-bp;
+
+
+
+.Post {
+    margin-bottom: 100px;
+
+    &__header {
+        margin-bottom: 40px;
+        border-bottom: 10px solid $text;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+}

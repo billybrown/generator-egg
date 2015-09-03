@@ -1,0 +1,31 @@
+{
+  "name": "generator-egg",
+  "version": "0.0.0",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "billybrown/generator-egg",
+  "author": {
+    "name": "Bill Brown",
+    "email": "b@illbrown.com",
+    "url": "https://github.com/billybrown"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "html-wiring": "^1.2.0",
+    "yeoman-generator": "^0.19.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}

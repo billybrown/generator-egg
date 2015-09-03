@@ -1,0 +1,82 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Global Variables
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+
+// import vendor mixins (dont edit these) 
+@import 'vendor-mixins/mq';
+@import 'vendor-mixins/ems';
+@import 'vendor-mixins/placeholder';
+@import 'vendor-mixins/triangles';
+
+// import custom mixins (edit these if you want) 
+@import 'custom-mixins/absolute';
+@import 'custom-mixins/multiRowGrid';
+@import 'custom-mixins/equalColRow';
+@import 'custom-mixins/fixedFluidRow';
+
+// import some default variables
+@import 'variablesDefault';
+
+
+
+/////////////////////////////////////-+++
+// fonts
+
+
+
+$SansSerif : 'Raleway', $helvetica;
+$Serif: 'Neuton', $georgia;
+
+
+/////////////////////////////////////-+++
+// colors
+
+
+$blue: dodgerblue;
+$red: tomato;
+
+$gray: #888888;
+$gray-light: #eeeeee;
+
+$background: #fff;
+$text: black;
+
+$link-color: tomato;
+$link-colorHover: goldenrod;
+
+
+
+/////////////////////////////////////-+++
+// breakpoints
+
+
+$mq-breakpoints: (
+    small-bp:        600px,
+    mobilemenu-bp: 	 1100px,
+    desktop-bp:    	 1250px
+) !default;
+
+$mq-static-breakpoint: desktop-bp;
+
+
+
+/////////////////////////////////////-+++
+// Misc. values
+
+
+$comp-max-width: 1588px; // if working from a PSD or other static comp
+$content-max-width: 1160px; // content cap. Lines of text shouldnt ever span longer then this.
+$page-max-width: 2000px;  // if the page doesn't span to the windows edge at very large screens
+
+$animation-speed: .2s;
+$animation-easing: ease;
+$animation: $animation-speed $animation-easing;
+
+
+// flag for ie8 support or not. Used in layout mixins.
+$ie8: true;
+
+

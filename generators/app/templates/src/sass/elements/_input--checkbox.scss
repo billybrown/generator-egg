@@ -1,0 +1,83 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Checkboxes and Radio form elements
+// The CSS below assumes we will be totally removing the default checkbox/radio styles
+// and creating our own look. It also assumes we're using Icomoon as an iconfont, and
+// loading our 'check' icons from there.
+//
+// They take markup like this:
+//
+//    <label>
+//        <input type="checkbox">
+//        <span>About Us</span>
+//    </label>
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+$checkbox-border: $gray;
+$checkbox-background: #fff;
+$checkbox-color: $link-color;
+$checkbox-icon: "\f00c";
+$radio-icon: "\f111";
+
+
+input[type="checkbox"],
+input[type="radio"] {
+    display: none;
+}
+
+label input[type="checkbox"] + span,
+label input[type="radio"] + span {
+    position: relative;
+    padding-left: 27px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+input[type="checkbox"] + span:after,
+input[type="radio"] + span:after{
+    @extend %u-icomoon;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    text-align: center;
+    border: 1px solid $checkbox-border;
+    background: $checkbox-background;
+    margin-right: 8px;
+    width: 17px;
+    height: 17px;
+    color: $checkbox-color;
+}
+
+input[type="checkbox"] + span:after {
+    border-radius: 0;
+}
+
+input[type="radio"] + span:after {
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked + span,
+input[type="radio"]:checked + span {
+    color: $link-color;
+}
+
+input[type="checkbox"]:checked + span:after,
+input[type="radio"]:checked + span:after {
+    color: $link-color;
+    border-color: $link-color;
+}
+
+input[type="checkbox"]:checked + span:after {
+    content: $checkbox-icon;
+    font-size: 12px;
+    padding: 1px 0 0 1px;
+}
+
+input[type="radio"]:checked + span:after {
+    content: $radio-icon;
+    font-size: 10px;
+    padding: 3px 0 0 0px;
+}

@@ -1,0 +1,30 @@
+{% extends &quot;main.twig&quot; %}
+
+{% block main %}
+
+
+    {% embed &quot;organisms-frame&quot; %}
+        {% block frame_content %}
+
+            &lt;div class=&quot;SiteMain__sidebarLayout&quot;&gt;
+
+
+                &lt;div class=&quot;SiteMain__rail&quot;&gt;
+                    {% include 'molecules-card' with { class : &quot;Card--yellow&quot; } %}
+                &lt;/div&gt;
+                &lt;div class=&quot;SiteMain__mainCol&quot;&gt;
+                    {% include 'molecules-slat' %}
+                    {% embed &quot;organisms-post&quot; %}
+                        {% block post_body %}
+                            {% include 'organisms-wysiwyg-default' %}
+                        {% endblock %}
+                    {% endembed %}
+                &lt;/div&gt;
+
+
+            &lt;/div&gt;&lt;!-- /.SidebarLayout --&gt;
+
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

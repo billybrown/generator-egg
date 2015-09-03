@@ -1,0 +1,32 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// ie 8 only stylesheet
+// the main thing happeneing here is that ie8 doesnt understand media queries
+// so we serve them a fixed width site.
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+$mq-responsive: false;
+
+@import 'main';
+
+
+
+
+
+/////////////////////////////////////-+++-
+// general overrides
+.constrained {
+    padding-right: $cspace_giant;
+    padding-left: $cspace_giant;
+    width: $content-max-width + ($cspace_giant * 2);
+    margin-right: auto !important;
+    margin-left: auto !important;
+ }
+
+ .SiteWrapper {
+    width: 1500px;
+ }
+
+
+/////////////////////////////////////-+++-
+// specific, special overrides

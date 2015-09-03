@@ -1,0 +1,147 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// <input/> and <form> styles.
+//
+// http://html5doctor.com/element-index/#input
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+
+$placeholder-default: $text;
+
+%u-defaultInput {
+    line-height: 22px;
+    background: transparent;
+    border: 2px solid $text;
+    border-radius: 0;
+    padding: 7px 14px;
+    height: 42px; // need to put height here for firefox
+    -webkit-appearance: none;
+    transition: background $animation, border $animation;
+
+    &:focus {
+        outline: none;
+        background: #fff;
+    }
+
+    &::-webkit-input-placeholder {  color: $placeholder-default; }
+    &:-moz-placeholder {            color: $placeholder-default; }
+    &::-moz-placeholder {           color: $placeholder-default; }
+    &:-ms-input-placeholder {       color: $placeholder-default; }
+}
+
+// default input styles
+input,
+textarea {
+    @extend %u-smallText;
+    @extend %u-defaultInput;
+    width: 100%;
+}
+
+
+input[type="submit"],
+button {
+    @extend %u-button;
+    width: auto;
+}
+
+input[type="search"] {
+    box-sizing: border-box; // for some reason normalize has this as 'contenet-box'
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+// default label style
+label {
+    @extend %u-smallText--strong;
+}
+
+
+
+/////////////////////////////////////-+++-
+// Styles for advanced html5 form elements
+
+
+input[type="color"],
+input[type="range"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="datetime"],
+input[type="datetime-local"] {
+    width: auto;
+    display: block;
+}
+
+input[type="color"] {
+    width: 50px;
+    height: 50px;
+    padding: 6px 8px;
+}
+
+input[type="range"] {
+    -webkit-appearance: slider-horizontal;
+    appearance: slider-horizontal;
+}
+
+
+/////////////////////////////////////-+++-
+// Input groups
+//
+//
+//    Lorem Ipsum Label
+//    +----------------------------------+
+//    | Input placeholder text ...       |
+//    +----------------------------------+
+//
+//            +---------------------+
+//    Label   | Input text ...      |
+//            +---------------------+
+
+
+.InputGroup {
+    margin-bottom: 14px;
+
+    label {
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    &--inline {
+        label,
+        input {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        label {
+            width: 130px;
+            padding-right: 20px;
+        }
+
+        input {
+            width: auto;
+        }
+    }
+}
+
+
+/////////////////////////////////////-+++-
+// Full Form styles
+
+.Form {
+
+    // &--search {
+    //   position: relative;
+      
+    //     input[type="search"] {
+    //         padding-right: 60px; // this is a magic number equal to the width of the submit button text
+            
+    //     }
+
+    //     .InputGroup--submit {
+    //         @include u-absolute(0, 0, null, null);
+    //     }
+    // }
+}

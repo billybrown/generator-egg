@@ -1,0 +1,31 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Secondary menu
+// the secondary menu, "about campaigns news & Opinion etc."
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+// styles for both mobile menu version and desktop version
+.SecondaryMenu {
+
+
+    a {
+        @extend %u-text--blocked;
+        display: block;
+    }
+}
+
+
+// desktop only version
+.SiteHeader .SecondaryMenu {
+    ul {
+        @extend %u-inlineList--spacing;
+    }
+}
+
+
+// mobile only version
+.MobileMenu .SecondaryMenu {
+    ul {
+        @extend %u-stackedList--smallSpacing;
+    }
+}

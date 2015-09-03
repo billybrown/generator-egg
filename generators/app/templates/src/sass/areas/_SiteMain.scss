@@ -1,0 +1,17 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Main content area
+// this is the main content area. The wrapper for the space in between the header 
+// and footer.
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+$SiteMain-bp: 1000px;
+
+.SiteMain {
+    background: $background;
+
+    &__sidebarLayout {
+        @include u-fixedFluidRow($SiteMain-bp, "left", 70px, 0, "second", 300px);
+    }
+}

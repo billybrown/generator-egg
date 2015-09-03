@@ -1,0 +1,74 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Primary site navigation in the header
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+.PrimaryMenu {
+
+    @include mq($from: mobilemenu-bp) {
+        text-align: right;
+        padding-top: 32px;
+        min-height: 100px; // this is so there is room for the logo (since its absolutely positioned)
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+        text-align: center;
+
+        @include mq($from: mobilemenu-bp) {
+            display: block;
+            text-align: right;
+        }
+
+        li {
+            display: table-cell;
+            vertical-align: top;
+
+            @include mq($from: mobilemenu-bp) {
+                display: inline-block;
+                vertical-align: top;
+                margin-left: 40px;
+            }
+
+            &:not(:last-child) {
+                border-right: 2px solid #fff;
+
+                @include mq($from: mobilemenu-bp) {
+                    border: none;
+                }
+            }
+
+        }
+    }
+
+    a {
+        display: block;
+        background: $link-color;
+        color: #fff;
+        padding: 10px;
+        transition: background $animation, color $animation;
+
+        @include mq($from: mobilemenu-bp) {
+            background: transparent;
+            color: $link-color;
+            padding: 0;
+            font-size: 30px;
+            line-height: 32px;
+            font-weight: 700;
+        }
+
+        &:hover {
+            background: $link-colorHover;
+
+            @include mq($from: mobilemenu-bp) {
+                background: transparent;
+                color: $link-colorHover;
+            }
+        }
+    }
+}

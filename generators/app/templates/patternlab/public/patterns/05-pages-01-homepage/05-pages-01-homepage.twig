@@ -1,0 +1,56 @@
+{% extends &quot;main.twig&quot; %}
+
+{% block main %}
+
+	{% embed &quot;organisms-frame&quot; %}
+		{% block frame_content %}
+
+			{% embed &quot;organisms-list-box&quot; %}
+			    {% block listbox_title %}
+			        This is an example 'List Box'
+			    {% endblock %}
+			    {% block lisbox_intro %}&lt;p&gt;With a bordered equal column grid holding 'Slats'.{% endblock %}
+			    {% block listbox_content %}
+					&lt;div class=&quot;SlatGrid&quot;&gt;
+						{% for i in 0..2 %}
+							&lt;div&gt;{% include 'molecules-slat' %}&lt;/div&gt;
+						{% endfor %}
+					&lt;/div&gt;
+				{% endblock %}
+				{% block listbox_footer %}{% endblock %}
+			{% endembed %}
+
+		{% endblock %}
+	{% endembed %}
+
+	{% embed &quot;organisms-frame&quot; with { frameclass : &quot;Frame--yellow&quot;} %}
+		{% block frame_content %}
+
+			{% embed &quot;organisms-list-box&quot; %}
+			    {% block listbox_title %}
+			        Another 'List Box'
+			    {% endblock %}
+			    {% block lisbox_intro %}&lt;p&gt;With a multi-row grid holding 'Cards'.{% endblock %}
+
+			    {% block listbox_content %}
+					&lt;div class=&quot;CardGrid&quot;&gt;
+						{% for i in 0..6 %}
+							&lt;div&gt;{% include 'molecules-card' %}&lt;/div&gt;
+						{% endfor %}
+					&lt;/div&gt;
+				{% endblock %}
+				{% block listbox_footer %}
+					&lt;footer class=&quot;ListBox__footer&quot;&gt;
+						&lt;p&gt;This is a listbox footer. With a &lt;a href=&quot;&quot;&gt;link!&lt;/a&gt;&lt;/p&gt;
+					&lt;/footer&gt;&lt;!-- /.ListBox__footer --&gt;
+				{% endblock %}
+			{% endembed %}
+
+			&lt;section class=&quot;Example u-alignCenter&quot;&gt;
+				&lt;h2 class=&quot;Example__title&quot;&gt;Example thing&lt;/h2&gt;&lt;!-- /.Example__title --&gt;
+				&lt;p&gt;To demonstrate why a 'Frame' is seperate from the content within it.&lt;/p&gt;
+			&lt;/section&gt;
+
+		{% endblock %}
+	{% endembed %}
+{% endblock %}

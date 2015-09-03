@@ -1,0 +1,80 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Card
+//
+// This is a grouping of text and images that looks like a card. Vertical in appearance
+// and often shows up in groups. Also often acts as a teaser. Often shows up in a grid
+// of some kind when in groups. The image goes to the edge of the container and the
+// text is wrapped in a closed box with a background color and spacing.
+//
+//
+//     +-------------------+
+//     |                   |
+//     |                   |
+//     |       image       |
+//     |                   |
+//     |                   |
+//     +-------------------+
+//     |                   |
+//     | Card Title        |
+//     |                   |
+//     | More example text |
+//     | for what a 'card' |
+//     | might look like.  |
+//     |                   |
+//     |                   |
+//     +-------------------+
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+/////////////////////////////////////-+++-
+// Variables
+
+
+$Card-maxWidth: 570px;
+$Card-bg: #fff;
+$Card-spacing: 30px;
+
+
+
+/////////////////////////////////////-+++-
+// Default Card style
+
+.Card {
+    max-width: $Card-maxWidth;
+    background: $Card-bg;
+    margin-right: auto;
+    margin-left: auto;    
+
+    &__textGroup {
+        padding: $Card-spacing;
+
+    }
+
+    &__summary {
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    &--yellow {
+        background: gold;
+    }
+}
+
+
+/////////////////////////////////////-+++-
+// Card grid
+
+// for multiple row up 4up cards
+.CardGrid {
+    @include u-multiRowGrid--gutter( 700px, 30px, 50%, 1100px, 25% );
+}
+
+// for single row of equal columns
+.CardGridOneRow {
+    @include u-equalColRow--gutter( 800px, 30px);
+}
+
+

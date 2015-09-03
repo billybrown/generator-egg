@@ -1,0 +1,44 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// ListBox
+//
+// ListBoxes typically hold a list or grid of other CSS objects.
+// They often have a header, footer as well
+//
+//
+//    +-----------------------------------+
+//    |                                   |
+//    |  ListBox Title                    |
+//    |                                   |
+//    |  - Teaser Lorem ipsum             |
+//    |  - Teaser Lorem ipsum             |
+//    |  - Teaser Lorem ipsum             |
+//    |                                   |
+//    |  ListBox footer                   |
+//    |                                   |
+//    +-----------------------------------+
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+$ListBox-bp: small-bp;
+$ListBox-headerSpacing: 50px;
+$ListBox-footerSpacing: 50px;
+
+
+.ListBox {
+
+    &__header {
+        text-align: center;
+        margin-bottom: $ListBox-headerSpacing;
+    }
+
+    &__footer {
+        text-align: center;
+        margin-top: $ListBox-footerSpacing;
+
+        a {
+            font-weight: 800;
+        }
+    }
+}

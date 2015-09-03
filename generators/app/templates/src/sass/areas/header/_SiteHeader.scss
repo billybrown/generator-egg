@@ -1,0 +1,77 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Header
+// this is the main site header
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+/////////////////////////////////////-+++-
+// Some global header variables
+
+
+$SiteHeader-bp: mobilemenu-bp;
+
+/////////////////////////////////////-+++-
+// import header partials
+
+@import "SiteLogo";
+@import "PrimaryMenu";
+@import "SecondaryMenu";
+@import "HeaderSearch";
+@import "HeaderNewsletter";
+
+
+
+/////////////////////////////////////-+++-
+// Major layout styles for the header. Individual styles for header elements are inside
+// the partials imported above
+
+
+.SiteHeader {
+
+    .HeaderSearch,
+    .HeaderNewsletter,
+    .SecondaryMenu {
+        display: inline-block;
+        vertical-align: middle;
+
+        &:not(:last-child) {
+            margin-right: 40px;
+        }
+    }
+
+    .HeaderSearch {
+        float: right;
+    }
+
+    .InputGroup {
+        margin-bottom: 0;
+    }
+}
+
+.MobileMenu {
+    .HeaderSearch,
+    .HeaderNewsletter,
+    .SecondaryMenu {
+        margin-bottom: 20px;
+    }
+
+    .InputGroup {
+        margin-bottom: -2px;
+    }
+}
+
+
+// hide these menu elements at small screens (their mobilemenu counterparts then become accessible)
+@include mq($until: mobilemenu-bp) {
+    .SiteHeader {
+        .Frame:nth-child(1) {
+            display: none;
+        }
+    }
+}
+
+// absolutely position the triggers
+.MobileMenuTriggers {
+    @include u-absolute(10px, 15px, null, null);
+}

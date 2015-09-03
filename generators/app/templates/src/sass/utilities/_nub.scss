@@ -1,0 +1,50 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Nub
+// Nubs are small rectangular boxes that show up beneath or above
+// objects. Its a little visual treatment sometimes used in designs
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+$nub-color: $green-light;
+$nub-width: 53px;
+$nub-height: 6px;
+
+
+// styles for all nubs, no matter the positioning
+%u-nubDefaults {
+    position: relative;
+
+    &:after {
+        content: '';
+        width: $nub-width;
+        height: $nub-heigh;
+        background: $nub-color;
+    }
+}
+
+
+// Nub variants depending on where they need to be positioned
+
+%u-nub--bottomLeft {
+    @extend %u-nubDefaults;
+
+    &:after {
+        @include u-absolute(null, null, 0, 0);
+    }
+}
+
+%u-nub--center {
+    @extend %u-nubDefaults;
+
+    &:after {
+        @include u-absoluteCenter("bottom");
+    }
+}
+
+%u-nub--topCenter {
+    @extend %u-nubDefaults;
+
+    &:after {
+        @include u-absoluteCenter("top");
+    }
+}

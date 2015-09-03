@@ -1,0 +1,158 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Chosen Select dropdowns
+// These styles override those that the chosen plugin provides.
+//
+// https://harvesthq.github.io/chosen/
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+.chosen-container {
+    @extend %u-text;
+    width: auto !important;
+}
+
+.chosen-container-single .chosen-single {
+    @extend %u-defaultInput;
+    height: auto;
+    box-shadow: none;
+    background: #fff;
+    border-color: $gray-light;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single {
+    background: #fff;
+    box-shadow: none;
+    border-color: $gray-light;
+
+}
+
+.chosen-container .chosen-drop {
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.chosen-container-single .chosen-single div {
+    width: 40px;
+
+    .u-select--small & {
+        width: 30px;
+    }
+
+    .u-select--arrow & {
+        width: 50px;
+    }
+
+    &:after {
+        @extend %u-absoluteCenter;
+        @extend %u-icomoon;
+        content: '\f0d7';
+        font-size: 19px;
+        margin-top: -2px;
+
+        .u-select--small & {
+            font-size: 14px;
+            margin-top: -1px;
+        }
+
+        .u-select--arrow & {
+            content: '\f0ab';
+            color: $link-color;
+            font-size: 27px;
+        }
+    }
+
+    b {
+        display: none;
+    }
+}
+
+.chosen-container .chosen-results li {
+    @extend %u-text;
+}
+
+.chosen-container-single .chosen-search {
+    @extend %u-text;
+}
+
+.chosen-container .chosen-results li.active-result.highlighted {
+    background: $link-color;
+}
+
+
+
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Select dropdowns
+// CHosen doesn't load on touch devices - so we still need to have some styles here
+// for regular select dropdowns
+//
+//  <div class="u-select">
+//      <select>
+//          <option>Option One</option>
+//          <option>Option Two</option>
+//          <option>Option Three</option>
+//      </select>
+//  </div>
+//
+// http://html5doctor.com/element-index/#select
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+$select-borderColor: $gray;
+$select-borderColorHover: $link-color;
+$select-background: #fff;
+
+
+.touch {
+    .u-select {
+        @extend %u-defaultInput;
+        height: auto;
+        box-shadow: none;
+        background: #fff;
+        border-color: #fff;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        background: $select-background;
+       
+        // Hover style - tricky because we're clipping the overflow
+        &:hover,
+        &:focus {
+          border-color: #fff;
+        }
+    }
+
+    select {
+        width: 110%;   // Make sure the select is wider than the container so we can clip the arrow 
+        max-width: 110%;
+        min-width: 110%;
+        appearance: none; // Remove select styling
+        -webkit-appearance: none;
+        -moz-appearance: window; // Ugly Firefox way of doing it
+        text-indent: 0.01px;
+        text-overflow: "";
+        background:none;
+        border: none;
+        outline: none;
+        display: block;
+    }
+
+    // This hides native dropdown button arrow in IE 
+    select::-ms-expand {
+        display: none;
+    }
+
+    // Focus style
+    select:focus {
+        outline: none;
+    }
+
+    // This hides focus around selected option in FF
+    select:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+    }
+}

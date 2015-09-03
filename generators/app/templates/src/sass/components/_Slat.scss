@@ -1,0 +1,67 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Slat
+//
+// This is a grouping of text and images that looks like a slat (a horizontal
+// material sometimes used in architecture/building). Horizontal in appearance.
+// Often shows up in groups. Also often acts as a teaser. Usually full width, not
+// in grids.
+//
+//     
+//     Example Title of Slat                             +---------+  
+//                                                       |         |  
+//     More example text for what a 'slat' looks like.   |  image  |       
+//     Does this visual example help you understand      |         |       
+//     what this element is? I sure hope so.             +---------+     
+//     
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+/////////////////////////////////////-+++-
+// Variables
+
+
+$Slat-bp: mobilemenu-bp;
+$Slat-imagewidth: 250px;
+$Slat-imageGutter: 30px;
+
+
+
+/////////////////////////////////////-+++-
+// Default Slat style
+
+
+.Slat {
+    @include u-fixedFluidRow($Slat-bp, "right", 30px);
+
+    &__imageGroup {
+
+        @include mq($until: $Slat-bp) {
+            display: none; // hide images on mobile
+        }
+    }
+
+    &__header {
+        margin-bottom: 20px;
+    }
+
+    .u-pipeList {
+        @extend %u-tinyText;
+    }
+}
+
+
+
+/////////////////////////////////////-+++-
+// Slat grid
+
+// for single row grids of slats
+.SlatGrid {
+    @include u-equalColRow--border(1120px, 70px, $text, 10px);
+
+    .Slat__imageGroup {
+        display: none; // hide images when slats show up in grids
+    }
+}
+

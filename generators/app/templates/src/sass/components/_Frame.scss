@@ -1,0 +1,98 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Frame
+// A Frame wraps content. Its the largest CSS object and typically spans the full 
+// width of the browser window and has a common color/background.
+//
+// They Usually take markup that looks somewhat like this:
+//
+//  <div class="Frame">
+//    <div class="u-constrained">
+//      <article> ... </article>
+//    </div>
+//  </div>
+//
+// and visually could look something like this:
+//
+//    +-------------------------------------------+
+//    |                                           |   <- this outside ring is the 'Frame'
+//    |                                           |   
+//    |     +------------------------------+      |
+//    |     |                              |      |
+//    |     |                              |      |   <- the content inside are other
+//    |     |                              |      |      individual css objects
+//    |     |                              |      |
+//    |     |                              |      |
+//    |     |                              |      |
+//    |     |                              |      |
+//    |     |                              |      |
+//    |     +------------------------------+      |
+//    |                                           |
+//    |                                           |
+//    +-------------------------------------------+
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+
+$Frame-spacing: 105px;
+$Frame-smallspacing: 60px;
+
+
+.Frame {
+    padding: $Frame-smallspacing 0;
+    position: relative;
+ 
+    @include mq($from: 600px) {
+        padding: $Frame-spacing 0 $Frame-spacing + 18px; 
+    }
+
+    // this is the one child that Frame will ever have, its an additional wrapper
+    // for elements inside the Frame that need to be absolutely positioned
+    &__inside {
+        position: relative;
+
+        
+        // this is for when there are multiple items inside of a frame, they get spacing
+        > div:not(:last-child),
+        > section:not(:last-child),
+        > article:not(:last-child) {
+            margin-bottom: 60px;
+            border-bottom: 10px solid $text;
+            padding-bottom: 60px;
+        }
+    }
+
+	// Frame with no padding (for when content spans height of container)
+	&--noSpacing {
+	    padding-top: 0;
+	    padding-bottom: 0;
+	}
+
+    &--tinySpacing {
+        padding-top: 20px;
+        padding-bottom: 2px;
+
+        @include mq($from: mobilemenu-bp) {
+            padding-bottom: 20px;
+        }
+    }
+
+    &--bordered {
+        border-top: 10px solid $text;
+        border-bottom: 10px solid $text;        
+    }
+
+    &--borderTop {
+        border-top: 10px solid $text;
+    }
+
+    &--black {
+        background: $text;
+        color: #fff;
+    }
+
+    &--yellow {
+        background: gold;
+    }
+}

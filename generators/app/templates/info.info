@@ -1,0 +1,49 @@
+
+name = <%= theme %>
+description = <%= theme %> is a responsive <%= cms %> theme for <%= client %>. <%= description %>
+version = 1.x
+core = 7.x
+
+
+; Minified and Concatenated Vendor CSS
+stylesheets[all][] = build/css/plugins.min.css
+
+; Main site custom CSS
+stylesheets[all][] = build/css/main.min.css
+
+
+<% if (ie8) { %>
+; ie8 and below CSS - requires module: https://www.drupal.org/project/conditional_styles
+stylesheets-conditional[lt IE 9][all][] = build/css/ie8.css
+<% } %>
+
+; for featured detection
+; needs to load in the head
+scripts[] = build/js/modernizr.js     
+
+
+<% if (ie8) { %>
+; Provides ie8 and below support for psuedo elements
+; ideally this would only load on ie8 and below. Conditional JS importing?
+; needs to load in the head
+scripts[] = build/js/selectivizr-min.js
+<% } %>
+
+; Minified and concatenated vendor JS and custom JS
+scripts[] = build/js/plugins.min.js
+
+; jquery
+; commented out since Drupal already includes jquery. Included here to document
+; what version is in the pattern library
+; scripts[] = build/js/jquery-1.11.3.min.js
+
+
+; edit the regions below as necessary
+
+regions[header] = Header
+regions[help] = Help
+regions[highlighted] = Highlighted
+regions[content] = Content
+regions[footer] = Footer
+
+

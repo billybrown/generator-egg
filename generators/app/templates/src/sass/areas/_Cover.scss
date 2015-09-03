@@ -1,0 +1,40 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Cover
+// This element covers the whole site in an overlay of somekind. Usually appears
+// when a modal is deployed, or when an offcanvas nav gets triggered.
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+
+/////////////////////////////////////-+++-
+// Variables
+
+
+$cover-background: black;
+$cover-opacity: .4;
+
+
+
+/////////////////////////////////////-+++-
+// Default Cover style
+
+
+.Cover {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    background: $cover-background;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: visibility .5s ease, opacity .5s ease;
+
+    &.is-open {
+        visibility: visible;
+        opacity: $cover-opacity;
+    }
+}

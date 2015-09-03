@@ -1,0 +1,23 @@
+&lt;article class=&quot;Slat&quot;&gt;
+	&lt;div class=&quot;Slat__textGroup&quot;&gt;
+		&lt;header class=&quot;Slat__header&quot;&gt;
+			&lt;h3 class=&quot;Slat__title&quot;&gt;
+				&lt;a href=&quot;&quot;&gt;{{ post.heading.medium }}&lt;/a&gt;
+			&lt;/h3&gt;
+			&lt;div class=&quot;u-pipeList u-smallText&quot;&gt;
+				&lt;div class=&quot;Slat__author&quot;&gt;{{ post.author }}&lt;/div&gt;
+				&lt;div class=&quot;Slat__date&quot;&gt;{{ post.date }}&lt;/div&gt;
+			&lt;/div&gt;&lt;!-- /u-pipeList --&gt;
+		&lt;/header&gt;
+		&lt;div class=&quot;Slat__summary u-smallText&quot;&gt;
+			&lt;p&gt;{{ post.excerpt.medium }}&lt;/p&gt;
+		&lt;/div&gt;&lt;!-- /.Slat__Summary --&gt;
+	&lt;/div&gt;&lt;!-- /.Slat__textGroup --&gt;
+	{% if post.img %}
+		&lt;div class=&quot;Slat__imageGroup&quot;&gt;
+			&lt;a href=&quot;&quot;&gt;
+				&lt;img src=&quot;{{ post.img.smallRectangle.src }}&quot; alt=&quot;&quot; /&gt;
+			&lt;/a&gt;
+		&lt;/div&gt;
+	{% endif %}
+&lt;/article&gt;

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Egg</title>
+        <meta name="description" content="Starting place for web projects">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+        <!-- fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+
+        <!-- Iconfont css from Icomoon -->
+        <link rel="stylesheet" href="../../fonts/icomoon/style.css?{{ cacheBuster }}" media="all" />
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="build/css/main.min.css">
+
+        <link rel="icon" type="image/png" sizes="64x64" href="favicons/favicon.png">
+        <!--[if IE]><link rel="shortcut icon" href="favicons/favicon.ico"><![endif]-->
+
+        <!-- Takana, for in-browser styling -->
+        <script type="text/javascript" src="http://localhost:48626/takana.js"></script>
+        <script type="text/javascript">
+          takanaClient.run({host: 'localhost:48626'});
+        </script>
+
+
+
+        <script src="build/js/modernizr.js"></script>
+
+    </head>
+
+    <body class="Page">
+
+        <!--[if lte IE 9]>
+        <div class="BrowseHappy">
+            <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        </div>
+        <![endif]-->
+
+        <header class="SiteHeader" role="banner">
+        </header>
+
+        <main class="SiteMain Frame u-alignCenter" role="main">
+            <div class="u-constrained">
+
+                <h1>
+                    <a href="/">
+                        <img src="build/img/egg.svg" onerror="this.src='build/img/egg.png'" alt="egg" /><span class="u-visuallyHidden">Egg</span>
+                    </a>
+                </h1>
+                
+                <p>Egg is a framework for building frameworks. Currently in active development.</p>
+                <p>Learn more about Egg on <a href="https://github.com/billybrown/egg">github</a>.</p>
+                <p>Visit the pattern library <a href="patternlab/public/index.html">here</a>.</p>
+            </div>
+        </main><!--/.main-->
+
+        <footer class="SiteFooter" role="contentinfo">
+            <div class="u-constrained">
+            </div>
+        </footer>
+
+
+        <!-- jquery -->
+        <script src="build/js/jquery.min.js"></script>
+
+        <!-- Minified and Concatenated Vendor and Custom Scripts -->
+        <script src="build/js/plugins.min.js"></script>
+
+    </body>
+</html>

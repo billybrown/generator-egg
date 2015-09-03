@@ -1,0 +1,68 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// MobileMenu
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+$MobileMenu-background: $gray-light;
+
+.MobileMenu__content {
+    @include u-absolute(0, null, null, 0);
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: $MobileMenu-background;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility .5s ease, opacity .5s ease;
+    
+    .active-MobileMenu & {
+        @include mq($until: mobilemenu-bp) {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.MobileMenu__inside {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.MobileMenuTriggers {
+    z-index: 101;
+}
+
+
+.MobileMenu__close,
+.MobileMenu__open {
+    position: relative;
+    z-index: 101;
+}
+
+.MobileMenu__close,
+.MobileMenu__open,
+.MobileMenu {
+    @include mq($from: mobilemenu-bp) {
+        display: none;
+    }
+}
+
+@include mq($until: mobilemenu-bp) {
+
+    .MobileMenu__close {
+        display: none;
+
+        .active-MobileMenu & {
+            display: block;
+        }
+    }
+
+    .MobileMenu__open {
+        display: block;
+
+        .active-MobileMenu & {
+            display: none;
+        }
+    }
+}

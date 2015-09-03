@@ -1,0 +1,30 @@
+<header class="SiteHeader">
+	<div class="Frame Frame--tinySpacing Frame--borderTop SiteHeader__frame1">
+		<div class="u-constrained">
+			{{ headernewsletter.input("Enter email for alerts", "Sign up") }}
+			{% include 'header/secondarymenu.twig' %}
+			{% include 'header/search.twig' %}
+		</div>
+	</div><!-- /. SiteHeader__frame1 -->
+	<div class="Frame Frame--tinySpacing Frame--bordered SiteHeader__frame2">
+		<div class="u-constrained u-constrained--noMobilePadding">
+			<div class="Frame__inside">
+				<h1 class="SiteLogo">{% include 'header/logo.twig' %}</h1>
+				{% include 'header/primarymenu.twig' %}
+				{% include 'header/mobiletriggers.twig' %}
+			</div><!-- /.Frame__inside -->
+		</div>
+	</div><!-- /. SiteHeader__frame2 -->
+</header>
+
+<div id='MobileMenu__content' class="MobileMenu__content MobileMenu">
+	<div class="MobileMenu__inside">
+		{% include 'header/secondarymenu.twig' %}
+		{% include 'header/search.twig' %}
+		{{ headernewsletter.input("Enter email", "Sign up") }}
+	</div><!-- /.MobileMenu__inside -->
+</div><!-- /.MobileMenu__content -->
+
+<div class="PrintLogo u-visiblePrint">
+	<div class="SiteLogo">{% include 'header/logo.twig' %}</div>
+</div><!-- /.PrintLogo -->

@@ -1,0 +1,118 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Pattern Library
+//
+// @todo - decouple this from the site css. Only apply to pattern library.
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+$Pattern-bp: 800px;
+
+.sg-main {
+
+    .sg-pattern-extra {
+        display: none;
+    }
+
+    .sg-pattern-example {
+        @extend .u-constrained;
+        @extend %u-clearfix;
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    .sg-pattern-head {
+        background: #eee;
+        color: $text;
+        padding: 8px 20px;
+        text-align: left;
+
+        & > h3 {
+            margin-bottom: 0;
+            font-family: $SansSerif;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 18px;
+        }
+
+        a {
+            margin: 0;
+            padding: 0;
+            color: $text !important;
+            padding: 5px 8px;
+            display: inline-block !important;
+            text-decoration: none;
+            vertical-align: top;
+        }
+    }
+}
+
+.sg-label {
+    font-size: 11px;
+    line-height: 10px !important;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sg-fonts {
+    li {
+        margin-bottom: 30px;
+    }
+}
+
+.sg-colors li {
+    width: 8em !important;
+    border: none !important;
+}
+
+.sg-grids {
+    text-align: center;
+    & > * {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    & > *:nth-child(odd) {
+        background: #ccc;
+    }
+    & > *:nth-child(even) {
+        background: #eee;
+    }
+}
+
+.sg-layoutDemo {
+    > div > div > span {
+        display: block;
+        padding: 10px;
+        text-align: center;
+    }
+
+    > div > div:nth-child(odd) > span {
+        background: #bbb;
+    }
+    
+    > div > div:nth-child(even) > span {
+        background: #ddd;
+    }
+}
+
+
+/////////////////////////////////////-+++-
+// Styles specific to this project
+
+// things that need to overlap
+#atoms-select {
+    .sg-pattern-example {
+        overflow: visible;
+    }
+}
+
+// go full width
+// #molecules-large-link-screen {
+//     .sg-pattern-example {
+//         padding-right: 0;
+//         padding-left: 0;
+//         max-width: none;
+//     }
+// }

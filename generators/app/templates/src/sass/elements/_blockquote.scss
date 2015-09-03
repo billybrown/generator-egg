@@ -1,0 +1,42 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Blockquote
+//
+// The blockquote element represents a section that is quoted from another source.
+//
+// http://html5doctor.com/element-index/#blockquote
+//
+// There is some debate about the ideal markup for quotes and attribution
+// which you can read more about here:
+//
+// But for now I'm recommending this: http://html5doctor.com/blockquote-q-cite/
+//
+//  <blockquote>
+//    <p>You know the golden rule, don’t you boy? Those who have the gold make the rules.</p>
+//    <footer>— Crazy hunch-backed old guy in <cite><a href="http://en.wikipedia.org/wiki/Aladdin_(1992_Disney_film)">Aladdin</a></cite></footer>
+//  </blockquote>
+//
+// Lastly - although that's my recommendation, we are often limited to whatever
+// the WYSIWYG generates for <blockquotes>. So its good to test out what the
+// WYSIWYG can make and adjust the code below to fit those limitations.
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+blockquote {
+
+	p {
+		margin: 0;
+	}
+
+	footer {
+		@extend %u-text--strong;
+		color: $gray;
+
+		&:before {
+			content: '— ';
+			display: inline-block;
+			padding-right: 5px;
+		}
+	}
+}

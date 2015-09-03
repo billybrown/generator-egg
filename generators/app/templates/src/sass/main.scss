@@ -1,0 +1,85 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// The main CSS file, imports all the other sass partials
+//
+// Please read the two CSS READMEs if you have any questions about the naming or
+// organization of the css. Or If you don't have the time - just add your
+// css to _shame.scss and let somebody who does have time deal with it later.
+//
+//  sass
+//    │  
+//    ├── base: variables, mixins, and css resets
+//    │
+//    ├── utilities: component-agnostic css
+//    │
+//    ├── elements: starting css for html elements
+//    │
+//    ├── components: css for modular components
+//    │
+//    └── areas: css for a specifc non-modular areas of the site
+//    
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+// import variables
+@import 'base/variables';
+
+// import sprites
+@import 'sprites/sprites';
+ 
+// import css reset or normalize (and your custom reset additions)
+@import 'base/normalize';
+@import 'base/normalizeAdditions';
+
+// import utilities
+@import 'utilities/misc';
+@import 'utilities/clearfix';
+@import 'utilities/alignment';
+@import 'utilities/constrained';
+@import 'utilities/iconfonts';
+@import 'utilities/text';
+@import 'utilities/links';
+@import 'utilities/lists';
+@import 'utilities/spacing';
+@import 'utilities/grid';
+
+// import html elements
+@import 'elements/body';
+@import 'elements/headings';
+@import 'elements/lists';
+@import 'elements/a';
+@import 'elements/blockquote';
+@import 'elements/horizontalRule';
+@import 'elements/input';
+@import 'elements/input--checkbox';
+@import 'elements/select--chosen';
+@import 'elements/table';
+@import 'elements/small';
+@import 'elements/mark';
+
+// import CSS objects
+@import 'components/Frame';
+@import 'components/Card';
+@import 'components/Slat';
+@import 'components/ListBox';
+
+// import CSS areas
+@import 'areas/Image';
+@import 'areas/Pagination';
+@import 'areas/Breadcrumbs';
+@import 'areas/Social';
+@import 'areas/MobileMenu';
+@import 'areas/Post';
+@import 'areas/WYSIWYG';
+@import 'areas/SiteWrapper';
+@import 'areas/SiteMain';
+@import 'areas/footer/SiteFooter';
+@import 'areas/header/SiteHeader';
+@import 'areas/PatternLibrary';
+@import 'areas/BrowseHappy';
+
+// import print styles 
+@import 'areas/Print';
+
+// import your shame css
+@import 'shame';

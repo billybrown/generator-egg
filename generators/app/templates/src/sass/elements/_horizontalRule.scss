@@ -1,0 +1,16 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Horizontal Rules and line breaks
+//
+// Represents a paragraph-level thematic break. The "paragraph-level" bit means 
+// between blocks of text, so it can't be used to separate sections of a site. 
+//
+// http://html5doctor.com/small-hr-element/
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+hr {
+    border: none;
+    height: 5px;
+    background: $gray-light;
+}
