@@ -1,0 +1,15 @@
+<section class="Well">
+	<header class="Well__header">
+		<h3 class="Well__title">{% block well_title %}Lorem <strong>Ipsum</strong>{% endblock %}</h3>
+		{% block well_intro %}
+			<p class="u-largeText">{{ post.excerpt.short }}</p>
+		{% endblock %}
+	</header>
+	<div class="Well__content">
+		{% block well_content %}
+			<div class="Well__belt"><a href="">{{ post.excerpt.short }}</a></div>
+			<h4>{{ post.heading.short }}</h4>
+			<p>{{ post.excerpt.medium }}</p>
+		{% endblock %}
+	</div><!-- /.Well__content -->
+</section><!-- /.Well -->

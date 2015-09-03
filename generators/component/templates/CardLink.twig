@@ -1,0 +1,19 @@
+<article class="CardLink {{ class }}">
+    <a href="">
+        <div class="CardLink__imageGroup">
+            <img src="{{ post.img.rectangle.src }}" alt="" />
+        </div><!-- /.CardLink__imageGroup -->
+        <div class="CardLink__textGroup">
+            {% if hasIcon == true %}
+                <div class="CardLink__icon"><i class="icon-{{ post.icon }}"></i></div>
+            {% endif %}
+            <h3 class="CardLink__title {{ titleClass }}">{{ post.heading.tiny }}</h3>
+        </div><!-- /.CardLink__textGroup -->
+
+        {% if largeListFlag.hiddenGroup == true %}
+            <div class="CardLink__hiddenGroup">
+                <p>{{ largeListFlag.excerpt }}</p>
+            </div><!-- /.CardLink__hiddenGroup -->
+        {% endif %}
+    </a>
+</article>

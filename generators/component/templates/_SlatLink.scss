@@ -1,0 +1,47 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// SlatLink
+//
+// Basically a 'slat' except the whole thing is wrapper in an <a> tag.
+//
+//
+//     +-------------------+
+//     |                   |
+//     |                   |
+//     |       image       |
+//     |                   |
+//     |                   |
+//     +-------------------+
+//
+//     SlatLink Title
+//
+//
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+.SlatLink {
+
+    &__title {
+        margin-bottom: 5px;
+    }
+
+    &__imageGroup {
+        margin-bottom: 20px;
+    }
+
+    a {
+        color: $text;
+        display: block;
+        position: relative;
+
+        &:hover {
+            color: $link-color;
+
+            &:after {
+                width: 100px;
+            }
+        }
+
+    }
+}
+

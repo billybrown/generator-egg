@@ -1,0 +1,56 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// CardLink
+//
+// Similar to a Card except the whole thing is wrapped in a link and there typically
+// isn't a long summary.
+//
+//
+//     +-------------------+
+//     |                   |
+//     |                   |
+//     |       image       |
+//     |                   |
+//     |                   |
+//     +-------------------+
+//     | Card Title        |
+//     +-------------------+
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+$CardLink-maxWidth: <%= maxwidth %>;
+$CardLink-bg: <%= bg %>;
+
+.CardLink { 
+
+    a {
+        display: block;
+        background: $CardLink-bg;
+        color: #fff;
+        text-align: left;
+        max-width: $CardLink-maxWidth;
+        margin-right: auto;
+        margin-left: auto;  
+        position: relative;
+
+        &:hover {
+            color: #fff;
+
+            .CardLink__textGroup {
+                background: $link-color;
+            }
+
+        }
+    }
+
+    &__textGroup {
+        padding: 11px 15px;
+        background: $CardLink-bg;
+        position: relative;
+        margin-bottom: 0;
+        z-index: 2;
+        width: 100%;
+        transition: background $animation;
+    }
+}
+

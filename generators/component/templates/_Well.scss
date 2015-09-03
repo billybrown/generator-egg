@@ -1,0 +1,39 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Well
+//
+// This element is a basic container of content. It has a background and padding
+// between the edge of the elemnt and the inner text. Anything could be inside here
+// including lists, etc.
+//
+//   +----------------------------+
+//   |                            |  
+//   |                            |
+//   |        Well Title          |
+//   |                            |
+//   |       Lorem Ipsum ...      |
+//   |                            |
+//   |                            |
+//   +----------------------------+
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+/////////////////////////////////////-+++-
+// variables
+
+$Well-bp: mobilemenu-bp;
+$Well-bg: <%= bg %>;
+
+/////////////////////////////////////-+++-
+// styles
+
+.Well {
+	background: $Well-bg;
+	padding: 25px 20px 20px;
+	overflow: hidden; // because of the belt
+
+	@include mq($from: $Well-bp) {
+		padding: 50px 70px 70px;
+	}
+}

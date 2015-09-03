@@ -1,0 +1,80 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// ScreenLink
+//
+// This is a grouping of text and images where the text overlays on top of the image
+// The size of the element is determined by the size of the image. 
+// The whole thing is a single link.
+//
+//   +----------------------------+
+//   |                            |  <- there is an image behind this
+//   |                            |
+//   |                            |
+//   |      ScreenLink Text       |
+//   |                            |
+//   |                            |
+//   |                            |
+//   +----------------------------+
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+
+/////////////////////////////////////-+++-
+// variables
+
+
+$ScrenLink-maxWidth: <%= maxwidth %>; // should be the same as whatever image is being used
+$ScreenLink-fallbackBg: <%= bg %>; // in case the image fails for whateve reason
+
+
+
+/////////////////////////////////////-+++-
+// Default style
+
+.ScreenLink {
+    max-width: 570px;
+    background: $ScreenLink-fallbackBg;
+    margin-right: auto;
+    margin-left: auto;  
+    text-align: center;
+
+    &,
+    a {
+        color: #fff;
+    }
+
+    a {
+        position: relative;
+        display: block;
+
+        &:hover {
+            .ScreenLink__imageGroup:before {
+                opacity: .7;
+            }
+        }
+    }
+
+    &__imageGroup:before {
+        @include u-absolute(0, null, null, 0);
+        width: 100%;
+        height: 100%;   
+        content: '';
+        transition: opacity $animation;
+
+        // this is the overlay that shades the image.
+        background: #000;
+        opacity: .4;
+    }
+
+    &__textGroup {
+        @include u-absoluteCenter("center");
+        width: 100%;
+        z-index: 3;
+        padding: 0 30px; // spacing so the text doesnt touch the sides.
+    }
+}
+
+
+
+

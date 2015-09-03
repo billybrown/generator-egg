@@ -164,7 +164,8 @@ module.exports = yeoman.generators.Base.extend({
               theme: this.props.theme,
               description: this.props.description,
               cms: this.props.cms,
-              client: this.props.client
+              client: this.props.client,
+              author: this.props.name
             }
       );
       this.fs.copy(

@@ -1,0 +1,13 @@
+<section class="SmallListBox">
+	<h3 class="SmallListBox__title">{{ post.heading.short }}</h3>
+
+	<div class="SmallListBox__content">
+		{% block small_list_box_content %}
+			<ul class="u-stackedList">
+				{% for i in 0..5 %}
+					<li><a href="">{{ post.heading.short }}</a></li>
+				{% endfor %}
+			</ul>
+		{% endblock %}		
+	</div><!-- /.SmallListBox__content -->
+</section><!-- /.SmallListBox -->
