@@ -1,47 +1,27 @@
-# generator-egg [![Build Status](https://secure.travis-ci.org/billybrown/generator-egg.png?branch=master)](https://travis-ci.org/billybrown/generator-egg)
+# generator-egg
+A yeoman generator for egg, a front-end starter kit for Echo & Co.
 
-> [Yeoman](http://yeoman.io) generator
-
-
-## Getting Started
-
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
-
-```bash
-npm install -g yo
-```
-
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-egg from npm, run:
-
-```bash
-npm install -g generator-egg
-```
-
-Finally, initiate the generator:
-
-```bash
-yo egg
-```
-
-### Getting To Know Yeoman
-
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+Very much in development.
 
 
-## License
+--------
+# egg
 
-MIT
+
+## to do
+
+- **Basic Yeoman**
+    - Be able to choose to use different plugins and update bower, etc. as necessary.
+    - Be able to choose ie8 support. (add ie8 stylesheet and include it in grunt processes, add selectivizr)
+- **Yeoman phase 2**
+    - Be able to add CSS components. Add both the scss partial, the corrasponding scss partial and the @import line in the main.scss file.
+
+## on hold
+
+- **Scss linting**. The only grunt plugin for scss-lint requires a ruby dependency - which we don't want.
+- **CSS linting**. I would love to lint the compiled css to make sure everything is getting outputted properly - but the CSSLint task throws errors on more complicated and modern css properties - rendering it useless (for now at least). Worth checking up on at a future date and integrating back in.
+- **Critical CSS**. This requires scanning a compiled HTML document. Really only possible if doing a simple static site - otherwise this should be a discussion with the backend dev.
+- **Uncss**. Similar to Critical CSS in that it requires scanning HTML. Discuss with backend dev as necessary.
+- **Seperate Production and Development environments** - Might need to keep this general until Yeoman can be incorporated
+    - Only have takana script in dev environment
+    - unminified and unaggregated js/css/html in dev for easier debugging. In production aggregate and minify everything.
