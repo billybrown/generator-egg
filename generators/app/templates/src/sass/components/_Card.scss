@@ -52,7 +52,7 @@ $Card-spacing: 30px;
 
     }
 
-    &__summary {
+    &__content {
         p {
             margin-bottom: 0;
         }
@@ -69,7 +69,7 @@ $Card-spacing: 30px;
 
 // for multiple row up 4up cards
 .CardGrid {
-    @include u-multiRowGrid--gutter( 700px, 30px, 50%, 1100px, 25% );
+    @include u-multiRowGrid--rowBorder( 700px, 30px, $text, 10px, 33.333%, 1100px, 25% );
 }
 
 // for single row of equal columns

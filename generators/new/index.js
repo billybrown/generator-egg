@@ -8,98 +8,59 @@ module.exports = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
 
-    // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the sweet ' + chalk.red('Egg') + ' generator!'
-    ));
-
     // Get our info
     var prompts = [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What is your name?',
-        default: 'Bill Brown'
-      },
-      {
-        type: 'input',
-        name: 'client',
-        message: 'What is the full name of the project or client?',
-        default: 'Echo & Co.'
-      },
-      {
-        type: 'input',
-        name: 'client',
-        message: 'What is project short code?',
-        default: 'ECHO'
-      },
-      {
-        type: 'input',
-        name: 'theme',
-        message: 'What is the theme name?',
-        default: 'Echokit'
-      },
-      {
-        type: 'confirm',
-        name: 'ie8',
-        message: 'Do you need ie8 support?',
-        default: 'yes'
-      },
-      {
-        type: 'input',
-        name: 'description',
-        message: 'Short (one sentence) description of project:',
-        default: 'Only the best frickin theme ever'
-      },
-      {
-        type: 'list',
-        name: 'cms',
-        message: 'What is the CMS?',
-        choices: [ "Drupal", "Wordpress", "none" ],
-        default: 'none'
-      },
-      {
-        type: 'checkbox',
-        name: 'plugins',
-        message: 'What plugins do you need?',
-        choices: [{
-            name: 'enquire',
-            value: 'enquire',
-            checked: false
-        }, {
-            name: 'modernizr',
-            value: 'modernizr',
-            checked: true
-        }, {
-            name: 'matchHeight',
-            value: 'matchHeight',
-            checked: false
-        }, {
-            name: 'chosen',
-            value: 'chosen',
-            checked: false
-        }, {
-            name: 'waypoints',
-            value: 'waypoints',
-            checked: false
-        }, {
-            name: 'icomoon',
-            value: 'icomoon',
-            checked: true
-        }, {
-            name: 'webfonts',
-            value: 'webfonts',
-            checked: false
-        }, {
-            name: 'gruntsprites',
-            value: 'gruntsprites',
-            checked: false
-        }, {
-            name: 'Fitvids',
-            value: 'Fitvids',
-            checked: true
-        }]
-      }
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the component name?',
+            default: 'Tree'
+        },{
+            type: 'input',
+            name: 'description',
+            message: 'Describe the component and why its necessary:',
+            default: 'I just need it, damn it.'
+        },{
+            type: 'list',
+            name: 'type',
+            message: 'What type of CSS file is it?',
+            choices: [ "element", "utility", "component", "area" ],
+            default: 'component'
+        },{
+            type: 'confirm',
+            name: 'link',
+            message: 'Is the entire thing a single link?',
+            default: 'no'
+        },{
+            type: 'checkbox',
+            name: 'elements',
+            message: 'What elements does it have?',
+            choices: [{
+                name: 'title',
+                value: 'title',
+                checked: true
+            }, {
+                name: 'content',
+                value: 'content',
+                checked: false
+            }, {
+                name: 'header',
+                value: 'header',
+                checked: false
+            }, {
+                name: 'footer',
+                value: 'footer',
+                checked: false
+            }, {
+                name: 'imagegroup',
+                value: 'imagegroup',
+                checked: false
+            }, {
+                name: 'textgroup',
+                value: 'textgroup',
+                checked: false
+            }]
+        }
     ];
 
     this.prompt(prompts, function (props) {
