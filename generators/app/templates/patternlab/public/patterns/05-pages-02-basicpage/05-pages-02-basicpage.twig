@@ -13,12 +13,12 @@
                     {% include 'molecules-card' with { class : &quot;Card--yellow&quot; } %}
                 &lt;/div&gt;
                 &lt;div class=&quot;SiteMain__mainCol&quot;&gt;
-                    {% include 'molecules-slat' %}
                     {% embed &quot;organisms-post&quot; %}
                         {% block post_body %}
                             {% include 'organisms-wysiwyg-default' %}
                         {% endblock %}
                     {% endembed %}
+                    {% include 'molecules-slat' %}
                 &lt;/div&gt;
 
 

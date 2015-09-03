@@ -145,7 +145,7 @@
       }
 
       &:after {
-        @include u-absolute(0, 0, null, null, $bp);
+        @include u-absolute(0, -($borderwidth *.5), null, null, $bp);
         content: '';
         height: 100%;
         width: $borderwidth;
