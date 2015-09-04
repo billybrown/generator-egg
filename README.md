@@ -25,3 +25,25 @@ Very much in development.
 - **Seperate Production and Development environments** - Might need to keep this general until Yeoman can be incorporated
     - Only have takana script in dev environment
     - unminified and unaggregated js/css/html in dev for easier debugging. In production aggregate and minify everything.
+
+# Contributing
+
+## Setup
+
+- Clone this repo.
+
+- From the directory root, install dependencies, link to node.  
+
+`cd path/to/generator-egg`  
+`npm install`  
+`npm link`  
+
+## Running  
+
+- Start a new terminal session  
+
+- Run the generator by name  
+
+`yo egg`
+
+- Follow the prompts
