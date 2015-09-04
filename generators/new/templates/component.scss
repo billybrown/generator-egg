@@ -1,0 +1,69 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// <%= name %>
+//
+// <%= description %>
+// <% if (link) { %>This whole element is wrapped in a single <a> tag.<% } %>
+//
+//
+//     CHANGE THIS IMAGE BELOW TO FIT YOUR NEW COMPONENT
+//     +-------------------+
+//     |                   |
+//     |                   |
+//     |       image       |
+//     |                   |
+//     |                   |
+//     +-------------------+
+//     |  Title            |
+//     +-------------------+
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+
+/////////////////////////////////////-+++-
+// Variables
+
+
+
+/////////////////////////////////////-+++-
+// Default styles
+
+
+.<%= name %> { 
+
+    <% if (link) { %>a {
+        display: block;
+
+        &:hover {
+
+        }
+    }
+    <% } %>
+    <% if (textgroup) { %>&__textGroup {
+
+    }
+    <% } %>
+    <% if (imagegroup) { %>&__imagegroup {
+
+    }
+    <% } %>
+    <% if (header) { %>&__header {
+
+    }
+    <% } %>
+    <% if (title) { %>&__title {
+        margin-bottom: 10px;
+
+    }
+    <% } %>
+    <% if (footer) { %>&__footer {
+
+    }
+    <% } %>
+    <% if (content) { %>&__content {
+        
+    }
+    <% } %>
+}
+

@@ -23,14 +23,26 @@ module.exports = yeoman.generators.Base.extend({
         },{
             type: 'list',
             name: 'type',
-            message: 'What type of CSS file is it?',
-            choices: [ "element", "utility", "component", "area" ],
-            default: 'component'
+            message: 'What type of CSS group does it fall into?',
+            choices: [ "elements", "utilities", "components", "areas" ],
+            default: 'components'
+        },{
+            type: 'list',
+            name: 'atomictype',
+            message: 'What group does it fall within atomic design?',
+            choices: [ "00-atoms/09-misc", "01-molecules/01-custom-objects", "02-organisms/99-misc"  ],
+            default: '01-molecules/01-custom-objects'
         },{
             type: 'confirm',
             name: 'link',
             message: 'Is the entire thing a single link?',
-            default: 'no'
+            default: 'n'
+        },{
+            type: 'list',
+            name: 'html',
+            message: 'What html element is it?',
+            choices: [ "div", "section", "article" ],
+            default: 'div'
         },{
             type: 'checkbox',
             name: 'elements',
@@ -60,133 +72,92 @@ module.exports = yeoman.generators.Base.extend({
                 value: 'textgroup',
                 checked: false
             }]
+        }, {
+            type: 'list',
+            name: 'htmltitle',
+            message: 'What html element is the title?',
+            choices: [ "h2", "h3", "h4", "h5" ],
+            default: 'h3'
         }
     ];
 
     this.prompt(prompts, function (props) {
       this.props = props;
 
-      var plugins = props.plugins;
+      var elements = props.elements;
 
       function hasAsset(feat) {
-        return plugins.indexOf(feat) !== -1;
+        return elements.indexOf(feat) !== -1;
       }
 
-      this.modernizr = hasAsset('modernizr');
-      this.fitvids = hasAsset('fitvids');
-      this.enquire = hasAsset('enquire');
-      this.matchheight = hasAsset('matchHeight');
-      this.chosen = hasAsset('chosen');
-      this.waypoints = hasAsset('waypoints');
-      this.icomoon = hasAsset('icomoon');
-      this.webfonts = hasAsset('webfonts');
-      this.gruntsprites = hasAsset('gruntsprites');
+      this.title = hasAsset('title');
+      this.content = hasAsset('content');
+      this.header = hasAsset('header');
+      this.footer = hasAsset('footer');
+      this.imagegroup = hasAsset('imagegroup');
+      this.textgroup = hasAsset('textgroup');
 
       done();
     }.bind(this));
   },
 
-  // write our files
-  writing: {
-    app: function () {
-      this.fs.copy(
-        this.templatePath('package.json'),
-        this.destinationPath('package.json')
-      );
-      this.fs.copy(
-        this.templatePath('bower.json'),
-        this.destinationPath('bower.json')
-      );
-    },
+    // write our files
+    writing: {
 
-    projectfiles: function () {
-      this.fs.copy(
-        this.templatePath('editorconfig'),
-        this.destinationPath('.editorconfig')
-      );
-      this.fs.copy(
-        this.templatePath('config'),
-        this.destinationPath('config')
-      );
-      this.fs.copy(
-        this.templatePath('Gruntfile.js'),
-        this.destinationPath('Gruntfile.js')
-      );
-      this.fs.copy(
-        this.templatePath('.nvmrc'),
-        this.destinationPath('.nvmrc')
-      );
-      this.fs.copy(
-        this.templatePath('.gitignore'),
-        this.destinationPath('.gitignore')
-      );
-      this.fs.copyTpl(
-        this.templatePath('Readme.md'),
-        this.destinationPath('Readme.md'),
-            { 
-              theme: this.props.theme,
-              description: this.props.description,
-              cms: this.props.cms,
-              client: this.props.client,
-              author: this.props.name
+        projectfiles: function () {
+            this.fs.copyTpl(
+                this.templatePath('component.scss'),
+                this.destinationPath('src/sass/' + this.props.type +'/_' + this.props.name + '.scss'), { 
+                    name: this.props.name,
+                    description: this.props.description,
+                    type: this.props.type,
+                    link: this.props.link,
+                    title: this.title,
+                    content: this.content,
+                    header: this.header,
+                    footer: this.footer,
+                    imagegroup: this.imagegroup,
+                    textgroup: this.textgroup
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath('component.twig'),
+                this.destinationPath('patternlab/source/_patterns/' + this.props.atomictype + '/' + this.props.name + '.twig'), { 
+                    name: this.props.name,
+                    description: this.props.description,
+                    type: this.props.type,
+                    link: this.props.link,
+                    html: this.props.html,
+                    htmltitle: this.props.htmltitle,
+                    title: this.title,
+                    content: this.content,
+                    header: this.header,
+                    footer: this.footer,
+                    imagegroup: this.imagegroup,
+                    textgroup: this.textgroup
+                }
+            );
+        },
+
+        extra: function () {
+
+            if (this.props.type = 'components') {
+                var hook   = '//-+++- components DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//'
+            } else if (this.props.type = 'utilities') {
+                var hook   = '//-+++- utilities DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//'
+            } else if (this.props.type = 'areas') {
+                var hook   = '//-+++- areas DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//'
+            } else if (this.props.type = 'elements') {
+                var hook   = '//-+++- elements DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//'
             }
-      );
-      this.fs.copy(
-        this.templatePath('patternlab'),
-        this.destinationPath('patternlab')
-      );
-      this.fs.copy(
-        this.templatePath('src'),
-        this.destinationPath('src')
-      );
+            var path   = 'src/sass/main.scss',
+                file   = wiring.readFileAsString(path),
+                slug   = this.props.name.replace(/ /g, '_'),
+                insert = "@import 'components/" + slug + "';";
 
-      // if this is a Drupal project write these things
-      if (this.props.cms == "Drupal") {
-        this.fs.copyTpl(
-          this.templatePath('info.info'),
-          this.destinationPath(this.props.theme + '.info'),
-            { 
-              theme: this.props.theme,
-              description: this.props.description,
-              ie8: this.props.ie8,
-              client: this.props.client,
-              cms: this.props.cms,
-              author: this.props.name
+            if (file.indexOf(insert) === -1) {
+              this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
             }
-        );
-        this.fs.copy(
-          this.templatePath('screenshot-drupal.png'),
-          this.destinationPath('screenshot.png')
-        );
-
-      } else if (this.props.cms == "Wordpress") {
-      // if this is a Wordpress project write these files
-
-        this.fs.copyTpl(
-          this.templatePath('wordpress.css'),
-          this.destinationPath('style.css'),
-            { 
-              theme: this.props.theme,
-              description: this.props.description,
-              name: this.props.name
-            }
-        );
-        this.fs.copy(
-          this.templatePath('screenshot-wordpress.png'),
-          this.destinationPath('screenshot.png')
-        );
-      } else {
-
-        this.fs.copyTpl(
-          this.templatePath('index.html'),
-          this.destinationPath('index.html'),
-            { 
-              description: this.props.description,
-              title: this.props.client
-            }
-        );
-
-      }
+        }
     }
-  }
 });
