@@ -1,10 +1,14 @@
 'use strict';
+
+require('shelljs/global');
+
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var wiring = require('html-wiring');
 
 module.exports = yeoman.generators.Base.extend({
+
   prompting: function () {
     var done = this.async();
 
@@ -227,5 +231,19 @@ module.exports = yeoman.generators.Base.extend({
 
       }
     }
+  },
+  install: function() {
+    if (!which('php')) {
+      echo('Auto-generating patternlab requires PHP in your $PATH');
+    } else {
+      exec(which('php') + " ./patternlab/core/console --generate", function(code, output) {
+        console.log('Exit code:', code);
+        console.log('Program output:', output);
+      });
+    }
+  },
+  end: function() {
+    console.log('Next steps:');
   }
+
 });
