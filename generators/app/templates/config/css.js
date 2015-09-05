@@ -62,7 +62,7 @@ module.exports.tasks = {
         },
         plugins: {
             files: {
-                'build/css/plugins.min.css': ['src/js/temp/plugins.css', 'src/fonts/icomoon/style.css']
+                'build/css/plugins.min.css': ['src/js/temp/compiled_bower.css', 'src/fonts/icomoon/style.css']
             }
         }
     },
