@@ -44,12 +44,6 @@ module.exports = yeoman.generators.Base.extend({
         default: 'Echokit'
       },
       {
-        type: 'confirm',
-        name: 'ie8',
-        message: 'Do you need ie8 support?',
-        default: 'yes'
-      },
-      {
         type: 'input',
         name: 'description',
         message: 'Short (one sentence) description of project:',
@@ -61,6 +55,18 @@ module.exports = yeoman.generators.Base.extend({
         message: 'What is the CMS?',
         choices: [ "Drupal", "Wordpress", "none" ],
         default: 'none'
+      },
+      {
+        type: 'confirm',
+        name: 'ie8',
+        message: 'Do you need ie8 support?',
+        default: 'yes'
+      },
+      {
+        type: 'confirm',
+        name: 'patternlab',
+        message: 'Do you want a pattern library?',
+        default: 'yes'
       },
       {
         type: 'checkbox',
@@ -171,17 +177,21 @@ module.exports = yeoman.generators.Base.extend({
               description: this.props.description,
               cms: this.props.cms,
               client: this.props.client,
-              author: this.props.name
+              author: this.props.name,
+              patternlab: this.props.patternlab
             }
-      );
-      this.fs.copy(
-        this.templatePath('patternlab'),
-        this.destinationPath('patternlab')
       );
       this.fs.copy(
         this.templatePath('src'),
         this.destinationPath('src')
       );
+
+      if (this.props.patternlab == true) {
+        this.fs.copy(
+          this.templatePath('patternlab'),
+          this.destinationPath('patternlab')
+        );
+      }
 
       // if this is a Drupal project write these things
       if (this.props.cms == "Drupal") {

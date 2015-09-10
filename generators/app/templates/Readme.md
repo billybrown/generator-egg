@@ -51,14 +51,12 @@ It uses a few core tools:
     │
     ├── /bower_components: packages downloaded from bower.json. These are mainly js plugins.
     │
-    ├── /patternlab: Pattern library files
-    │
-    ├── .gitignore: theme level gitignore
-    │
-    └── .nvmrc: a file to record a working version of node for all theme plugins.
+    <% if (patternlab) { %>├── /patternlab: Pattern library files
+    │<% } %>
+    └── .gitignore: theme level gitignore
 
 
-
+<% if (patternlab) { %>
 # Getting Started with Pattern Library
 
 This theme has a pattern library which you can see at:
@@ -74,5 +72,5 @@ Learn More:
 To generate a new version of the pattern library, from the root of the theme cd into the patternlab directory then run:
 
 php core/console --generate
-
+<% } %>
 

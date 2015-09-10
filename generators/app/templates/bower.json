@@ -2,7 +2,6 @@
   "name": "package",
   "version": "0.0.0",
   "dependencies": {
-    "modernizr": "~2.8.3",
     "enquire": "~2.1.2",
     "fitvids": "~1.1.0",
     "matchmedia": "~0.2.0",

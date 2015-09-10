@@ -109,18 +109,19 @@ input[type="range"] {
     }
 
     &--inline {
-        label,
-        input {
+        > label,
+        > input,
+        > .InputGroup__group {
             display: inline-block;
             vertical-align: top;
         }
 
-        label {
+        > label {
             width: 130px;
             padding-right: 20px;
         }
 
-        input {
+        > input {
             width: auto;
         }
     }

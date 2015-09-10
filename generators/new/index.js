@@ -27,6 +27,11 @@ module.exports = yeoman.generators.Base.extend({
             choices: [ "elements", "utilities", "components", "areas" ],
             default: 'components'
         },{
+            type: 'confirm',
+            name: 'patternlab',
+            message: 'Is their a pattern library?',
+            default: 'n'
+        },{
             type: 'list',
             name: 'atomictype',
             message: 'What group does it fall within atomic design?',
@@ -120,40 +125,46 @@ module.exports = yeoman.generators.Base.extend({
                     textgroup: this.textgroup
                 }
             );
-            this.fs.copyTpl(
-                this.templatePath('component.twig'),
-                this.destinationPath('patternlab/source/_patterns/' + this.props.atomictype + '/' + this.props.name + '.twig'), { 
-                    name: this.props.name,
-                    description: this.props.description,
-                    type: this.props.type,
-                    link: this.props.link,
-                    html: this.props.html,
-                    htmltitle: this.props.htmltitle,
-                    title: this.title,
-                    content: this.content,
-                    header: this.header,
-                    footer: this.footer,
-                    imagegroup: this.imagegroup,
-                    textgroup: this.textgroup
-                }
-            );
+
+            if (this.props.patternlab = true) {
+                this.fs.copyTpl(
+                    this.templatePath('component.twig'),
+                    this.destinationPath('patternlab/source/_patterns/' + this.props.atomictype + '/' + this.props.name + '.twig'), { 
+                        name: this.props.name,
+                        description: this.props.description,
+                        type: this.props.type,
+                        link: this.props.link,
+                        html: this.props.html,
+                        htmltitle: this.props.htmltitle,
+                        title: this.title,
+                        content: this.content,
+                        header: this.header,
+                        footer: this.footer,
+                        imagegroup: this.imagegroup,
+                        textgroup: this.textgroup
+                    }
+                );
+            }
         },
 
         extra: function () {
 
             if (this.props.type = 'components') {
-                var hook   = '//-+++- components DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//'
+                var hook   = '//-+++- components DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//';
+                var insert = "@import 'components/" + slug + "';";
             } else if (this.props.type = 'utilities') {
-                var hook   = '//-+++- utilities DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//'
+                var hook   = '//-+++- utilities DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//';
+                var insert = "@import 'utilities/" + slug + "';";
             } else if (this.props.type = 'areas') {
-                var hook   = '//-+++- areas DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//'
+                var hook   = '//-+++- areas DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//';
+                var insert = "@import 'areas/" + slug + "';";
             } else if (this.props.type = 'elements') {
-                var hook   = '//-+++- elements DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//'
+                var hook   = '//-+++- elements DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//';
+                var insert = "@import 'elements/" + slug + "';";
             }
             var path   = 'src/sass/main.scss',
                 file   = wiring.readFileAsString(path),
-                slug   = this.props.name.replace(/ /g, '_'),
-                insert = "@import 'components/" + slug + "';";
+                slug   = this.props.name.replace(/ /g, '_')
 
             if (file.indexOf(insert) === -1) {
               this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);

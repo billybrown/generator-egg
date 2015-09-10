@@ -30,9 +30,10 @@
 
     Node Version
     --------------------------
-    There is a file called .nvmrc in the root of the theme that indicates what version of node we are using.
-    Everything should work even if you have a different version - but in case you are getting errors
-    and you suspect node - the version number in .nvmrc should work.
+    Everything should work if you have an updated version of node and npm - but in case you are getting 
+    errors and you suspect node - here are versions that we *know* work.
+    node: v4.0.0
+    npm: 2.14.2
 
 */
 
