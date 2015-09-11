@@ -15,7 +15,7 @@ module.exports = yeoman.generators.Base.extend({
                 {
                     type: 'input',
                     name: 'objectname',
-                    message: 'What is the object name?',
+                    message: 'What is the object name?\n',
                     default: 'Tree'
                 },{
                     type: 'input',

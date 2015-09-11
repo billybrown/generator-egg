@@ -30,10 +30,12 @@
 
     Node Version
     --------------------------
-    Everything should work if you have an updated version of node and npm - but in case you are getting 
-    errors and you suspect node - here are versions that we *know* work.
-    node: v4.0.0
-    npm: 2.14.2
+    There is a file called .nvmrc in the root of the theme that indicates what version of node we are using.
+    Everything should work even if you have a different version - but in case you are getting errors
+    and you suspect node - the version number in .nvmrc should work.
+    Secondly - the reason this version is so low is because of a tool called Takana which currently does not
+    work with the more recent versions. If you are using Node Version Manager, your computer should auto detect
+    this file and switch to the proper version.
 
 */
 

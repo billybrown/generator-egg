@@ -1,0 +1,13 @@
+{
+  "name": "package",
+  "version": "0.0.0",
+  "dependencies": {
+    <% if (enquire) { %>"enquire": "~2.1.2", 
+    "matchmedia": "~0.2.0",<% } %>
+    <% if (matchHeight) { %>"matchHeight": "~0.6.0", <% } %>
+    <% if (waypoints) { %>"waypoints": "~4.0.0", <% } %>
+    <% if (chosen) { %>"chosen": "~1.4.2", <% } %>
+    "fitvids": "~1.1.0"
+  }
+}
+

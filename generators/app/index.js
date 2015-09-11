@@ -22,31 +22,31 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'input',
         name: 'name',
-        message: 'What is your name?',
+        message: 'What is your name?\n',
         default: 'Bill Brown'
       },
       {
         type: 'input',
         name: 'client',
-        message: 'What is the full name of the project or client?',
+        message: 'What is the full name of the project or client?\n',
         default: 'Echo & Co.'
       },
       {
         type: 'input',
         name: 'client',
-        message: 'What is project short code?',
+        message: 'What is project short code?\n',
         default: 'ECHO'
       },
       {
         type: 'input',
         name: 'theme',
-        message: 'What is the theme name?',
+        message: 'What is the theme name?\n',
         default: 'Echokit'
       },
       {
         type: 'input',
         name: 'description',
-        message: 'Short (one sentence) description of project:',
+        message: 'Short (one sentence) description of project:\n',
         default: 'Only the best frickin theme ever'
       },
       {
@@ -60,26 +60,22 @@ module.exports = yeoman.generators.Base.extend({
         type: 'confirm',
         name: 'ie8',
         message: 'Do you need ie8 support?',
-        default: 'yes'
+        default: false
       },
       {
         type: 'confirm',
         name: 'patternlab',
         message: 'Do you want a pattern library?',
-        default: 'yes'
+        default: false
       },
       {
         type: 'checkbox',
-        name: 'plugins',
-        message: 'What plugins do you need?',
+        name: 'bowerplugins',
+        message: 'What bower plugins do you need?',
         choices: [{
             name: 'enquire',
             value: 'enquire',
             checked: false
-        }, {
-            name: 'modernizr',
-            value: 'modernizr',
-            checked: true
         }, {
             name: 'matchHeight',
             value: 'matchHeight',
@@ -92,44 +88,50 @@ module.exports = yeoman.generators.Base.extend({
             name: 'waypoints',
             value: 'waypoints',
             checked: false
-        }, {
-            name: 'icomoon',
-            value: 'icomoon',
-            checked: true
-        }, {
-            name: 'webfonts',
-            value: 'webfonts',
-            checked: false
-        }, {
+        }]
+      },
+      {
+        type: 'checkbox',
+        name: 'gruntplugins',
+        message: 'What extra grunt build tools do you need?',
+        choices: [{
             name: 'gruntsprites',
             value: 'gruntsprites',
             checked: false
-        }, {
-            name: 'Fitvids',
-            value: 'Fitvids',
-            checked: true
         }]
+      },
+      {
+        type: 'confirm',
+        name: 'installitall',
+        message: 'Do you want to install all bower and grunt depenencies?',
+        default: false
       }
     ];
 
     this.prompt(prompts, function (props) {
       this.props = props;
 
-      var plugins = props.plugins;
+      var bowerplugins = props.bowerplugins;
 
-      function hasAsset(feat) {
-        return plugins.indexOf(feat) !== -1;
+      function hasBowerPlugin(feat) {
+        return bowerplugins.indexOf(feat) !== -1;
       }
 
-      this.modernizr = hasAsset('modernizr');
-      this.fitvids = hasAsset('fitvids');
-      this.enquire = hasAsset('enquire');
-      this.matchheight = hasAsset('matchHeight');
-      this.chosen = hasAsset('chosen');
-      this.waypoints = hasAsset('waypoints');
-      this.icomoon = hasAsset('icomoon');
-      this.webfonts = hasAsset('webfonts');
-      this.gruntsprites = hasAsset('gruntsprites');
+      this.enquire = hasBowerPlugin('enquire');
+      this.matchHeight = hasBowerPlugin('matchHeight');
+      this.chosen = hasBowerPlugin('chosen');
+      this.waypoints = hasBowerPlugin('waypoints');
+      this.icomoon = hasBowerPlugin('icomoon');
+      this.webfonts = hasBowerPlugin('webfonts');
+      this.gruntsprites = hasBowerPlugin('gruntsprites');
+
+      var gruntplugins = props.gruntplugins;
+
+      function hasGruntPlugin(feat) {
+        return gruntplugins.indexOf(feat) !== -1;
+      }
+
+      this.sprites = hasGruntPlugin('gruntsprites');
 
       done();
     }.bind(this));
@@ -138,13 +140,23 @@ module.exports = yeoman.generators.Base.extend({
   // write our files
   writing: {
     app: function () {
-      this.fs.copy(
-        this.templatePath('package.json'),
-        this.destinationPath('package.json')
+      this.fs.copyTpl(
+        this.templatePath('_package.json'),
+        this.destinationPath('package.json'),
+            { 
+              sprites: this.sprites,
+              cms: this.props.cms
+            }
       );
-      this.fs.copy(
-        this.templatePath('bower.json'),
-        this.destinationPath('bower.json')
+      this.fs.copyTpl(
+        this.templatePath('_bower.json'),
+        this.destinationPath('bower.json'),
+            { 
+              enquire: this.enquire,
+              matchHeight: this.matchHeight,
+              chosen: this.chosen,
+              waypoints: this.waypoints
+            }
       );
     },
 
@@ -243,17 +255,25 @@ module.exports = yeoman.generators.Base.extend({
     }
   },
   install: function() {
-    if (!which('php')) {
-      echo('Auto-generating patternlab requires PHP in your $PATH');
-    } else {
-      exec(which('php') + " ./patternlab/core/console --generate", function(code, output) {
-        console.log('Exit code:', code);
-        console.log('Program output:', output);
-      });
+    if (this.props.patternlab == true) {
+      if (!which('php')) {
+        echo('Auto-generating patternlab requires PHP in your $PATH');
+      } else {
+        exec(which('php') + " ./patternlab/core/console --generate", function(code, output) {
+          console.log('Exit code:', code);
+          console.log('Program output:', output);
+        });
+      }
+    }
+
+    if (this.props.installitall == true) {
+      this.installDependencies();
     }
   },
   end: function() {
-    console.log('Next steps:');
+    if (this.props.patternlab == true) {
+      console.log('Next steps:');
+    }
   }
 
 });
