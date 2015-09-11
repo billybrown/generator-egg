@@ -11,7 +11,8 @@ Please feel free to take on any of these things below - or add new stuff.
 - **Echo Index**. Need to figure out a way to bring in this site/repo into this project. Seems silly to have them seperate. https://github.com/billybrown/EchoIndex - http://b.illbrown.com/EchoIndex/
 - **Moar Usage**. I need people to start using these tools to find their problems.
 
---------
+
+
 ## egg theme tasks
 These tasks are not related to yeoman generator - just the theme itself.
 
@@ -29,7 +30,7 @@ These tasks are not related to yeoman generator - just the theme itself.
 - **takana**. Takana requires v0.12 of node to work properlly. I would love to figure out how to use the most recent version of node (v4) and still have Takana work. This is a Takana issue and not an Egg one ... figured I'd mention it here though.
 
 
---------
+
 ## Contributing
 
 ### Setup
