@@ -3,8 +3,7 @@
 //
 // <%= description %>
 // <% if (link) { %>This whole element is wrapped in a single <a> tag.<% } %>
-//
-//
+// <% if (graphic) { %>
 //     CHANGE THIS IMAGE BELOW TO FIT YOUR NEW COMPONENT
 //     +-------------------+
 //     |                   |
@@ -15,7 +14,7 @@
 //     +-------------------+
 //     |  Title            |
 //     +-------------------+
-//
+//<% } %>
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
@@ -39,31 +38,37 @@
 
         }
     }
-    <% } %>
-    <% if (textgroup) { %>&__textGroup {
+
+    <% } 
+    %><% if (textgroup) { %>&__textGroup {
 
     }
-    <% } %>
-    <% if (imagegroup) { %>&__imagegroup {
+
+    <% } 
+    %><% if (imagegroup) { %>&__imagegroup {
 
     }
-    <% } %>
-    <% if (header) { %>&__header {
+
+    <% } 
+    %><% if (header) { %>&__header {
 
     }
-    <% } %>
-    <% if (title) { %>&__title {
+
+    <% } 
+    %><% if (title) { %>&__title {
         margin-bottom: 10px;
+    }
+
+    <% } 
+    %><% if (footer) { %>&__footer {
 
     }
-    <% } %>
-    <% if (footer) { %>&__footer {
+
+    <% } 
+    %><% if (content) { %>&__content {
 
     }
-    <% } %>
-    <% if (content) { %>&__content {
-        
-    }
-    <% } %>
+
+    <% } 
+    %>
 }
-

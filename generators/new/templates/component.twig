@@ -1,17 +1,19 @@
 <<%= html %> class="<%= name %> {{ class }}">
-    <% if (link) { %><a href=""><% } %>
-    <% if (imagegroup) { %><div class="<%= name %>__imageGroup">
+    <% if (link) { %><a href=""><% } 
+        %><% if (imagegroup) { %><div class="<%= name %>__imageGroup">
         <img src="{{ post.img.rectangle.src }}" alt="" />
-    </div><!-- /.<%= name %>__imageGroup --><% } %>
-    <% if (textgroup) { %><div class="<%= name %>__textGroup">
+    </div><!-- /.<%= name %>__imageGroup -->
+    <% } %><% if (textgroup) { %><div class="<%= name %>__textGroup">
         <<%= htmltitle %> class="<%= name %>__title {{ titleClass }}">{{ post.heading.short }}</<%= htmltitle %>>
-    </div><!-- /.<%= name %>__textGroup --><% } %>
-    <% if (header) { %><header class="<%= name %>__header">
+    </div><!-- /.<%= name %>__textGroup -->
+    <% } %><% if (header) { %><header class="<%= name %>__header">
         <<%= htmltitle %> class="<%= name %>__title {{ titleClass }}">{{ post.heading.short }}</<%= htmltitle %>>
-    </header><!-- /.<%= name %>__header --><% } %>
-    <% if (content) { %><div class="<%= name %>__content">
-    </div><!-- /.<%= name %>__content --><% } %>
-    <% if (footer) { %><footer class="<%= name %>__footer">
-    </footer><!-- /.<%= name %>__footer --><% } %>
-    <% if (link) { %></a><% } %>
+    </header><!-- /.<%= name %>__header -->
+    <% } %><% if (content) { %><div class="<%= name %>__content">
+
+    </div><!-- /.<%= name %>__content -->
+    <% } %><% if (footer) { %><footer class="<%= name %>__footer">
+
+    </footer><!-- /.<%= name %>__footer -->
+    <% } %><% if (link) { %></a><% } %>
 </<%= html %>>
