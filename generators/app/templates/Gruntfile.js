@@ -23,6 +23,7 @@
     grunt sprites (create an svg sprite and corrasponding scss partial)
     grunt js_vendor (move over any js that isn't included in bower over to the build directory)
     grunt build (recompiled everything - sass, sprites, javascript, etc.)
+    grunt stats (get some stats on your theme assets)
 
     All commands are detailed by running the following:
     --------------------------
@@ -69,6 +70,7 @@ module.exports = function(grunt) {
     grunt.registerTask('js_vendor', ['copy:vendorjs']);
     grunt.registerTask('iconfonts', ['copy:icomoon_fonts', 'cssmin:plugins' ]);
     grunt.registerTask('images', ['imagemin', 'copy:raster', 'copy:svg']);
+    grunt.registerTask('stats', ['parker']);
     //grunt.registerTask('sprites', ['dr-svg-sprites', 'copy:sprites', 'clean:sprites']);
     grunt.registerTask('plugins', [
         'bower_install', 

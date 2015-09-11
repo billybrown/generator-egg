@@ -112,6 +112,32 @@ module.exports.tasks = {
 //   }
 // },
   
+    // Runs CSS reporting
+    parker: {
+      options: {
+        metrics: [
+          'TotalStylesheetSize',
+          'TotalRules',
+          'TotalSelectors',
+          'TotalIdentifiers',
+          'TotalDeclarations',
+          'SelectorsPerRule',
+          'IdentifiersPerSelector',
+          'SpecificityPerSelector',
+          'TopSelectorSpecificity',
+          'TopSelectorSpecificitySelector',
+          'TotalIdSelectors',
+          'TotalUniqueColours',
+          'TotalMediaQueries'
+        ],
+        file: "build/css/.primer-stats.md",
+        usePackage: true
+      },
+      src: [
+        'build/css/main.min.css'
+      ]
+    },
+
     clean: {
         css: ['build/css/main.css', 'build/css/main.css.map']
     }
