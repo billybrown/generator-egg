@@ -33,9 +33,9 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         type: 'input',
-        name: 'client',
+        name: 'short',
         message: 'What is project short code?\n',
-        default: 'ECHO'
+        default: 'eco'
       },
       {
         type: 'input',
