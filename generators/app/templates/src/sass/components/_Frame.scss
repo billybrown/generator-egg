@@ -63,13 +63,18 @@ $Frame-giant: 100px;
         margin-left: auto;
         max-width: $content-max-width;
         
-        // this is for when there are multiple items inside of a frame, they get spacing
-        > div:not(:last-child),
-        > section:not(:last-child),
-        > article:not(:last-child) {
-            margin-bottom: 60px;
-            border-bottom: 10px solid $text;
-            padding-bottom: 60px;
+    }
+
+    // this is for when there are multiple items inside of a frame, they get spacing
+    &--list {
+        .Frame__inside {
+            > div:not(:last-child),
+            > section:not(:last-child),
+            > article:not(:last-child) {
+                margin-bottom: 60px;
+                border-bottom: 10px solid $text;
+                padding-bottom: 60px;
+            }
         }
     }
 
@@ -78,6 +83,14 @@ $Frame-giant: 100px;
 	    padding-top: 0;
 	    padding-bottom: 0;
 	}
+
+    // Frame with no horizontal padding just on mobile
+    &--noMobilePadding {
+        @include mq($until: mobilemenu-bp) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 
     &--tinySpacing {
         padding-top: 20px;

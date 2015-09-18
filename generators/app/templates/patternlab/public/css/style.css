@@ -1,3 +1,113 @@
 /*
  * YOUR STYLES HERE
  */
+
+.sg-main .sg-pattern-extra{
+    display: none;
+}
+
+.sg-main .sg-pattern-example {
+    max-width: 940px;
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 25px;
+    padding-left: 25px;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    *zoom: 1;
+}
+.sg-main .sg-pattern-example:before,
+.sg-main .sg-pattern-example:after {
+    content: " ";
+    display: table;    
+}
+
+.sg-main .sg-pattern-example:after {
+    clear: both;
+}
+
+.sg-main .sg-pattern-head {
+    background: #eee;
+    color: #333;
+    padding: 8px 20px;
+    text-align: left;
+}
+
+.sg-main .sg-pattern-head > h3 {
+    margin-bottom: 0;
+    font-family: Georgia;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.sg-main .sg-pattern-head a {
+    margin: 0;
+    padding: 0;
+    color: #333 !important;
+    padding: 5px 8px;
+    display: inline-block !important;
+    text-decoration: none;
+    vertical-align: top;
+}
+
+.sg-label {
+    font-size: 11px;
+    line-height: 10px !important;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sg-fonts li{
+    margin-bottom: 30px;
+}
+
+.sg-colors li {
+    width: 8em !important;
+    border: none !important;
+}
+
+.sg-grids {
+    text-align: center;
+}
+
+.sg-grids > * {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sg-grids > *:nth-child(odd) {
+    background: #ccc;
+}
+
+.sg-grids > *:nth-child(even) {
+    background: #eee;
+}
+
+.sg-layoutDemo > div > div > span {
+        display: block;
+        padding: 10px;
+        text-align: center;
+}
+
+.sg-layoutDemo > div > div:nth-child(odd) > span {
+    background: #bbb;
+}
+    
+.sg-layoutDemo > div > div:nth-child(even) > span {
+    background: #ddd;
+}
+
+
+#atoms-select .sg-pattern-example{
+    overflow: visible;
+}
+
+/* go full width */
+#molecules-large-link-screen .sg-pattern-example {
+    padding-right: 0;
+    padding-left: 0;
+    max-width: none;
+}

@@ -1,20 +1,18 @@
 <header class="SiteHeader">
-	<div class="Frame Frame--tinySpacing Frame--borderTop SiteHeader__frame1">
-		<div class="u-constrained">
+	<div class="SiteHeader__group1 Frame Frame--tinySpacing Frame--borderTop">
+		<div class="Frame__inside">
 			{{ headernewsletter.input("Enter email for alerts", "Sign up") }}
 			{% include 'header/secondarymenu.twig' %}
 			{% include 'header/search.twig' %}
 		</div>
-	</div><!-- /. SiteHeader__frame1 -->
-	<div class="Frame Frame--tinySpacing Frame--bordered SiteHeader__frame2">
-		<div class="u-constrained u-constrained--noMobilePadding">
-			<div class="Frame__inside">
-				<h1 class="SiteLogo">{% include 'header/logo.twig' %}</h1>
-				{% include 'header/primarymenu.twig' %}
-				{% include 'header/mobiletriggers.twig' %}
-			</div><!-- /.Frame__inside -->
+	</div><!-- /. SiteHeader__group1 -->
+	<div class="SiteHeader__group2 Frame Frame--tinySpacing Frame--bordered Frame--noMobilePadding">
+		<div class="Frame__inside">
+			<h1 class="SiteLogo">{% include 'header/logo.twig' %}</h1>
+			{% include 'header/primarymenu.twig' %}
+			{% include 'header/mobiletriggers.twig' %}
 		</div>
-	</div><!-- /. SiteHeader__frame2 -->
+	</div><!-- /. SiteHeader__group2 -->
 </header>
 
 <div id='MobileMenu__content' class="MobileMenu__content MobileMenu">

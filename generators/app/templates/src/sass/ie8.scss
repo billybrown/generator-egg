@@ -15,13 +15,15 @@ $mq-responsive: false;
 
 /////////////////////////////////////-+++-
 // general overrides
-.constrained {
-    padding-right: $cspace_giant;
-    padding-left: $cspace_giant;
-    width: $content-max-width + ($cspace_giant * 2);
-    margin-right: auto !important;
-    margin-left: auto !important;
- }
+
+// @todo: refactor this now that u-constrained has been ungulfed by the Frame object
+// .constrained {
+//     padding-right: $cspace_giant;
+//     padding-left: $cspace_giant;
+//     width: $content-max-width + ($cspace_giant * 2);
+//     margin-right: auto !important;
+//     margin-left: auto !important;
+//  }
 
  .SiteWrapper {
     width: 1500px;
