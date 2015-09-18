@@ -7,7 +7,9 @@ Please feel free to take on any of these things below - or add new stuff.
 
 ## to do
 
-- **Is the Egg theme a dependency of the Egg Generator?** I need to figure out how to actively work on Egg theme files (sass, grunt config, js, etc.) while also allowing the egg generator to shape those theme files with yeoman for new projects. I need help figuring out the proper workflow here. One option would be to duplicate and underscore everything that gets generated (how we're handing package.json and bower.json) - but that creates a lot of duplication which makes maintaining everything a pain.
+- **Javascript** Need to establish a javascript workflow and base template for adding new scripts - all integrated probably with Yeoman so we can add custom scripts in a consistant way. I'm hoping that @wpatt will lead this effort ...
+- **Simplify the shit out of Egg** I want to refactor Egg so that only the raw, essentials come with an innitial install. Everything else would be added via Yeoman. There should be a version of Egg for the most basic, single page, CMS-free project - but at the same time it should be fairly easy to add all the components for a complex site.
+- **Is the Egg theme a dependency of the Egg Generator?** I need to figure out how to actively work on Egg theme files (sass, grunt config, js, etc.) while also allowing the egg generator to shape those theme files with yeoman for new projects. One option would be to duplicate and underscore everything that gets generated (how we're handing package.json and bower.json) - but that creates a lot of duplication which makes maintaining everything a pain. I'm hoping the *simplify* project above will shed some light here.
 - **Echo Index**. Need to figure out a way to bring in this site/repo into this project. Seems silly to have them seperate. https://github.com/billybrown/EchoIndex - http://b.illbrown.com/EchoIndex/
 - **Moar Usage**. I need people to start using these tools to find their problems.
 
