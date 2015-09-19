@@ -25,7 +25,7 @@
 @import 'base/variables';
 
 // import sprites
-@import 'sprites/sprites';
+//@import 'sprites/sprites'; // un-comment if you are using a grunt-spriting tool
  
 // import css reset or normalize (and your custom reset additions)
 @import 'base/normalize';
@@ -60,23 +60,14 @@
 
 // import CSS objects
 @import 'components/Frame';
-@import 'components/Card';
-@import 'components/Slat';
-@import 'components/ListBox';
 //-+++- components DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//
 
 // import CSS areas
-@import 'areas/Image';
-@import 'areas/Pagination';
-@import 'areas/Breadcrumbs';
-@import 'areas/Social';
-@import 'areas/MobileMenu';
 @import 'areas/Post';
-@import 'areas/WYSIWYG';
 @import 'areas/SiteWrapper';
 @import 'areas/SiteMain';
-@import 'areas/footer/SiteFooter';
-@import 'areas/header/SiteHeader';
+@import 'areas/SiteFooter';
+@import 'areas/SiteHeader';
 @import 'areas/BrowseHappy';
 //-+++- areas DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//
 

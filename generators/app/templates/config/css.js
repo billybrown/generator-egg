@@ -11,12 +11,13 @@ module.exports.tasks = {
             files: {
                 'build/css/main.css': 'src/sass/main.scss'
             }
-        },
-        ie: {
-            files: {
-                'build/css/ie8.css': 'src/sass/ie8.scss'
-            }
         }
+        // uncomment if you need ie8 support
+        // ie: {
+        //     files: {
+        //         'build/css/ie8.css': 'src/sass/ie8.scss'
+        //     }
+        // }
     },
 
     // this task applies vendor prefixes (ie: -webkit, -moz, -o) to your css
@@ -34,7 +35,7 @@ module.exports.tasks = {
             map: true
         },
         custom: {
-            src: ['build/css/main.css', 'build/css/ie8.css']
+            src: ['build/css/main.css'] // add 'build/css/ie8.css' if you need ie8 support
         }
     },
 

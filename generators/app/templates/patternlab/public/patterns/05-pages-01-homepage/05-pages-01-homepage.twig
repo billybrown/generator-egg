@@ -2,55 +2,19 @@
 
 {% block main %}
 
-	{% embed &quot;organisms-frame&quot; %}
-		{% block frame_content %}
+    {% embed &quot;organisms-frame&quot; %}
+        {% block frame_content %}
 
-			{% embed &quot;organisms-list-box&quot; %}
-			    {% block listbox_title %}
-			        This is an example 'List Box'
-			    {% endblock %}
-			    {% block lisbox_intro %}&lt;p&gt;With a bordered equal column grid holding 'Slats'.{% endblock %}
-			    {% block listbox_content %}
-					&lt;div class=&quot;SlatGrid&quot;&gt;
-						{% for i in 0..1 %}
-							&lt;div&gt;{% include 'molecules-slat' %}&lt;/div&gt;
-						{% endfor %}
-					&lt;/div&gt;
-				{% endblock %}
-				{% block listbox_footer %}{% endblock %}
-			{% endembed %}
+            {% embed &quot;organisms-post&quot; %}
+                {% block post_body %}
+                	&lt;blockquote&gt;
+                    	&lt;p&gt;It may be hard for an egg to turn into a bird: it would be a jolly sight harder for it to learn to fly while remaining an egg. We are like eggs at present. And you cannot go on indefinitely being just an ordinary, decent egg. We must be hatched or go bad.&lt;/p&gt;
+                    	&lt;footer&gt;C.S. Lewis&lt;/footer&gt;
+                    &lt;/blockquote&gt;
+                {% endblock %}
+            {% endembed %}
 
-		{% endblock %}
-	{% endembed %}
+        {% endblock %}
+    {% endembed %}
 
-	{% embed &quot;organisms-frame&quot; with { frameclass : &quot;Frame--yellow Frame--list&quot;} %}
-		{% block frame_content %}
-
-			{% embed &quot;organisms-list-box&quot; %}
-			    {% block listbox_title %}
-			        Another 'List Box'
-			    {% endblock %}
-			    {% block lisbox_intro %}&lt;p&gt;With a multi-row grid holding 'Cards'.{% endblock %}
-
-			    {% block listbox_content %}
-					&lt;div class=&quot;CardGrid&quot;&gt;
-						{% for i in 0..6 %}
-							&lt;div&gt;{% include 'molecules-card' %}&lt;/div&gt;
-						{% endfor %}
-					&lt;/div&gt;
-				{% endblock %}
-				{% block listbox_footer %}
-					&lt;footer class=&quot;ListBox__footer&quot;&gt;
-						&lt;p&gt;This is a listbox footer. With a &lt;a href=&quot;&quot;&gt;link!&lt;/a&gt;&lt;/p&gt;
-					&lt;/footer&gt;&lt;!-- /.ListBox__footer --&gt;
-				{% endblock %}
-			{% endembed %}
-
-			&lt;section class=&quot;Example u-alignCenter&quot;&gt;
-				&lt;h2 class=&quot;Example__title&quot;&gt;Example thing&lt;/h2&gt;&lt;!-- /.Example__title --&gt;
-				&lt;p&gt;To demonstrate why a 'Frame' is seperate from the content within it.&lt;/p&gt;
-			&lt;/section&gt;
-
-		{% endblock %}
-	{% endembed %}
 {% endblock %}

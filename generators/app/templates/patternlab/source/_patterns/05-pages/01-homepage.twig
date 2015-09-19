@@ -2,55 +2,19 @@
 
 {% block main %}
 
-	{% embed "organisms-frame" %}
-		{% block frame_content %}
+    {% embed "organisms-frame" %}
+        {% block frame_content %}
 
-			{% embed "organisms-list-box" %}
-			    {% block listbox_title %}
-			        This is an example 'List Box'
-			    {% endblock %}
-			    {% block lisbox_intro %}<p>With a bordered equal column grid holding 'Slats'.{% endblock %}
-			    {% block listbox_content %}
-					<div class="SlatGrid">
-						{% for i in 0..1 %}
-							<div>{% include 'molecules-slat' %}</div>
-						{% endfor %}
-					</div>
-				{% endblock %}
-				{% block listbox_footer %}{% endblock %}
-			{% endembed %}
+            {% embed "organisms-post" %}
+                {% block post_body %}
+                	<blockquote>
+                    	<p>It may be hard for an egg to turn into a bird: it would be a jolly sight harder for it to learn to fly while remaining an egg. We are like eggs at present. And you cannot go on indefinitely being just an ordinary, decent egg. We must be hatched or go bad.</p>
+                    	<footer>C.S. Lewis</footer>
+                    </blockquote>
+                {% endblock %}
+            {% endembed %}
 
-		{% endblock %}
-	{% endembed %}
+        {% endblock %}
+    {% endembed %}
 
-	{% embed "organisms-frame" with { frameclass : "Frame--yellow Frame--list"} %}
-		{% block frame_content %}
-
-			{% embed "organisms-list-box" %}
-			    {% block listbox_title %}
-			        Another 'List Box'
-			    {% endblock %}
-			    {% block lisbox_intro %}<p>With a multi-row grid holding 'Cards'.{% endblock %}
-
-			    {% block listbox_content %}
-					<div class="CardGrid">
-						{% for i in 0..6 %}
-							<div>{% include 'molecules-card' %}</div>
-						{% endfor %}
-					</div>
-				{% endblock %}
-				{% block listbox_footer %}
-					<footer class="ListBox__footer">
-						<p>This is a listbox footer. With a <a href="">link!</a></p>
-					</footer><!-- /.ListBox__footer -->
-				{% endblock %}
-			{% endembed %}
-
-			<section class="Example u-alignCenter">
-				<h2 class="Example__title">Example thing</h2><!-- /.Example__title -->
-				<p>To demonstrate why a 'Frame' is seperate from the content within it.</p>
-			</section>
-
-		{% endblock %}
-	{% endembed %}
 {% endblock %}

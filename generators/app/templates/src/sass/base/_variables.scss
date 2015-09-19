@@ -68,7 +68,7 @@ $mq-static-breakpoint: desktop-bp;
 
 
 $comp-max-width: 1588px; // if working from a PSD or other static comp
-$content-max-width: 1160px; // content cap. Lines of text shouldnt ever span longer then this.
+$content-max-width: 940px; // content cap. Lines of text shouldnt ever span longer then this.
 $page-max-width: 2000px;  // if the page doesn't span to the windows edge at very large screens
 
 $animation-speed: .2s;
@@ -77,6 +77,6 @@ $animation: $animation-speed $animation-easing;
 
 
 // flag for ie8 support or not. Used in layout mixins.
-$ie8: true;
+$ie8: false;
 
 

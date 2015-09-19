@@ -1,28 +1,6 @@
-<header class="SiteHeader">
-	<div class="SiteHeader__group1 Frame Frame--tinySpacing Frame--borderTop">
-		<div class="Frame__inside">
-			{{ headernewsletter.input("Enter email for alerts", "Sign up") }}
-			{% include 'header/secondarymenu.twig' %}
-			{% include 'header/search.twig' %}
-		</div>
-	</div><!-- /. SiteHeader__group1 -->
-	<div class="SiteHeader__group2 Frame Frame--tinySpacing Frame--bordered Frame--noMobilePadding">
-		<div class="Frame__inside">
-			<h1 class="SiteLogo">{% include 'header/logo.twig' %}</h1>
-			{% include 'header/primarymenu.twig' %}
-			{% include 'header/mobiletriggers.twig' %}
-		</div>
-	</div><!-- /. SiteHeader__group2 -->
+<header class="SiteHeader Frame">
+    <div class="Frame__inside">
+	   <h1>Egg</h1>
+       <!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman -+++-//-->
+    </div>
 </header>
-
-<div id='MobileMenu__content' class="MobileMenu__content MobileMenu">
-	<div class="MobileMenu__inside">
-		{% include 'header/secondarymenu.twig' %}
-		{% include 'header/search.twig' %}
-		{{ headernewsletter.input("Enter email", "Sign up") }}
-	</div><!-- /.MobileMenu__inside -->
-</div><!-- /.MobileMenu__content -->
-
-<div class="PrintLogo u-visiblePrint">
-	<div class="SiteLogo">{% include 'header/logo.twig' %}</div>
-</div><!-- /.PrintLogo -->

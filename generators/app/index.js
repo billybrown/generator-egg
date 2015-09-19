@@ -4,7 +4,6 @@ require('shelljs/global');
 
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
-var yosay = require('yosay');
 var wiring = require('html-wiring');
 
 module.exports = yeoman.generators.Base.extend({
@@ -13,9 +12,17 @@ module.exports = yeoman.generators.Base.extend({
     var done = this.async();
 
     // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the sweet ' + chalk.red('Egg') + ' generator!'
-    ));
+    this.log(
+      '\n ' + '+-----------------+' +
+      '\n ' + '        ___        ' + 
+      '\n ' + '       /   \\      ' + 
+      '\n ' + '      /     \\     ' + 
+      '\n ' + '      \\     /     ' + 
+      '\n ' + '        ---        ' + 
+      '\n ' + '+-----------------+' +
+      '\n   Welcome to ' + chalk.yellow('Egg') + '.\n' +
+      ' +-----------------+\n'
+    );
 
     // Get our info
     var prompts = [
@@ -205,6 +212,13 @@ module.exports = yeoman.generators.Base.extend({
         );
       }
 
+      if (this.props.ie8 == true) {
+        this.fs.copy(
+          this.templatePath('_ie8.scss'),
+          this.destinationPath('src/sass/ie8.scss')
+        );        
+      }
+
       // if this is a Drupal project write these things
       if (this.props.cms == "Drupal") {
         this.fs.copyTpl(
@@ -223,7 +237,12 @@ module.exports = yeoman.generators.Base.extend({
           this.templatePath('screenshot-drupal.png'),
           this.destinationPath('screenshot.png')
         );
-
+        if (this.props.patternlab == true) {
+          this.fs.copy(
+            this.templatePath('wysiwyg-drupal.twig'),
+            this.destinationPath('patternlab/source/_patterns/organisms/90-wysiwyg.twig')
+          );
+        }
       } else if (this.props.cms == "Wordpress") {
       // if this is a Wordpress project write these files
 
@@ -240,6 +259,12 @@ module.exports = yeoman.generators.Base.extend({
           this.templatePath('screenshot-wordpress.png'),
           this.destinationPath('screenshot.png')
         );
+        if (this.props.patternlab == true) {
+          this.fs.copy(
+            this.templatePath('wysiwyg-wordpress.twig'),
+            this.destinationPath('patternlab/source/_patterns/organisms/90-wysiwyg.twig')
+          );
+        }
       } else {
 
         this.fs.copyTpl(
