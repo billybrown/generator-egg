@@ -37,6 +37,10 @@ $ListBox-footerSpacing: 50px;
         text-align: center;
         margin-top: $ListBox-footerSpacing;
 
+        p {
+            @extend %u-smallText;
+        }
+
         a {
             font-weight: 800;
         }

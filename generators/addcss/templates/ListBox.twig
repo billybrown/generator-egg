@@ -2,7 +2,7 @@
 	<header class="ListBox__header">
 		<h2 class="ListBox__title u-giantTallText--skinny">
 			{% block listbox_title %}
-				Lorem <strong>Ipsum</strong>
+				List <strong>Box</strong>
 			{% endblock %}
 		</h2>
 		{% block lisbox_intro %}{% endblock %}
@@ -10,17 +10,13 @@
 
 	<div class="ListBox__content">
 		{% block listbox_content %}
-			<div class="CardGridOneRow">
-				<div>{% include 'molecules-card' %}</div>
-				<div>{% include 'molecules-card' %}</div>
-				<div>{% include 'molecules-card' %}</div>
-			</div>
+			<p>Hey I'm a List Box</p>
 		{% endblock %}		
 	</div><!-- /.ListBox__content -->
 
 	{% block listbox_footer %}
 		<footer class="ListBox__footer">
-			<p class="u-smallText"><a href="">See more content</a></p>
+			<p><a href="">Listbox Links</a></p>
 		</footer>
 	{% endblock %}
 </section><!-- /.ListBox -->

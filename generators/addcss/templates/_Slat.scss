@@ -46,8 +46,10 @@ $Slat-imageGutter: 30px;
         margin-bottom: 20px;
     }
 
-    .u-pipeList {
-        @extend %u-tinyText;
+    &__author,
+    &__date,
+    &__content {
+        @extend %u-smallText;
     }
 }
 
@@ -57,11 +59,11 @@ $Slat-imageGutter: 30px;
 // Slat grid
 
 // for single row grids of slats
-.SlatGrid {
-    @include u-equalColRow--border(1120px, 70px, $text, 10px);
+// .SlatGrid {
+//     @include u-equalColRow--border(1120px, 70px, $text, 10px);
 
-    .Slat__imageGroup {
-        display: none; // hide images when slats show up in grids
-    }
-}
+//     .Slat__imageGroup {
+//         display: none; // hide images when slats show up in grids
+//     }
+// }
 
