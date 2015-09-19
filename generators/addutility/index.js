@@ -9,6 +9,25 @@ module.exports = yeoman.generators.Base.extend({
         var done = this.async();
 
         var prompts = [{
+            type: 'list',
+            name: 'components',
+            message: 'Which CSS component do you want to add?',
+            choices: [
+                'Card',
+                'Slat',
+                'CardLink',
+                'ScreenLink',
+                'SlatLink',
+                'ListBox',
+                'SmallListBox',
+                'Well',
+                'BorderList',
+                'BrandList',
+                'CommaList',
+                'PipeList'
+            ]
+        }];
+        var prompts = [{
             type: 'checkbox',
             name: 'components',
             message: 'Which CSS component(s) do you want to add?',
@@ -44,6 +63,22 @@ module.exports = yeoman.generators.Base.extend({
                 name: 'Well',
                 value: 'Well',
                 checked: false
+            }, {
+                name: 'BorderList',
+                value: 'BorderList',
+                checked: false
+            }, {
+                name: 'CommaList',
+                value: 'CommaList',
+                checked: false
+            }, {
+                name: 'BrandList',
+                value: 'BrandList',
+                checked: false
+            }, {
+                name: 'PipeList',
+                value: 'PipeList',
+                checked: false
             }]
         },
         {
@@ -71,6 +106,11 @@ module.exports = yeoman.generators.Base.extend({
             this.ListBox = hasAsset('ListBox');
             this.SmallListBox = hasAsset('SmallListBox');
             this.Well = hasAsset('Well');
+            this.BorderList = hasAsset('BorderList');
+            this.BrandList = hasAsset('BrandList');
+            this.CommaList = hasAsset('CommaList');
+            this.PipeList = hasAsset('PipeList');
+
 
         if (this.CardLink == true)  {
             this.prompt([{
@@ -220,6 +260,46 @@ module.exports = yeoman.generators.Base.extend({
                 this.fs.copy(
                     this.templatePath('ListBox.twig'),
                     this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/ListBox.twig')
+                );
+            }
+            if (this.BorderList == true) {
+                this.fs.copy(
+                    this.templatePath('_BorderList.scss'),
+                    this.destinationPath('src/sass/components/_BorderList.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('BorderList.twig'),
+                    this.destinationPath('patternlab/source/_patterns/01-organisms/01-custom-objects/BorderList.twig')
+                );
+            }
+            if (this.BrandList == true) {
+                this.fs.copy(
+                    this.templatePath('_BrandList.scss'),
+                    this.destinationPath('src/sass/components/_BrandList.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('BrandList.twig'),
+                    this.destinationPath('patternlab/source/_patterns/01-organisms/01-custom-objects/BrandList.twig')
+                );
+            }
+            if (this.CommaList == true) {
+                this.fs.copy(
+                    this.templatePath('_CommaList.scss'),
+                    this.destinationPath('src/sass/components/_CommaList.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('CommaList.twig'),
+                    this.destinationPath('patternlab/source/_patterns/01-organisms/01-custom-objects/CommaList.twig')
+                );
+            }
+            if (this.PipeList == true) {
+                this.fs.copy(
+                    this.templatePath('_PipeList.scss'),
+                    this.destinationPath('src/sass/components/_PipeList.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('PipeList.twig'),
+                    this.destinationPath('patternlab/source/_patterns/01-organisms/01-custom-objects/PipeList.twig')
                 );
             }
         },
