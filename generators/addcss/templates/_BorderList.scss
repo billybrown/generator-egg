@@ -1,0 +1,15 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// BorderList
+// a simple stacked list with borders
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+.BorderList {
+    @extend %u-nolist;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        border-bottom: $borderList-border;
+    }
+}

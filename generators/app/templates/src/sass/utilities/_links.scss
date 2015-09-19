@@ -34,19 +34,12 @@
 	padding: 4px 15px;
 }
 
-%u-smallButton {
-	@extend %u-buttonDefault;
-	@extend %u-smallText--strong;
-	padding: 3px 13px;
-}
-
 
 // button and link utility classes should always go on a wrapper to the <a> tag or
 // an element with the class of 'u-fakeLink' since it is sometimes difficult to 
 // put classes on <a> tags in some CMS systems.
 $button-collection: 
 button
-smallButton
 ;
 
 @each $i in $button-collection { .u-#{$i} { a, .u-fakeLink { @extend %u-#{$i}; } } }

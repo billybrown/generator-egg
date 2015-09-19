@@ -1,0 +1,21 @@
+<article class="Card {{ class }}">
+	<div class="Card__imageGroup">
+		<a href="">
+			<img src="{{ post.img.rectangle.src }}" alt="" />
+		</a>
+	</div><!-- /.Card__imageGroup -->
+	<div class='Card__textGroup'>
+		<header class="Card__header">
+			<h3 class="Card__title {{ titleClass }}">
+				<a href="">
+					{{ post.heading.medium }}
+				</a>
+			</h3>
+		</header>
+		{% if post.excerpt %}
+			<div class="Card__content u-smallText">
+				<p>{{ post.excerpt.medium }}</p>
+			</div>
+		{% endif %}
+	</div><!-- /.Card__textGroup -->
+</article>

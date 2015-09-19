@@ -9,79 +9,22 @@
 	font: 500 18px/28px $SansSerif;
 }
 
-%u-text--strong {
-	@extend %u-text;
-	font-weight: 700;
-}
-
-%u-text--blocked {
-    @extend %u-text;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
 %u-smallText {
 	font: 500 15px/23px $SansSerif;
-}
-
-
-%u-smallText--strong {
-    @extend %u-smallText;
-    font-weight: 700;
 }
 
 %u-largeText {
     font: 400 23px/30px $SansSerif;
 }
 
-%u-tinyText {
-    font: 500 13px/20px $SansSerif;
-}
 
 
 // a sass loop to turn the placeholder classes above
 // into utility classes for easy deployment of these text types
 $text-collection: 
 text 
-text--strong
-text--blocked
 smallText 
-smallText--strong
-tinyText 
 largeText 
 ;
 
 @each $i in $text-collection { .u-#{$i} { @extend %u-#{$i}; } }
-
-
-
-/////////////////////////////////////-+++-
-// Serif fonts
-
-
-%u-serifText {
-    font: 600 25px/28px $Serif;
-}
-
-%u-largeSerifText {
-    font: 600 60px/60px $Serif;
-
-    strong {
-        font-weight: 800;
-    }
-}
-
-%u-giantSerifText {
-    font: 600 80px/70px $Serif;
-}
-
-
-
-
-$seriftext-collection: 
-serifText
-largeSerifText
-giantSerifText
-;
-
-@each $i in $seriftext-collection { .u-#{$i} { @extend %u-#{$i}; } }

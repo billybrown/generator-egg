@@ -11,7 +11,7 @@ $SiteMain-bp: 1000px;
 .SiteMain {
     background: $background;
 
-    &__sidebarLayout {
-        @include u-fixedFluidRow($SiteMain-bp, "left", 70px, 0, "second", 300px);
-    }
+    // &__sidebarLayout {
+    //     @include u-fixedFluidRow($SiteMain-bp, "left", 70px, 0, "second", 300px);
+    // }
 }

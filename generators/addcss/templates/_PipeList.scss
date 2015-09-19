@@ -1,0 +1,17 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// PipeList
+// an inline list seperated by pipes
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+.PipeList {
+    @extend %u-inlineList;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        border-right: $inlineList-pipeBorder;
+        margin-right: 8px;
+        padding-right: 10px;
+    }
+}

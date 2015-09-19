@@ -13,11 +13,17 @@ module.exports = yeoman.generators.Base.extend({
             name: 'components',
             message: 'Which CSS component do you want to add?',
             choices: [
+                'Card',
+                'Slat',
                 'CardLink',
                 'ScreenLink',
                 'SlatLink',
                 'SmallListBox',
-                'Well'
+                'Well',
+                'BorderList',
+                'BrandList',
+                'CommaList',
+                'PipeList'
             ]
         }];
 
@@ -30,11 +36,18 @@ module.exports = yeoman.generators.Base.extend({
                 return components.indexOf(feat) !== -1;
             }
 
+            this.Card = hasAsset('Card');
             this.CardLink = hasAsset('CardLink');
-            this.ScreenLink = hasAsset('ScreenLink');
+            this.Slat = hasAsset('Slat');
             this.SlatLink = hasAsset('SlatLink');
+            this.ScreenLink = hasAsset('ScreenLink');
+            this.ListBox = hasAsset('ListBox');
             this.SmallListBox = hasAsset('SmallListBox');
             this.Well = hasAsset('Well');
+            this.BorderList = hasAsset('BorderList');
+            this.BrandList = hasAsset('BrandList');
+            this.CommaList = hasAsset('CommaList');
+            this.PipeList = hasAsset('PipeList');
 
 
         if (this.CardLink == true)  {
@@ -151,6 +164,69 @@ module.exports = yeoman.generators.Base.extend({
             this.fs.copy(
                 this.templatePath('Well.twig'),
                 this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/Well.twig')
+            );
+        } else if (this.Card == true) {
+            this.fs.copy(
+                this.templatePath('_Card.scss'),
+                this.destinationPath('src/sass/components/_Card.scss')
+            );
+            this.fs.copy(
+                this.templatePath('Card.twig'),
+                this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/Card.twig')
+            );
+        } else if (this.Slat == true) {
+            this.fs.copy(
+                this.templatePath('_Slat.scss'),
+                this.destinationPath('src/sass/components/_Slat.scss')
+            );
+            this.fs.copy(
+                this.templatePath('Slat.twig'),
+                this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/Slat.twig')
+            );
+        } else if (this.ListBox == true) {
+            this.fs.copy(
+                this.templatePath('_ListBox.scss'),
+                this.destinationPath('src/sass/components/_ListBox.scss')
+            );
+            this.fs.copy(
+                this.templatePath('ListBox.twig'),
+                this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/ListBox.twig')
+            );
+        } else if (this.BorderList == true) {
+            this.fs.copy(
+                this.templatePath('_BorderList.scss'),
+                this.destinationPath('src/sass/components/_BorderList.scss')
+            );
+            this.fs.copy(
+                this.templatePath('BorderList.twig'),
+                this.destinationPath('patternlab/source/_patterns/01-organisms/01-custom-objects/BorderList.twig')
+            );
+        } else if (this.BrandList == true) {
+            this.fs.copy(
+                this.templatePath('_BrandList.scss'),
+                this.destinationPath('src/sass/components/_BrandList.scss')
+            );
+            this.fs.copy(
+                this.templatePath('BrandList.twig'),
+                this.destinationPath('patternlab/source/_patterns/01-organisms/01-custom-objects/BrandList.twig')
+            );
+        } else if (this.CommaList == true) {
+            this.fs.copy(
+                this.templatePath('_CommaList.scss'),
+                this.destinationPath('src/sass/components/_CommaList.scss')
+            );
+            this.fs.copy(
+                this.templatePath('CommaList.twig'),
+                this.destinationPath('patternlab/source/_patterns/01-organisms/01-custom-objects/CommaList.twig')
+            );
+        } else if (this.PipeList == true) {
+            this.fs.copy(
+                this.templatePath('_PipeList.scss'),
+                this.destinationPath('src/sass/components/_PipeList.scss')
+            );
+            this.fs.copy(
+                this.templatePath('PipeList.twig'),
+                this.destinationPath('patternlab/source/_patterns/01-organisms/01-custom-objects/PipeList.twig')
             );
         }
     },
