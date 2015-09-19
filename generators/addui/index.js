@@ -76,7 +76,8 @@ module.exports = yeoman.generators.Base.extend({
             this.MobileMenu = hasAsset('MobileMenu');
             this.SocialList = hasAsset('SocialList');
             this.HeaderNewsletter = hasAsset('HeaderNewsletter');
-            this.HeaderSearch = hasAsset('SiteLogo');
+            this.HeaderSearch = hasAsset('HeaderSearch');
+            this.SiteLogo = hasAsset('SiteLogo');
             this.PrimaryMenu = hasAsset('PrimaryMenu');
             this.SecondaryMenu = hasAsset('SecondaryMenu');
 
@@ -89,7 +90,7 @@ module.exports = yeoman.generators.Base.extend({
         projectfiles: function () {
 
             if (this.Breadcrumbs == true) {
-                this.fs.copyTpl(
+                this.fs.copy(
                     this.templatePath('_Breadcrumbs.scss'),
                     this.destinationPath('src/sass/areas/_Breadcrumbs.scss')
                 );
@@ -101,7 +102,7 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.Pagination == true) {
-                this.fs.copyTpl(
+                this.fs.copy(
                     this.templatePath('_Pagination.scss'),
                     this.destinationPath('src/sass/areas/_Pagination.scss')
                 );
@@ -113,7 +114,7 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.CaptionImage == true) {
-                this.fs.copyTpl(
+                this.fs.copy(
                     this.templatePath('_CaptionImage.scss'),
                     this.destinationPath('src/sass/areas/_CaptionImage.scss')
                 );
@@ -125,7 +126,7 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.SocialList == true) {
-                this.fs.copyTpl(
+                this.fs.copy(
                     this.templatePath('_SocialList.scss'),
                     this.destinationPath('src/sass/areas/_SocialList.scss')
                 );
@@ -137,7 +138,7 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.HeaderNewsletter == true) {
-                this.fs.copyTpl(
+                this.fs.copy(
                     this.templatePath('_HeaderNewsletter.scss'),
                     this.destinationPath('src/sass/areas/_HeaderNewsletter.scss')
                 );
@@ -149,7 +150,7 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.HeaderSearch == true) {
-                this.fs.copyTpl(
+                this.fs.copy(
                     this.templatePath('_HeaderSearch.scss'),
                     this.destinationPath('src/sass/areas/_HeaderSearch.scss')
                 );
@@ -161,7 +162,7 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.MobileMenu == true) {
-                this.fs.copyTpl(
+                this.fs.copy(
                     this.templatePath('_MobileMenu.scss'),
                     this.destinationPath('src/sass/areas/_MobileMenu.scss')
                 );
@@ -173,7 +174,7 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.PrimaryMenu == true) {
-                this.fs.copyTpl(
+                this.fs.copy(
                     this.templatePath('_PrimaryMenu.scss'),
                     this.destinationPath('src/sass/areas/_PrimaryMenu.scss')
                 );
@@ -185,7 +186,7 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.SecondaryMenu == true) {
-                this.fs.copyTpl(
+                this.fs.copy(
                     this.templatePath('_SecondaryMenu.scss'),
                     this.destinationPath('src/sass/areas/_SecondaryMenu.scss')
                 );
@@ -197,7 +198,7 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.SiteLogo == true) {
-                this.fs.copyTpl(
+                this.fs.copy(
                     this.templatePath('_SiteLogo.scss'),
                     this.destinationPath('src/sass/areas/_SiteLogo.scss')
                 );

@@ -14,6 +14,9 @@
 
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="../../../../build/css/main.min.css?{{ cacheBuster }}" media="all" />
+
+		<!-- Pattern lab only css (don't include in production site) -->
+		<link rel="stylesheet" href="../../css/style.css?{{ cacheBuster }}" media="all" />
 		
 		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
 		{{ patternLabHead | raw }}

@@ -1,0 +1,10 @@
+{% macro input(placeholder, submit)%}
+<form class="Form Form--newsletter">
+    <div class="InputGroup InputGroup--email">
+        <input type="email" placeholder="{{ placeholder }}" />
+    </div>
+    <div class="InputGroup InputGroup--submit">
+        <input type="submit" value="{{ submit }}" />
+    </div>
+</form>
+{% endmacro %}

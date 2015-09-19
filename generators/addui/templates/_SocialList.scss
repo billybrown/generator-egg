@@ -4,10 +4,10 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
-.SocialList {
+.SocialList {  
 
     ul {
-        @extend %u-inlineList--spacing;
+        @extend %u-inlineList;
     }
  
     a {

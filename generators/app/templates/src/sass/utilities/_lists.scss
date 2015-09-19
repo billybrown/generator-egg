@@ -35,3 +35,11 @@
         display: inline-block;
     }
 }
+
+// a sass loop to turn the placeholder classes above
+// into utility classes for easy deployment directly in markup
+$list-collection: 
+inlineList 
+;
+
+@each $i in $list-collection { .u-#{$i} { @extend %u-#{$i}; } }
