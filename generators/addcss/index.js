@@ -72,61 +72,66 @@ module.exports = yeoman.generators.Base.extend({
             this.SmallListBox = hasAsset('SmallListBox');
             this.Well = hasAsset('Well');
 
-        if (this.CardLink == true)  {
-            this.prompt([{
-                type: 'input',
-                name: 'CardLink__maxWidth',
-                message: 'What is the max-width of the card?',
-                default: '570px'   
-            }, {
-                type: 'input',
-                name: 'CardLink__bg',
-                message: 'What is the background of the card?',
-                default: '$gray'
-            }], function (response) {
-                this.response = response;
 
-                this.CardLink__maxWidth = response.CardLink__maxWidth;       
-                this.CardLink__bg = response.CardLink__bg;       
+            // not sure about these variables yet
+            // if (this.CardLink == true)  {
+            //     this.prompt([{
+            //         type: 'input',
+            //         name: 'CardLink__maxWidth',
+            //         message: 'What is the max-width of the CardLink?',
+            //         default: '570px'   
+            //     }, {
+            //         type: 'input',
+            //         name: 'CardLink__bg',
+            //         message: 'What is the background of the CardLink?',
+            //         default: '$gray'
+            //     }], function (response) {
+            //         this.response = response;
 
-                done();
-            }.bind(this)); 
-        } else if (this.ScreenLink == true) {
-            this.prompt([{
-                type: 'input',
-                name: 'ScreenLink__maxWidth',
-                message: 'What is the max-width of the ScreenLink?',
-                default: '570px'   
-            }, {
-                type: 'input',
-                name: 'ScreenLink__bg',
-                message: 'What is the fallback background color of the ScreenLink?',
-                default: '$gray'
-            }], function (response) {
-                this.response = response;
+            //         this.CardLink__maxWidth = response.CardLink__maxWidth;       
+            //         this.CardLink__bg = response.CardLink__bg;       
 
-                this.ScreenLink__maxWidth = response.ScreenLink__maxWidth;       
-                this.ScreenLink__bg = response.ScreenLink__bg;       
+            //         done();
+            //     }.bind(this));
+            // }
 
-                done();
-            }.bind(this));                 
-        } else if (this.Well == true) {
-            this.prompt([{
-                type: 'input',
-                name: 'Well__bg',
-                message: 'What is the background color of Wells?',
-                default: '$gray'
-            }], function (response) {
-                this.response = response;
+            // if (this.ScreenLink == true) {
+            //     this.prompt([{
+            //         type: 'input',
+            //         name: 'ScreenLink__maxWidth',
+            //         message: 'What is the max-width of the ScreenLink?',
+            //         default: '570px'   
+            //     }, {
+            //         type: 'input',
+            //         name: 'ScreenLink__bg',
+            //         message: 'What is the fallback background color of the ScreenLink?',
+            //         default: '$gray'
+            //     }], function (response) {
+            //         this.response = response;
 
-                this.Well__bg = response.Well__bg;       
+            //         this.ScreenLink__maxWidth = response.ScreenLink__maxWidth;       
+            //         this.ScreenLink__bg = response.ScreenLink__bg;       
 
-                done();
-            }.bind(this));                 
-        } else {
+            //         done();
+            //     }.bind(this));       
+            // }
+
+            // if (this.Well == true) {
+            //     this.prompt([{
+            //         type: 'input',
+            //         name: 'Well__bg',
+            //         message: 'What is the background color of Wells?',
+            //         default: '$gray'
+            //     }], function (response) {
+            //         this.response = response;
+
+            //         this.Well__bg = response.Well__bg;       
+
+            //         done();
+            //     }.bind(this)); 
+            // }
+
             done();
-        }
-
         }.bind(this));
     },
 
@@ -177,7 +182,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('SmallListBox.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/SmallListBox.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/SmallListBox.twig')
                 );
             }
             if (this.Well == true) {
@@ -189,7 +194,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('Well.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/Well.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/Well.twig')
                 );
             }
             if (this.Card == true) {

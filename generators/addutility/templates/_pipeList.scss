@@ -4,14 +4,17 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
+$pipeList-border: 1px solid $text;
 
-.PipeList {
+.u-pipeList {
     @extend %u-inlineList;
 
     > li:not(:last-child),
     > div:not(:last-child) {
-        border-right: $inlineList-pipeBorder;
+        border-right: $pipeList-border;
         margin-right: 8px;
         padding-right: 10px;
     }
 }
+
+.u-pipeList { @extend %u-pipeList;  }

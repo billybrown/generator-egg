@@ -5,7 +5,7 @@
 
 
 
-.BrandList {
+.u-brandList {
     overflow: auto;
 
     li {
@@ -14,7 +14,7 @@
 
         &:before {
             @extend %u-icomoon;
-            content: '\f111';
+            content: '\f111'; // this is the value for a 'dot' with fontawesome via icomoon
             color: $link-color;
             font-size: 6px;
             position: relative;
@@ -23,3 +23,5 @@
         }
     }
 }
+
+.u-brandList { @extend %u-brandList;  }

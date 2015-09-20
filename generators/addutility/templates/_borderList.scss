@@ -4,8 +4,9 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
+$borderList-border: 1px solid $text;
 
-.BorderList {
+%u-borderList {
     @extend %u-nolist;
 
     > li:not(:last-child),
@@ -13,3 +14,5 @@
         border-bottom: $borderList-border;
     }
 }
+
+.u-borderList { @extend %u-borderList;  }

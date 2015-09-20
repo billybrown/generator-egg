@@ -5,7 +5,7 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
-$nub-color: $green-light;
+$nub-color: $link-color;
 $nub-width: 53px;
 $nub-height: 6px;
 
@@ -17,7 +17,7 @@ $nub-height: 6px;
     &:after {
         content: '';
         width: $nub-width;
-        height: $nub-heigh;
+        height: $nub-height;
         background: $nub-color;
     }
 }
@@ -25,15 +25,16 @@ $nub-height: 6px;
 
 // Nub variants depending on where they need to be positioned
 
-%u-nub--bottomLeft {
+%u-nubBottomLeft {
     @extend %u-nubDefaults;
+    padding-bottom: 20px;
 
     &:after {
         @include u-absolute(null, null, 0, 0);
     }
 }
 
-%u-nub--center {
+%u-nubCenter {
     @extend %u-nubDefaults;
 
     &:after {
@@ -41,10 +42,19 @@ $nub-height: 6px;
     }
 }
 
-%u-nub--topCenter {
+%u-nubTopCenter {
     @extend %u-nubDefaults;
 
     &:after {
         @include u-absoluteCenter("top");
     }
 }
+
+
+$nub-collection: 
+nubBottomLeft
+nubTopCenter
+nubCenter
+;
+
+@each $i in $nub-collection { .u-#{$i} { @extend %u-#{$i}; } }

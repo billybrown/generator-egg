@@ -24,8 +24,8 @@
 // variables
 
 
-$ScrenLink-maxWidth: <%= maxwidth %>; // should be the same as whatever image is being used
-$ScreenLink-fallbackBg: <%= bg %>; // in case the image fails for whateve reason
+$ScrenLink-maxWidth: 570px; // should be the same as whatever image is being used
+$ScreenLink-fallbackBg: $text; // in case the image fails for whateve reason
 
 
 
