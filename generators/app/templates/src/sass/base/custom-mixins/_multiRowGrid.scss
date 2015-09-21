@@ -32,7 +32,7 @@
         display: flex;
         flex-wrap: wrap;
 
-        .no-flexbox {
+        .no-flexbox & {
             display: block;
         }
     }
@@ -44,7 +44,7 @@
         @include mq($from: $bp) {
             width: $width;
 
-            .no-flexbox {
+            .no-flexbox & {
                 margin-right: -.25em;
                 vertical-align: top;
                 display: inline-block;
@@ -91,7 +91,7 @@
         width: calc(100% + #{$gutter});
         overflow: hidden;
 
-        .no-flexbox {
+        .no-flexbox & {
             width: 100%;
         }
     }
