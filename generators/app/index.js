@@ -73,7 +73,7 @@ module.exports = yeoman.generators.Base.extend({
         type: 'confirm',
         name: 'patternlab',
         message: 'Do you want a pattern library?',
-        default: false
+        default: true
       },
       {
         type: 'checkbox',
@@ -210,6 +210,12 @@ module.exports = yeoman.generators.Base.extend({
           this.templatePath('patternlab'),
           this.destinationPath('patternlab')
         );
+
+        // for some reason these directories aren't getting copied over
+        this.mkdir('patternlab/source/_twig-components/filters');
+        this.mkdir('patternlab/source/_twig-components/functions');
+        this.mkdir('patternlab/source/_twig-components/tags');
+        this.mkdir('patternlab/source/_twig-components/tests');
       }
 
       if (this.props.ie8 == true) {

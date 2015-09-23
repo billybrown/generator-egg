@@ -1,14 +1,21 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 // Spacing utility classes
 //
-// @todo - this partial might should live elsewhere. Review.
-//
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
 
 /////////////////////////////////////-+++-
+// some variables
+
+
+$spacing: 20px;
+
+
+
+/////////////////////////////////////-+++-
 // default spacing between basic content elements
+
 
 h1, 
 h2, 
@@ -19,5 +26,26 @@ h6,
 p,
 blockquote,
 input {
-    margin: 0 0 20px;
+    margin: 0 0 $spacing; // need full margin values here to reset browser defaults
 }
+
+
+
+/////////////////////////////////////-+++-
+// some spacing utility classes
+
+
+%u-truncate {
+    margin-bottom: 0;
+}
+
+%u-spacing {
+    margin-bottom: $spacing;
+}
+
+$spacing-collection: 
+truncate
+spacing
+;
+
+@each $i in $spacing-collection { .u-#{$i} { @extend %u-#{$i}; } }

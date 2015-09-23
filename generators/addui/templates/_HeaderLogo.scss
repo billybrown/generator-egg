@@ -1,0 +1,27 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Header logo
+// this is the main site logo
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+$HeaderLogo-bp: mobilemenu-bp;
+$HeaderLogo-smallHeight: 50px;
+$HeaderLogo-height: 100px;
+
+.HeaderLogo {
+
+    img {
+        display: block;
+        height: $HeaderLogo-smallHeight;
+
+        @include mq($from: $HeaderLogo-bp) {
+            height: $HeaderLogo-height;
+        }
+    }
+
+    a {
+        display: block;
+        position: relative;
+    }
+}

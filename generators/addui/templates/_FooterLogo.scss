@@ -1,0 +1,27 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Footer logo
+// this is a logo that shows up in the footer
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+$FooterLogo-bp: mobilemenu-bp;
+$FooterLogo-smallHeight: 50px;
+$FooterLogo-height: 100px;
+
+.FooterLogo {
+
+    img {
+        display: block;
+        height: $FooterLogo-smallHeight;
+
+        @include mq($from: $FooterLogo-bp) {
+            height: $FooterLogo-height;
+        }
+    }
+
+    a {
+        display: block;
+        position: relative;
+    }
+}

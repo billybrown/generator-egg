@@ -7,9 +7,13 @@
 // styles for both mobile menu version and desktop version
 .SecondaryMenu {
 
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
     a {
-        @extend %u-text--blocked;
         display: block;
     }
 }
@@ -17,15 +21,17 @@
 
 // desktop only version
 .SiteHeader .SecondaryMenu {
-    ul {
-        @extend %u-inlineList--spacing;
+    li {
+        display: inline-block;
+        vertical-align: top;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
     }
 }
 
 
 // mobile only version
 .MobileMenu .SecondaryMenu {
-    ul {
-        @extend %u-stackedList--smallSpacing;
-    }
 }

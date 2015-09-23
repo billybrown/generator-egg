@@ -131,18 +131,17 @@ input[type="range"] {
 /////////////////////////////////////-+++-
 // Full Form styles
 
-.Form {
+// this is the width of the search button
+$search-width: 60px;
 
-    // &--search {
-    //   position: relative;
+.Form--search {
+    position: relative;
       
-    //     input[type="search"] {
-    //         padding-right: 60px; // this is a magic number equal to the width of the submit button text
-            
-    //     }
-
-    //     .InputGroup--submit {
-    //         @include u-absolute(0, 0, null, null);
-    //     }
-    // }
+    input[type="search"] {
+        padding-right: $search-width;
+    }
+    
+    .InputGroup--submit {
+        @include u-absolute(0, 0, null, null);
+    }
 }

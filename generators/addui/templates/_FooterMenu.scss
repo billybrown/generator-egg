@@ -1,11 +1,11 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
-// Primary site navigation in the header
+// Footer menu in the footer
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
-$PrimaryMenu-bp: mobilemenu-bp;
+$FooterMenu-bp: mobilemenu-bp;
 
-.PrimaryMenu {
+.FooterMenu {
 
     ul {
         list-style: none;
@@ -16,20 +16,10 @@ $PrimaryMenu-bp: mobilemenu-bp;
             display: inline-block;
             vertical-align: top;
             margin-right: 10px;
-
-            @include mq($from: $PrimaryMenu-bp) {
-                margin-right: 40px;
-            }
         }
     }
 
     a {
         display: block;
-        font-weight: 700;
-
-        @include mq($from: $PrimaryMenu-bp) {
-            font-size: 30px;
-            line-height: 32px;
-        }
     }
 }

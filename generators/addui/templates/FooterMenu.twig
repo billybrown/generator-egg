@@ -1,0 +1,10 @@
+<nav class="FooterMenu">
+    <h2 class="u-visuallyHidden">Footer Menu</h2>
+    <ul>
+        {% for post in primarymenu %}
+            {% if post.title != null %}
+              <li {% if post.active == "true" %} class="is-active" {% endif %} ><a href="">{{ post.title }}</a></li>
+            {% endif %}
+        {% endfor %} 
+    </ul>
+</nav>

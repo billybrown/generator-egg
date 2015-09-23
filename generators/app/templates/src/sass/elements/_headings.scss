@@ -12,10 +12,9 @@
 
 
 
-
-h1 { @extend %u-giantSerifText; }
-h2 { @extend %u-largeSerifText; }
-h3 { @extend %u-serifText; }
-h4 { @extend %u-text--blocked; }
-h5 { @extend %u-text--strong; }
-h6 { @extend %u-smallText--strong; }
+h1 { @extend %u-largeText; font-weight: 800; }
+h2 { @extend %u-largeText; font-weight: 800; }
+h3 { @extend %u-text; font-weight: 800; }
+h4 { @extend %u-smallText; font-weight: 800; }
+h5 { @extend %u-smallText; font-weight: 800; }
+h6 { @extend %u-smallText; font-weight: 800;}

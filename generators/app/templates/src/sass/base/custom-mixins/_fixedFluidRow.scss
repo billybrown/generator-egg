@@ -11,7 +11,8 @@
 // use the mixin like so:
 //
 //      .MyExampleClass {
-//          @mixin u-fixedFluidRow(800px, "left", 70px, 50px, "second", 300px) {
+//          // breakpoint, fixed side, spacing when stacked, gutter, position with stacked, width of fixed col
+//          @include u-fixedFluidRow(800px, "left", 70px, 50px, "second", 300px);
 //      }
 //      // the mixin above will start at 800px breakpoint, with the fixed column on the left
 //      // 70px worth of gutter, 50px between columns when stacked, the second column will

@@ -62,7 +62,6 @@ $Frame-giant: 100px;
         margin-right: auto;
         margin-left: auto;
         max-width: $content-max-width;
-        
     }
 
     // this is for when there are multiple items inside of a frame, they get spacing
@@ -84,38 +83,8 @@ $Frame-giant: 100px;
 	    padding-bottom: 0;
 	}
 
-    // Frame with no horizontal padding just on mobile
-    &--noMobilePadding {
-        @include mq($until: mobilemenu-bp) {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    }
-
-    &--tinySpacing {
-        padding-top: 20px;
-        padding-bottom: 2px;
-
-        @include mq($from: mobilemenu-bp) {
-            padding-bottom: 20px;
-        }
-    }
-
-    &--bordered {
-        border-top: 10px solid $text;
-        border-bottom: 10px solid $text;        
-    }
-
-    &--borderTop {
-        border-top: 10px solid $text;
-    }
-
-    &--black {
-        background: $text;
+    &--gray {
+        background: #888;
         color: #fff;
-    }
-
-    &--yellow {
-        background: gold;
     }
 }
