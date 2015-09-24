@@ -17,12 +17,17 @@ module.exports.tasks = {
         files: ['src/img/*'],
         tasks: ['images']
       },
+      patternlab: {
+        files: ['patternlab/source/**/**'],
+        tasks: ['shell:patternlab']        
+      },
       // this task must come last, and it will refresh your browser (as long
       // as you have the chrome extension) whenever certain files get changed
       livereload: {
         options: { livereload: true },
         files: [
-          'build/css/main.min.css'
+          'build/css/*',
+          'patternlab/public/*'
         ]
       }
     }

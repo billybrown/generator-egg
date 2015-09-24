@@ -12,7 +12,7 @@
 // use the mixin like so:
 //
 //      .MyExampleClass {
-//          @include u-equalColRow( 800px );
+//          @include u-equalColRow--gutter($bp, $gutter);
 //      }
 //
 /////////////////////////////////////-+++-/////////////////////////////////////////

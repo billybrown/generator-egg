@@ -248,6 +248,10 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.FooterContact == true) {
+                this.fs.copy(
+                    this.templatePath('_FooterContact.scss'),
+                    this.destinationPath('src/sass/areas/_FooterContact.scss')
+                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('FooterContact.twig'),
@@ -262,7 +266,7 @@ module.exports = yeoman.generators.Base.extend({
             for ( var item in this.props.components) {
 
                 // make a sass partial for pretty much everything
-                if (this.props.components[item] !== "FooterContact") {
+                //if (this.props.components[item] !== "FooterContact") {
                     var hook   = '//-+++- areas DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//',
                         path   = 'src/sass/main.scss',
                         file   = wiring.readFileAsString(path),
@@ -272,7 +276,7 @@ module.exports = yeoman.generators.Base.extend({
                     if (file.indexOf(insert) === -1) {
                       this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
                     }
-                }
+                //}
 
                 // if its something that needs to go into the header
                 if (    this.props.components[item] === "HeaderLogo" ||
