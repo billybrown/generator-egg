@@ -23,17 +23,28 @@
 // variables
 
 $Well-bp: mobilemenu-bp;
-$Well-bg: #fff;
+$Well-bg: #eee;
 
 /////////////////////////////////////-+++-
 // styles
 
 .Well {
-	background: $Well-bg;
-	padding: 25px 20px 20px;
-	overflow: hidden; // because of the belt
+    background: $Well-bg;
+    padding: 25px 20px 20px;
+    overflow: hidden; // because of the belt
 
-	@include mq($from: $Well-bp) {
-		padding: 50px 70px 70px;
-	}
+    @include mq($from: $Well-bp) {
+        padding: 50px 70px 70px;
+    }
+
+    &__content {
+
+        h4 {
+            margin-bottom: 0;
+        }
+        
+        p {
+            @extend %u-smallText;
+        }
+    }
 }

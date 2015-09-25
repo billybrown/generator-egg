@@ -1,4 +1,7 @@
 'use strict';
+
+require('shelljs/global');
+
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
@@ -74,16 +77,12 @@ module.exports = yeoman.generators.Base.extend({
                         name: 'elements',
                         message: 'What elements does it have?',
                         choices: [{
-                            name: 'title',
-                            value: 'title',
-                            checked: true
+                            name: 'header',
+                            value: 'header',
+                            checked: false
                         }, {
                             name: 'content',
                             value: 'content',
-                            checked: false
-                        }, {
-                            name: 'header',
-                            value: 'header',
                             checked: false
                         }, {
                             name: 'footer',
@@ -195,6 +194,14 @@ module.exports = yeoman.generators.Base.extend({
             if (file.indexOf(insert) === -1) {
               this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
             }
+        }
+    },
+    install: function() {
+        // new compiled of css
+        exec("grunt css");
+        // new build of the pattern library
+        if (this.props.patternlab == true) {
+            exec("php ./patternlab/core/console --generate");
         }
     }
 });

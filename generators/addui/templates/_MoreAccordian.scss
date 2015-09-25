@@ -1,0 +1,52 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// More Accordian
+// This is an element that expands and reveals more by clicking on a 'more' button
+// its different then a regular accordian in that it shows a small bit of the content
+// on load, and then reveals more on click.
+//
+// there is a lot of javascript linked to this code, so check out moreaccordian.js
+//
+//  <section class="MoreAccordian">
+//      <div class="MoreAccordian__content">
+//          <p>Lorem ipsum sit dolar ... </p>
+//      </div>
+//      <div class="MoreAccordian__trigger">+ More</div>
+//  </section>
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+.MoreAccordian {
+    clear: both;
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 30px;
+
+    &.is-small {
+        height: auto !important;
+
+        .MoreAccordian__trigger {
+            display: none;
+        }
+    }
+}
+
+.MoreAccordian__trigger {
+    @include u-absolute(null, null, 0, 0);
+    width: 100%;
+    text-align: center;
+    background: rgba(255,255,255,.95);
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1) 123px);
+    padding: 130px 0 0;
+    transition: color .2s ease, padding 1s ease;
+
+    &:hover {
+        cursor: pointer;
+        color: $link-color;
+    }
+
+    .is-out & {
+        padding-top: 0px;
+    }
+}

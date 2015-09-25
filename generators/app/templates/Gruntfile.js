@@ -24,6 +24,7 @@
     grunt js_vendor (move over any js that isn't included in bower over to the build directory)
     grunt build (recompiled everything - sass, sprites, javascript, etc.)
     grunt stats (get some stats on your theme assets)
+    grunt patternlab (compile the pattern library)
 
     All commands are detailed by running the following:
     --------------------------
@@ -66,18 +67,21 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['css']);
     grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin:custom', 'clean:css']);
-    grunt.registerTask('js', ['jshint:custom', 'uglify' ]);
+    grunt.registerTask('js', ['jshint:custom', 'uglify:customjs' ]);
     grunt.registerTask('js_vendor', ['copy:vendorjs']);
     grunt.registerTask('iconfonts', ['copy:icomoon_fonts', 'cssmin:plugins' ]);
     grunt.registerTask('images', ['imagemin', 'copy:raster', 'copy:svg']);
     grunt.registerTask('stats', ['parker']);
+    grunt.registerTask('patternlab', ['shell:patternlab']);
     //grunt.registerTask('sprites', ['dr-svg-sprites', 'copy:sprites', 'clean:sprites']);
+    
     grunt.registerTask('plugins', [
         'bower_install', 
         'bower_concat', 
         'uglify', 
         //'copy:chosensprite',
-        'cssmin:plugins'
+        'cssmin:plugins',
+        'copy:bowerjs'
     ]);
     grunt.registerTask('build', [
         'clean:build',

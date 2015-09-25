@@ -1,4 +1,7 @@
 'use strict';
+
+require('shelljs/global');
+
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
@@ -231,7 +234,7 @@ module.exports = yeoman.generators.Base.extend({
 
         extra: function () {
             for ( var item in this.props.components) {
-                var hook   = '//-+++- components DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//',
+                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//',
                     path   = 'src/sass/main.scss',
                     file   = wiring.readFileAsString(path),
                     slug   = this.props.components[item].replace(/ /g, '_'),
@@ -241,6 +244,14 @@ module.exports = yeoman.generators.Base.extend({
                   this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
                 }
             }
+        }
+    },
+    install: function() {
+        // new compiled of css
+        exec("grunt css");
+        // new build of the pattern library
+        if (this.props.patternlab == true) {
+            exec("php ./patternlab/core/console --generate");
         }
     }
 });

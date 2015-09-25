@@ -112,6 +112,12 @@ module.exports = yeoman.generators.Base.extend({
         name: 'installitall',
         message: 'Do you want to install all bower and grunt depenencies?',
         default: false
+      },
+      {
+        type: 'confirm',
+        name: 'innitialbuild',
+        message: 'Do you want to start off with an innitial "Grunt Build"?',
+        default: true
       }
     ];
 
@@ -300,10 +306,9 @@ module.exports = yeoman.generators.Base.extend({
     if (this.props.installitall == true) {
       this.installDependencies();
     }
-  },
-  end: function() {
-    if (this.props.patternlab == true) {
-      console.log('Next steps:');
+    
+    if (this.props.innitialbuild == true) {
+      exec("grunt build");
     }
   }
 

@@ -1,4 +1,7 @@
 'use strict';
+
+require('shelljs/global');
+
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
@@ -41,8 +44,8 @@ module.exports = yeoman.generators.Base.extend({
                 value: 'HeaderSearch',
                 checked: false
             }, {
-                name: 'SiteLogo',
-                value: 'SiteLogo',
+                name: 'HeaderLogo',
+                value: 'HeaderLogo',
                 checked: false
             }, {
                 name: 'PrimaryMenu',
@@ -63,6 +66,14 @@ module.exports = yeoman.generators.Base.extend({
             }, {
                 name: 'FooterContact',
                 value: 'FooterContact',
+                checked: false
+            }, {
+                name: 'MoreAccordian',
+                value: 'MoreAccordian',
+                checked: false
+            }, {
+                name: 'Modal',
+                value: 'Modal',
                 checked: false
             }]
         },
@@ -89,12 +100,15 @@ module.exports = yeoman.generators.Base.extend({
             this.SocialList = hasAsset('SocialList');
             this.HeaderNewsletter = hasAsset('HeaderNewsletter');
             this.HeaderSearch = hasAsset('HeaderSearch');
-            this.SiteLogo = hasAsset('SiteLogo');
+            this.HeaderLogo = hasAsset('HeaderLogo');
             this.PrimaryMenu = hasAsset('PrimaryMenu');
             this.SecondaryMenu = hasAsset('SecondaryMenu');
             this.FooterLogo = hasAsset('FooterLogo');
             this.FooterContact = hasAsset('FooterContact');
             this.FooterMenu = hasAsset('FooterMenu');
+            this.MoreAccordian = hasAsset('MoreAccordian');
+            this.Modal = hasAsset('Modal');
+
             done();
         }.bind(this));
     },
@@ -180,6 +194,10 @@ module.exports = yeoman.generators.Base.extend({
                     this.templatePath('_MobileMenu.scss'),
                     this.destinationPath('src/sass/areas/_MobileMenu.scss')
                 );
+                this.fs.copy(
+                    this.templatePath('mobilemenu.js'),
+                    this.destinationPath('src/js/custom/mobilemenu.js')
+                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('MobileMenu.twig'),
@@ -211,15 +229,15 @@ module.exports = yeoman.generators.Base.extend({
                     );
                 }
             }
-            if (this.SiteLogo == true) {
+            if (this.HeaderLogo == true) {
                 this.fs.copy(
-                    this.templatePath('_SiteLogo.scss'),
-                    this.destinationPath('src/sass/areas/_SiteLogo.scss')
+                    this.templatePath('_HeaderLogo.scss'),
+                    this.destinationPath('src/sass/areas/_HeaderLogo.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
-                        this.templatePath('SiteLogo.twig'),
-                        this.destinationPath('patternlab/source/_layouts/header/SiteLogo.twig')
+                        this.templatePath('HeaderLogo.twig'),
+                        this.destinationPath('patternlab/source/_layouts/header/HeaderLogo.twig')
                     );
                 }
             }
@@ -259,6 +277,38 @@ module.exports = yeoman.generators.Base.extend({
                     );
                 }
             }
+            if (this.MoreAccordian == true) {
+                this.fs.copy(
+                    this.templatePath('_MoreAccordian.scss'),
+                    this.destinationPath('src/sass/areas/_MoreAccordian.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('moreaccordian.js'),
+                    this.destinationPath('src/js/custom/moreaccordian.js')
+                );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('MoreAccordian.twig'),
+                        this.destinationPath('patternlab/source/_patterns/01-molecules/02-user-interface/30-MoreAccordian.twig')
+                    );
+                }
+            }
+            if (this.Modal == true) {
+                this.fs.copy(
+                    this.templatePath('_Modal.scss'),
+                    this.destinationPath('src/sass/areas/_Modal.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('modal.js'),
+                    this.destinationPath('src/js/custom/modal.js')
+                );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('Modal.twig'),
+                        this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/Modal.twig')
+                    );
+                }
+            }
         },
 
         extra: function () {
@@ -267,7 +317,7 @@ module.exports = yeoman.generators.Base.extend({
 
                 // make a sass partial for pretty much everything
                 //if (this.props.components[item] !== "FooterContact") {
-                    var hook   = '//-+++- areas DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//',
+                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | areas -+++-//',
                         path   = 'src/sass/main.scss',
                         file   = wiring.readFileAsString(path),
                         slug   = this.props.components[item].replace(/ /g, '_'),
@@ -287,14 +337,52 @@ module.exports = yeoman.generators.Base.extend({
                         this.props.components[item] === "HeaderSearch"
                  ) {
 
-                    var headerhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman -+++-//-->',
+                    var headerhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | header -+++-//-->',
                         headerpath   = 'patternlab/source/_layouts/header/header.twig',
                         headerfile   = wiring.readFileAsString(headerpath),
                         headerslug   = this.props.components[item].replace(/ /g, '_'),
                         headerinsert = "{% include 'header/" + headerslug + ".twig' %}"
 
                     if (headerfile.indexOf(headerinsert) === -1) {
-                      this.writeFileFromString(headerfile.replace(headerhook, headerinsert+'\n'+headerhook), headerpath);
+                      this.writeFileFromString(headerfile.replace(headerhook, headerinsert+'\n'+'\t\t'+headerhook), headerpath);
+                    }
+                }
+
+                // if this is the mobile menu, we need to add a mobile menu region
+                if ( this.props.components[item] === "MobileMenu") {
+
+                    var afterheaderhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | mobilemenu -+++-//-->',
+                        afterheaderpath   = 'patternlab/source/_layouts/header/header.twig',
+                        afterheaderfile   = wiring.readFileAsString(afterheaderpath),
+                        afterheaderslug   = this.props.components[item].replace(/ /g, '_'),
+                        afterheaderinsert = "<div id='MobileMenu__content' class='MobileMenu__content MobileMenu'>\n" +
+                                                "\t<div class='MobileMenu__inside'>\n" +
+                                                    "\t\t{% block mobilemenu %}\n" +
+
+                                                    "\t\t{% endblock %}\n" +
+                                                "\t</div><!-- /.MobileMenu__inside -->\n" +
+                                            "</div><!-- /.MobileMenu__content -->\n"
+
+                    if (afterheaderfile.indexOf(afterheaderinsert) === -1) {
+                      this.writeFileFromString(afterheaderfile.replace(afterheaderhook, afterheaderinsert), afterheaderpath);
+                    }
+                }
+
+                // if this is the modal, it goes after the footer
+                if ( this.props.components[item] === "Modal") {
+
+                    var afterFooterhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | afterFooter -+++-//-->',
+                        afterFooterpath   = 'patternlab/source/_layouts/main.twig',
+                        afterFooterfile   = wiring.readFileAsString(afterFooterpath),
+                        afterFooterslug   = this.props.components[item].replace(/ /g, '_'),
+                        afterFooterinsert = '<div id="ModalCage" class="ModalCage">\n' +
+                                                '\t{% block modals %}\n' +
+                                                    '\t\t{% endblock %}\n' +
+                                                '\t</div>\n' +
+                                            '<div id="Cover" class="Cover"></div>\n'
+
+                    if (afterFooterfile.indexOf(afterFooterinsert) === -1) {
+                      this.writeFileFromString(afterFooterfile.replace(afterFooterhook, afterFooterinsert), afterFooterpath);
                     }
                 }
 
@@ -311,10 +399,19 @@ module.exports = yeoman.generators.Base.extend({
                         footerinsert = "{% include 'footer/" + footerslug + ".twig' %}"
 
                     if (footerfile.indexOf(footerinsert) === -1) {
-                      this.writeFileFromString(footerfile.replace(footerhook, footerinsert+'\n'+footerhook), footerpath);
+                      this.writeFileFromString(footerfile.replace(footerhook, footerinsert+'\n'+'\t\t'+footerhook), footerpath);
                     }
                 }
             }
+        }
+    },
+    install: function() {
+        // new compiled of css
+        exec("grunt css");
+        exec("grunt js");
+        // new build of the pattern library
+        if (this.props.patternlab == true) {
+            exec("php ./patternlab/core/console --generate");
         }
     }
 });

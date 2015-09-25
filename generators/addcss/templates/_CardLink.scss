@@ -19,7 +19,7 @@
 
 
 $CardLink-maxWidth: 570px;
-$CardLink-bg: #fff;
+$CardLink-bg: $link-color;
 
 .CardLink { 
 
@@ -37,10 +37,13 @@ $CardLink-bg: #fff;
             color: #fff;
 
             .CardLink__textGroup {
-                background: $link-color;
+                background: $link-colorHover;
             }
-
         }
+    }
+
+    &__title {
+        margin-bottom: 0;
     }
 
     &__textGroup {

@@ -41,7 +41,7 @@
 @import 'utilities/lists';
 @import 'utilities/spacing';
 @import 'utilities/grid';
-//-+++- utilities DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//
 
 // import html elements
 @import 'elements/body';
@@ -57,20 +57,19 @@
 @import 'elements/table';
 @import 'elements/small';
 @import 'elements/mark';
-//-+++- elements DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//
 
 // import CSS objects
-@import 'components/Frame';
-//-+++- components DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//
 
 // import CSS areas
+@import 'areas/Frame';
 @import 'areas/Post';
 @import 'areas/SiteWrapper';
 @import 'areas/SiteMain';
 @import 'areas/SiteFooter';
 @import 'areas/SiteHeader';
 @import 'areas/BrowseHappy';
-//-+++- areas DONT REMOVE THIS COMMENT! its used by Yeoman -+++-//
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | areas -+++-//
 
 // import print styles 
 @import 'areas/Print';

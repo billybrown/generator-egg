@@ -1,0 +1,69 @@
+
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Modal
+// this is a full site overlay or cover. Often appears as the background when a 
+// modal popup is active.
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+.ModalWrapper {
+    @include u-absolute(0, null, null, 0);
+    z-index: 102;
+    width: 100%; 
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .5s ease, opacity .5s ease;
+    text-align: left;
+
+    .Frame__inside {
+        background: #fff;
+        padding: 40px;
+        position: relative;
+    }
+
+    .Modal__close {
+        @include u-absolute(20px, 20px, null, null);
+        font-size: 31px;
+        color: $link-color;
+        transition: color $animation;
+
+        i {
+            transform: rotate(45deg);
+            display: block;
+            position: relative;
+        }
+
+        &:hover {
+            color: $link-colorHover;
+            cursor: pointer;
+        }
+    }
+
+    .ModalCage &.is-out {
+        visibility: visible;
+        opacity: 1;     
+    }
+}
+
+$Cover-background: rgba(0,0,0,.5);
+$Cover-opacity: .9;
+
+.Cover {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    background: $Cover-background;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: visibility .5s ease, opacity .5s ease;
+
+    &.is-out {
+        visibility: visible;
+        opacity: $Cover-opacity;
+    }
+}

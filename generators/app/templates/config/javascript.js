@@ -18,13 +18,32 @@ module.exports.tasks = {
 	  			src: ['Gruntfile.js', 'config/*.js']
 	  		}
 	  	},
-	  	custom: ['src/js/scripts.js']
+        custom: {
+            options: {
+                "globals": {
+                    "$": false,
+                    "jQuery": false,
+                    "document": false,
+                    "window": false,
+                    "console": false,
+                    "setTimeout": false,
+                    "enquire": false,
+                    "Waypoint": false,
+                    "sticky": false,
+                    "classTrigger": true,
+                    "imagesLoaded": false
+                }
+            },
+            files: {
+                src: ['src/js/base.js', 'src/js/custom/*.js']
+            }
+        }
 	},
 
     bower_concat: {
         all: {
-            dest: 'src/js/temp/compiled_bower.js',
-            cssDest: 'src/js/temp/compiled_bower.css',
+            dest: 'src/js/temp/plugins.min.js',
+            cssDest: 'src/js/temp/plugins.min.css',
             exclude: [
                 'jquery',
                 'modernizr'
@@ -49,6 +68,11 @@ module.exports.tasks = {
                 { expand: true, cwd: 'src/js/vendor', src: ['*.js'], dest: 'build/js/'}
             ]
         },
+        bowerjs: {
+            files: [
+                { expand: true, cwd: 'src/js/temp', src: ['*.js'], dest: 'build/js/'}
+            ]
+        },
         //chosensprite: {
         //    files: [
         //        { expand: true, cwd: 'bower_components/chosen', src: ['chosen-sprite.png', 'chosen-sprite@2x.png'], dest: 'build/css/'}
@@ -56,12 +80,23 @@ module.exports.tasks = {
         //}
     },
 
-    uglify: {
-        js: {
-            files: {
-              'build/js/plugins.min.js': ['src/js/temp/compiled_bower.js', 'src/js/scripts.js']
-            }
+    uglify : {
+        customjs: {
+            options : {
+                banner: "(function($){",
+                footer: "\n})(jQuery);",
+                preserveComments: false,
+                sourceMap : true
+            },
+            src: [
+                 // base class and global options
+                'src/js/base.js',
+
+                // all other custom js
+                'src/js/custom/*.js'
+            ],
+            dest : 'build/js/scripts.min.js'
         }
     }
-    
+
 };

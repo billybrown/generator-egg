@@ -73,8 +73,7 @@ Learn More:
 * http://patternlab.io/
 * https://github.com/pattern-lab/edition-php-twig-standard
 
-To generate a new version of the pattern library, from the root of the theme cd into the patternlab directory then run:
+To generate a new version of the pattern library, from the root of the theme run: grunt patternlab
 
-php core/console --generate
 <% } %>
 
