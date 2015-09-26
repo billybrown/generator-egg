@@ -49,8 +49,9 @@ module.exports.tasks = {
                 'modernizr'
             ],
             mainFiles: {
-                //'matchmedia': ['./matchMedia.js', './matchMedia.addListener.js'],
-                //'chosen': ['chosen.min.css', 'chosen.jquery.min.js']
+                //-+++- DONT REMOVE THIS COMMENT! its used by yeoman | chosen-main -+++-//
+                //-+++- DONT REMOVE THIS COMMENT! its used by yeoman | enquire-main -+++-//
+                //-+++- DONT REMOVE THIS COMMENT! its used by yeoman | stickynav-main -+++-//
             },
             dependencies: {
                 //'enquire': 'matchmedia'
@@ -63,6 +64,7 @@ module.exports.tasks = {
 
     //copy custom JS file over to the build directory
     copy: {
+        //-+++- DONT REMOVE THIS COMMENT! its used by yeoman | owlcarousel-copy -+++-//
         vendorjs: {
             files: [
                 { expand: true, cwd: 'src/js/vendor', src: ['*.js'], dest: 'build/js/'}
@@ -72,12 +74,7 @@ module.exports.tasks = {
             files: [
                 { expand: true, cwd: 'src/js/temp', src: ['*.js'], dest: 'build/js/'}
             ]
-        },
-        //chosensprite: {
-        //    files: [
-        //        { expand: true, cwd: 'bower_components/chosen', src: ['chosen-sprite.png', 'chosen-sprite@2x.png'], dest: 'build/css/'}
-        //    ]
-        //}
+        }
     },
 
     uglify : {

@@ -7,21 +7,11 @@ Please feel free to take on any of these things below - or add new stuff.
 
 ## to do
 
-- **Javascript** Need to establish a javascript workflow and base template for adding new scripts - all integrated probably with Yeoman so we can add custom scripts in a consistant way. I'm hoping that @wpatt will lead this effort ...
-- **Simplify the shit out of Egg** I want to refactor Egg so that only the raw, essentials come with an innitial install. Everything else would be added via Yeoman. There should be a version of Egg for the most basic, single page, CMS-free project - but at the same time it should be fairly easy to add all the components for a complex site.
-- **Is the Egg theme a dependency of the Egg Generator?** I need to figure out how to actively work on Egg theme files (sass, grunt config, js, etc.) while also allowing the egg generator to shape those theme files with yeoman for new projects. One option would be to duplicate and underscore everything that gets generated (how we're handing package.json and bower.json) - but that creates a lot of duplication which makes maintaining everything a pain. I'm hoping the *simplify* project above will shed some light here.
-- **Echo Index**. Need to figure out a way to bring in this site/repo into this project. Seems silly to have them seperate. https://github.com/billybrown/EchoIndex - http://b.illbrown.com/EchoIndex/
+- **Javascript** Need to figure out boilerplate js code for integrating new custom bits of js. Also need to consider integrating prototype and a global theme class. Need to connect with @wpatt about this.
+- **Takana**. I'd love to properly add Takana into the theme - right now I just run it locally. Takana isn't super well maintained so it would require a lot of documentation and trial and error. (@billybrown will do this task since he already knows a good bit about the issues here)
 - **Moar Usage**. I need people to start using these tools to find their problems.
 
 
-
-## egg theme tasks
-These tasks are not related to yeoman generator - just the theme itself.
-
-- **Moar Stats**. Currently there is a 'grunt stats' task that will output some stats on the compiled css. I'd love for there to be more stuff here. JS stats, Performance stats, etc. Something that we can use to develop benchmarks.
-- **Takana**. I'd love to properly add Takana into the theme - right now I just run it locally. Takana isn't super well maintained so it would require a lot of documentation and trial and error. (@billybrown will do this task since he already knows a good bit about the issues here)
-- **CSS partial organization review**. Honestly I'm not so sure about how I've seperate things out. Would love some thoughts about it.
-- **Better rules around utility classes vs components**. Sometimes it's not very clear when to use a utility class or a component class to apply certain styles. For example typography styles on a component title - use a utility class? Or are those styles unique to the component? Need to figure out some hard rules here.
 
 ### on hold
 
@@ -30,6 +20,7 @@ These tasks are not related to yeoman generator - just the theme itself.
 - **Critical CSS**. This requires scanning a compiled HTML document. Really only possible if doing a simple static site - otherwise this should be a discussion with the backend dev.
 - **Uncss**. Similar to Critical CSS in that it requires scanning HTML. Discuss with backend dev as necessary.
 - **takana**. Takana requires v0.12 of node to work properlly. I would love to figure out how to use the most recent version of node (v4) and still have Takana work. This is a Takana issue and not an Egg one ... figured I'd mention it here though.
+- **Stats**. Currently there is a 'grunt stats' task that will output some stats on the compiled css. I'd love for there to be more stuff here. JS stats, Performance stats, etc. Something that we can use to develop benchmarks. We need to figure out those benchmarks first though - not sure how best to integrate all of this. Seems like a *Phase 2* type of thing.
 
 
 

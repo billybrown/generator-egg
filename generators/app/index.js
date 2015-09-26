@@ -77,28 +77,6 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         type: 'checkbox',
-        name: 'bowerplugins',
-        message: 'What bower plugins do you need?',
-        choices: [{
-            name: 'enquire',
-            value: 'enquire',
-            checked: false
-        }, {
-            name: 'matchHeight',
-            value: 'matchHeight',
-            checked: false
-        }, {
-            name: 'chosen',
-            value: 'chosen',
-            checked: false
-        }, {
-            name: 'waypoints',
-            value: 'waypoints',
-            checked: false
-        }]
-      },
-      {
-        type: 'checkbox',
         name: 'gruntplugins',
         message: 'What extra grunt build tools do you need?',
         choices: [{
@@ -124,20 +102,6 @@ module.exports = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.props = props;
 
-      var bowerplugins = props.bowerplugins;
-
-      function hasBowerPlugin(feat) {
-        return bowerplugins.indexOf(feat) !== -1;
-      }
-
-      this.enquire = hasBowerPlugin('enquire');
-      this.matchHeight = hasBowerPlugin('matchHeight');
-      this.chosen = hasBowerPlugin('chosen');
-      this.waypoints = hasBowerPlugin('waypoints');
-      this.icomoon = hasBowerPlugin('icomoon');
-      this.webfonts = hasBowerPlugin('webfonts');
-      this.gruntsprites = hasBowerPlugin('gruntsprites');
-
       var gruntplugins = props.gruntplugins;
 
       function hasGruntPlugin(feat) {
@@ -161,15 +125,9 @@ module.exports = yeoman.generators.Base.extend({
               cms: this.props.cms
             }
       );
-      this.fs.copyTpl(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json'),
-            { 
-              enquire: this.enquire,
-              matchHeight: this.matchHeight,
-              chosen: this.chosen,
-              waypoints: this.waypoints
-            }
+      this.fs.copy(
+        this.templatePath('bower.json'),
+        this.destinationPath('bower.json')
       );
     },
 

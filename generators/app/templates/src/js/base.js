@@ -6,9 +6,6 @@
 	// this makes all videos responsive inside the main content area
 	$(".SiteMain").fitVids();
 
-	// this makes all select elements with this wrapping class have the chosen style
-	// 	$(".u-select select").chosen();
-
 
 
 	/////////////////////////////////////-+++-
