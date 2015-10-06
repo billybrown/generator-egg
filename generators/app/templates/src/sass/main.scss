@@ -7,15 +7,13 @@
 //
 //  sass
 //    │  
-//    ├── base: variables, mixins, and css resets
-//    │
-//    ├── utilities: component-agnostic css
+//    ├── base: variables, mixins, resets, utiltiies
 //    │
 //    ├── elements: starting css for html elements
 //    │
-//    ├── components: css for modular components
+//    ├── patterns: css for modular components
 //    │
-//    └── areas: css for a specifc non-modular areas of the site
+//    └── specifics: css for a specifc non-modular areas of the site
 //    
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
@@ -31,16 +29,16 @@
 @import 'base/normalize';
 @import 'base/normalizeAdditions';
 
-// import utilities
-@import 'utilities/misc';
-@import 'utilities/clearfix';
-@import 'utilities/alignment';
-@import 'utilities/iconfonts';
-@import 'utilities/text';
-@import 'utilities/links';
-@import 'utilities/lists';
-@import 'utilities/spacing';
-@import 'utilities/grid';
+// import base utilities 
+@import 'base/misc';
+@import 'base/clearfix';
+@import 'base/alignment';
+@import 'base/iconfonts';
+@import 'base/text';
+@import 'base/links';
+@import 'base/lists';
+@import 'base/spacing';
+@import 'base/grid';
 //-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//
 
 // import html elements
@@ -58,21 +56,21 @@
 @import 'elements/small';
 @import 'elements/mark';
 
-// import CSS objects
-//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//
+// import CSS patterns
+@import 'patterns/Frame';
+@import 'patterns/Post';
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | patterns -+++-//
 
-// import CSS areas
-@import 'areas/Frame';
-@import 'areas/Post';
-@import 'areas/SiteWrapper';
-@import 'areas/SiteMain';
-@import 'areas/SiteFooter';
-@import 'areas/SiteHeader';
-@import 'areas/BrowseHappy';
-//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | areas -+++-//
+// import specific css areas
+@import 'specifics/SiteWrapper';
+@import 'specifics/SiteMain';
+@import 'specifics/SiteFooter';
+@import 'specifics/SiteHeader';
+@import 'specifics/BrowseHappy';
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | specifics -+++-//
 
 // import print styles 
-@import 'areas/Print';
+@import 'specifics/Print';
 
 // import your shame css
 @import 'shame';

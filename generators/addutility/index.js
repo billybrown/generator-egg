@@ -71,7 +71,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.borderList == true) {
                 this.fs.copy(
                     this.templatePath('_borderList.scss'),
-                    this.destinationPath('src/sass/utilities/_borderList.scss')
+                    this.destinationPath('src/sass/base/_borderList.scss')
                 );
                 this.fs.copy(
                     this.templatePath('borderList.twig'),
@@ -81,7 +81,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.brandList == true) {
                 this.fs.copy(
                     this.templatePath('_brandList.scss'),
-                    this.destinationPath('src/sass/utilities/_brandList.scss')
+                    this.destinationPath('src/sass/base/_brandList.scss')
                 );
                 this.fs.copy(
                     this.templatePath('brandList.twig'),
@@ -91,7 +91,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.commaList == true) {
                 this.fs.copy(
                     this.templatePath('_commaList.scss'),
-                    this.destinationPath('src/sass/utilities/_commaList.scss')
+                    this.destinationPath('src/sass/base/_commaList.scss')
                 );
                 this.fs.copy(
                     this.templatePath('commaList.twig'),
@@ -101,7 +101,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.pipeList == true) {
                 this.fs.copy(
                     this.templatePath('_pipeList.scss'),
-                    this.destinationPath('src/sass/utilities/_pipeList.scss')
+                    this.destinationPath('src/sass/base/_pipeList.scss')
                 );
                 this.fs.copy(
                     this.templatePath('pipeList.twig'),
@@ -111,7 +111,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.nub == true) {
                 this.fs.copy(
                     this.templatePath('_nub.scss'),
-                    this.destinationPath('src/sass/utilities/_nub.scss')
+                    this.destinationPath('src/sass/base/_nub.scss')
                 );
                 this.fs.copy(
                     this.templatePath('nub.twig'),
@@ -126,7 +126,7 @@ module.exports = yeoman.generators.Base.extend({
                     path   = 'src/sass/main.scss',
                     file   = wiring.readFileAsString(path),
                     slug   = this.props.components[item].replace(/ /g, '_'),
-                    insert = "@import 'utilities/" + slug + "';";
+                    insert = "@import 'base/" + slug + "';";
 
                 if (file.indexOf(insert) === -1) {
                   this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);

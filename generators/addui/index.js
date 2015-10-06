@@ -145,7 +145,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Breadcrumbs == true) {
                 this.fs.copy(
                     this.templatePath('_Breadcrumbs.scss'),
-                    this.destinationPath('src/sass/areas/_Breadcrumbs.scss')
+                    this.destinationPath('src/sass/specifics/_Breadcrumbs.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -157,7 +157,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Pagination == true) {
                 this.fs.copy(
                     this.templatePath('_Pagination.scss'),
-                    this.destinationPath('src/sass/areas/_Pagination.scss')
+                    this.destinationPath('src/sass/specifics/_Pagination.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -169,7 +169,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.CaptionImage == true) {
                 this.fs.copy(
                     this.templatePath('_CaptionImage.scss'),
-                    this.destinationPath('src/sass/areas/_CaptionImage.scss')
+                    this.destinationPath('src/sass/specifics/_CaptionImage.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -181,7 +181,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.SocialList == true) {
                 this.fs.copy(
                     this.templatePath('_SocialList.scss'),
-                    this.destinationPath('src/sass/areas/_SocialList.scss')
+                    this.destinationPath('src/sass/specifics/_SocialList.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -193,7 +193,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.HeaderNewsletter == true) {
                 this.fs.copy(
                     this.templatePath('_HeaderNewsletter.scss'),
-                    this.destinationPath('src/sass/areas/_HeaderNewsletter.scss')
+                    this.destinationPath('src/sass/specifics/_HeaderNewsletter.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -205,7 +205,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.HeaderSearch == true) {
                 this.fs.copy(
                     this.templatePath('_HeaderSearch.scss'),
-                    this.destinationPath('src/sass/areas/_HeaderSearch.scss')
+                    this.destinationPath('src/sass/specifics/_HeaderSearch.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -217,7 +217,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.MobileMenu == true) {
                 this.fs.copy(
                     this.templatePath('_MobileMenu.scss'),
-                    this.destinationPath('src/sass/areas/_MobileMenu.scss')
+                    this.destinationPath('src/sass/specifics/_MobileMenu.scss')
                 );
                 this.fs.copy(
                     this.templatePath('mobilemenu.js'),
@@ -233,7 +233,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.PrimaryMenu == true) {
                 this.fs.copy(
                     this.templatePath('_PrimaryMenu.scss'),
-                    this.destinationPath('src/sass/areas/_PrimaryMenu.scss')
+                    this.destinationPath('src/sass/specifics/_PrimaryMenu.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -245,7 +245,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.SecondaryMenu == true) {
                 this.fs.copy(
                     this.templatePath('_SecondaryMenu.scss'),
-                    this.destinationPath('src/sass/areas/_SecondaryMenu.scss')
+                    this.destinationPath('src/sass/specifics/_SecondaryMenu.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -257,7 +257,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.HeaderLogo == true) {
                 this.fs.copy(
                     this.templatePath('_HeaderLogo.scss'),
-                    this.destinationPath('src/sass/areas/_HeaderLogo.scss')
+                    this.destinationPath('src/sass/specifics/_HeaderLogo.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -269,7 +269,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.FooterMenu == true) {
                 this.fs.copy(
                     this.templatePath('_FooterMenu.scss'),
-                    this.destinationPath('src/sass/areas/_FooterMenu.scss')
+                    this.destinationPath('src/sass/specifics/_FooterMenu.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -281,7 +281,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.FooterLogo == true) {
                 this.fs.copy(
                     this.templatePath('_FooterLogo.scss'),
-                    this.destinationPath('src/sass/areas/_FooterLogo.scss')
+                    this.destinationPath('src/sass/specifics/_FooterLogo.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -293,7 +293,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.FooterContact == true) {
                 this.fs.copy(
                     this.templatePath('_FooterContact.scss'),
-                    this.destinationPath('src/sass/areas/_FooterContact.scss')
+                    this.destinationPath('src/sass/specifics/_FooterContact.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -305,7 +305,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.MoreAccordian == true) {
                 this.fs.copy(
                     this.templatePath('_MoreAccordian.scss'),
-                    this.destinationPath('src/sass/areas/_MoreAccordian.scss')
+                    this.destinationPath('src/sass/specifics/_MoreAccordian.scss')
                 );
                 this.fs.copy(
                     this.templatePath('moreaccordian.js'),
@@ -321,7 +321,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Modal == true) {
                 this.fs.copy(
                     this.templatePath('_Modal.scss'),
-                    this.destinationPath('src/sass/areas/_Modal.scss')
+                    this.destinationPath('src/sass/specifics/_Modal.scss')
                 );
                 this.fs.copy(
                     this.templatePath('modal.js'),
@@ -365,11 +365,11 @@ module.exports = yeoman.generators.Base.extend({
                     this.props.components[item] !== "EqualHeight" &&
                     this.props.components[item] !== "StickyNav") {
 
-                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | areas -+++-//',
+                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | specifics -+++-//',
                         path   = 'src/sass/main.scss',
                         file   = wiring.readFileAsString(path),
                         slug   = this.props.components[item].replace(/ /g, '_'),
-                        insert = "@import 'areas/" + slug + "';";
+                        insert = "@import 'specifics/" + slug + "';";
 
                     if (file.indexOf(insert) === -1) {
                       this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);

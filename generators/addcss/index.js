@@ -145,7 +145,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.CardLink == true) {
                 this.fs.copyTpl(
                     this.templatePath('_CardLink.scss'),
-                    this.destinationPath('src/sass/components/_CardLink.scss'), { 
+                    this.destinationPath('src/sass/patterns/_CardLink.scss'), { 
                         maxwidth: this.CardLink__maxWidth,
                         bg: this.CardLink__bg
                     }
@@ -158,7 +158,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.ScreenLink == true) {
                 this.fs.copyTpl(
                     this.templatePath('_ScreenLink.scss'),
-                    this.destinationPath('src/sass/components/_ScreenLink.scss'), { 
+                    this.destinationPath('src/sass/patterns/_ScreenLink.scss'), { 
                         maxwidth: this.ScreenLink__maxWidth,
                         bg: this.ScreenLink__bg
                     }
@@ -171,7 +171,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.SlatLink == true) {
                 this.fs.copy(
                     this.templatePath('_SlatLink.scss'),
-                    this.destinationPath('src/sass/components/_SlatLink.scss')
+                    this.destinationPath('src/sass/patterns/_SlatLink.scss')
                 );
                 this.fs.copy(
                     this.templatePath('SlatLink.twig'),
@@ -181,7 +181,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.SmallListBox == true) {
                 this.fs.copy(
                     this.templatePath('_SmallListBox.scss'),
-                    this.destinationPath('src/sass/components/_SmallListBox.scss')
+                    this.destinationPath('src/sass/patterns/_SmallListBox.scss')
                 );
                 this.fs.copy(
                     this.templatePath('SmallListBox.twig'),
@@ -191,7 +191,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Well == true) {
                 this.fs.copyTpl(
                     this.templatePath('_Well.scss'),
-                    this.destinationPath('src/sass/components/_Well.scss'), { 
+                    this.destinationPath('src/sass/patterns/_Well.scss'), { 
                         bg: this.Well__bg
                     }
                 );
@@ -203,7 +203,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Card == true) {
                 this.fs.copy(
                     this.templatePath('_Card.scss'),
-                    this.destinationPath('src/sass/components/_Card.scss')
+                    this.destinationPath('src/sass/patterns/_Card.scss')
                 );
                 this.fs.copy(
                     this.templatePath('Card.twig'),
@@ -213,7 +213,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Slat == true) {
                 this.fs.copy(
                     this.templatePath('_Slat.scss'),
-                    this.destinationPath('src/sass/components/_Slat.scss')
+                    this.destinationPath('src/sass/patterns/_Slat.scss')
                 );
                 this.fs.copy(
                     this.templatePath('Slat.twig'),
@@ -223,7 +223,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.ListBox == true) {
                 this.fs.copy(
                     this.templatePath('_ListBox.scss'),
-                    this.destinationPath('src/sass/components/_ListBox.scss')
+                    this.destinationPath('src/sass/patterns/_ListBox.scss')
                 );
                 this.fs.copy(
                     this.templatePath('ListBox.twig'),
@@ -234,11 +234,11 @@ module.exports = yeoman.generators.Base.extend({
 
         extra: function () {
             for ( var item in this.props.components) {
-                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//',
+                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | patterns -+++-//',
                     path   = 'src/sass/main.scss',
                     file   = wiring.readFileAsString(path),
                     slug   = this.props.components[item].replace(/ /g, '_'),
-                    insert = "@import 'components/" + slug + "';";
+                    insert = "@import 'patterns/" + slug + "';";
 
                 if (file.indexOf(insert) === -1) {
                   this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);

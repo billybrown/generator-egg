@@ -145,7 +145,7 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('Gruntfile.js')
       );
       this.fs.copy(
-        this.templatePath('.nvmrc'),
+        this.templatePath('_nvmrc'),
         this.destinationPath('.nvmrc')
       );
       this.fs.copy(
