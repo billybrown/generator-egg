@@ -10,7 +10,7 @@
 
 
 // default inline grid
-$grid-bp: 800px;
+$grid-bp: mobilemenu-bp;
 $grid-spacing: 20px;
 
 .u-grid {
@@ -20,12 +20,26 @@ $grid-spacing: 20px;
     @include mq($from: $grid-bp) {
         .u-grid__80 { width: 80%; }
         .u-grid__75 { width: 75%; }
-        .u-grid__66 { width: 66.6666666%; }
+        .u-grid__66 { width: 66.66666666%; }
         .u-grid__60 { width: 60%; }
+        .u-grid__58 { width: 58.33333333%; }
         .u-grid__50 { width: 50%; }
         .u-grid__40 { width: 40%; }
+        .u-grid__42 { width: 41.66666666%; }
         .u-grid__33 { width: 33.33333333%; }
         .u-grid__25 { width: 25%; }
         .u-grid__20 { width: 20%; }
+    }
+
+    .chosen-container{
+        width: 100% !important; // overriding some chosen inline styles
+    }
+
+
+    &--noMarginBottomDesktop {
+        > div:not(:last-child),
+        > li:not(:last-child) {
+            margin-bottom: 0;
+        }
     }
 }

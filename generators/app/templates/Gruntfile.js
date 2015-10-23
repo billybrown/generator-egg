@@ -18,7 +18,6 @@
     grunt js (hint custom js, concatenate and minify it with plugin js, move it to the build directory)
     grunt watch (watch for changes to .scss files or scripts.js and compile on save)
     grunt plugins (compile and minify all plugin css and js)
-    grunt iconfonts (move iconfonts to build directory and concat and minify css with plugin css)
     grunt images (optimize all images and move them to the build directory)
     grunt sprites (create an svg sprite and corrasponding scss partial)
     grunt js_vendor (move over any js that isn't included in bower over to the build directory)
@@ -69,7 +68,6 @@ module.exports = function(grunt) {
     grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin:custom', 'clean:css']);
     grunt.registerTask('js', ['jshint:custom', 'uglify:customjs' ]);
     grunt.registerTask('js_vendor', ['copy:vendorjs']);
-    grunt.registerTask('iconfonts', ['copy:icomoon_fonts', 'cssmin:plugins' ]);
     grunt.registerTask('images', ['imagemin', 'copy:raster', 'copy:svg']);
     grunt.registerTask('stats', ['parker']);
     grunt.registerTask('patternlab', ['shell:patternlab']);
@@ -89,7 +87,6 @@ module.exports = function(grunt) {
         'js',
         'js_vendor',
         //'sprites',
-        'copy:icomoon_fonts',
         'plugins',
         'images'
     ]);

@@ -1,0 +1,14 @@
+{% extends "main.twig" %}
+
+{% block main %}
+
+    {% embed "organisms-frame"  with {"frameclass": "MainFrame"} %}
+        {% block frame_content %}
+
+            {% embed "organisms-post" with {"postclass": "Post--page"}%}
+            {% endembed %}
+
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}

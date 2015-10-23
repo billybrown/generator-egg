@@ -5,21 +5,20 @@
 
 
 
-.u-brandList {
+%u-brandList {
     overflow: auto;
+    margin: 0;
+    padding: 0;
 
     li {
         list-style: none;
         position: relative;
+        padding: 0 0 0 18px;
 
         &:before {
-            @extend %u-icomoon;
-            content: '\f111'; // this is the value for a 'dot' with fontawesome via icomoon
-            color: $link-color;
-            font-size: 6px;
-            position: relative;
-            top: -4px;
-            padding-right: 10px;
+            content: '';
+            @include u-absolute(9px, null, null, 3px);
+            //@extend .svg-caret; // replace with real svg class
         }
     }
 }

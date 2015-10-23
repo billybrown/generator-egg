@@ -27,20 +27,12 @@
     }
 }
 
-// basic stacked list
-%u-stackedList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
 // a sass loop to turn the placeholder classes above
 // into utility classes for easy deployment directly in markup
 $list-collection: 
 nolist
 noList
 inlineList 
-stackedList
 ;
 
 @each $i in $list-collection { .u-#{$i} { @extend %u-#{$i}; } }

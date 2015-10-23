@@ -82,27 +82,6 @@
         }
     }
 
-
-    & > div:first-child {
-        @if $direction == "left" {
-            @include u-fixedFluidRow__fixed($bp, $width);   
-
-        } @else {
-            @include u-fixedFluidRow__fluid($bp, $layerSpace); 
-        } 
-
-        @if $primary == "first" {
-            order: 1;
-        } @else {
-            order: 2;
-        }
-
-        @include mq($from: $bp) {
-            padding-right: $gutter*.5;  
-            order: 1;    
-        }
-    }
-
     // main column
     & > div:last-child {
         @if $direction == "left" {
@@ -124,6 +103,26 @@
         }
     }
 
+    & > div:first-child {
+        @if $direction == "left" {
+            @include u-fixedFluidRow__fixed($bp, $width);   
+
+        } @else {
+            @include u-fixedFluidRow__fluid($bp, $layerSpace); 
+        } 
+
+        @if $primary == "first" {
+            order: 1;
+        } @else {
+            order: 2;
+        }
+
+        @include mq($from: $bp) {
+            padding-right: $gutter*.5;  
+            order: 1;    
+        }
+    }
+    
     // this is a flexbox bug in firefox where the img breaks the container otherwise
     img {
         width: 100%;

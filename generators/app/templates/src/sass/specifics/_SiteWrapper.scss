@@ -1,11 +1,12 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
-// SiteWrapper
+// SiteWrappers
 //
 // This elemement follows the <body> tag and wraps the entire page. Its required
 // to make the MobileMenu work properlly and to apply a max-width on page content.
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
-.SiteWrapper {
+.SiteWrapper1,
+.SiteWrapper2 {
   height: 100%;
   position: relative;
   min-height: 800px;

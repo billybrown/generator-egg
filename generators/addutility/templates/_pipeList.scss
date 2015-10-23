@@ -6,7 +6,7 @@
 
 $pipeList-border: 1px solid $text;
 
-.u-pipeList {
+%u-pipeList {
     @extend %u-inlineList;
 
     > li:not(:last-child),

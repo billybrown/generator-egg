@@ -12,6 +12,16 @@
 		{ "title": "Item 2" },
 		{ "title": "Item 3" }
 	],	
+	"img": {
+		"img620x364": {
+			"src": "http://dummyimage.com/620x364/000/fff.png",
+			"alt": "image"	
+		},
+		"img235xAuto": {
+			"src": "http://dummyimage.com/235x157/000/fff.png",
+			"alt": "image"	
+		}
+	},
 	"post": {
 		"heading": {
 			"tiny" : "Lorem Ipsum Sit",
@@ -29,16 +39,6 @@
 			"short": "lorem ipsum",
 			"medium": "lorem ipsum sit dolar",
 			"long": "lorem ipsum dolor sit amet consectetur adipiscing elit"
-		},
-		"img": {
-			"rectangle": {
-				"src": "http://dummyimage.com/570x320/000/fff.png",
-				"alt": "image"	
-			},
-			"smallRectangle": {
-				"src": "http://dummyimage.com/250x180/000/fff.png",
-				"alt": "image"	
-			}
 		},
 		"tag" : "Lorem",
 		"taglist" : [

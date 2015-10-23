@@ -1,16 +1,31 @@
-<article class="Post">
+<article class="Post {{ postclass }}">
 
 	<header class="Post__header">
-		<h2 class="Post__title">{{ post.heading.short }}</h2>
+        <h2 class="Post__title">{% if page.heading %}{{ page.heading }}{% else %}{{post.heading.short}}{% endif %}</h2>
+        {% if page.author %}<div class="Post__author">by {{ page.author }}</div>{% endif %}
+        {% if page.summary %}
+            <div class="Post__summary">
+                <p>{{ page.summary }}</p>
+            </div>
+        {% endif %}
 	</header>
 
 	<div class="Post__content">
 
-		<div class="Post__body">
-			{% block post_body %}
-				{{ post.excerpt.long }}
-			{% endblock %}
-		</div><!-- /.Post__body -->
+        <div class="Post__body u-WYSIWYG">
+            {% block post_body %}
+                <p>{{ post.excerpt.long }} {{ post.excerpt.long }}</p>
+                <p>{{ post.excerpt.long }}</p>
+                <ul>
+                    <li>{{ post.excerpt.short }}</li>
+                    <li>{{ post.excerpt.long }}</li>
+                    <li>{{ post.excerpt.medium }}</li>
+                </ul>
+                <p>{{ post.excerpt.long }} {{ post.excerpt.long }} {{ post.excerpt.long }}</p>
+                <blockquote><p>Lorem Ipsum sample blockquote sit dolor.</p></blockquote>
+                <p>{{ post.excerpt.long }} {{ post.excerpt.long }} {{ post.excerpt.long }}</p>
+    		{% endblock %}
+        </div><!-- /.Post__body -->
 
 	</div><!-- /.Post__content -->
 

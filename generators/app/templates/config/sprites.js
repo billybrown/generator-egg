@@ -10,27 +10,27 @@ module.exports.tasks = {
     // to add this task, run: npm install grunt-dr-svg-sprites --save-dev
     //
 
-    // "dr-svg-sprites": {
-    //     basic: {
-    //         options: {
-    //             spriteElementPath: "src/img/svg-sprites",
-    //             spritePath: "src/img/sprite.svg",
-    //             cssPath: "src/sass/sprites.scss",
-    //             prefix: "svg",
-    //             layout: "horizontal"
-    //         }
-    //     }
-    // },
+    "dr-svg-sprites": {
+        basic: {
+            options: {
+                spriteElementPath: "src/img/svg-sprites",
+                spritePath: "src/img/sprite.svg",
+                cssPath: "src/sass/sprites.scss",
+                prefix: "svg",
+                layout: "horizontal"
+            }
+        }
+    },
 
-    // copy: {
-    //     sprites: {
-    //         files: [
-    //             { expand: true, cwd: 'src/img/', src: ['sprite.png', 'sprite.svg'], dest: 'build/img/'}
-    //         ]
-    //     }
-    // },
+    copy: {
+        sprites: {
+            files: [
+                { expand: true, cwd: 'src/img/', src: ['sprite.png', 'sprite.svg'], dest: 'build/img/'}
+            ]
+        }
+    },
 
-    // clean: {
-    //     sprites: ['src/img/sprite.png', 'src/img/sprite.svg']
-    // }
+    clean: {
+        sprites: ['src/img/sprite.png', 'src/img/sprite.svg']
+    }
 };

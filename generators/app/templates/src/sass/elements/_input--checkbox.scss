@@ -1,8 +1,7 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 // Checkboxes and Radio form elements
 // The CSS below assumes we will be totally removing the default checkbox/radio styles
-// and creating our own look. It also assumes we're using Icomoon as an iconfont, and
-// loading our 'check' icons from there.
+// and creating our own look.
 //
 // They take markup like this:
 //
@@ -15,11 +14,9 @@
 
 
 
-$checkbox-border: $gray;
+$checkbox-border: $link-color;
 $checkbox-background: #fff;
 $checkbox-color: $link-color;
-$checkbox-icon: "\f00c";
-$radio-icon: "\f111";
 
 
 input[type="checkbox"],
@@ -32,23 +29,33 @@ label input[type="radio"] + span {
     position: relative;
     padding-left: 27px;
     display: block;
-    margin-bottom: 4px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-transform: none;
+    color: $text;
+
 }
 
 input[type="checkbox"] + span:after,
 input[type="radio"] + span:after{
-    @extend %u-icomoon;
     content: '';
-    position: absolute;
-    left: 0;
-    top: 4px;
+    @include u-absolute(2px, null, null, 2px);
     text-align: center;
     border: 1px solid $checkbox-border;
     background: $checkbox-background;
     margin-right: 8px;
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
     color: $checkbox-color;
+}
+
+input[type="checkbox"] + span:before,
+input[type="radio"] + span:before {
+    content: '';
+    @include u-absolute(2px, null, null, 2px);
+    z-index: 1;
 }
 
 input[type="checkbox"] + span:after {
@@ -70,14 +77,14 @@ input[type="radio"]:checked + span:after {
     border-color: $link-color;
 }
 
-input[type="checkbox"]:checked + span:after {
-    content: $checkbox-icon;
-    font-size: 12px;
-    padding: 1px 0 0 1px;
+input[type="checkbox"]:checked + span:before {
+    @extend .svg-check;
+    top: 6px;
+    left: 5px;
 }
 
-input[type="radio"]:checked + span:after {
-    content: $radio-icon;
-    font-size: 10px;
-    padding: 3px 0 0 0px;
+input[type="radio"]:checked + span:before {
+    @extend .svg-circle;
+    top: 7px;
+    left: 7px;
 }

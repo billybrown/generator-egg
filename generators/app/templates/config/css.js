@@ -40,11 +40,6 @@ module.exports.tasks = {
     },
 
     copy: {
-        icomoon_fonts: {
-            files: [
-                { expand: true, cwd: 'src/fonts/icomoon', src: ['fonts/*'], dest: 'build/css/'}
-            ]
-        }
         // webfonts: {
         //     files: [
         //         { expand: true, cwd: 'src/fonts/MyFontsWebfontsKit', src: ['webfonts/*'], dest: 'build/css/'}

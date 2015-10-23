@@ -2,6 +2,8 @@
 // Chosen Select dropdowns
 // These styles override those that the chosen plugin provides.
 //
+// @todo: this needs to be refactored to be able to take variables
+//
 // https://harvesthq.github.io/chosen/
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
@@ -45,7 +47,7 @@
 
     &:after {
         @extend %u-absoluteCenter;
-        @extend %u-icomoon;
+        //@extend %u-icomoon;
         content: '\f0d7';
         font-size: 19px;
         margin-top: -2px;
@@ -56,7 +58,7 @@
         }
 
         .u-select--arrow & {
-            content: '\f0ab';
+            //content: '\f0ab';
             color: $link-color;
             font-size: 27px;
         }

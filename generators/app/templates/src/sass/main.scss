@@ -23,8 +23,8 @@
 @import 'base/variables';
 
 // import sprites
-//@import 'sprites/sprites'; // un-comment if you are using a grunt-spriting tool
- 
+@import 'sprites';
+
 // import css reset or normalize (and your custom reset additions)
 @import 'base/normalize';
 @import 'base/normalizeAdditions';
@@ -33,7 +33,6 @@
 @import 'base/misc';
 @import 'base/clearfix';
 @import 'base/alignment';
-@import 'base/iconfonts';
 @import 'base/text';
 @import 'base/links';
 @import 'base/lists';

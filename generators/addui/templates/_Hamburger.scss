@@ -1,0 +1,128 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Hamburger menu
+//
+// Basic hamburger menu. With animation to X.
+//
+// Expects markup like this:
+//
+//  <div class="Hamburger">
+//      <span class="Hamburger__icon"><span></span></span>
+//      <span class="Hamburger__text">Menu</span>
+//  </div>
+//
+// It turns into an X when the body gets a class of 'active-MobileMenu'
+//
+// @todo - this could be refactored beter. Or maybe combined with the other mobile menu
+// stuff
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+$Hamburger-color: #fff;
+$Hamburger-hoverColor: $yellow;
+$Hamburger-barWidth: 2px;
+$Hamburger-width: 24px;
+$Hamburger-spacing: 5px;
+$Hamburger-animation: .2s;
+
+.Hamburger {
+    position: relative;
+    display: inline-block;
+    top: -21px;
+    z-index: 101;
+
+    @include mq($from: mobilemenusmall-bp) {
+        top: auto;
+        display: block;
+    }
+
+    @include mq($from: mobilemenu-bp) {
+        display: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .Hamburger__text {
+            background: lighten($yellow,3%);
+        }
+
+        .Hamburger__iconWrapper {
+            background: $yellow;
+        }
+    }
+
+    &__text {
+        @extend %u-buttonDefault;
+        @extend %u-smallButtonText;
+        @extend %u-yellowButton;
+        padding: 13px 14px 13px 54px;
+        opacity: 1;
+        transition: background $animation, opacity .5s ease;
+
+        @include mq($from: mobilemenusmall-bp) {
+            display: block;
+        }
+
+    }
+
+    &__iconWrapper {
+        @include u-absolute(0, null, null, 0);
+        width: 40px;
+        height: 40px; 
+        display: block;
+        background: darken($yellow, 5%);
+        padding: 12px 10px;
+        transition: background $animation;
+        z-index: 2;
+    }
+
+    &__icon {
+        height: ($Hamburger-barWidth * 3) + ($Hamburger-spacing * 2);
+        transition: margin $Hamburger-animation;
+
+        span,
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: $Hamburger-barWidth;
+            background: $Hamburger-color;
+            transform: translateY(0) rotate(0);
+            opacity: 1;
+            transition: all $Hamburger-animation;
+        }
+
+        &:before,
+        span {
+            margin-bottom: $Hamburger-spacing;
+        }
+    }
+
+    .active-MobileMenu & {
+
+        .Hamburger__text {
+            opacity: 0;
+            @include mq($from: mobilemenutiny-bp) {
+                opacity: 1;
+            }
+        }
+
+        .Hamburger__icon:before {
+            transform: translateY(($Hamburger-spacing + $Hamburger-barWidth)) rotate(-45deg);
+        }
+
+        .Hamburger__icon:after {
+            transform: translateY(-($Hamburger-spacing + $Hamburger-barWidth)) rotate(45deg);
+        }
+
+        .Hamburger__icon span {
+            opacity: 0;
+        }
+
+        .Hamburger__icon {
+            margin-top: 8px;
+        }
+    }
+}

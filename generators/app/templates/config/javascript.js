@@ -29,9 +29,14 @@ module.exports.tasks = {
                     "setTimeout": false,
                     "enquire": false,
                     "Waypoint": false,
-                    "sticky": false,
+                    "sticky": true,
                     "classTrigger": true,
-                    "imagesLoaded": false
+                    "imagesLoaded": false,
+                    "clearTimeout": false,
+                    "waitForFinalEvent": true,
+                    "alert": false,
+                    "moz": false,
+                    "esnext": false
                 }
             },
             files: {
@@ -42,8 +47,8 @@ module.exports.tasks = {
 
     bower_concat: {
         all: {
-            dest: 'src/js/temp/plugins.min.js',
-            cssDest: 'src/js/temp/plugins.min.css',
+            dest: 'src/js/temp/compiled_bower.js',
+            cssDest: 'src/js/temp/compiled_bower.css',
             exclude: [
                 'jquery',
                 'modernizr'
@@ -51,7 +56,7 @@ module.exports.tasks = {
             mainFiles: {
                 //-+++- DONT REMOVE THIS COMMENT! its used by yeoman | chosen-main -+++-//
                 //-+++- DONT REMOVE THIS COMMENT! its used by yeoman | enquire-main -+++-//
-                //-+++- DONT REMOVE THIS COMMENT! its used by yeoman | stickynav-main -+++-//
+                //-+++- DONT REMOVE THIS COMMENT! its used by yeoman | waypoints-main -+++-//
             },
             dependencies: {
                 //'enquire': 'matchmedia'
@@ -70,11 +75,11 @@ module.exports.tasks = {
                 { expand: true, cwd: 'src/js/vendor', src: ['*.js'], dest: 'build/js/'}
             ]
         },
-        bowerjs: {
-            files: [
-                { expand: true, cwd: 'src/js/temp', src: ['*.js'], dest: 'build/js/'}
-            ]
-        }
+        // chosensprite: {
+        //     files: [
+        //         { expand: true, cwd: 'bower_components/chosen', src: ['*.png'], dest: 'build/css/'}
+        //     ]
+        // }
     },
 
     uglify : {
@@ -93,6 +98,15 @@ module.exports.tasks = {
                 'src/js/custom/*.js'
             ],
             dest : 'build/js/scripts.min.js'
+        },
+        bowerjs: {
+            options : {
+                sourceMap : true
+            },
+            src: [
+                'src/js/temp/compiled_bower.js'
+            ],
+            dest : 'build/js/plugins.min.js'
         }
     }
 

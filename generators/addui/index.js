@@ -32,12 +32,24 @@ module.exports = yeoman.generators.Base.extend({
                 value: 'MobileMenu',
                 checked: false
             }, {
+                name: 'Hamburger',
+                value: 'Hamburger',
+                checked: false
+            }, {
                 name: 'SocialList',
                 value: 'SocialList',
                 checked: false
             }, {
                 name: 'HeaderNewsletter',
                 value: 'HeaderNewsletter',
+                checked: false
+            }, {
+                name: 'HeaderDonate',
+                value: 'HeaderDonate',
+                checked: false
+            }, {
+                name: 'HeaderSocial',
+                value: 'HeaderSocial',
                 checked: false
             }, {
                 name: 'HeaderSearch',
@@ -84,6 +96,10 @@ module.exports = yeoman.generators.Base.extend({
                 value: 'StickyNav',
                 checked: false
             }, {
+                name: 'Waypoints',
+                value: 'Waypoints',
+                checked: false
+            }, {
                 name: 'Chosen',
                 value: 'Chosen',
                 checked: false
@@ -117,8 +133,11 @@ module.exports = yeoman.generators.Base.extend({
             this.Breadcrumbs = hasAsset('Breadcrumbs');
             this.CaptionImage = hasAsset('CaptionImage');
             this.MobileMenu = hasAsset('MobileMenu');
+            this.Hamburger = hasAsset('Hamburger');
             this.SocialList = hasAsset('SocialList');
             this.HeaderNewsletter = hasAsset('HeaderNewsletter');
+            this.HeaderDonate = hasAsset('HeaderDonate');
+            this.HeaderSocial = hasAsset('HeaderSocial');
             this.HeaderSearch = hasAsset('HeaderSearch');
             this.HeaderLogo = hasAsset('HeaderLogo');
             this.PrimaryMenu = hasAsset('PrimaryMenu');
@@ -130,6 +149,7 @@ module.exports = yeoman.generators.Base.extend({
             this.Modal = hasAsset('Modal');
             this.OwlCarousel = hasAsset('OwlCarousel');
             this.StickyNav = hasAsset('StickyNav');
+            this.Waypoints = hasAsset('Waypoints');
             this.Chosen = hasAsset('Chosen');
             this.Enquire = hasAsset('Enquire');
             this.EqualHeight = hasAsset('EqualHeight');
@@ -202,6 +222,26 @@ module.exports = yeoman.generators.Base.extend({
                     );
                 }
             }
+            if (this.HeaderDonate == true) {
+                this.fs.copy(
+                    this.templatePath('_HeaderDonate.scss'),
+                    this.destinationPath('src/sass/specifics/_HeaderDonate.scss')
+                );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('HeaderDonate.twig'),
+                        this.destinationPath('patternlab/source/_layouts/header/HeaderDonate.twig')
+                    );
+                }
+            }
+            if (this.HeaderSocial == true) {
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('HeaderSocial.twig'),
+                        this.destinationPath('patternlab/source/_layouts/header/HeaderSocial.twig')
+                    );
+                }
+            }
             if (this.HeaderSearch == true) {
                 this.fs.copy(
                     this.templatePath('_HeaderSearch.scss'),
@@ -229,6 +269,12 @@ module.exports = yeoman.generators.Base.extend({
                         this.destinationPath('patternlab/source/_layouts/header/MobileMenu.twig')
                     );
                 }
+            }
+            if (this.Hamburger == true) {
+                this.fs.copy(
+                    this.templatePath('_Hamburger.scss'),
+                    this.destinationPath('src/sass/specifics/_Hamburger.scss')
+                );
             }
             if (this.PrimaryMenu == true) {
                 this.fs.copy(
@@ -346,6 +392,12 @@ module.exports = yeoman.generators.Base.extend({
                     this.destinationPath('src/js/custom/stickynav.js')
                 );
             }
+            if (this.Waypoints == true) {
+                this.fs.copy(
+                    this.templatePath('waypoint.js'),
+                    this.destinationPath('src/js/custom/waypoint.js')
+                );
+            }
             if (this.Chosen == true) {
                 this.fs.copy(
                     this.templatePath('chosen.js'),
@@ -381,6 +433,7 @@ module.exports = yeoman.generators.Base.extend({
                         this.props.components[item] === "PrimaryMenu" ||
                         this.props.components[item] === "SecondaryMenu" ||
                         this.props.components[item] === "HeaderNewsletter" ||
+                        this.props.components[item] === "HeaderDonate" ||
                         this.props.components[item] === "MobileMenu" ||
                         this.props.components[item] === "HeaderSearch"
                  ) {
@@ -482,6 +535,21 @@ module.exports = yeoman.generators.Base.extend({
                     }
                 }
 
+                if (    this.props.components[item] === "StickyNav" || 
+                        this.props.components[item] === "Waypoints"
+                ) {
+
+                    var waypointshook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | waypoints-main -+++-//',
+                        waypointspath   = 'config/javascript.js',
+                        waypointsfile   = wiring.readFileAsString(waypointspath),
+                        waypointsslug   = this.props.components[item].replace(/ /g, '_'),
+                        waypointsinsert = "'waypoints': ['lib/jquery.waypoints.min.js'],\n"
+
+                    if (waypointsfile.indexOf(waypointsinsert) === -1) {
+                      this.writeFileFromString(waypointsfile.replace(waypointshook, waypointsinsert), waypointspath);
+                    }
+                }
+
                 if ( this.props.components[item] === "Enquire" ) {
 
                     var enquirehook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | enquire-main -+++-//',
@@ -508,7 +576,7 @@ module.exports = yeoman.generators.Base.extend({
             exec("bower install OwlCarousel2 --save");
         }
 
-        if (this.StickyNav == true) {
+        if (this.StickyNav == true || this.Waypoints == true) {
             exec("bower install jquery-waypoints --save");
         }
 
@@ -528,6 +596,7 @@ module.exports = yeoman.generators.Base.extend({
         if (this.MoreAccordian == true ||
             this.OwlCarousel == true ||
             this.StickyNav == true ||
+            this.Waypoints == true ||
             this.Chosen == true ||
             this.Enquire == true ||
             this.EqualHeight == true

@@ -1,25 +1,60 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
-// Social menu
-// Shows up in the header and footer
+// Social menu for posts
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
+
+
+/////////////////////////////////////-+++-
+// sharing links in the header
 
 .SocialList {  
 
     ul {
         @extend %u-inlineList;
     }
- 
+
+    li {
+        margin-bottom: 14px;
+    }
+
     a {
-        color: $text;
+        background: $link-color;
+        width: 60px;
+        height: 60px;
+        display: block;     
+        text-align: center;
+        border-radius: 50%;   
+        position: relative;
+        transition: background $animation;
+        margin: 0 auto;
 
         &:hover {
-            color: $link-color;
+            background: $link-colorHover;
         }
     }
 
-    .facebook a:hover       { color: $color--facebook;}
-    .twitter a:hover        { color: $color--twitter;}
-    .google-plus a:hover    { color: $color--google;}
-    .youtube a:hover        { color: $color--youtube;}
+    &__twitter a {
+        background: $color--twitter;
+
+        &:hover {
+            background: lighten($color--twitter, 10%);
+        }
+    }
+
+    &__facebook a {
+        background: $color--facebook;
+
+        svg {
+            height: 30px;
+            width: 15px;
+        }
+
+        &:hover {
+            background: lighten($color--facebook, 10%);
+        }
+    }
 }
+
+
+/////////////////////////////////////-+++-
+// Sharing links on posts
