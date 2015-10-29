@@ -1,0 +1,7 @@
+{
+    "title" : "<%= name %>",
+    "page" : {
+        "heading": "Lorem etta Ipsum Dolor Sit Vivamus id Mollis",
+        "subtitle": "Nam fringilla id felis quis mattis. Maecenas faucibus nunc quis lectus pretium, a maximus turpis laoreet."
+    }
+}

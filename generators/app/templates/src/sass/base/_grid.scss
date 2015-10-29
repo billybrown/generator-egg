@@ -11,10 +11,25 @@
 
 // default inline grid
 $grid-bp: mobilemenu-bp;
-$grid-spacing: 20px;
+$grid-bp-small: small-bp;
+$grid-gutter: 20px;
 
 .u-grid {
-    @include u-multiRowGrid--gutter($grid-bp, $grid-spacing);
+    @include u-multiRowGrid--gutter($grid-bp-small, $grid-gutter);
+
+    @include mq($from: $grid-bp-small) {
+        .u-grid--s__80 { width: 80%; }
+        .u-grid--s__75 { width: 75%; }
+        .u-grid--s__66 { width: 66.66666666%; }
+        .u-grid--s__60 { width: 60%; }
+        .u-grid--s__58 { width: 58.33333333%; }
+        .u-grid--s__50 { width: 50%; }
+        .u-grid--s__40 { width: 40%; }
+        .u-grid--s__42 { width: 41.66666666%; }
+        .u-grid--s__33 { width: 33.33333333%; }
+        .u-grid--s__25 { width: 25%; }
+        .u-grid--s__20 { width: 20%; }
+    }
 
     // some default inline grid layouts
     @include mq($from: $grid-bp) {

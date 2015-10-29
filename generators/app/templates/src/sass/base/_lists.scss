@@ -27,12 +27,22 @@
     }
 }
 
+%u-inlineList--spacing {
+    @extend %u-inlineList;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+
 // a sass loop to turn the placeholder classes above
 // into utility classes for easy deployment directly in markup
 $list-collection: 
 nolist
 noList
 inlineList 
+inlineList--spacing
 ;
 
 @each $i in $list-collection { .u-#{$i} { @extend %u-#{$i}; } }

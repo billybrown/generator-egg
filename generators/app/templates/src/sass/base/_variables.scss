@@ -36,7 +36,6 @@ $Serif: 'Neuton', $georgia;
 
 
 $blue: dodgerblue;
-$red: tomato;
 
 $gray: #888888;
 $gray-light: #eeeeee;
@@ -44,8 +43,8 @@ $gray-light: #eeeeee;
 $background: #fff;
 $text: black;
 
-$link-color: tomato;
-$link-colorHover: goldenrod;
+$link-color: $blue;
+$link-colorHover: lighten($link-color, 10%);
 
 
 

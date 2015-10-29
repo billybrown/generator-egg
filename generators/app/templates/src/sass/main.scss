@@ -11,7 +11,7 @@
 //    │
 //    ├── elements: starting css for html elements
 //    │
-//    ├── patterns: css for modular components
+//    ├── modules: css for modular components
 //    │
 //    └── specifics: css for a specifc non-modular areas of the site
 //    
@@ -38,6 +38,7 @@
 @import 'base/lists';
 @import 'base/spacing';
 @import 'base/grid';
+@import 'base/StackedList';
 //-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//
 
 // import html elements
@@ -55,10 +56,10 @@
 @import 'elements/small';
 @import 'elements/mark';
 
-// import CSS patterns
-@import 'patterns/Frame';
-@import 'patterns/Post';
-//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | patterns -+++-//
+// import CSS modules
+@import 'modules/Frame';
+@import 'modules/Post';
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//
 
 // import specific css areas
 @import 'specifics/SiteWrapper';

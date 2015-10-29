@@ -10,7 +10,9 @@
 $placeholder-default: $text;
 
 %u-defaultInput {
+    @extend %u-text;
     line-height: 22px;
+    color: $text;
     background: transparent;
     border: 2px solid $text;
     border-radius: 0;
@@ -22,6 +24,7 @@ $placeholder-default: $text;
     &:focus {
         outline: none;
         background: #fff;
+        border-color: $link-color;
     }
 
     &::-webkit-input-placeholder {  color: $placeholder-default; }
@@ -43,6 +46,10 @@ input[type="submit"],
 button {
     @extend %u-button;
     width: auto;
+
+    &:focus {
+        background: $link-colorHover;
+    }
 }
 
 input[type="search"] {
@@ -53,7 +60,7 @@ input[type="search"] {
 
 // default label style
 label {
-    @extend %u-smallText--strong;
+    @extend %u-smallText;
 }
 
 
@@ -125,6 +132,13 @@ input[type="range"] {
             width: auto;
         }
     }
+
+    // submit button usually don't need the margin at the bottom
+    &--submit {
+        input {
+            margin-bottom: 0;
+        }
+    }
 }
 
 
@@ -143,5 +157,26 @@ $search-width: 60px;
     
     .InputGroup--submit {
         @include u-absolute(0, 0, null, null);
+    }
+}
+
+// email signup
+.Form--newsletter {
+    .InputGroup {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: -.35em;
+        margin-bottom: 0;
+
+        input {
+            margin-bottom: 0;
+        }
+    }
+
+    .Form__label {
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 9px;
+        margin-top: 5px;
     }
 }

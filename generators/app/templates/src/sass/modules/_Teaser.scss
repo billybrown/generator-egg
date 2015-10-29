@@ -1,15 +1,14 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
-// Slat
+// Teaser
 //
-// This is a grouping of text and images that looks like a slat (a horizontal
-// material sometimes used in architecture/building). Horizontal in appearance.
+// This is a grouping of text and images that is horizontal in appearance.
 // Often shows up in groups. Also often acts as a teaser. Usually full width, not
 // in grids.
 //
 //     
-//     Example Title of Slat                             +---------+  
+//     Example Title of Teaser                           +---------+  
 //                                                       |         |  
-//     More example text for what a 'slat' looks like.   |  image  |       
+//     More example text for what a teaser looks like.   |  image  |       
 //     Does this visual example help you understand      |         |       
 //     what this element is? I sure hope so.             +---------+     
 //     
@@ -22,9 +21,9 @@
 // Variables
 
 
-$Slat-bp: mobilemenu-bp;
-$Slat-imagewidth: 250px;
-$Slat-imageGutter: 30px;
+$Teaser-bp: mobilemenu-bp;
+$Teaser-imagewidth: 250px;
+$Teaser-imageGutter: 30px;
 
 
 
@@ -32,12 +31,12 @@ $Slat-imageGutter: 30px;
 // Default Slat style
 
 
-.Slat {
-    @include u-fixedFluidRow($Slat-bp, "right", 30px);
+.Teaser {
+    @include u-fixedFluidRow($Teaser-bp, "right", 30px);
 
     &__imageGroup {
 
-        @include mq($until: $Slat-bp) {
+        @include mq($until: $Teaser-bp) {
             display: none; // hide images on mobile
         }
     }
@@ -56,13 +55,13 @@ $Slat-imageGutter: 30px;
 
 
 /////////////////////////////////////-+++-
-// Slat grid
+// Teaser grid
 
 // for single row grids of slats
-// .SlatGrid {
+// .TeaserGrid {
 //     @include u-equalColRow--border(1120px, 70px, $text, 10px);
 
-//     .Slat__imageGroup {
+//     .TeaserSlat__imageGroup {
 //         display: none; // hide images when slats show up in grids
 //     }
 // }

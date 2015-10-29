@@ -26,12 +26,13 @@
 		"heading": {
 			"tiny" : "Lorem Ipsum Sit",
 			"short": "Lorem ipsum dolor sit amet ",
-			"medium": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+			"medium": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+			"long": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla id felis quis mattis."
 			},
 		"excerpt": {
 			"tiny" : "Ut malesuada felis vitae mattis imperdiet.",
-			"short": "Ut malesuada felis vitae mattis imperdiet. Nam fringilla id felis quis mattis.",
-			"medium": "Ut malesuada felis vitae mattis imperdiet. Nam fringilla id felis quis mattis. Maecenas faucibus nunc quis lectus pretium, a maximus turpis laoreet. ",
+			"short": "Nam fringilla id felis quis mattis. Ut malesuada felis vitae mattis imperdiet. ",
+			"medium": "Maecenas faucibus nunc quis lectus pretium, a maximus turpis laoreet. Ut malesuada felis vitae mattis imperdiet. Nam fringilla id felis quis mattis. ",
 			"long": "Ut malesuada felis vitae mattis imperdiet. Nam fringilla id felis quis mattis. Maecenas faucibus nunc quis lectus pretium, a maximus turpis laoreet. Proin imperdiet ac nisi et porttitor. Sed sodales metus sit amet consequat placerat."
 		},
 		"link" : {
@@ -52,31 +53,12 @@
 				"title" : "Sit"
 			}
 		],
-		"icon": "grain",
-		"graphic": "badge-community",
 		"author" : "Jane Smith",
 		"position" : "Regional Organizer",
 		"phone" : "323-843-2500",
 		"fax" : "323-843-2500",
 		"date" : "02.31.14",
 		"eventDate" : "March 31, 2015",
-		"eventButton" : "Register",
-		"inpagemenu" : [
-			{ 
-				"heading" : { "short" : "Lorem Ipsum sit" },
-				"excerpt" : { "medium" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ex lorem, lobortis et turpis faucibus, tempus efficitur tellus. In mollis, lacus porta fringilla cursus." },
-				"graphic" : "badge-healthy"
-			},
-			{ 
-				"heading" : { "short" : "Sit Dolar cconsectetur" },
-				"excerpt" : { "medium" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ex lorem, lobortis et turpis faucibus, tempus efficitur tellus. In mollis, lacus porta fringilla cursus." },
-				"graphic" : "badge-community"
-			},
-			{ 
-				"heading" : { "short" : "Ipsum sit Dolar" },
-				"excerpt" : { "medium" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ex lorem, lobortis et turpis faucibus, tempus efficitur tellus. In mollis, lacus porta fringilla cursus." },
-				"graphic" : "badge-organizer"
-			}
-		]
+		"eventButton" : "Register"
 	}
 }

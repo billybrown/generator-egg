@@ -1,5 +1,5 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
-// ScreenLink
+// TeaserScreenLink
 //
 // This is a grouping of text and images where the text overlays on top of the image
 // The size of the element is determined by the size of the image. 
@@ -24,17 +24,17 @@
 // variables
 
 
-$ScrenLink-maxWidth: 570px; // should be the same as whatever image is being used
-$ScreenLink-fallbackBg: $text; // in case the image fails for whateve reason
+$TeaserScrenLink-maxWidth: 570px; // should be the same as whatever image is being used
+$TeaserScreenLink-fallbackBg: $text; // in case the image fails for whateve reason
 
 
 
 /////////////////////////////////////-+++-
 // Default style
 
-.ScreenLink {
+.TeaserScreenLink {
     max-width: 570px;
-    background: $ScreenLink-fallbackBg;
+    //background: $TeaserScreenLink-fallbackBg;
     margin-right: auto;
     margin-left: auto;  
     text-align: center;
@@ -47,9 +47,10 @@ $ScreenLink-fallbackBg: $text; // in case the image fails for whateve reason
     a {
         position: relative;
         display: block;
+        min-height: 200px; // temporary
 
         &:hover {
-            .ScreenLink__imageGroup:before {
+            .TeaserScreenLink__imageGroup:before {
                 opacity: .7;
             }
         }

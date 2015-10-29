@@ -1,0 +1,19 @@
+<article class="TeaserCardLink {{ class }}">
+    <a href="">
+        <div class="TeaserCardLink__imageGroup">
+            <img src="{{ img.img620x364.src }}" alt="" />
+        </div><!-- /.TeaserCardLink__imageGroup -->
+        <div class="TeaserCardLink__textGroup">
+            {% if hasIcon == true %}
+                <div class="TeaserCardLink__icon"><i class="icon-{{ post.icon }}"></i></div>
+            {% endif %}
+            <h3 class="TeaserCardLink__title {{ titleClass }}">{{ post.heading.tiny }}</h3>
+        </div><!-- /.TeaserCardLink__textGroup -->
+
+        {% if largeListFlag.hiddenGroup == true %}
+            <div class="TeaserCardLink__hiddenGroup">
+                <p>{{ largeListFlag.excerpt }}</p>
+            </div><!-- /.TeaserCardLink__hiddenGroup -->
+        {% endif %}
+    </a>
+</article>

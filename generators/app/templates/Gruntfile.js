@@ -29,15 +29,6 @@
     --------------------------
     grunt --help
 
-    Node Version
-    --------------------------
-    There is a file called .nvmrc in the root of the theme that indicates what version of node we are using.
-    Everything should work even if you have a different version - but in case you are getting errors
-    and you suspect node - the version number in .nvmrc should work.
-    Secondly - the reason this version is so low is because of a tool called Takana which currently does not
-    work with the more recent versions. If you are using Node Version Manager, your computer should auto detect
-    this file and switch to the proper version.
-
 */
 
 'use strict';
@@ -71,7 +62,7 @@ module.exports = function(grunt) {
     grunt.registerTask('images', ['imagemin', 'copy:raster', 'copy:svg']);
     grunt.registerTask('stats', ['parker']);
     grunt.registerTask('patternlab', ['shell:patternlab']);
-    //grunt.registerTask('sprites', ['dr-svg-sprites', 'copy:sprites', 'clean:sprites']);
+    grunt.registerTask('sprites', ['dr-svg-sprites', 'copy:sprites', 'clean:sprites']);
     
     grunt.registerTask('plugins', [
         'bower_install', 
@@ -79,14 +70,14 @@ module.exports = function(grunt) {
         'uglify', 
         //'copy:chosensprite',
         'cssmin:plugins',
-        'copy:bowerjs'
+        'uglify:bowerjs'
     ]);
     grunt.registerTask('build', [
         'clean:build',
+        'sprites',
         'css',
         'js',
         'js_vendor',
-        //'sprites',
         'plugins',
         'images'
     ]);

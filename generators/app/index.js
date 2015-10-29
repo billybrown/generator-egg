@@ -82,7 +82,7 @@ module.exports = yeoman.generators.Base.extend({
         choices: [{
             name: 'gruntsprites',
             value: 'gruntsprites',
-            checked: false
+            checked: true
         }]
       },
       {
@@ -90,12 +90,6 @@ module.exports = yeoman.generators.Base.extend({
         name: 'installitall',
         message: 'Do you want to install all bower and grunt depenencies?',
         default: false
-      },
-      {
-        type: 'confirm',
-        name: 'innitialbuild',
-        message: 'Do you want to start off with an innitial "Grunt Build"?',
-        default: true
       }
     ];
 
@@ -137,20 +131,51 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('.editorconfig')
       );
       this.fs.copy(
-        this.templatePath('config'),
-        this.destinationPath('config')
-      );
-      this.fs.copy(
         this.templatePath('Gruntfile.js'),
         this.destinationPath('Gruntfile.js')
       );
       this.fs.copy(
-        this.templatePath('_nvmrc'),
-        this.destinationPath('.nvmrc')
-      );
-      this.fs.copy(
         this.templatePath('_gitignore'),
         this.destinationPath('.gitignore')
+      );
+      this.fs.copy(
+        this.templatePath('config/deploy.js'),
+        this.destinationPath('config/deploy.js')
+      );
+      this.fs.copy(
+        this.templatePath('config/favicons.js'),
+        this.destinationPath('config/favicons.js')
+      );
+      this.fs.copy(
+        this.templatePath('config/images.js'),
+        this.destinationPath('config/images.js')
+      );
+      this.fs.copy(
+        this.templatePath('config/javascript.js'),
+        this.destinationPath('config/javascript.js')
+      );
+      this.fs.copy(
+        this.templatePath('config/patternlab.js'),
+        this.destinationPath('config/patternlab.js')
+      );
+      this.fs.copy(
+        this.templatePath('config/sprites.js'),
+        this.destinationPath('config/sprites.js')
+      );
+      this.fs.copy(
+        this.templatePath('config/templates.js'),
+        this.destinationPath('config/templates.js')
+      );
+      this.fs.copy(
+        this.templatePath('config/watch.js'),
+        this.destinationPath('config/watch.js')
+      );
+      this.fs.copyTpl(
+        this.templatePath('config/css.js'),
+        this.destinationPath('config/css.js'),
+            { 
+              ie8: this.props.ie8
+            }
       );
       this.fs.copyTpl(
         this.templatePath('Readme.md'),
@@ -210,7 +235,7 @@ module.exports = yeoman.generators.Base.extend({
         if (this.props.patternlab == true) {
           this.fs.copy(
             this.templatePath('wysiwyg-drupal.twig'),
-            this.destinationPath('patternlab/source/_patterns/organisms/90-wysiwyg.twig')
+            this.destinationPath('patternlab/source/_patterns/02-organisms/90-wysiwyg.twig')
           );
         }
       } else if (this.props.cms == "Wordpress") {
@@ -232,7 +257,7 @@ module.exports = yeoman.generators.Base.extend({
         if (this.props.patternlab == true) {
           this.fs.copy(
             this.templatePath('wysiwyg-wordpress.twig'),
-            this.destinationPath('patternlab/source/_patterns/organisms/90-wysiwyg.twig')
+            this.destinationPath('patternlab/source/_patterns/02-organisms/90-wysiwyg.twig')
           );
         }
       } else {
@@ -263,10 +288,6 @@ module.exports = yeoman.generators.Base.extend({
 
     if (this.props.installitall == true) {
       this.installDependencies();
-    }
-    
-    if (this.props.innitialbuild == true) {
-      exec("grunt build");
     }
   }
 

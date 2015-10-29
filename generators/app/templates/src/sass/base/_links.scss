@@ -10,28 +10,41 @@
 // Some default button classes that buttons extend
 
 %u-buttonDefault {
-	border: 2px solid #000;
+	border: 2px solid transparent;
 	border-radius: 0;
 	text-decoration: none;
 	display: inline-block;
-	background: $link-color;
 	color: white;
-	transition: background $animation;
+	transition: background $animation, border $animation;
 
 	&:hover {
 		cursor: pointer;
 		text-decoration: none;
-		background: $link-colorHover;
 		color: #fff;
 	}	
+}
+
+%u-primaryButton {
+	background: $link-color;
+	border-color: darken($link-color, 10%);
+
+	&:hover {
+		background: $link-colorHover;
+		border-color: $link-color;
+	}
+}
+
+%u-mediumButton {
+	@extend %u-text;
+	padding: 4px 15px;
 }
 
 // some of the real button classes
 
 %u-button {
 	@extend %u-buttonDefault;
-	@extend %u-text--blocked;
-	padding: 4px 15px;
+	@extend %u-primaryButton;
+	@extend %u-mediumButton;
 }
 
 

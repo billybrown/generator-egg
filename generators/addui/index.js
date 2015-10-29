@@ -165,7 +165,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Breadcrumbs == true) {
                 this.fs.copy(
                     this.templatePath('_Breadcrumbs.scss'),
-                    this.destinationPath('src/sass/specifics/_Breadcrumbs.scss')
+                    this.destinationPath('src/sass/modules/_Breadcrumbs.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -177,7 +177,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Pagination == true) {
                 this.fs.copy(
                     this.templatePath('_Pagination.scss'),
-                    this.destinationPath('src/sass/specifics/_Pagination.scss')
+                    this.destinationPath('src/sass/modules/_Pagination.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -189,7 +189,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.CaptionImage == true) {
                 this.fs.copy(
                     this.templatePath('_CaptionImage.scss'),
-                    this.destinationPath('src/sass/specifics/_CaptionImage.scss')
+                    this.destinationPath('src/sass/modules/_CaptionImage.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -201,7 +201,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.SocialList == true) {
                 this.fs.copy(
                     this.templatePath('_SocialList.scss'),
-                    this.destinationPath('src/sass/specifics/_SocialList.scss')
+                    this.destinationPath('src/sass/modules/_SocialList.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -235,6 +235,10 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.HeaderSocial == true) {
+                this.fs.copy(
+                    this.templatePath('_HeaderSocial.scss'),
+                    this.destinationPath('src/sass/specifics/_HeaderSocial.scss')
+                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('HeaderSocial.twig'),
@@ -351,7 +355,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.MoreAccordian == true) {
                 this.fs.copy(
                     this.templatePath('_MoreAccordian.scss'),
-                    this.destinationPath('src/sass/specifics/_MoreAccordian.scss')
+                    this.destinationPath('src/sass/modules/_MoreAccordian.scss')
                 );
                 this.fs.copy(
                     this.templatePath('moreaccordian.js'),
@@ -367,7 +371,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Modal == true) {
                 this.fs.copy(
                     this.templatePath('_Modal.scss'),
-                    this.destinationPath('src/sass/specifics/_Modal.scss')
+                    this.destinationPath('src/sass/modules/_Modal.scss')
                 );
                 this.fs.copy(
                     this.templatePath('modal.js'),
@@ -410,21 +414,50 @@ module.exports = yeoman.generators.Base.extend({
 
             for ( var item in this.props.components) {
 
-                // make a sass partial for pretty much everything
-                if (this.props.components[item] !== "OwlCarousel" &&
-                    this.props.components[item] !== "Chosen" &&
-                    this.props.components[item] !== "Enquire" &&
-                    this.props.components[item] !== "EqualHeight" &&
-                    this.props.components[item] !== "StickyNav") {
+                // if its something that needs to go in "modules" sass partial directory
+                if (    this.props.components[item] === "Pagination" ||
+                        this.props.components[item] === "Breadcrumbs" ||
+                        this.props.components[item] === "CaptionImage" ||
+                        this.props.components[item] === "SocialList" ||
+                        this.props.components[item] === "MoreAccordian" ||
+                        this.props.components[item] === "Modal"
+                ) {
 
-                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | specifics -+++-//',
+                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//',
                         path   = 'src/sass/main.scss',
                         file   = wiring.readFileAsString(path),
                         slug   = this.props.components[item].replace(/ /g, '_'),
-                        insert = "@import 'specifics/" + slug + "';";
+                        insert = "@import 'modules/" + slug + "';";
 
                     if (file.indexOf(insert) === -1) {
                       this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
+                    }
+                }
+
+                // if its something that needs to go in "specifics" sass partial directory
+                // basically just all header/footer and page specific content:
+                if (    this.props.components[item] === "HeaderLogo" ||
+                        this.props.components[item] === "PrimaryMenu" ||
+                        this.props.components[item] === "SecondaryMenu" ||
+                        this.props.components[item] === "HeaderNewsletter" ||
+                        this.props.components[item] === "HeaderDonate" ||
+                        this.props.components[item] === "MobileMenu" ||
+                        this.props.components[item] === "HeaderSearch" ||
+                        this.props.components[item] === "HeaderSocial" ||
+                        this.props.components[item] === "FooterLogo" ||
+                        this.props.components[item] === "FooterMenu" ||
+                        this.props.components[item] === "FooterContact" ||
+                        this.props.components[item] === "MobileMenu"
+                ) {
+
+                    var specifichook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | specifics -+++-//',
+                        specificpath   = 'src/sass/main.scss',
+                        specificfile   = wiring.readFileAsString(specificpath),
+                        specificslug   = this.props.components[item].replace(/ /g, '_'),
+                        specificinsert = "@import 'specifics/" + specificslug + "';";
+
+                    if (specificfile.indexOf(specificinsert) === -1) {
+                      this.writeFileFromString(specificfile.replace(specifichook, specificinsert+'\n'+specifichook), specificpath);
                     }
                 }
 
@@ -435,6 +468,7 @@ module.exports = yeoman.generators.Base.extend({
                         this.props.components[item] === "HeaderNewsletter" ||
                         this.props.components[item] === "HeaderDonate" ||
                         this.props.components[item] === "MobileMenu" ||
+                        this.props.components[item] === "HeaderSocial" ||
                         this.props.components[item] === "HeaderSearch"
                  ) {
 

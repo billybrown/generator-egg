@@ -1,7 +1,7 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
-// SlatLink
+// TeaserLink
 //
-// Basically a 'slat' except the whole thing is wrapper in an <a> tag.
+// Basically a regular Teaser except the whole thing is wrapper in an <a> tag.
 //
 //
 //     +-------------------+
@@ -12,14 +12,14 @@
 //     |                   |
 //     +-------------------+
 //
-//     SlatLink Title
+//     TeaserLink Title
 //
 //
 //
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
-.SlatLink {
+.TeaserLink {
 
     &__title {
         margin-bottom: 5px;

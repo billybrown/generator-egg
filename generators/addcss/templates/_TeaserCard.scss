@@ -1,5 +1,5 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
-// Card
+// TeaserCard
 //
 // This is a grouping of text and images that looks like a card. Vertical in appearance
 // and often shows up in groups. Also often acts as a teaser. Often shows up in a grid
@@ -32,23 +32,23 @@
 // Variables
 
 
-$Card-maxWidth: 570px;
-$Card-bg: #fff;
-$Card-spacing: 30px;
+$TeaserCard-maxWidth: 570px;
+$TeaserCard-bg: #fff;
+$TeaserCard-spacing: 30px;
 
 
 
 /////////////////////////////////////-+++-
 // Default Card style
 
-.Card {
-    max-width: $Card-maxWidth;
-    background: $Card-bg;
+.TeaserCard {
+    max-width: $TeaserCard-maxWidth;
+    background: $TeaserCard-bg;
     margin-right: auto;
     margin-left: auto;    
 
     &__textGroup {
-        padding: $Card-spacing;
+        padding: $TeaserCard-spacing;
 
     }
 
@@ -70,9 +70,9 @@ $Card-spacing: 30px;
 
 
 /////////////////////////////////////-+++-
-// Card grid
+// TeaserCard grid
 
-//.CardGrid {
+//.TeaserCardGrid {
 //    //@include u-multiRowGrid--gutter(500px, 30px, 50%, 1000px, 33.3333% );
 //    //@include u-equalColRow--gutter(700px, 30px);
 //}

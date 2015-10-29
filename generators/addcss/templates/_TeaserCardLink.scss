@@ -1,5 +1,5 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
-// CardLink
+// TeaserCardLink
 //
 // Similar to a Card except the whole thing is wrapped in a link and there typically
 // isn't a long summary.
@@ -18,17 +18,16 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
-$CardLink-maxWidth: 570px;
-$CardLink-bg: $link-color;
+$TeaserCardLink-maxWidth: 570px;
+$TeaserCardLink-bg: $link-color;
 
-.CardLink { 
+.TeaserCardLink { 
 
     a {
         display: block;
-        background: $CardLink-bg;
         color: #fff;
         text-align: left;
-        max-width: $CardLink-maxWidth;
+        max-width: $TeaserCardLink-maxWidth;
         margin-right: auto;
         margin-left: auto;  
         position: relative;
@@ -36,8 +35,8 @@ $CardLink-bg: $link-color;
         &:hover {
             color: #fff;
 
-            .CardLink__textGroup {
-                background: $link-colorHover;
+            .TeaserCardLink__textGroup {
+                background: lighten($TeaserCardLink-bg, 10%);
             }
         }
     }
@@ -48,7 +47,7 @@ $CardLink-bg: $link-color;
 
     &__textGroup {
         padding: 11px 15px;
-        background: $CardLink-bg;
+        background: $TeaserCardLink-bg;
         position: relative;
         margin-bottom: 0;
         z-index: 2;

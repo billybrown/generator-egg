@@ -16,24 +16,20 @@ module.exports = yeoman.generators.Base.extend({
             name: 'components',
             message: 'Which CSS component(s) do you want to add?',
             choices: [{
-                name: 'Card',
-                value: 'Card',
+                name: 'TeaserLink',
+                value: 'TeaserLink',
                 checked: false
             }, {
-                name: 'Slat',
-                value: 'Slat',
+                name: 'TeaserCard',
+                value: 'TeaserCard',
                 checked: false
             }, {
-                name: 'CardLink',
-                value: 'CardLink',
+                name: 'TeaserCardLink',
+                value: 'TeaserCardLink',
                 checked: false
             }, {
-                name: 'SlatLink',
-                value: 'SlatLink',
-                checked: false
-            }, {
-                name: 'ScreenLink',
-                value: 'ScreenLink',
+                name: 'TeaserScreenLink',
+                value: 'TeaserScreenLink',
                 checked: false
             }, {
                 name: 'ListBox',
@@ -66,11 +62,10 @@ module.exports = yeoman.generators.Base.extend({
                 return components.indexOf(feat) !== -1;
             }
 
-            this.Card = hasAsset('Card');
-            this.CardLink = hasAsset('CardLink');
-            this.Slat = hasAsset('Slat');
-            this.SlatLink = hasAsset('SlatLink');
-            this.ScreenLink = hasAsset('ScreenLink');
+            this.TeaserCard = hasAsset('TeaserCard');
+            this.TeaserCardLink = hasAsset('TeaserCardLink');
+            this.TeaserLink = hasAsset('TeaserLink');
+            this.TeaserScreenLink = hasAsset('TeaserScreenLink');
             this.ListBox = hasAsset('ListBox');
             this.SmallListBox = hasAsset('SmallListBox');
             this.Well = hasAsset('Well');
@@ -142,46 +137,46 @@ module.exports = yeoman.generators.Base.extend({
 
         projectfiles: function () {
 
-            if (this.CardLink == true) {
+            if (this.TeaserCardLink == true) {
                 this.fs.copyTpl(
-                    this.templatePath('_CardLink.scss'),
-                    this.destinationPath('src/sass/patterns/_CardLink.scss'), { 
-                        maxwidth: this.CardLink__maxWidth,
-                        bg: this.CardLink__bg
+                    this.templatePath('_TeaserCardLink.scss'),
+                    this.destinationPath('src/sass/modules/_TeaserCardLink.scss'), { 
+                        maxwidth: this.TeaserCardLink__maxWidth,
+                        bg: this.TeaserCardLink__bg
                     }
                 );
                 this.fs.copy(
-                    this.templatePath('CardLink.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/CardLink.twig')
+                    this.templatePath('TeaserCardLink.twig'),
+                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/TeaserCardLink.twig')
                 );
             }
-            if (this.ScreenLink == true) {
+            if (this.TeaserScreenLink == true) {
                 this.fs.copyTpl(
-                    this.templatePath('_ScreenLink.scss'),
-                    this.destinationPath('src/sass/patterns/_ScreenLink.scss'), { 
-                        maxwidth: this.ScreenLink__maxWidth,
-                        bg: this.ScreenLink__bg
+                    this.templatePath('_TeaserScreenLink.scss'),
+                    this.destinationPath('src/sass/modules/_TeaserScreenLink.scss'), { 
+                        maxwidth: this.TeaserScreenLink__maxWidth,
+                        bg: this.TeaserScreenLink__bg
                     }
                 );
                 this.fs.copy(
-                    this.templatePath('ScreenLink.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/ScreenLink.twig')
+                    this.templatePath('TeaserScreenLink.twig'),
+                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/TeaserScreenLink.twig')
                 );
             }
-            if (this.SlatLink == true) {
+            if (this.TeaserLink == true) {
                 this.fs.copy(
-                    this.templatePath('_SlatLink.scss'),
-                    this.destinationPath('src/sass/patterns/_SlatLink.scss')
+                    this.templatePath('_TeaserLink.scss'),
+                    this.destinationPath('src/sass/modules/_TeaserLink.scss')
                 );
                 this.fs.copy(
-                    this.templatePath('SlatLink.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/SlatLink.twig')
+                    this.templatePath('TeaserLink.twig'),
+                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/TeaserLink.twig')
                 );
             }
             if (this.SmallListBox == true) {
                 this.fs.copy(
                     this.templatePath('_SmallListBox.scss'),
-                    this.destinationPath('src/sass/patterns/_SmallListBox.scss')
+                    this.destinationPath('src/sass/modules/_SmallListBox.scss')
                 );
                 this.fs.copy(
                     this.templatePath('SmallListBox.twig'),
@@ -191,7 +186,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Well == true) {
                 this.fs.copyTpl(
                     this.templatePath('_Well.scss'),
-                    this.destinationPath('src/sass/patterns/_Well.scss'), { 
+                    this.destinationPath('src/sass/modules/_Well.scss'), { 
                         bg: this.Well__bg
                     }
                 );
@@ -200,30 +195,20 @@ module.exports = yeoman.generators.Base.extend({
                     this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/Well.twig')
                 );
             }
-            if (this.Card == true) {
+            if (this.TeaserCard == true) {
                 this.fs.copy(
-                    this.templatePath('_Card.scss'),
-                    this.destinationPath('src/sass/patterns/_Card.scss')
+                    this.templatePath('_TeaserCard.scss'),
+                    this.destinationPath('src/sass/modules/_TeaserCard.scss')
                 );
                 this.fs.copy(
-                    this.templatePath('Card.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/Card.twig')
-                );
-            }
-            if (this.Slat == true) {
-                this.fs.copy(
-                    this.templatePath('_Slat.scss'),
-                    this.destinationPath('src/sass/patterns/_Slat.scss')
-                );
-                this.fs.copy(
-                    this.templatePath('Slat.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/Slat.twig')
+                    this.templatePath('TeaserCard.twig'),
+                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/TeaserCard.twig')
                 );
             }
             if (this.ListBox == true) {
                 this.fs.copy(
                     this.templatePath('_ListBox.scss'),
-                    this.destinationPath('src/sass/patterns/_ListBox.scss')
+                    this.destinationPath('src/sass/modules/_ListBox.scss')
                 );
                 this.fs.copy(
                     this.templatePath('ListBox.twig'),
@@ -234,11 +219,11 @@ module.exports = yeoman.generators.Base.extend({
 
         extra: function () {
             for ( var item in this.props.components) {
-                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | patterns -+++-//',
+                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//',
                     path   = 'src/sass/main.scss',
                     file   = wiring.readFileAsString(path),
                     slug   = this.props.components[item].replace(/ /g, '_'),
-                    insert = "@import 'patterns/" + slug + "';";
+                    insert = "@import 'modules/" + slug + "';";
 
                 if (file.indexOf(insert) === -1) {
                   this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);

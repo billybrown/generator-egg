@@ -12,21 +12,31 @@
 
 	<div class="Post__content">
 
-        <div class="Post__body u-WYSIWYG">
-            {% block post_body %}
-                <p>{{ post.excerpt.long }} {{ post.excerpt.long }}</p>
-                <p>{{ post.excerpt.long }}</p>
-                <ul>
-                    <li>{{ post.excerpt.short }}</li>
-                    <li>{{ post.excerpt.long }}</li>
-                    <li>{{ post.excerpt.medium }}</li>
+        {% if page.type == "list" %}
+            <div class="Post__list">
+                <ul class="u-StackedList">
+                    {% for item in i..8 %}
+                        <li>{% include 'molecules-Teaser' with { item : post } %}</li>
+                    {% endfor %}
                 </ul>
-                <p>{{ post.excerpt.long }} {{ post.excerpt.long }} {{ post.excerpt.long }}</p>
-                <blockquote><p>Lorem Ipsum sample blockquote sit dolor.</p></blockquote>
-                <p>{{ post.excerpt.long }} {{ post.excerpt.long }} {{ post.excerpt.long }}</p>
-    		{% endblock %}
-        </div><!-- /.Post__body -->
-
+            </div>    
+        {% else %}
+            <div class="Post__body u-WYSIWYG">
+                {% block post_body %}
+                    <p>{{ post.excerpt.long }} {{ post.excerpt.long }}</p>
+                    <p>{{ post.excerpt.long }}</p>
+                    <ul>
+                        <li>{{ post.excerpt.short }}</li>
+                        <li>{{ post.excerpt.long }}</li>
+                        <li>{{ post.excerpt.medium }}</li>
+                    </ul>
+                    <p>{{ post.excerpt.long }} {{ post.excerpt.long }} {{ post.excerpt.long }}</p>
+                    <blockquote><p>Lorem Ipsum sample blockquote sit dolor.</p></blockquote>
+                    <p>{{ post.excerpt.long }} {{ post.excerpt.long }} {{ post.excerpt.long }}</p>
+        		{% endblock %}
+            </div><!-- /.Post__body -->
+        {% endif %}
+    
 	</div><!-- /.Post__content -->
 
 </article><!-- /.Post -->

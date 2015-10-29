@@ -19,23 +19,18 @@ module.exports = yeoman.generators.Base.extend({
                     type: 'input',
                     name: 'objectname',
                     message: 'What is the object name?\n',
-                    default: 'Tree'
+                    default: 'TeaserTree'
                 },{
                     type: 'input',
                     name: 'objectdescription',
                     message: 'Describe the object and why its necessary:\n',
                     default: 'This component holds information.'
                 },{
-                    type: 'confirm',
-                    name: 'graphic',
-                    message: 'Do you want a default ascii graphic?',
-                    default: false
-                },{
                     type: 'list',
                     name: 'objecttype',
                     message: 'What type of CSS group does it fall into?',
-                    choices: [ "base", "patterns", "specifics" ],
-                    default: 'patterns'
+                    choices: [ "base", "modules", "specifics" ],
+                    default: 'modules'
                 },{
                     type: 'confirm',
                     name: 'link',
@@ -45,7 +40,7 @@ module.exports = yeoman.generators.Base.extend({
                     type: 'confirm',
                     name: 'patternlab',
                     message: 'Do you want to also make a twig file for the pattern library?',
-                    default: false
+                    default: true
                 }
             ];
 
@@ -177,9 +172,9 @@ module.exports = yeoman.generators.Base.extend({
                 slug   = this.props.objectname.replace(/ /g, '_'),
                 insert = "@import '" + this.props.objecttype + "/" + slug + "';";
 
-            if (this.props.objecttype == 'patterns') {
-                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | patterns -+++-//';
-                var insert = "@import 'patterns/" + slug + "';";
+            if (this.props.objecttype == 'modules') {
+                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//';
+                var insert = "@import 'modules/" + slug + "';";
             } else if (this.props.objecttype == 'utilities') {
                 var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//';
                 var insert = "@import 'base/" + slug + "';";

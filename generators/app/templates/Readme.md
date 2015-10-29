@@ -53,8 +53,6 @@ It uses a few core tools:
     │
     <% if (patternlab) { %>├── /patternlab: Pattern library files
     │<% } %>
-    ├── .nvmrc: a specific node version that will work with this theme. (necessary to use Takana)
-    │
     ├── .editorconfig: configurations for text editors
     │
     └── .gitignore: theme level gitignore

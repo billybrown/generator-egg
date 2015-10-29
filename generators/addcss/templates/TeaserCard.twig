@@ -1,0 +1,21 @@
+<article class="TeaserCard {{ class }}">
+	<div class="TeaserCard__imageGroup">
+		<a href="">
+			<img src="{{ img.img620x364.src }}" alt="" />
+		</a>
+	</div><!-- /.TeaserCard__imageGroup -->
+	<div class='TeaserCard__textGroup'>
+		<header class="TeaserCard__header">
+			<h3 class="TeaserCard__title">
+				<a href="">
+					{{ post.heading.medium }}
+				</a>
+			</h3>
+		</header>
+		{% if post.excerpt %}
+			<div class="TeaserCard__content">
+				<p>{{ post.excerpt.medium }}</p>
+			</div>
+		{% endif %}
+	</div><!-- /.TeaserCard__textGroup -->
+</article>

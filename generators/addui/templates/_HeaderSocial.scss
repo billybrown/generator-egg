@@ -1,0 +1,62 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Social menu for the header
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+/////////////////////////////////////-+++-
+// sharing links in the header
+
+.HeaderSocial {  
+
+    ul {
+        @extend %u-inlineList--spacing;
+    }
+
+    li {
+        margin-bottom: 14px;
+    }
+
+    a {
+
+        path {
+            fill: $link-color;
+            transition: fill $animation;
+        }
+
+        &:hover {
+
+            path {
+                fill: $link-colorHover;
+            }
+        }
+    }
+
+    &__twitter a {
+
+        path {
+            fill: $color--twitter;
+        }
+
+        &:hover path{
+            fill: lighten($color--twitter, 10%);
+        }
+    }
+
+    &__facebook a {
+
+        svg {
+            height: 30px;
+            width: 15px;
+        }
+
+        path {
+            fill: $color--facebook;
+        }
+
+        &:hover path{
+            fill: lighten($color--facebook, 10%);
+        }
+    }
+}
+
