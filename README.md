@@ -27,6 +27,7 @@ Please feel free to take on any of these things below - or add new stuff.
 - **Linting.**
   - **Scss linting**. The only grunt plugin for scss-lint requires a ruby dependency - which we don't want.
   - **CSS linting**. I would love to lint the compiled css to make sure everything is getting outputted properly - but the CSSLint task throws errors on more complicated and modern css properties - rendering it useless (for now at least). Worth checking up on at a future date and integrating back in.
+  - **JS linting**. We currently have jslint integration, but I don't quite understand it. It seems way overly strict. Would like to devote some time to getting this how we need it.
 - **Stress testing**. It would be great if there was a way to deliver different amounts of content to elements to test how things would look with varrying lengths/types of text of images. Not sure how that would work, but it would be a good feature.
 
 
