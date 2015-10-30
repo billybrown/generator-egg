@@ -1,6 +1,6 @@
 <article class="Post {{ postclass }}">
 
-	<header class="Post__header">
+    <header class="Post__header">
         <h2 class="Post__title">{% if page.heading %}{{ page.heading }}{% else %}{{post.heading.short}}{% endif %}</h2>
         {% if page.author %}<div class="Post__author">by {{ page.author }}</div>{% endif %}
         {% if page.summary %}
@@ -8,18 +8,18 @@
                 <p>{{ page.summary }}</p>
             </div>
         {% endif %}
-	</header>
+    </header>
 
-	<div class="Post__content">
+    <div class="Post__content">
 
         {% if page.type == "list" %}
             <div class="Post__list">
                 <ul class="List--border--smallSpacing">
-                    <li>{% include 'molecules-Teaser' with { image : true  } %}</li>
-                    <li>{% include 'molecules-Teaser' %}</li>
-                    <li>{% include 'molecules-Teaser' %}</li>
-                    <li>{% include 'molecules-Teaser' with { image : true  } %}</li>
-                    <li>{% include 'molecules-Teaser' with { image : true  } %}</li>
+                    <li>{% include '02-modules/custom/Teaser' with { image : true  } %}</li>
+                    <li>{% include '02-modules/custom/Teaser' %}</li>
+                    <li>{% include '02-modules/custom/Teaser' %}</li>
+                    <li>{% include '02-modules/custom/Teaser' with { image : true  } %}</li>
+                    <li>{% include '02-modules/custom/Teaser' with { image : true  } %}</li>
                 </ul>
             </div>     
         {% else %}
@@ -35,11 +35,11 @@
                     <p>{{ post.excerpt.long }} {{ post.excerpt.long }} {{ post.excerpt.long }}</p>
                     <blockquote><p>Lorem Ipsum sample blockquote sit dolor.</p></blockquote>
                     <p>{{ post.excerpt.long }} {{ post.excerpt.long }} {{ post.excerpt.long }}</p>
-        		{% endblock %}
+                {% endblock %}
             </div><!-- /.Post__body -->
         {% endif %}
     
-	</div><!-- /.Post__content -->
+    </div><!-- /.Post__content -->
 
 </article><!-- /.Post -->
 

@@ -28,3 +28,24 @@ largeText
 ;
 
 @each $i in $text-collection { .u-#{$i} { @extend %u-#{$i}; } }
+
+
+
+/////////////////////////////////////-+++-
+// Default text spacing.
+// If we ever want to try better alignment site wide with text, those styles would go here.
+
+
+$spacing: 20px;
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+p,
+blockquote,
+input {
+    margin: 0 0 $spacing; // need full margin values here to reset browser defaults
+}

@@ -26,30 +26,27 @@
 @import 'sprites';
 
 // import css reset or normalize (and your custom reset additions)
-@import 'base/normalize';
-@import 'base/normalizeAdditions';
+@import 'base/reset/normalize';
+@import 'base/reset/normalizeAdditions';
 
 // import base utilities 
-@import 'base/misc';
-@import 'base/clearfix';
-@import 'base/alignment';
 @import 'base/text';
+@import 'base/utilities';
 @import 'base/links';
-@import 'base/spacing';
 @import 'base/grid';
 //-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//
 
 // import html elements
-@import 'elements/body';
-@import 'elements/headings';
-@import 'elements/definitionlist';
-@import 'elements/a';
-@import 'elements/blockquote';
-@import 'elements/horizontalRule';
-@import 'elements/input';
-@import 'elements/table';
-@import 'elements/small';
-@import 'elements/mark';
+@import 'base/elements/body';
+@import 'base/elements/headings';
+@import 'base/elements/definitionlist';
+@import 'base/elements/a';
+@import 'base/elements/blockquote';
+@import 'base/elements/horizontalRule';
+@import 'base/elements/input';
+@import 'base/elements/table';
+@import 'base/elements/small';
+@import 'base/elements/mark';
 //-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | elements -+++-//
 
 // import CSS modules

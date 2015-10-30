@@ -6,19 +6,17 @@
 
 
 // import vendor mixins (dont edit these) 
-@import 'vendor-mixins/mq';
-@import 'vendor-mixins/ems';
-@import 'vendor-mixins/placeholder';
-@import 'vendor-mixins/triangles';
+@import 'mixins/vendor/mq';
+@import 'mixins/vendor/ems';
+@import 'mixins/vendor/placeholder';
+@import 'mixins/vendor/triangles';
 
 // import custom mixins (edit these if you want) 
-@import 'custom-mixins/absolute';
-@import 'custom-mixins/multiRowGrid';
-@import 'custom-mixins/equalColRow';
-@import 'custom-mixins/fixedFluidRow';
-
-// import some default variables
-@import 'variablesDefault';
+@import 'mixins/custom/absolute';
+@import 'mixins/custom/multiRowGrid';
+@import 'mixins/custom/equalColRow';
+@import 'mixins/custom/fixedFluidRow';
+@import 'mixins/custom/variablesDefault';
 
 
 
