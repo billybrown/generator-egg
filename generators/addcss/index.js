@@ -43,6 +43,42 @@ module.exports = yeoman.generators.Base.extend({
                 name: 'Well',
                 value: 'Well',
                 checked: false
+            }, {
+                name: 'borderList',
+                value: 'borderList',
+                checked: false
+            }, {
+                name: 'brandList',
+                value: 'brandList',
+                checked: false
+            }, {
+                name: 'commaList',
+                value: 'commaList',
+                checked: false
+            }, {
+                name: 'pipeList',
+                value: 'pipeList',
+                checked: false
+            }, {
+                name: 'nub',
+                value: 'nub',
+                checked: false
+            }, {
+                name: 'Pagination',
+                value: 'Pagination',
+                checked: false
+            }, {
+                name: 'Breadcrumbs',
+                value: 'Breadcrumbs',
+                checked: false
+            }, {
+                name: 'CaptionImage',
+                value: 'CaptionImage',
+                checked: false
+            }, {
+                name: 'SocialList',
+                value: 'SocialList',
+                checked: false
             }]
         },
         {
@@ -69,7 +105,15 @@ module.exports = yeoman.generators.Base.extend({
             this.ListBox = hasAsset('ListBox');
             this.SmallListBox = hasAsset('SmallListBox');
             this.Well = hasAsset('Well');
-
+            this.borderList = hasAsset('borderList');
+            this.brandList = hasAsset('brandList');
+            this.commaList = hasAsset('commaList');
+            this.pipeList = hasAsset('pipeList');
+            this.nub = hasAsset('nub');
+            this.Pagination = hasAsset('Pagination');
+            this.Breadcrumbs = hasAsset('Breadcrumbs');
+            this.CaptionImage = hasAsset('CaptionImage');
+            this.SocialList = hasAsset('SocialList');
 
             // not sure about these variables yet
             // if (this.CardLink == true)  {
@@ -215,18 +259,150 @@ module.exports = yeoman.generators.Base.extend({
                     this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/ListBox.twig')
                 );
             }
+            if (this.borderList == true) {
+                this.fs.copy(
+                    this.templatePath('_borderList.scss'),
+                    this.destinationPath('src/sass/base/_borderList.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('borderList.twig'),
+                    this.destinationPath('patternlab/source/_patterns/00-atoms/20-custom-objects/borderList.twig')
+                );
+            }
+            if (this.brandList == true) {
+                this.fs.copy(
+                    this.templatePath('_brandList.scss'),
+                    this.destinationPath('src/sass/base/_brandList.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('brandList.twig'),
+                    this.destinationPath('patternlab/source/_patterns/00-atoms/20-custom-objects/brandList.twig')
+                );
+            }
+            if (this.commaList == true) {
+                this.fs.copy(
+                    this.templatePath('_commaList.scss'),
+                    this.destinationPath('src/sass/base/_commaList.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('commaList.twig'),
+                    this.destinationPath('patternlab/source/_patterns/00-atoms/20-custom-objects/commaList.twig')
+                );
+            }
+            if (this.pipeList == true) {
+                this.fs.copy(
+                    this.templatePath('_pipeList.scss'),
+                    this.destinationPath('src/sass/base/_pipeList.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('pipeList.twig'),
+                    this.destinationPath('patternlab/source/_patterns/00-atoms/20-custom-objects/pipeList.twig')
+                );
+            }
+            if (this.nub == true) {
+                this.fs.copy(
+                    this.templatePath('_nub.scss'),
+                    this.destinationPath('src/sass/base/_nub.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('nub.twig'),
+                    this.destinationPath('patternlab/source/_patterns/00-atoms/20-custom-objects/nub.twig')
+                );
+            }
+
+            if (this.Breadcrumbs == true) {
+                this.fs.copy(
+                    this.templatePath('_Breadcrumbs.scss'),
+                    this.destinationPath('src/sass/modules/_Breadcrumbs.scss')
+                );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('01-Breadcrumbs.twig'),
+                        this.destinationPath('patternlab/source/_patterns/01-molecules/02-user-interface/01-Breadcrumbs.twig')
+                    );
+                }
+            }
+            if (this.Pagination == true) {
+                this.fs.copy(
+                    this.templatePath('_Pagination.scss'),
+                    this.destinationPath('src/sass/modules/_Pagination.scss')
+                );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('05-Pagination.twig'),
+                        this.destinationPath('patternlab/source/_patterns/01-molecules/02-user-interface/05-Pagination.twig')
+                    );
+                }
+            }
+            if (this.CaptionImage == true) {
+                this.fs.copy(
+                    this.templatePath('_CaptionImage.scss'),
+                    this.destinationPath('src/sass/modules/_CaptionImage.scss')
+                );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('10-CaptionImage.twig'),
+                        this.destinationPath('patternlab/source/_patterns/01-molecules/02-user-interface/10-CaptionImage.twig')
+                    );
+                }
+            }
+            if (this.SocialList == true) {
+                this.fs.copy(
+                    this.templatePath('_SocialList.scss'),
+                    this.destinationPath('src/sass/modules/_SocialList.scss')
+                );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('SocialList.twig'),
+                        this.destinationPath('patternlab/source/_patterns/01-molecules/02-user-interface/20-SocialList.twig')
+                    );
+                }
+            }
         },
 
         extra: function () {
-            for ( var item in this.props.components) {
-                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//',
-                    path   = 'src/sass/main.scss',
-                    file   = wiring.readFileAsString(path),
-                    slug   = this.props.components[item].replace(/ /g, '_'),
-                    insert = "@import 'modules/" + slug + "';";
 
-                if (file.indexOf(insert) === -1) {
-                  this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
+            for ( var item in this.props.components) {
+
+                if (this.TeaserCard  == true ||
+                    this.TeaserCardLink == true ||
+                    this.TeaserLink == true ||
+                    this.TeaserScreenLink == true ||
+                    this.ListBox == true ||
+                    this.SmallListBox == true ||
+                    this.Well == true ||
+                    this.Pagination == true ||
+                    this.Breadcrumbs == true  ||
+                    this.CaptionImage == true  ||
+                    this.SocialList == true 
+                ) {
+                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//',
+                        path   = 'src/sass/main.scss',
+                        file   = wiring.readFileAsString(path),
+                        slug   = this.props.components[item].replace(/ /g, '_'),
+                        insert = "@import 'base/" + slug + "';";
+
+                    if (file.indexOf(insert) === -1) {
+                      this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
+                    }
+                }
+
+                if (this.nub  == true ||
+                    this.pipeList == true ||
+                    this.commaList == true ||
+                    this.brandList == true ||
+                    this.borderList == true
+                ) {
+
+                    var utilhook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//',
+                        utilpath   = 'src/sass/main.scss',
+                        utilfile   = wiring.readFileAsString(utilpath),
+                        utilslug   = this.props.components[item].replace(/ /g, '_'),
+                        utilinsert = "@import 'utilities/" + utilslug + "';";
+
+                    if (utilfile.indexOf(insert) === -1) {
+                      this.writeFileFromString(utilfile.replace(utilhook, utilinsert+'\n'+utilhook), utilpath);
+                    }
                 }
             }
         }
