@@ -62,6 +62,20 @@
 
 
 /////////////////////////////////////-+++-
+// reset list styles
+
+%u-nolist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+// apply the placeholder to a class so we can use it directly in markup if needed
+.u-nolist { @extend %u-nolist; }
+
+
+
+/////////////////////////////////////-+++-
 // Some misc. text treatment classes
 
 
@@ -81,9 +95,4 @@
 // to give something block level layout
 .u-block {
     display: block;
-}
-
-// sometimes you need to remove the default margin that comes with elements (like headers, paragraphs, etc.)
-.u-removeMargin {
-    margin-bottom: 0;
 }

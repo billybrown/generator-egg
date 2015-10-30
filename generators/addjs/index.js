@@ -16,12 +16,16 @@ module.exports = yeoman.generators.Base.extend({
             name: 'components',
             message: 'Which javascript component do you want to add?',
             choices: [{
-                name: 'MobileMenu',
-                value: 'MobileMenu',
+                name: 'MobileMenuFullScreen',
+                value: 'MobileMenuFullScreen',
                 checked: false
             }, {
-                name: 'Hamburger',
-                value: 'Hamburger',
+                name: 'MobileMenuOffcanvas',
+                value: 'MobileMenuOffcanvas',
+                checked: false
+            }, {
+                name: 'Cover',
+                value: 'Cover',
                 checked: false
             }, {
                 name: 'MoreAccordian',
@@ -73,8 +77,9 @@ module.exports = yeoman.generators.Base.extend({
                 return components.indexOf(feat) !== -1;
             }
 
-            this.MobileMenu = hasAsset('MobileMenu');
-            this.Hamburger = hasAsset('Hamburger');
+            this.MobileMenuFullScreen = hasAsset('MobileMenuFullScreen');
+            this.MobileMenuOffcanvas = hasAsset('MobileMenuOffcanvas');
+            this.Cover = hasAsset('Cover');
             this.MoreAccordian = hasAsset('MoreAccordian');
             this.Modal = hasAsset('Modal');
             this.OwlCarousel = hasAsset('OwlCarousel');
@@ -92,28 +97,53 @@ module.exports = yeoman.generators.Base.extend({
 
         projectfiles: function () {
 
-            if (this.MobileMenu == true) {
+            if (this.MobileMenuFullScreen == true) {
                 this.fs.copy(
-                    this.templatePath('_MobileMenu.scss'),
-                    this.destinationPath('src/sass/specifics/_MobileMenu.scss')
+                    this.templatePath('_MobileMenuFullScreen.scss'),
+                    this.destinationPath('src/sass/specifics/_MobileMenuFullScreen.scss')
                 );
                 this.fs.copy(
-                    this.templatePath('mobilemenu.js'),
-                    this.destinationPath('src/js/custom/mobilemenu.js')
+                    this.templatePath('mobilemenufullscreen.js'),
+                    this.destinationPath('src/js/custom/mobilemenufullscreen.js')
                 );
-                if (this.props.patternlab == true) {
-                    this.fs.copy(
-                        this.templatePath('MobileMenu.twig'),
-                        this.destinationPath('patternlab/source/_layouts/header/MobileMenu.twig')
-                    );
-                }
             }
 
-            if (this.Hamburger == true) {
+            if (this.MobileMenuOffcanvas == true) {
+                this.fs.copy(
+                    this.templatePath('_MobileMenuOffcanvas.scss'),
+                    this.destinationPath('src/sass/specifics/_MobileMenuOffcanvas.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('mobilemenuoffcanvas.js'),
+                    this.destinationPath('src/js/custom/mobilemenuoffcanvas.js')
+                );
+            }
+
+            if (this.MobileMenuFullScreen == true ||
+                this.MobileMenuOffcanvas == true
+            ) {
                 this.fs.copy(
                     this.templatePath('_Hamburger.scss'),
                     this.destinationPath('src/sass/specifics/_Hamburger.scss')
                 );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('MobileMenuTriggers.twig'),
+                        this.destinationPath('patternlab/source/_layouts/header/MobileMenuTriggers.twig')
+                    );
+                }
+            }
+
+            if (this.Cover == true) {
+                this.fs.copy(
+                    this.templatePath('_Cover.scss'),
+                    this.destinationPath('src/sass/specifics/_Cover.scss')
+                );
+                this.fs.copy(
+                    this.templatePath('cover.js'),
+                    this.destinationPath('src/js/custom/cover.js')
+                );
+                // cover markup comes by default
             }
 
             if (this.MoreAccordian == true) {
@@ -173,6 +203,10 @@ module.exports = yeoman.generators.Base.extend({
 
             if (this.Chosen == true) {
                 this.fs.copy(
+                    this.templatePath('_select--chosen.scss'),
+                    this.destinationPath('src/sass/elements/_select--chosen.scss')
+                );
+                this.fs.copy(
                     this.templatePath('chosen.js'),
                     this.destinationPath('src/js/custom/chosen.js')
                 );
@@ -201,7 +235,8 @@ module.exports = yeoman.generators.Base.extend({
 
                 // if its something that needs to go in "specifics" sass partial directory
                 // basically just all header/footer and page specific content:
-                if (    this.props.components[item] === "MobileMenu"
+                if (    this.MobileMenuFullScreen == true ||
+                        this.MobileMenuOffcanvas == true
                 ) {
 
                     var specifichook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | specifics -+++-//',
@@ -213,10 +248,18 @@ module.exports = yeoman.generators.Base.extend({
                     if (specificfile.indexOf(specificinsert) === -1) {
                       this.writeFileFromString(specificfile.replace(specifichook, specificinsert+'\n'+specifichook), specificpath);
                     }
-                }
 
-                // if this is the mobile menu, we need to add a mobile menu region
-                if ( this.props.components[item] === "MobileMenu") {
+                    // put in the hamburger
+                    this.writeFileFromString(specificfile.replace(specifichook, "@import 'specifics/Hamburger';"+'\n'+specifichook), specificpath);
+
+                    var headerhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | header -+++-//-->',
+                        headerpath   = 'patternlab/source/_layouts/header/header.twig',
+                        headerfile   = wiring.readFileAsString(headerpath),
+                        headerinsert = "{% include 'header/MobileMenuTriggers.twig' %}"
+
+                    if (headerfile.indexOf(headerinsert) === -1) {
+                      this.writeFileFromString(headerfile.replace(headerhook, headerinsert+'\n'+'\t\t'+headerhook), headerpath);
+                    }
 
                     var afterheaderhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | mobilemenu -+++-//-->',
                         afterheaderpath   = 'patternlab/source/_layouts/header/header.twig',
@@ -271,7 +314,7 @@ module.exports = yeoman.generators.Base.extend({
                     }
                 }
 
-                if ( this.props.components[item] === "Chosen" ) {
+                if ( this.Chosen == true ) {
 
                     var chosenhook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | chosen-main -+++-//',
                         chosenpath   = 'config/javascript.js',
@@ -281,6 +324,25 @@ module.exports = yeoman.generators.Base.extend({
 
                     if (chosenfile.indexOf(choseninsert) === -1) {
                       this.writeFileFromString(chosenfile.replace(chosenhook, choseninsert), chosenpath);
+                    }
+
+                    var chosenSasshook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | elements -+++-//',
+                        chosenSasspath   = 'src/sass/main.scss',
+                        chosenSassfile   = wiring.readFileAsString(chosenSasspath),
+                        chosenSassinsert = "@import 'elements/select--chosen';";
+
+                    if (chosenSassfile.indexOf(chosenSassinsert) === -1) {
+                      this.writeFileFromString(chosenSassfile.replace(chosenSasshook, chosenSassinsert+'\n'+chosenSasshook), chosenSasspath);
+                    }
+
+                    var chosenSpritehook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | chosen-sprite -+++-//',
+                        chosenSpritepath   = 'config/javascript.js',
+                        chosenSpritefile   = wiring.readFileAsString(chosenSpritepath),
+                        chosenSpriteslug   = this.props.components[item].replace(/ /g, '_'),
+                        chosenSpriteinsert = "chosensprite: { files: [ { expand: true, cwd: 'bower_components/chosen', src: ['*.png'], dest: 'build/css/'} ] },"
+
+                    if (chosenSpritefile.indexOf(chosenSpriteinsert) === -1) {
+                      this.writeFileFromString(chosenSpritefile.replace(chosenSpritehook, chosenSpriteinsert), chosenSpritepath);
                     }
                 }
 

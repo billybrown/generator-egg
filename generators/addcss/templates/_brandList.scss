@@ -5,7 +5,8 @@
 
 
 
-%u-brandList {
+// this is written as a placeholder because it will get extended in WYSIWYG partials
+%BrandList {
     overflow: auto;
     margin: 0;
     padding: 0;
@@ -23,4 +24,4 @@
     }
 }
 
-.u-brandList { @extend %u-brandList;  }
+.BrandList { @extend %BrandList; }

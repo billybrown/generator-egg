@@ -12,29 +12,17 @@
 //
 // It turns into an X when the body gets a class of 'active-MobileMenu'
 //
-// @todo - this could be refactored beter. Or maybe combined with the other mobile menu
-// stuff
-//
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
 $Hamburger-color: #fff;
-$Hamburger-hoverColor: $yellow;
-$Hamburger-barWidth: 2px;
-$Hamburger-width: 24px;
-$Hamburger-spacing: 5px;
+$Hamburger-hoverColor: #fff;
+$Hamburger-barWidth: 4px;
+$Hamburger-spacing: 7px;
 $Hamburger-animation: .2s;
 
 .Hamburger {
-    position: relative;
-    display: inline-block;
-    top: -21px;
-    z-index: 101;
-
-    @include mq($from: mobilemenusmall-bp) {
-        top: auto;
-        display: block;
-    }
+    background: $gray;
 
     @include mq($from: mobilemenu-bp) {
         display: none;
@@ -42,39 +30,27 @@ $Hamburger-animation: .2s;
 
     &:hover {
         cursor: pointer;
-
-        .Hamburger__text {
-            background: lighten($yellow,3%);
-        }
-
-        .Hamburger__iconWrapper {
-            background: $yellow;
-        }
     }
 
     &__text {
-        @extend %u-buttonDefault;
-        @extend %u-smallButtonText;
-        @extend %u-yellowButton;
-        padding: 13px 14px 13px 54px;
+        @extend %u-smallText;
+        text-align: center;
+        display: block;
+        color: #fff;
         opacity: 1;
         transition: background $animation, opacity .5s ease;
-
-        @include mq($from: mobilemenusmall-bp) {
-            display: block;
-        }
-
+        z-index: 101;
+        position: relative;
     }
 
     &__iconWrapper {
-        @include u-absolute(0, null, null, 0);
-        width: 40px;
-        height: 40px; 
         display: block;
-        background: darken($yellow, 5%);
         padding: 12px 10px;
+        margin: 10px auto 0;
         transition: background $animation;
-        z-index: 2;
+        width: 55px;
+        z-index: 101;
+        position: relative;
     }
 
     &__icon {
@@ -92,6 +68,7 @@ $Hamburger-animation: .2s;
             transform: translateY(0) rotate(0);
             opacity: 1;
             transition: all $Hamburger-animation;
+            border-radius: 2px;
         }
 
         &:before,
@@ -101,13 +78,6 @@ $Hamburger-animation: .2s;
     }
 
     .active-MobileMenu & {
-
-        .Hamburger__text {
-            opacity: 0;
-            @include mq($from: mobilemenutiny-bp) {
-                opacity: 1;
-            }
-        }
 
         .Hamburger__icon:before {
             transform: translateY(($Hamburger-spacing + $Hamburger-barWidth)) rotate(-45deg);

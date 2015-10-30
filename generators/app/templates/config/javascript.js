@@ -70,16 +70,12 @@ module.exports.tasks = {
     //copy custom JS file over to the build directory
     copy: {
         //-+++- DONT REMOVE THIS COMMENT! its used by yeoman | owlcarousel-copy -+++-//
+        //-+++- DONT REMOVE THIS COMMENT! its used by yeoman | chosen-sprite -+++-//
         vendorjs: {
             files: [
                 { expand: true, cwd: 'src/js/vendor', src: ['*.js'], dest: 'build/js/'}
             ]
-        },
-        // chosensprite: {
-        //     files: [
-        //         { expand: true, cwd: 'bower_components/chosen', src: ['*.png'], dest: 'build/css/'}
-        //     ]
-        // }
+        }
     },
 
     uglify : {

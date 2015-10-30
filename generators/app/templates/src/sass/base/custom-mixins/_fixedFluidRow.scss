@@ -29,11 +29,11 @@
 // $primary - which column should be first when stacked
 
 // these are the styles for just the sidebar or rail
-@mixin u-fixedFluidRow__fixed($bp, $width) {
+@mixin u-fixedFluidRow__fixed($bp, $width, $gutter) {
 
     @include mq($from: $bp) {
-        width: $width;
-        flex: 0 0 $width;
+        width: $width + ($gutter * .5);
+        flex: 0 0 $width + ($gutter * .5);
 
         .no-flexbox & {
             display: table-cell;
@@ -41,7 +41,7 @@
 
             img {
                 display: block;
-                max-width: none;
+                max-width: $width;
                 width: $width;
             }
         }
@@ -88,7 +88,7 @@
             @include u-fixedFluidRow__fluid($bp, $layerSpace);
 
         } @else {
-            @include u-fixedFluidRow__fixed($bp, $width);    
+            @include u-fixedFluidRow__fixed($bp, $width, $gutter);    
         } 
 
         @if $primary == "first" {
@@ -105,7 +105,7 @@
 
     & > div:first-child {
         @if $direction == "left" {
-            @include u-fixedFluidRow__fixed($bp, $width);   
+            @include u-fixedFluidRow__fixed($bp, $width, $gutter);   
 
         } @else {
             @include u-fixedFluidRow__fluid($bp, $layerSpace); 
@@ -126,6 +126,7 @@
     // this is a flexbox bug in firefox where the img breaks the container otherwise
     img {
         width: 100%;
+        max-width: $width; // testing 1 .. 2
     }
 }
 
@@ -182,7 +183,3 @@
         }    
     }
 }
-
-
-
-

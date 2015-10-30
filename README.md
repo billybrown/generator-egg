@@ -8,9 +8,14 @@ Please feel free to take on any of these things below - or add new stuff.
 ## to do
 
 - **Javascript** Need to figure out boilerplate js code for integrating new custom bits of js. Also need to consider integrating prototype and a global theme class. Need to connect with @wpatt about this.
-- **Takana**. I'd love to properly add Takana into the theme - right now I just run it locally. Takana isn't super well maintained so it would require a lot of documentation and trial and error. (@billybrown will do this task since he already knows a good bit about the issues here)
-- **Moar Usage**. I need people to start using these tools to find their problems.
-
+-- All custom js will then need to be refactored. Make sure partials can call from eachother (cover/offcanvas/modal all need to work together)
+-- a egg:newjs sub generator will then need to be created
+- **Moar Usage**. I generally need to just use everything more and make more sites. Specifically need to pay attention to:
+-- Layout and grid mixins. I think this could be better.
+-- Chosen and select element integration. This seems buggy.
+-- mobile menus and hamburger icon integration. Seems buggy.
+-- Text styles. Always a bit of a pain - consider ways to use yeoman to speed up.
+-- Post feilds (filtering interface, subtitle, author, etc.). Consider using yeoman to add.
 
 
 ### on hold
@@ -21,7 +26,6 @@ Please feel free to take on any of these things below - or add new stuff.
 - **Uncss**. Similar to Critical CSS in that it requires scanning HTML. Discuss with backend dev as necessary.
 - **takana**. Takana requires v0.12 of node to work properlly. I would love to figure out how to use the most recent version of node (v4) and still have Takana work. This is a Takana issue and not an Egg one ... figured I'd mention it here though.
 - **Stats**. Currently there is a 'grunt stats' task that will output some stats on the compiled css. I'd love for there to be more stuff here. JS stats, Performance stats, etc. Something that we can use to develop benchmarks. We need to figure out those benchmarks first though - not sure how best to integrate all of this. Seems like a *Phase 2* type of thing.
-
 
 
 ## Contributing

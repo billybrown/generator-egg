@@ -1,5 +1,7 @@
 // Modal
-
+// also deploys a "cover" that exists between the modal and site content. "Cover" js is
+// in another partial since it can be used with things other then modals (offcanvas nav, etc.)
+//
 // @todo - the "pollForEscape" isn't working correctly. (close modal on esc key)
 
 var modal = function() {
@@ -14,14 +16,17 @@ var modal = function() {
     };
 
     var openModal = function(e) {
-        $('#Cover, #ModalCage .ModalWrapper').addClass('is-out');
+        $('#ModalCage .ModalWrapper').addClass('is-out');
+        cover.apply();
 
         // Now that the modal is open, start listening for the escape key.
         $(document).keydown(pollForEscape(e));
     };
 
     var closeModal = function(e) {
-        $('#Cover, .ModalWrapper').removeClass('is-out');
+        $('.ModalWrapper').removeClass('is-out');
+        cover.remove();
+
         // Stop listening for keypress.
         $(document).off('keydown', pollForEscape(e));
     };

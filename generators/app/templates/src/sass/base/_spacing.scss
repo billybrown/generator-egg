@@ -34,7 +34,7 @@ input {
 /////////////////////////////////////-+++-
 // some spacing utility classes
 
-
+// sometimes you need to remove the default margin that comes with elements (like headers, paragraphs, etc.)
 %u-truncate {
     margin-bottom: 0;
 }

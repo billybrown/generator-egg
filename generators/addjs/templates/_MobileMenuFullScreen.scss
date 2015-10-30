@@ -66,3 +66,13 @@ $MobileMenu-background: $gray-light;
         }
     }
 }
+
+.SiteWrapper1,
+.SiteWrapper2 {
+    height: 100%;
+    position: relative;
+    min-height: 800px;
+    //max-width: $page-max-width;
+    margin-right: auto;
+    margin-left: auto;
+}

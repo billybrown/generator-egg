@@ -104,7 +104,9 @@
         }
 
         &:not(:last-child) {
-            margin-bottom: $gutter;
+            @include mq($from: $bp) {
+                margin-bottom: $gutter;
+            }
         }
     }
 

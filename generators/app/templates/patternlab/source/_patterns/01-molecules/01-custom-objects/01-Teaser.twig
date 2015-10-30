@@ -1,22 +1,22 @@
-<article class="Teaser">
-	<div class="Teaser__textGroup">
+<article class="Teaser u-grid u-grid--optional">
+	<div class="Teaser__textGroup u-grid__75">
 		<header class="Teaser__header">
 			<h3 class="Teaser__title">
 				<a href="">{{ post.heading.medium }}</a>
 			</h3>
-			<div class="u-inlineList">
+			<div class="List--inline--smallSpacing">
 				<div class="Teaser__author">{{ post.author }}</div>
 				<div class="Teaser__date">{{ post.date }}</div>
 			</div><!-- /u-pipeList -->
 		</header>
-		<div class="Teaser__content">
+		<div class="Teaser__excerpt">
 			<p>{{ post.excerpt.medium }}</p>
-		</div><!-- /.Teaser__Summary -->
+		</div><!-- /.Teaser__excerpt -->
 	</div><!-- /.Teaser__textGroup -->
-	{% if post.img %}
-		<div class="Teaser__imageGroup">
+	{% if image %}
+		<div class="Teaser__imageGroup u-grid__25">
 			<a href="">
-				<img src="{{ post.img.smallRectangle.src }}" alt="" />
+				<img src="{{ img.img235xAuto.src }}" alt="" />
 			</a>
 		</div>
 	{% endif %}

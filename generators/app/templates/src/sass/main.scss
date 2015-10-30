@@ -35,10 +35,8 @@
 @import 'base/alignment';
 @import 'base/text';
 @import 'base/links';
-@import 'base/lists';
 @import 'base/spacing';
 @import 'base/grid';
-@import 'base/StackedList';
 //-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//
 
 // import html elements
@@ -49,20 +47,19 @@
 @import 'elements/blockquote';
 @import 'elements/horizontalRule';
 @import 'elements/input';
-@import 'elements/input--checkbox';
-@import 'elements/select';
-//@import 'elements/select--chosen'; //@todo - figure out a better way to include this
 @import 'elements/table';
 @import 'elements/small';
 @import 'elements/mark';
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | elements -+++-//
 
 // import CSS modules
 @import 'modules/Frame';
+@import 'modules/List';
 @import 'modules/Post';
+@import 'modules/Teaser';
 //-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//
 
 // import specific css areas
-@import 'specifics/SiteWrapper';
 @import 'specifics/SiteMain';
 @import 'specifics/SiteFooter';
 @import 'specifics/SiteHeader';

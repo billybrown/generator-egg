@@ -1,4 +1,3 @@
-
 /////////////////////////////////////-+++-/////////////////////////////////////////
 // Modal
 // this is a full site overlay or cover. Often appears as the background when a 
@@ -43,27 +42,5 @@
     .ModalCage &.is-out {
         visibility: visible;
         opacity: 1;     
-    }
-}
-
-$Cover-background: rgba(0,0,0,.5);
-$Cover-opacity: .9;
-
-.Cover {
-    display: block;
-    opacity: 0;
-    visibility: hidden;
-    background: $Cover-background;
-    z-index: 100;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: visibility .5s ease, opacity .5s ease;
-
-    &.is-out {
-        visibility: visible;
-        opacity: $Cover-opacity;
     }
 }

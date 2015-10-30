@@ -10,7 +10,7 @@
 
 
 // default inline grid
-$grid-bp: mobilemenu-bp;
+$grid-bp: 700px;
 $grid-bp-small: small-bp;
 $grid-gutter: 20px;
 
@@ -50,11 +50,37 @@ $grid-gutter: 20px;
         width: 100% !important; // overriding some chosen inline styles
     }
 
+    // if its just a single row grid, we want to truncate the bottom margin
+    // on desktop.
+    &--singleRow {
+        > div,
+        > li {
+            @include mq($from: $grid-bp) {
+                margin-bottom: 0;
+            }
+        }
+    }
 
-    &--noMarginBottomDesktop {
-        > div:not(:last-child),
-        > li:not(:last-child) {
-            margin-bottom: 0;
+    // same as above except for smaller screens
+    &--singleRow--s {
+        > div,
+        > li {
+            @include mq($from: $grid-bp-small) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // this is for situations where we want a certain grid column to be optional.
+    // so when it doesn't exist that remaining column goes full width.
+    // this only works when there is only 2 columns
+    &--optional {
+        display: table;
+
+        > div,
+        > li {
+            display: table-cell;
+            vertical-align: top;
         }
     }
 }

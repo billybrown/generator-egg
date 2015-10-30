@@ -14,12 +14,14 @@
 
         {% if page.type == "list" %}
             <div class="Post__list">
-                <ul class="u-StackedList">
-                    {% for item in i..8 %}
-                        <li>{% include 'molecules-Teaser' with { item : post } %}</li>
-                    {% endfor %}
+                <ul class="List--border--smallSpacing">
+                    <li>{% include 'molecules-Teaser' with { image : true  } %}</li>
+                    <li>{% include 'molecules-Teaser' %}</li>
+                    <li>{% include 'molecules-Teaser' %}</li>
+                    <li>{% include 'molecules-Teaser' with { image : true  } %}</li>
+                    <li>{% include 'molecules-Teaser' with { image : true  } %}</li>
                 </ul>
-            </div>    
+            </div>     
         {% else %}
             <div class="Post__body u-WYSIWYG">
                 {% block post_body %}

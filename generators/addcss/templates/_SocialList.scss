@@ -10,7 +10,7 @@
 .HeaderSocial {  
 
     ul {
-        @extend %u-inlineList--spacing;
+        @extend %u-inlineList;
     }
 
     li {

@@ -1,4 +1,78 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
+// Chosen Select dropdowns
+// These styles override those that the chosen plugin provides.
+//
+// @todo: this needs to be refactored to be able to take variables
+//
+// https://harvesthq.github.io/chosen/
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+$chosen-border-width: 2px;
+$chosen-border-color: $gray-light;
+$chosen-border: $chosen-border-width solid $chosen-border-color;
+$chosen-background: #fff;
+$chosen-color: $text;
+
+
+.chosen-container {
+    @extend %u-text;
+    width: auto !important;
+}
+
+.chosen-container-single .chosen-single,
+.chosen-container-active.chosen-with-drop .chosen-single,
+.chosen-container .chosen-drop {
+    @extend %u-defaultInput;
+    color: $chosen-color;
+    box-shadow: none;
+    background: $chosen-background;
+    border-color: $chosen-border-color;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single {
+    border-bottom: none;
+}
+
+.chosen-container .chosen-drop {
+    border-top: none;
+    padding: 0;
+    height: auto;
+}
+
+// needs to be updated with your caret.
+.chosen-container-single .chosen-single div {
+    background: transparent url('../img/caret-down.svg') no-repeat center center !important;
+    width: 10px;
+    height: 10px;
+    padding-top: 39px;
+    padding-right: 33px;
+
+    b {
+        display: none;
+    }
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single div {
+    transform: rotate(180deg);
+}
+
+.chosen-container .chosen-results li {
+    @extend %u-smallText;
+}
+
+.chosen-container-single .chosen-search {
+    @extend %u-smallText;
+}
+
+.chosen-container .chosen-results li.active-result.highlighted {
+    background: $link-color;
+}
+
+
+
+/////////////////////////////////////-+++-/////////////////////////////////////////
 // Select dropdowns
 // Chosen doesn't load on touch devices - so we still need to have some styles here
 // for regular select dropdowns

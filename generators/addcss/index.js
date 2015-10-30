@@ -44,20 +44,8 @@ module.exports = yeoman.generators.Base.extend({
                 value: 'Well',
                 checked: false
             }, {
-                name: 'borderList',
-                value: 'borderList',
-                checked: false
-            }, {
-                name: 'brandList',
-                value: 'brandList',
-                checked: false
-            }, {
-                name: 'commaList',
-                value: 'commaList',
-                checked: false
-            }, {
-                name: 'pipeList',
-                value: 'pipeList',
+                name: 'BrandList',
+                value: 'BrandList',
                 checked: false
             }, {
                 name: 'nub',
@@ -105,10 +93,7 @@ module.exports = yeoman.generators.Base.extend({
             this.ListBox = hasAsset('ListBox');
             this.SmallListBox = hasAsset('SmallListBox');
             this.Well = hasAsset('Well');
-            this.borderList = hasAsset('borderList');
-            this.brandList = hasAsset('brandList');
-            this.commaList = hasAsset('commaList');
-            this.pipeList = hasAsset('pipeList');
+            this.brandList = hasAsset('BrandList');
             this.nub = hasAsset('nub');
             this.Pagination = hasAsset('Pagination');
             this.Breadcrumbs = hasAsset('Breadcrumbs');
@@ -259,44 +244,14 @@ module.exports = yeoman.generators.Base.extend({
                     this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/ListBox.twig')
                 );
             }
-            if (this.borderList == true) {
+            if (this.BrandList == true) {
                 this.fs.copy(
-                    this.templatePath('_borderList.scss'),
-                    this.destinationPath('src/sass/base/_borderList.scss')
+                    this.templatePath('_BrandList.scss'),
+                    this.destinationPath('src/sass/modules/_BrandList.scss')
                 );
                 this.fs.copy(
-                    this.templatePath('borderList.twig'),
-                    this.destinationPath('patternlab/source/_patterns/00-atoms/20-custom-objects/borderList.twig')
-                );
-            }
-            if (this.brandList == true) {
-                this.fs.copy(
-                    this.templatePath('_brandList.scss'),
-                    this.destinationPath('src/sass/base/_brandList.scss')
-                );
-                this.fs.copy(
-                    this.templatePath('brandList.twig'),
-                    this.destinationPath('patternlab/source/_patterns/00-atoms/20-custom-objects/brandList.twig')
-                );
-            }
-            if (this.commaList == true) {
-                this.fs.copy(
-                    this.templatePath('_commaList.scss'),
-                    this.destinationPath('src/sass/base/_commaList.scss')
-                );
-                this.fs.copy(
-                    this.templatePath('commaList.twig'),
-                    this.destinationPath('patternlab/source/_patterns/00-atoms/20-custom-objects/commaList.twig')
-                );
-            }
-            if (this.pipeList == true) {
-                this.fs.copy(
-                    this.templatePath('_pipeList.scss'),
-                    this.destinationPath('src/sass/base/_pipeList.scss')
-                );
-                this.fs.copy(
-                    this.templatePath('pipeList.twig'),
-                    this.destinationPath('patternlab/source/_patterns/00-atoms/20-custom-objects/pipeList.twig')
+                    this.templatePath('BrandList.twig'),
+                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/BrandList.twig')
                 );
             }
             if (this.nub == true) {
@@ -374,6 +329,7 @@ module.exports = yeoman.generators.Base.extend({
                     this.Pagination == true ||
                     this.Breadcrumbs == true  ||
                     this.CaptionImage == true  ||
+                    this.BrandList == true ||
                     this.SocialList == true 
                 ) {
                     var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//',
@@ -387,11 +343,7 @@ module.exports = yeoman.generators.Base.extend({
                     }
                 }
 
-                if (this.nub  == true ||
-                    this.pipeList == true ||
-                    this.commaList == true ||
-                    this.brandList == true ||
-                    this.borderList == true
+                if (this.nub  == true
                 ) {
 
                     var utilhook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//',

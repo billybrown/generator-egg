@@ -1,0 +1,82 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Offcanvas
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+$Offcanvas-width: 220px;
+$Offcanvas-animation: 0.4s;
+$Offcanvas-background: $gray repeat;
+
+$Offcanvas-direction: 'left'; // change to "right" if you want it on the other side
+
+.SiteWrapper1 {
+    overflow: hidden;
+    position: relative;
+}
+
+.SiteWrapper2 {
+    transition: transform $Offcanvas-animation ease;
+    position: relative;
+
+    .js.active-MobileMenu & {
+
+        @if $Offcanvas-direction == 'left' {
+            transform: translate($Offcanvas-width, 0px);
+        } @else if $Offcanvas-direction == 'right' {
+            transform: translate(-($Offcanvas-width), 0px);
+        }
+
+        @include mq($from: mobilemenu-bp) {
+            transform: none;
+        }
+    }
+}
+
+#MobileMenu__content {
+    display: block;
+    background: $Offcanvas-background;
+
+    a {
+        color: #fff;
+    }
+
+    @include mq($from: mobilemenu-bp) {
+        display: none;
+    }
+
+    .js & {
+        height: 100%;
+        z-index: 500;
+        position: absolute;
+        top: 0;
+        width: $Offcanvas-width;
+
+        @if $Offcanvas-direction == 'left' {
+            transform: translate(-100%, 0px);
+            left: 0;
+        } @else if $Offcanvas-direction == 'right' {
+            transform: translate(100%, 0px);
+            right: 0;
+        }
+
+
+        @include mq($from: mobilemenu-bp) {
+            height: auto;
+            width: auto;
+            right: auto;
+            left: auto;
+            top: auto;
+            position: relative;
+            transform: translate(0, 0);
+        }
+    }
+}
+
+// hide the dropshadow and the trigger button on larger screens
+#MobileMenu__trigger,
+#MobileMenu__content:before {
+    @include mq($from: mobilemenu-bp) {
+        display: none;
+    }  
+}

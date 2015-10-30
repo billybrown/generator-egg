@@ -1,1 +1,0 @@
-classTrigger('#MobileMenu__close, #MobileMenu__open', 'html', 'active-MobileMenu');
