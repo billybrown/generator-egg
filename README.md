@@ -8,14 +8,14 @@ Please feel free to take on any of these things below - or add new stuff.
 ## to do
 
 - **Javascript** Need to figure out boilerplate js code for integrating new custom bits of js. Also need to consider integrating prototype and a global theme class. Need to connect with @wpatt about this.
--- All custom js will then need to be refactored. Make sure partials can call from eachother (cover/offcanvas/modal all need to work together)
--- a egg:newjs sub generator will then need to be created
+  - All custom js will then need to be refactored. Make sure partials can call from eachother (cover/offcanvas/modal all need to work together)
+  - a egg:newjs sub generator will then need to be created
 - **Moar Usage**. I generally need to just use everything more and make more sites. Specifically need to pay attention to:
--- Layout and grid mixins. I think this could be better.
--- Chosen and select element integration. This seems buggy.
--- mobile menus and hamburger icon integration. Seems buggy.
--- Text styles. Always a bit of a pain - consider ways to use yeoman to speed up.
--- Post feilds (filtering interface, subtitle, author, etc.). Consider using yeoman to add.
+  - Layout and grid mixins. I think this could be better.
+  - Chosen and select element integration. This seems buggy.
+  - mobile menus and hamburger icon integration. Seems buggy.
+  - Text styles. Always a bit of a pain - consider ways to use yeoman to speed up.
+  - Post feilds (filtering interface, subtitle, author, etc.). Consider using yeoman to add.
 
 
 ### on hold
