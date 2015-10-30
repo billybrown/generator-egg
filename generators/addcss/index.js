@@ -93,7 +93,7 @@ module.exports = yeoman.generators.Base.extend({
             this.ListBox = hasAsset('ListBox');
             this.SmallListBox = hasAsset('SmallListBox');
             this.Well = hasAsset('Well');
-            this.brandList = hasAsset('BrandList');
+            this.BrandList = hasAsset('BrandList');
             this.nub = hasAsset('nub');
             this.Pagination = hasAsset('Pagination');
             this.Breadcrumbs = hasAsset('Breadcrumbs');
@@ -176,7 +176,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('TeaserCardLink.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/TeaserCardLink.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/TeaserCardLink.twig')
                 );
             }
             if (this.TeaserScreenLink == true) {
@@ -189,7 +189,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('TeaserScreenLink.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/TeaserScreenLink.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/TeaserScreenLink.twig')
                 );
             }
             if (this.TeaserLink == true) {
@@ -199,7 +199,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('TeaserLink.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/TeaserLink.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/TeaserLink.twig')
                 );
             }
             if (this.SmallListBox == true) {
@@ -209,7 +209,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('SmallListBox.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/SmallListBox.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/SmallListBox.twig')
                 );
             }
             if (this.Well == true) {
@@ -221,7 +221,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('Well.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/Well.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/Well.twig')
                 );
             }
             if (this.TeaserCard == true) {
@@ -231,7 +231,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('TeaserCard.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/TeaserCard.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/TeaserCard.twig')
                 );
             }
             if (this.ListBox == true) {
@@ -241,7 +241,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('ListBox.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/ListBox.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/ListBox.twig')
                 );
             }
             if (this.BrandList == true) {
@@ -251,7 +251,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('BrandList.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-molecules/01-custom-objects/BrandList.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/BrandList.twig')
                 );
             }
             if (this.nub == true) {
@@ -261,7 +261,7 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 this.fs.copy(
                     this.templatePath('nub.twig'),
-                    this.destinationPath('patternlab/source/_patterns/00-atoms/20-custom-objects/nub.twig')
+                    this.destinationPath('patternlab/source/_patterns/01-elements/09-misc/nub.twig')
                 );
             }
 
@@ -272,8 +272,8 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
-                        this.templatePath('01-Breadcrumbs.twig'),
-                        this.destinationPath('patternlab/source/_patterns/01-molecules/02-user-interface/01-Breadcrumbs.twig')
+                        this.templatePath('Breadcrumbs.twig'),
+                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/Breadcrumbs.twig')
                     );
                 }
             }
@@ -284,8 +284,8 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
-                        this.templatePath('05-Pagination.twig'),
-                        this.destinationPath('patternlab/source/_patterns/01-molecules/02-user-interface/05-Pagination.twig')
+                        this.templatePath('Pagination.twig'),
+                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/Pagination.twig')
                     );
                 }
             }
@@ -296,8 +296,8 @@ module.exports = yeoman.generators.Base.extend({
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
-                        this.templatePath('10-CaptionImage.twig'),
-                        this.destinationPath('patternlab/source/_patterns/01-molecules/02-user-interface/10-CaptionImage.twig')
+                        this.templatePath('CaptionImage.twig'),
+                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/CaptionImage.twig')
                     );
                 }
             }
@@ -309,7 +309,7 @@ module.exports = yeoman.generators.Base.extend({
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('SocialList.twig'),
-                        this.destinationPath('patternlab/source/_patterns/01-molecules/02-user-interface/20-SocialList.twig')
+                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/SocialList.twig')
                     );
                 }
             }
@@ -336,7 +336,7 @@ module.exports = yeoman.generators.Base.extend({
                         path   = 'src/sass/main.scss',
                         file   = wiring.readFileAsString(path),
                         slug   = this.props.components[item].replace(/ /g, '_'),
-                        insert = "@import 'base/" + slug + "';";
+                        insert = "@import 'modules/" + slug + "';";
 
                     if (file.indexOf(insert) === -1) {
                       this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
@@ -350,9 +350,9 @@ module.exports = yeoman.generators.Base.extend({
                         utilpath   = 'src/sass/main.scss',
                         utilfile   = wiring.readFileAsString(utilpath),
                         utilslug   = this.props.components[item].replace(/ /g, '_'),
-                        utilinsert = "@import 'utilities/" + utilslug + "';";
+                        utilinsert = "@import 'base/" + utilslug + "';";
 
-                    if (utilfile.indexOf(insert) === -1) {
+                    if (utilfile.indexOf(utilinsert) === -1) {
                       this.writeFileFromString(utilfile.replace(utilhook, utilinsert+'\n'+utilhook), utilpath);
                     }
                 }

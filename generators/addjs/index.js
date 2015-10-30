@@ -158,7 +158,7 @@ module.exports = yeoman.generators.Base.extend({
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('MoreAccordian.twig'),
-                        this.destinationPath('patternlab/source/_patterns/01-molecules/02-user-interface/30-MoreAccordian.twig')
+                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/MoreAccordian.twig')
                     );
                 }
             }
@@ -175,7 +175,7 @@ module.exports = yeoman.generators.Base.extend({
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('Modal.twig'),
-                        this.destinationPath('patternlab/source/_patterns/02-organisms/01-custom-objects/Modal.twig')
+                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/Modal.twig')
                     );
                 }
             }
@@ -204,7 +204,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Chosen == true) {
                 this.fs.copy(
                     this.templatePath('_select--chosen.scss'),
-                    this.destinationPath('src/sass/elements/_select--chosen.scss')
+                    this.destinationPath('src/sass/base/elements/_select--chosen.scss')
                 );
                 this.fs.copy(
                     this.templatePath('chosen.js'),
@@ -329,7 +329,7 @@ module.exports = yeoman.generators.Base.extend({
                     var chosenSasshook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | elements -+++-//',
                         chosenSasspath   = 'src/sass/main.scss',
                         chosenSassfile   = wiring.readFileAsString(chosenSasspath),
-                        chosenSassinsert = "@import 'elements/select--chosen';";
+                        chosenSassinsert = "@import 'base/elements/select--chosen';";
 
                     if (chosenSassfile.indexOf(chosenSassinsert) === -1) {
                       this.writeFileFromString(chosenSassfile.replace(chosenSasshook, chosenSassinsert+'\n'+chosenSasshook), chosenSasspath);

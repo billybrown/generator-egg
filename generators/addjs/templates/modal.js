@@ -17,7 +17,7 @@ var modal = function() {
 
     var openModal = function(e) {
         $('#ModalCage .ModalWrapper').addClass('is-out');
-        cover.apply();
+        //cover.apply();
 
         // Now that the modal is open, start listening for the escape key.
         $(document).keydown(pollForEscape(e));
@@ -25,7 +25,7 @@ var modal = function() {
 
     var closeModal = function(e) {
         $('.ModalWrapper').removeClass('is-out');
-        cover.remove();
+        //cover.remove();
 
         // Stop listening for keypress.
         $(document).off('keydown', pollForEscape(e));

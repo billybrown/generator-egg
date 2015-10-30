@@ -59,7 +59,7 @@ module.exports = yeoman.generators.Base.extend({
                         type: 'list',
                         name: 'atomictype',
                         message: 'What group does it fall within atomic design?',
-                        choices: [ "00-atoms/09-misc", "01-molecules/01-custom-objects", "02-organisms/99-misc"  ],
+                        choices: [ "01-base/09-misc", "02-modules/custom" ],
                         default: '01-molecules/01-custom-objects'
                     },{
                         type: 'list',
