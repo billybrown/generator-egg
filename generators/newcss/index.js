@@ -29,8 +29,8 @@ module.exports = yeoman.generators.Base.extend({
                     type: 'list',
                     name: 'objecttype',
                     message: 'What type of CSS group does it fall into?',
-                    choices: [ "base", "modules", "specifics" ],
-                    default: 'modules'
+                    choices: [ "utilities", "components", "specifics" ],
+                    default: 'components'
                 },{
                     type: 'confirm',
                     name: 'link',
@@ -59,7 +59,7 @@ module.exports = yeoman.generators.Base.extend({
                         type: 'list',
                         name: 'atomictype',
                         message: 'What group does it fall within atomic design?',
-                        choices: [ "01-base/09-misc", "02-modules/custom" ],
+                        choices: [ "01-base/80-utilities-misc", "02-components/custom" ],
                         default: '01-molecules/01-custom-objects'
                     },{
                         type: 'list',
@@ -172,12 +172,12 @@ module.exports = yeoman.generators.Base.extend({
                 slug   = this.props.objectname.replace(/ /g, '_'),
                 insert = "@import '" + this.props.objecttype + "/" + slug + "';";
 
-            if (this.props.objecttype == 'modules') {
-                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//';
-                var insert = "@import 'modules/" + slug + "';";
+            if (this.props.objecttype == 'components') {
+                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//';
+                var insert = "@import 'components/" + slug + "';";
             } else if (this.props.objecttype == 'utilities') {
                 var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//';
-                var insert = "@import 'base/" + slug + "';";
+                var insert = "@import 'base/utilities/" + slug + "';";
             } else if (this.props.objecttype == 'areas') {
                 var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | specifics -+++-//';
                 var insert = "@import 'specifics/" + slug + "';";

@@ -22,7 +22,7 @@
 // $bp = the breakpoint where you want the grid to turn on
 
 @mixin u-equalColRow($bp) {
-    @extend %u-nolist;
+    @extend %u-noList;
     width: 100%;
     
     @include mq($from: $bp) {

@@ -149,7 +149,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.MoreAccordian == true) {
                 this.fs.copy(
                     this.templatePath('_MoreAccordian.scss'),
-                    this.destinationPath('src/sass/modules/_MoreAccordian.scss')
+                    this.destinationPath('src/sass/components/_MoreAccordian.scss')
                 );
                 this.fs.copy(
                     this.templatePath('moreaccordian.js'),
@@ -158,7 +158,7 @@ module.exports = yeoman.generators.Base.extend({
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('MoreAccordian.twig'),
-                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/MoreAccordian.twig')
+                        this.destinationPath('patternlab/source/_patterns/02-components/custom/MoreAccordian.twig')
                     );
                 }
             }
@@ -166,7 +166,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Modal == true) {
                 this.fs.copy(
                     this.templatePath('_Modal.scss'),
-                    this.destinationPath('src/sass/modules/_Modal.scss')
+                    this.destinationPath('src/sass/components/_Modal.scss')
                 );
                 this.fs.copy(
                     this.templatePath('modal.js'),
@@ -175,7 +175,7 @@ module.exports = yeoman.generators.Base.extend({
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('Modal.twig'),
-                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/Modal.twig')
+                        this.destinationPath('patternlab/source/_patterns/02-components/custom/Modal.twig')
                     );
                 }
             }
@@ -217,16 +217,16 @@ module.exports = yeoman.generators.Base.extend({
 
             for ( var item in this.props.components) {
 
-                // if its something that needs to go in "modules" sass partial directory
+                // if its something that needs to go in "components" sass partial directory
                 if (    this.props.components[item] === "MoreAccordian" ||
                         this.props.components[item] === "Modal"
                 ) {
 
-                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//',
+                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//',
                         path   = 'src/sass/main.scss',
                         file   = wiring.readFileAsString(path),
                         slug   = this.props.components[item].replace(/ /g, '_'),
-                        insert = "@import 'modules/" + slug + "';";
+                        insert = "@import 'components/" + slug + "';";
 
                     if (file.indexOf(insert) === -1) {
                       this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);

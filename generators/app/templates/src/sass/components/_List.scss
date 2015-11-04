@@ -1,0 +1,129 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Custom List styles
+//
+// @todo: we are loading a lot of list styles here that we might not need for
+// every project. Its minimal extra css though ... so it might be fine. Feels 
+// a little icky though.
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+/////////////////////////////////////-+++-
+// Variables
+
+$List--stacked--smallSpacing: 20px;
+$List--stacked--largeSpacing: 90px;
+
+$List--inline--smallSpacing: 10px;
+$List--inline--largeSpacing: 40px;
+
+$List--border: 1px solid $text;
+$List--border--smallSpacing: 20px;
+$List--border--largeSpacing: 90px;
+
+$List--pipe: 1px solid $text;
+
+
+
+/////////////////////////////////////-+++-
+// Some global styles
+
+
+// all List elements should remove default <ul> list styles
+[class^="List--"], 
+[class*=" List--"] {
+    @extend %u-noList;
+}
+
+
+/////////////////////////////////////-+++-
+// List and List variant styles
+
+.List {
+
+    // &--stacked--smallSpacing {
+
+    //     > li:not(:last-child),
+    //     > div:not(:last-child) {
+    //         margin-bottom: $List--stacked--smallSpacing; 
+    //     }
+    // }
+
+    &--stacked--largeSpacing {
+
+        > li:not(:last-child),
+        > div:not(:last-child) {
+            margin-bottom: $List--stacked--largeSpacing; 
+        }
+    }
+
+    // &--inline--smallSpacing {
+    //     @extend %u-inlineList;
+
+    //     > li:not(:last-child),
+    //     > div:not(:last-child) {
+    //         margin-right: $List--inline--smallSpacing; ;
+    //     }
+    // }
+
+    // &--inline--largeSpacing {
+    //     @extend %u-inlineList;
+
+    //     > li:not(:last-child),
+    //     > div:not(:last-child) {
+    //         margin-right: $List--inline--largeSpacing; ;
+    //     }
+    // }
+
+    // &--comma {
+    //     @extend %u-inlineList;
+
+    //     > li:not(:last-child),
+    //     > div:not(:last-child) {
+
+    //         &:after {
+    //             content: ',';
+    //         }
+    //     }
+    // }
+
+    // &--pipe {
+    //     @extend %u-inlineList;
+
+    //     > li:not(:last-child),
+    //     > div:not(:last-child) {
+    //         border-right: $List--pipe;
+    //         margin-right: 8px;
+    //         padding-right: 10px;
+    //     }
+    // }
+
+    // &--border {
+
+    //     > li:not(:last-child),
+    //     > div:not(:last-child) {
+    //         border-bottom: $List--border;
+    //     }
+    // }
+
+    // &--border--smallSpacing {
+
+    //     > li:not(:last-child),
+    //     > div:not(:last-child) {
+    //         border-bottom: $List--border;
+    //         margin-bottom: $List--border--smallSpacing; 
+    //         padding-bottom: $List--border--smallSpacing; 
+    //     }
+    // }
+
+    // &--border--largeSpacing {
+
+    //     > li:not(:last-child),
+    //     > div:not(:last-child) {
+    //         border-bottom: $List--border;
+    //         margin-bottom: $List--border--largeSpacing; 
+    //         padding-bottom: $List--border--largeSpacing; 
+    //     }
+    // }
+}

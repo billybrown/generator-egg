@@ -9,9 +9,7 @@
 //    │  
 //    ├── base: variables, mixins, resets, utiltiies
 //    │
-//    ├── elements: starting css for html elements
-//    │
-//    ├── modules: css for modular components
+//    ├── components: css for modular components
 //    │
 //    └── specifics: css for a specifc non-modular areas of the site
 //    
@@ -30,10 +28,10 @@
 @import 'base/reset/normalizeAdditions';
 
 // import base utilities 
-@import 'base/text';
-@import 'base/utilities';
-@import 'base/links';
-@import 'base/grid';
+@import 'base/utilities/text';
+@import 'base/utilities/misc';
+@import 'base/utilities/links';
+@import 'base/utilities/grid';
 //-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//
 
 // import html elements
@@ -49,12 +47,12 @@
 @import 'base/elements/mark';
 //-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | elements -+++-//
 
-// import CSS modules
-@import 'modules/Frame';
-@import 'modules/List';
-@import 'modules/Post';
-@import 'modules/Teaser';
-//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//
+// import CSS components
+@import 'components/Frame';
+@import 'components/List';
+@import 'components/Post';
+@import 'components/Teaser';
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//
 
 // import specific css areas
 @import 'specifics/SiteMain';

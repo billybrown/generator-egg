@@ -1,4 +1,4 @@
-/////////////////////////////////////-+++-/////////////////////////////////////////
+f/////////////////////////////////////-+++-/////////////////////////////////////////
 // Misc. Utility classes
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
@@ -64,15 +64,31 @@
 /////////////////////////////////////-+++-
 // reset list styles
 
-%u-nolist {
+%u-noList {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
 // apply the placeholder to a class so we can use it directly in markup if needed
-.u-nolist { @extend %u-nolist; }
+.u-noList { @extend %u-noList; }
 
+
+/////////////////////////////////////-+++-
+// reset list styles
+
+%u-inlineList {
+    @extend %u-noList;
+
+    > li,
+    > div {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+// in case we want to use it directly in the markup
+.u-inlineList { @extend %u-inlineList; }
 
 
 /////////////////////////////////////-+++-

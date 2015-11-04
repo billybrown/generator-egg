@@ -18,7 +18,7 @@ module.exports = yeoman.generators.Base.extend({
                 {
                     type: 'input',
                     name: 'pagename',
-                    message: 'What is the page name?\n',
+                    message: 'What is the page wrapper name?\n',
                     default: 'Post-bio'
                 }
             ];
@@ -36,13 +36,7 @@ module.exports = yeoman.generators.Base.extend({
         projectfiles: function () {
           this.fs.copy(
             this.templatePath('page.twig'),
-            this.destinationPath('patternlab/source/_patterns/05-pages/50-' + this.props.pagename + '.twig') 
-          );
-          this.fs.copyTpl(
-            this.templatePath('page.json'),
-            this.destinationPath('patternlab/source/_patterns/05-pages/50-' + this.props.pagename + '.json'), { 
-                name: this.props.pagename
-            } 
+            this.destinationPath('patternlab/source/_patterns/04-page-wrappers/50-' + this.props.pagename + '.twig') 
           );
         }
 

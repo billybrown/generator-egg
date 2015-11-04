@@ -169,147 +169,147 @@ module.exports = yeoman.generators.Base.extend({
             if (this.TeaserCardLink == true) {
                 this.fs.copyTpl(
                     this.templatePath('_TeaserCardLink.scss'),
-                    this.destinationPath('src/sass/modules/_TeaserCardLink.scss'), { 
+                    this.destinationPath('src/sass/components/_TeaserCardLink.scss'), { 
                         maxwidth: this.TeaserCardLink__maxWidth,
                         bg: this.TeaserCardLink__bg
                     }
                 );
                 this.fs.copy(
                     this.templatePath('TeaserCardLink.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/TeaserCardLink.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-components/custom/TeaserCardLink.twig')
                 );
             }
             if (this.TeaserScreenLink == true) {
                 this.fs.copyTpl(
                     this.templatePath('_TeaserScreenLink.scss'),
-                    this.destinationPath('src/sass/modules/_TeaserScreenLink.scss'), { 
+                    this.destinationPath('src/sass/components/_TeaserScreenLink.scss'), { 
                         maxwidth: this.TeaserScreenLink__maxWidth,
                         bg: this.TeaserScreenLink__bg
                     }
                 );
                 this.fs.copy(
                     this.templatePath('TeaserScreenLink.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/TeaserScreenLink.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-components/custom/TeaserScreenLink.twig')
                 );
             }
             if (this.TeaserLink == true) {
                 this.fs.copy(
                     this.templatePath('_TeaserLink.scss'),
-                    this.destinationPath('src/sass/modules/_TeaserLink.scss')
+                    this.destinationPath('src/sass/components/_TeaserLink.scss')
                 );
                 this.fs.copy(
                     this.templatePath('TeaserLink.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/TeaserLink.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-components/custom/TeaserLink.twig')
                 );
             }
             if (this.SmallListBox == true) {
                 this.fs.copy(
                     this.templatePath('_SmallListBox.scss'),
-                    this.destinationPath('src/sass/modules/_SmallListBox.scss')
+                    this.destinationPath('src/sass/components/_SmallListBox.scss')
                 );
                 this.fs.copy(
                     this.templatePath('SmallListBox.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/SmallListBox.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-components/custom/SmallListBox.twig')
                 );
             }
             if (this.Well == true) {
                 this.fs.copyTpl(
                     this.templatePath('_Well.scss'),
-                    this.destinationPath('src/sass/modules/_Well.scss'), { 
+                    this.destinationPath('src/sass/components/_Well.scss'), { 
                         bg: this.Well__bg
                     }
                 );
                 this.fs.copy(
                     this.templatePath('Well.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/Well.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-components/custom/Well.twig')
                 );
             }
             if (this.TeaserCard == true) {
                 this.fs.copy(
                     this.templatePath('_TeaserCard.scss'),
-                    this.destinationPath('src/sass/modules/_TeaserCard.scss')
+                    this.destinationPath('src/sass/components/_TeaserCard.scss')
                 );
                 this.fs.copy(
                     this.templatePath('TeaserCard.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/TeaserCard.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-components/custom/TeaserCard.twig')
                 );
             }
             if (this.ListBox == true) {
                 this.fs.copy(
                     this.templatePath('_ListBox.scss'),
-                    this.destinationPath('src/sass/modules/_ListBox.scss')
+                    this.destinationPath('src/sass/components/_ListBox.scss')
                 );
                 this.fs.copy(
                     this.templatePath('ListBox.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/ListBox.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-components/custom/ListBox.twig')
                 );
             }
             if (this.BrandList == true) {
                 this.fs.copy(
                     this.templatePath('_BrandList.scss'),
-                    this.destinationPath('src/sass/modules/_BrandList.scss')
+                    this.destinationPath('src/sass/components/_BrandList.scss')
                 );
                 this.fs.copy(
                     this.templatePath('BrandList.twig'),
-                    this.destinationPath('patternlab/source/_patterns/02-modules/custom/BrandList.twig')
+                    this.destinationPath('patternlab/source/_patterns/02-components/custom/BrandList.twig')
                 );
             }
             if (this.nub == true) {
                 this.fs.copy(
                     this.templatePath('_nub.scss'),
-                    this.destinationPath('src/sass/base/_nub.scss')
+                    this.destinationPath('src/sass/base/utilities/_nub.scss')
                 );
                 this.fs.copy(
                     this.templatePath('nub.twig'),
-                    this.destinationPath('patternlab/source/_patterns/01-elements/09-misc/nub.twig')
+                    this.destinationPath('patternlab/source/_patterns/01-base/80-utilities-misc/nub.twig')
                 );
             }
 
             if (this.Breadcrumbs == true) {
                 this.fs.copy(
                     this.templatePath('_Breadcrumbs.scss'),
-                    this.destinationPath('src/sass/modules/_Breadcrumbs.scss')
+                    this.destinationPath('src/sass/components/_Breadcrumbs.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('Breadcrumbs.twig'),
-                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/Breadcrumbs.twig')
+                        this.destinationPath('patternlab/source/_patterns/02-components/custom/Breadcrumbs.twig')
                     );
                 }
             }
             if (this.Pagination == true) {
                 this.fs.copy(
                     this.templatePath('_Pagination.scss'),
-                    this.destinationPath('src/sass/modules/_Pagination.scss')
+                    this.destinationPath('src/sass/components/_Pagination.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('Pagination.twig'),
-                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/Pagination.twig')
+                        this.destinationPath('patternlab/source/_patterns/02-components/custom/Pagination.twig')
                     );
                 }
             }
             if (this.CaptionImage == true) {
                 this.fs.copy(
                     this.templatePath('_CaptionImage.scss'),
-                    this.destinationPath('src/sass/modules/_CaptionImage.scss')
+                    this.destinationPath('src/sass/components/_CaptionImage.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('CaptionImage.twig'),
-                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/CaptionImage.twig')
+                        this.destinationPath('patternlab/source/_patterns/02-components/custom/CaptionImage.twig')
                     );
                 }
             }
             if (this.SocialList == true) {
                 this.fs.copy(
                     this.templatePath('_SocialList.scss'),
-                    this.destinationPath('src/sass/modules/_SocialList.scss')
+                    this.destinationPath('src/sass/components/_SocialList.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('SocialList.twig'),
-                        this.destinationPath('patternlab/source/_patterns/02-modules/custom/SocialList.twig')
+                        this.destinationPath('patternlab/source/_patterns/02-components/custom/SocialList.twig')
                     );
                 }
             }
@@ -332,11 +332,11 @@ module.exports = yeoman.generators.Base.extend({
                     this.BrandList == true ||
                     this.SocialList == true 
                 ) {
-                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | modules -+++-//',
+                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//',
                         path   = 'src/sass/main.scss',
                         file   = wiring.readFileAsString(path),
                         slug   = this.props.components[item].replace(/ /g, '_'),
-                        insert = "@import 'modules/" + slug + "';";
+                        insert = "@import 'components/" + slug + "';";
 
                     if (file.indexOf(insert) === -1) {
                       this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
@@ -350,7 +350,7 @@ module.exports = yeoman.generators.Base.extend({
                         utilpath   = 'src/sass/main.scss',
                         utilfile   = wiring.readFileAsString(utilpath),
                         utilslug   = this.props.components[item].replace(/ /g, '_'),
-                        utilinsert = "@import 'base/" + utilslug + "';";
+                        utilinsert = "@import 'base/utilities/" + utilslug + "';";
 
                     if (utilfile.indexOf(utilinsert) === -1) {
                       this.writeFileFromString(utilfile.replace(utilhook, utilinsert+'\n'+utilhook), utilpath);
