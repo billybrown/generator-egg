@@ -194,6 +194,11 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('src')
       );
 
+      this.fs.copy(
+        this.templatePath('.nvmrc'),
+        this.destinationPath('.nvmrc')
+      );
+      
       if (this.props.patternlab == true) {
         this.fs.copy(
           this.templatePath('patternlab'),

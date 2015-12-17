@@ -29,6 +29,13 @@
     --------------------------
     grunt --help
 
+    Node version
+    --------------------------
+    There is a .nvmrc file in this directory which lists a version of node that all of these npm packages
+    will definitely work with. It is not a requirement to use this version, but if you are getting errors
+    it is a good place to start. NVM (Node version manager) is a great tool for managing multiple versions
+    of node.js on your machine: https://github.com/creationix/nvm
+
 */
 
 'use strict';
