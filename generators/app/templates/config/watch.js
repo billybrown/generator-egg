@@ -10,12 +10,8 @@ module.exports.tasks = {
         tasks: ['css']
       },
       js: {
-        files: ['src/js/custom/*'],
+        files: ['src/js/custom.js'],
         tasks: ['js']
-      },
-      images: {
-        files: ['src/img/*'],
-        tasks: ['images']
       },
       patternlab: {
         files: ['patternlab/source/**/**'],

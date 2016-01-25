@@ -14,11 +14,6 @@ It uses a few core tools:
     * After Grunt installation, run 'grunt css' to compile your scss to css once, and 'grunt watch' to compile on save
 * Autoprefixer, https://github.com/postcss/autoprefixer - postcss plugin to automatically apply vendor prefixes depending on browser support.
     * see the autoprefix task in /config/css.js for specific browser support
-* Bower, http://bower.io/ - a front-end package manager
-    * Used to download all front-end vendor or plugin scripts (chosen.js, enquire.js, fitvids.js, etc.)
-    * Using the Grunt-bower-concat plugin (in /config/javascript.js), grunt will automatically extract and concatenate all necessary scripts and css from /bower_components. You can declare dependencies here as well to force proper ordering.
-    * Any files that are not css or js are copied over individually (mainly images).
-    * Jquery and Mondernizr are handled outside of bower. Jquery typically comes with a CMS, and modernizr requires a custom build downloaded directly from their website.
 
 
 # Directory Structure
@@ -27,35 +22,37 @@ It uses a few core tools:
     │  
     ├── /build: all production ready assets. All compiled by grunt. Do not edit manually.
     │
+    ├── /config: These hold all the grunt tasks. Where we tell grunt to do the things it does.
+    │
+    ├── /img: your images
+    │
+    ├── /node_modules: npm packages downloaded from package.json. DONT EDIT THIS BY HAND
+    │
     ├── /src: all source files for your custom front-end assets
-    │   │
-    │   ├── /sass: Sass files. Read more about sass in this theme on /src/sass/main.scss
     │   │
     │   ├── /js: javascripts
     │   │   │
-    │   │   └── vendor: place any special vendor scripts that can't (or shouldnt) be dl via bower.
+    │   │   ├── /vendor: this will all be concatenated and minified by grunt
+    │   │   │
+    │   │   ├── custom.js - all of your custom scripts
+    │   │   │
+    │   │   └── modernizr.js - a custom build, needs to be its own file since it goes in the <head>
     │   │
-    │   ├── /img: theme level images
-    │   │   │
-    │   │   ├── /raster: jpg, gif, png
-    │   │   │
-    │   │   ├── /svg: SVGs and their PNG fallbacks
-    │   │   │
-    │   │   └── /svg-sprites: SVGs to be turned into a sprite by grunt. No png fallback necessary.
-    │   │   
-    │   └── /fonts: all custom fonts (iconfonts and webfonts not hosted elsewhere)
-    │
-    ├── /config: These hold all the grunt tasks. Where we tell grunt to do the things it does.
-    │
-    ├── /node_modules: npm packages downloaded from package.json. These are your grunt plugins
-    │
-    ├── /bower_components: packages downloaded from bower.json. These are mainly js plugins.
+    │   ├── /sass: Sass files. Read more about sass in this theme on /src/sass/main.scss
+    │   │
+    │   └── /sprites: SVGs to be turned into a sprite by grunt. No png fallback necessary.
     │
     <% if (patternlab) { %>├── /patternlab: Pattern library files
     │<% } %>
-    ├── .editorconfig: configurations for text editors
+    ├── .editorconfig - configurations for text editors
     │
-    └── .gitignore: theme level gitignore
+    ├── .gitignore - theme level gitignore
+    │
+    ├── .nvmrc - a version of node that this front-end setup will work with
+    │
+    ├── Gruntfile.js - defines all your grunt tasks
+    │
+    └── package.json - manifest of all your npm modules
 
 
 <% if (patternlab) { %>

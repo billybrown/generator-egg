@@ -6,28 +6,76 @@
 
 
 %u-text {
-	font: 500 18px/28px $SansSerif;
+	font: 500 18px/26px $Serif;
 }
 
-%u-smallText {
-	font: 500 15px/23px $SansSerif;
+%u-text--meta {
+    font-style: italic;
+    color: black;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 22px;
 }
 
-%u-largeText {
-    font: 400 23px/30px $SansSerif;
+%u-text--small {
+	font-size: 16px;
+    line-height: 21px;
 }
 
+%u-title {
+    color: black;
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 700;
+}
+
+%u-title--large {
+    font-size: 38px;
+    line-height: 42px;
+}
+
+%u-title--small {
+    font-size: 26px;
+    line-height: 30px;
+}
+
+%u-label {
+    font-family: $SansSerif;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | text -+++-//
 
 
 // a sass loop to turn the placeholder classes above
 // into utility classes for easy deployment of these text types
 $text-collection: 
 text 
-smallText 
-largeText 
+text--small 
+text--meta 
+title 
+title--small 
+title--large 
+label 
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | text2 -+++-//
 ;
 
 @each $i in $text-collection { .u-#{$i} { @extend %u-#{$i}; } }
+
+
+
+/////////////////////////////////////-+++-
+// Some misc. text based utilities
+
+.u-em { font-style: italic; }
+.u-strong { font-weight: 800; }
+.u-sansSerif { font-family: $SansSerif; }
+.u-serif { font-family: $Serif; }
 
 
 

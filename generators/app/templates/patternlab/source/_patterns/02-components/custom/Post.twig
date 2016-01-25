@@ -1,25 +1,29 @@
-<article class="Post {{ postclass }}">
+<article class="Post u-relative {{ postclass }}" >
 
-    <header class="Post__header">
-        <h2 class="Post__title">{% if page.heading %}{{ page.heading }}{% else %}{{post.heading.short}}{% endif %}</h2>
-        {% if page.author %}<div class="Post__author">by {{ page.author }}</div>{% endif %}
+    <header>
+        <h2 class="u-title u-title--large u-margin__10">{% if page.heading %}{{ page.heading }}{% else %}{{post.heading.short}}{% endif %}</h2>
+        {% if page.author %}
+            <div class="u-commaList u-text--meta u-margin__20">by 
+                {% for item in page.author %}
+                    <div class="u-text--meta">{{ item.name }}</div>
+                {% endfor %} 
+            </div>
+        {% endif %}        
         {% if page.summary %}
-            <div class="Post__summary">
+            <div class="u-margin__60">
                 <p>{{ page.summary }}</p>
             </div>
         {% endif %}
     </header>
 
-    <div class="Post__content">
+    <div class="Post__content u-relative">
 
         {% if page.type == "list" %}
             <div class="Post__list">
-                <ul class="List--border--smallSpacing">
-                    <li>{% include '02-components/custom/Teaser' with { image : true  } %}</li>
-                    <li>{% include '02-components/custom/Teaser' %}</li>
-                    <li>{% include '02-components/custom/Teaser' %}</li>
-                    <li>{% include '02-components/custom/Teaser' with { image : true  } %}</li>
-                    <li>{% include '02-components/custom/Teaser' with { image : true  } %}</li>
+                <ul class="u-mediumStack">
+                    {% for post in 1..5 %}
+                          <li>{% include "02-components/custom/Teaser" %}</li>
+                    {% endfor %} 
                 </ul>
             </div>     
         {% else %}

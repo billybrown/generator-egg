@@ -1,10 +1,13 @@
 {
-	"title" : "Blog Post",
+    "title" : "Post",
     "page" : {
+        "type" : "post",
+        "primaryactive" : "Research",
         "heading": "Lorem etta Ipsum Dolor Sit Vivamus id Mollis",
         "subtitle": "Nam fringilla id felis quis mattis. Maecenas faucibus nunc quis lectus pretium, a maximus turpis laoreet.",
         "image": true,
-        "author": "Jane Doe"
-
+        "author" : [
+            { "name" : "Sigal Alon"}
+        ]
     }
 }

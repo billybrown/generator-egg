@@ -1,23 +1,39 @@
-<article class="Teaser u-grid u-grid--optional">
-	<div class="Teaser__textGroup u-grid__75">
-		<header class="Teaser__header">
-			<h3 class="Teaser__title">
-				<a href="">{{ post.heading.medium }}</a>
-			</h3>
-			<div class="List--inline--smallSpacing">
-				<div class="Teaser__author">{{ post.author }}</div>
-				<div class="Teaser__date">{{ post.date }}</div>
-			</div><!-- /u-pipeList -->
-		</header>
-		<div class="Teaser__excerpt">
-			<p>{{ post.excerpt.medium }}</p>
-		</div><!-- /.Teaser__excerpt -->
-	</div><!-- /.Teaser__textGroup -->
-	{% if image %}
-		<div class="Teaser__imageGroup u-grid__25">
-			<a href="">
-				<img src="{{ img.img235xAuto.src }}" alt="" />
-			</a>
-		</div>
-	{% endif %}
+<article class="u-clearfix">
+	<div class="{% if post.img %} u-grid u-grid--singleRow {% endif %}">
+		{% if post.img %}
+			<div class="u-grid__20">
+				<a href="">
+					<img src="{{ post.img.img144xAuto.src }}" alt="" />
+				</a>
+			</div><!-- /.u-grid__20 -->
+		{% endif %}
+		<div class="{% if post.img %} u-grid__80 {% endif %}">
+			<header class="u-margin__10">
+				<h3 class="u-title u-title--small u-truncate"><a href="">{{ post.heading}}</a></h3>
+				{% if post.subheading %}
+					<div class="u-black">{{ post.subheading }}</div>
+				{% endif %}
+				{% if post.author %}
+					<div class="u-commaList u-text--meta ">by 
+				        {% for item in post.author %}
+				        	<div>{{ item.name }}</div>
+				        {% endfor %} 
+				    </div>
+				{% endif %}
+			</header>
+			<div class="u-paddingBottom__5">
+				<div class="u-text--small u-margin__10 u-truncateP">
+					<p>{{ post.excerpt }}</p>
+				</div>
+				{% if post.category %}
+					<ul class="u-pipeList">
+						{% for item in post.category %}
+							<li class="u-label"><a href="">{{ item.name }}</a></li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
+			<div class="u-primaryButton"><a href="">Learn More</a></div>
+		</div><!-- /.u-grid__80 -->
+	</div><!-- /.u-grid -->
 </article>

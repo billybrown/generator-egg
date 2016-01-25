@@ -10,50 +10,62 @@
 // Some default button classes that buttons extend
 
 %u-buttonDefault {
-	border: 2px solid transparent;
-	border-radius: 0;
+	border: 1px solid transparent;
 	text-decoration: none;
 	display: inline-block;
-	color: white;
 	transition: background $animation, border $animation;
 
 	&:hover {
 		cursor: pointer;
 		text-decoration: none;
-		color: #fff;
 	}	
 }
 
-%u-primaryButton {
+%u-primaryButtonColors {
 	background: $link-color;
-	border-color: darken($link-color, 10%);
+	border-color: $link-color;
+	color: $white;
+	font-weight: 600;
 
 	&:hover {
-		background: $link-colorHover;
-		border-color: $link-color;
+     	background: darken($link-color, 10%);
+        border-color: darken($link-color, 10%);
+		color: $white;
 	}
 }
 
-%u-mediumButton {
-	@extend %u-text;
-	padding: 4px 15px;
+%u-mediumButtonSize {
+	font-size: 17px;
+	line-height: 19px;
+	border-radius: 3px;	
+	padding: 8px 22px;
 }
 
 // some of the real button classes
-
 %u-button {
 	@extend %u-buttonDefault;
-	@extend %u-primaryButton;
-	@extend %u-mediumButton;
+	@extend %u-primaryButtonColors;
+	@extend %u-mediumButtonSize;
 }
+
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | buttons -+++-//
+
 
 
 // button and link utility classes should always go on a wrapper to the <a> tag or
 // an element with the class of 'u-fakeLink' since it is sometimes difficult to 
 // put classes on <a> tags in some CMS systems.
 $button-collection: 
-button
+button 
 ;
 
-@each $i in $button-collection { .u-#{$i} { a, .u-fakeLink { @extend %u-#{$i}; } } }
+@each $i in $button-collection { 
+	.u-#{$i} { 
+		margin-bottom: 0;
+
+		a, .u-fakeLink { 
+			@extend %u-#{$i}; 
+		} 
+	} 
+}
 

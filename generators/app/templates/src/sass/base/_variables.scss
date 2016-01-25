@@ -35,11 +35,13 @@ $Serif: 'Neuton', $georgia;
 
 $blue: dodgerblue;
 
+$black: #000000;
+$white: #ffffff;
 $gray: #888888;
 $gray-light: #eeeeee;
 
 $background: #fff;
-$text: black;
+$text: $black;
 
 $link-color: $blue;
 $link-colorHover: lighten($link-color, 10%);

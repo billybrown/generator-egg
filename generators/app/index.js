@@ -88,7 +88,7 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'confirm',
         name: 'installitall',
-        message: 'Do you want to install all bower and grunt depenencies?',
+        message: 'Do you want to install all grunt depenencies?',
         default: false
       }
     ];
@@ -119,10 +119,6 @@ module.exports = yeoman.generators.Base.extend({
               cms: this.props.cms
             }
       );
-      this.fs.copy(
-        this.templatePath('bower.json'),
-        this.destinationPath('bower.json')
-      );
     },
 
     projectfiles: function () {
@@ -145,10 +141,6 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(
         this.templatePath('config/favicons.js'),
         this.destinationPath('config/favicons.js')
-      );
-      this.fs.copy(
-        this.templatePath('config/images.js'),
-        this.destinationPath('config/images.js')
       );
       this.fs.copy(
         this.templatePath('config/javascript.js'),

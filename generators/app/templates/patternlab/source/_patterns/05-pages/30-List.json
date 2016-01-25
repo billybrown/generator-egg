@@ -1,5 +1,5 @@
 {
-	"title" : "Basic List Page",
+    "title" : "Filtered List Page",
     "page" : {
         "type": "list",
         "heading": "Lorem etta Ipsum Dolor Sit Vivamus id Mollis",

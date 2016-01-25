@@ -12,20 +12,16 @@
 // default inline grid
 $grid-bp: 700px;
 $grid-bp-small: small-bp;
-$grid-gutter: 20px;
 
 .u-grid {
-    @include u-multiRowGrid--gutter($grid-bp-small, $grid-gutter);
+    @include u-multiRowGrid--gutter($grid-bp-small, 20px);
 
     @include mq($from: $grid-bp-small) {
         .u-grid--s__80 { width: 80%; }
         .u-grid--s__75 { width: 75%; }
         .u-grid--s__66 { width: 66.66666666%; }
-        .u-grid--s__60 { width: 60%; }
-        .u-grid--s__58 { width: 58.33333333%; }
         .u-grid--s__50 { width: 50%; }
-        .u-grid--s__40 { width: 40%; }
-        .u-grid--s__42 { width: 41.66666666%; }
+        .u-grid__s__40 { width: 40%; }
         .u-grid--s__33 { width: 33.33333333%; }
         .u-grid--s__25 { width: 25%; }
         .u-grid--s__20 { width: 20%; }
@@ -37,10 +33,8 @@ $grid-gutter: 20px;
         .u-grid__75 { width: 75%; }
         .u-grid__66 { width: 66.66666666%; }
         .u-grid__60 { width: 60%; }
-        .u-grid__58 { width: 58.33333333%; }
         .u-grid__50 { width: 50%; }
         .u-grid__40 { width: 40%; }
-        .u-grid__42 { width: 41.66666666%; }
         .u-grid__33 { width: 33.33333333%; }
         .u-grid__25 { width: 25%; }
         .u-grid__20 { width: 20%; }
@@ -53,8 +47,8 @@ $grid-gutter: 20px;
     // if its just a single row grid, we want to truncate the bottom margin
     // on desktop.
     &--singleRow {
-        > div,
-        > li {
+        > div:not(:last-child),
+        > li:not(:last-child) {
             @include mq($from: $grid-bp) {
                 margin-bottom: 0;
             }
@@ -63,8 +57,8 @@ $grid-gutter: 20px;
 
     // same as above except for smaller screens
     &--singleRow--s {
-        > div,
-        > li {
+        > div:not(:last-child),
+        > li:not(:last-child) {
             @include mq($from: $grid-bp-small) {
                 margin-bottom: 0;
             }
@@ -84,3 +78,29 @@ $grid-gutter: 20px;
         }
     }
 }
+
+
+
+/////////////////////////////////////-+++-
+// Additional, special grids
+// for instance if you need a different gutter width
+
+
+// .u-grid--thick {
+//     @include u-multiRowGrid--gutter($grid-bp-small, 60px);
+
+//     @include mq($from: $grid-bp) {
+//         .u-grid__50 { width: 50%; }
+//         .u-grid__50 { width: 50%; }
+//     }
+// }
+
+// .u-grid--mainGrid {
+//     @include u-multiRowGrid--gutter(1020px, 0px);
+
+//     @include mq($from: 1020px) {
+//         .u-grid__72 { width: 72%; }
+//         .u-grid__23 { width: 23%; }
+//         .u-grid__5  { width: 5%; }
+//     }
+// }

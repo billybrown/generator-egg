@@ -36,9 +36,8 @@
 
 
 $Frame-small: 25px;
-$Frame-medium: 50px;
+$Frame-medium: 70px;
 $Frame-large: 80px;
-$Frame-giant: 100px;
 
 .Frame {
     padding: $Frame-medium $Frame-small;
@@ -46,15 +45,11 @@ $Frame-giant: 100px;
     width: 100%;
 
     @include mq($from: small-bp) {
-        padding: $Frame-medium;
+        padding: $Frame-medium $Frame-small;
     }
 
     @include mq($from: mobilemenu-bp) {
-        padding: $Frame-large;
-    }
-
-    @include mq($from: $comp-max-width) {
-        padding: $Frame-giant;
+        padding: $Frame-large 50px;
     }
 
     &__inside {

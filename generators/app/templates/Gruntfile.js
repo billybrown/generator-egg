@@ -9,18 +9,14 @@
     Simple Dependency Install:
     --------------------------
     npm install (from the same root directory as the `package.json` file) 
-    bower install (only necessary if you need to add to or change plugins)
 
     Tasks:
     --------------------------
     grunt (default routes to 'grunt css')
     grunt css (compile sass into css once)
-    grunt js (hint custom js, concatenate and minify it with plugin js, move it to the build directory)
-    grunt watch (watch for changes to .scss files or scripts.js and compile on save)
-    grunt plugins (compile and minify all plugin css and js)
-    grunt images (optimize all images and move them to the build directory)
+    grunt js (concatenate and minify vendor js, minify custom js, move them to the build directory)
+    grunt watch (watch for changes to .scss or the pattern library and compile on save)
     grunt sprites (create an svg sprite and corrasponding scss partial)
-    grunt js_vendor (move over any js that isn't included in bower over to the build directory)
     grunt build (recompiled everything - sass, sprites, javascript, etc.)
     grunt stats (get some stats on your theme assets)
     grunt patternlab (compile the pattern library)
@@ -48,9 +44,7 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     
     // this allows you to remove all the 'loadNPMtasks' calls, and speeds up task running
-    require('jit-grunt')(grunt, {
-        bower_install: 'grunt-bower-install-task'
-    });
+    require('jit-grunt')(grunt);
 
     // Metadata.
     var options = {
@@ -62,31 +56,22 @@ module.exports = function(grunt) {
     grunt.initConfig(configs);
 
 
+    grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin:custom']);
     grunt.registerTask('default', ['css']);
-    grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin:custom', 'clean:css']);
-    grunt.registerTask('js', ['jshint:custom', 'uglify:customjs' ]);
-    grunt.registerTask('js_vendor', ['copy:vendorjs']);
-    grunt.registerTask('images', ['imagemin', 'copy:raster', 'copy:svg']);
-    grunt.registerTask('stats', ['parker']);
+    grunt.registerTask('css_vendor', ['cssmin:vendor', 'copy:vendorassets']);
+    grunt.registerTask('js', ['uglify:customjs' ]);
+    grunt.registerTask('js_vendor', ['copy:modernizr', 'uglify:vendorjs']);
     grunt.registerTask('patternlab', ['shell:patternlab']);
-    grunt.registerTask('sprites', ['dr-svg-sprites', 'copy:sprites', 'clean:sprites']);
+    grunt.registerTask('sprites', ['dr-svg-sprites']);
+    grunt.registerTask('stats', ['stylestats']);
     
-    grunt.registerTask('plugins', [
-        'bower_install', 
-        'bower_concat', 
-        'uglify', 
-        //'copy:chosensprite',
-        'cssmin:plugins',
-        'uglify:bowerjs'
-    ]);
     grunt.registerTask('build', [
         'clean:build',
         'sprites',
         'css',
+        'css_vendor',
         'js',
-        'js_vendor',
-        'plugins',
-        'images'
+        'js_vendor'
     ]);
 };
 

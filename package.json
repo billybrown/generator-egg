@@ -23,7 +23,7 @@
     "chalk": "^1.1.1",
     "html-wiring": "^1.2.0",
     "shelljs": "^0.5.3",
-    "yeoman-generator": "^0.20.3",
+    "yeoman-generator": "^0.22.4",
     "yosay": "^1.0.5"
   },
   "devDependencies": {

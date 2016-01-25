@@ -60,35 +60,9 @@ f/////////////////////////////////////-+++-/////////////////////////////////////
     visibility: hidden;
 }
 
+.u-hide--s { @include mq($until: small-bp) {display: none; visibility: hidden; } }
+.u-hide--m { @include mq($until: mobilemenu-bp) {display: none; visibility: hidden; } }
 
-/////////////////////////////////////-+++-
-// reset list styles
-
-%u-noList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-// apply the placeholder to a class so we can use it directly in markup if needed
-.u-noList { @extend %u-noList; }
-
-
-/////////////////////////////////////-+++-
-// reset list styles
-
-%u-inlineList {
-    @extend %u-noList;
-
-    > li,
-    > div {
-        display: inline-block;
-        vertical-align: top;
-    }
-}
-
-// in case we want to use it directly in the markup
-.u-inlineList { @extend %u-inlineList; }
 
 
 /////////////////////////////////////-+++-
@@ -108,48 +82,6 @@ f/////////////////////////////////////-+++-/////////////////////////////////////
     }
 }
 
-// to give something block level layout
-.u-block {
-    display: block;
-}
-
-
-/////////////////////////////////////-+++-
-// some spacing utility classes
-
-// sometimes you need to remove the default margin that comes with elements (like headers, paragraphs, etc.)
-%u-truncate {
-    margin-bottom: 0;
-}
-
-%u-spacing {
-    margin-bottom: $spacing;
-}
-
-$spacing-collection: 
-truncate
-spacing
-;
-
-@each $i in $spacing-collection { .u-#{$i} { @extend %u-#{$i}; } }
-
-
-
-/////////////////////////////////////-+++-
-// Some alignment classes
-
-
-.u-alignRight {
-    text-align: right;
-}
-
-.u-alignLeft {
-    text-align: left;
-}
-
-.u-alignCenter {
-    text-align: center;
-}
 
 
 /////////////////////////////////////-+++-
@@ -192,7 +124,7 @@ spacing
 }
 
 
-%u-clearfix { @include mq($from: 0px); }
+%u-clearfix { @include u-clearfix(0px); }
 
 .u-clearfix { @extend %u-clearfix; }
 
