@@ -18,7 +18,10 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
+// import grunt-generated sprite partial
+@import '_sprites.scss';
 
+// import base styles
 @import 'base/base';
 
 

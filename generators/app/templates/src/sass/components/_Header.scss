@@ -21,18 +21,6 @@ $SiteHeader-bp: mobilemenu-bp;
 
 }
 
-.MobileMenu {
-}
 
 
-// hide these menu elements at small screens (their mobilemenu counterparts then become accessible)
-@include mq($until: mobilemenu-bp) {
-    .SiteHeader {
-
-    }
-}
-
-// absolutely position the triggers
-.MobileMenuTriggers {
-    @include u-absolute(10px, 15px, null, null);
-}
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | header -+++-//

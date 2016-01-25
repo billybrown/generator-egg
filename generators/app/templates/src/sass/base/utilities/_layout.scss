@@ -22,7 +22,7 @@
 $float-bp: small-bp;
 
 .u-floatRight { @include mq($from: $float-bp) { float: right; } }
-.u-floatLeft { @include mq($from: $float-bp) { float: left: } }
+.u-floatLeft { @include mq($from: $float-bp) { float: left; } }
 
 .u-captionImageRight {
     margin: 30px 0;

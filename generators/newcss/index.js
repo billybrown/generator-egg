@@ -2,12 +2,12 @@
 
 require('shelljs/global');
 
-var yeoman = require('yeoman-generator');
+var generators = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var wiring = require('html-wiring');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = generators.Base.extend({
 
     prompting: {
         innitialPrompt: function () {
@@ -19,23 +19,12 @@ module.exports = yeoman.generators.Base.extend({
                     type: 'input',
                     name: 'objectname',
                     message: 'What is the object name?\n',
-                    default: 'TeaserTree'
+                    default: 'Hero'
                 },{
                     type: 'input',
                     name: 'objectdescription',
                     message: 'Describe the object and why its necessary:\n',
                     default: 'This component holds information.'
-                },{
-                    type: 'list',
-                    name: 'objecttype',
-                    message: 'What type of CSS group does it fall into?',
-                    choices: [ "utilities", "components", "specifics" ],
-                    default: 'components'
-                },{
-                    type: 'confirm',
-                    name: 'link',
-                    message: 'Is the entire thing a single link?',
-                    default: false
                 },{
                     type: 'confirm',
                     name: 'patternlab',
@@ -48,78 +37,6 @@ module.exports = yeoman.generators.Base.extend({
                 this.props = props;
                 done();
             }.bind(this));
-        },
-        patternlabPrompts: function () {
-
-            if (this.props.patternlab == true) {
-                var done = this.async();
-
-                var prompts2 = [
-                    {
-                        type: 'list',
-                        name: 'atomictype',
-                        message: 'What group does it fall within atomic design?',
-                        choices: [ "01-base/80-utilities-misc", "02-components/custom" ],
-                        default: '01-molecules/01-custom-objects'
-                    },{
-                        type: 'list',
-                        name: 'html',
-                        message: 'What html element is it?',
-                        choices: [ "div", "section", "article" ],
-                        default: 'div'
-                    },{
-                        type: 'checkbox',
-                        name: 'elements',
-                        message: 'What elements does it have?',
-                        choices: [{
-                            name: 'header',
-                            value: 'header',
-                            checked: false
-                        }, {
-                            name: 'content',
-                            value: 'content',
-                            checked: false
-                        }, {
-                            name: 'footer',
-                            value: 'footer',
-                            checked: false
-                        }, {
-                            name: 'imagegroup',
-                            value: 'imagegroup',
-                            checked: false
-                        }, {
-                            name: 'textgroup',
-                            value: 'textgroup',
-                            checked: false
-                        }]
-                    }, {
-                        type: 'list',
-                        name: 'htmltitle',
-                        message: 'What html element is the title?',
-                        choices: [ "h2", "h3", "h4", "h5" ],
-                        default: 'h3'
-                    }
-                ];
-
-                this.prompt(prompts2, function (props2) {
-                    this.props2 = props2;
-
-                    var elements = props2.elements;
-
-                    function hasAsset(feat) {
-                      return elements.indexOf(feat) !== -1;
-                    }
-
-                    this.title = hasAsset('title');
-                    this.content = hasAsset('content');
-                    this.header = hasAsset('header');
-                    this.footer = hasAsset('footer');
-                    this.imagegroup = hasAsset('imagegroup');
-                    this.textgroup = hasAsset('textgroup');
-
-                    done();
-                }.bind(this));
-            }
         }
     },
 
@@ -129,37 +46,17 @@ module.exports = yeoman.generators.Base.extend({
         projectfiles: function () {
             this.fs.copyTpl(
                 this.templatePath('component.scss'),
-                this.destinationPath('src/sass/' + this.props.objecttype +'/_' + this.props.objectname + '.scss'), { 
+                this.destinationPath('src/sass/components/_' + this.props.objectname + '.scss'), { 
                     name: this.props.objectname,
-                    description: this.props.objectdescription,
-                    type: this.props.objecttype,
-                    graphic: this.props.graphic,
-                    link: this.props.link,
-                    title: this.title,
-                    content: this.content,
-                    header: this.header,
-                    footer: this.footer,
-                    imagegroup: this.imagegroup,
-                    textgroup: this.textgroup
+                    description: this.props.objectdescription
                 }
             );
 
             if (this.props.patternlab == true) {
                 this.fs.copyTpl(
                     this.templatePath('component.twig'),
-                    this.destinationPath('patternlab/source/_patterns/' + this.props2.atomictype + '/' + this.props.objectname + '.twig'), { 
-                        name: this.props.objectname,
-                        description: this.props.objectdescription,
-                        type: this.props.objecttype,
-                        link: this.props.link,
-                        html: this.props2.html,
-                        htmltitle: this.props2.htmltitle,
-                        title: this.title,
-                        content: this.content,
-                        header: this.header,
-                        footer: this.footer,
-                        imagegroup: this.imagegroup,
-                        textgroup: this.textgroup
+                    this.destinationPath('patternlab/source/_patterns/02-components/custom/' + this.props.objectname + '.twig'), { 
+                        name: this.props.objectname
                     }
                 );
             }
@@ -167,27 +64,18 @@ module.exports = yeoman.generators.Base.extend({
 
         extra: function () {
 
-            var path   = 'src/sass/main.scss',
-                file   = wiring.readFileAsString(path),
-                slug   = this.props.objectname.replace(/ /g, '_'),
-                insert = "@import '" + this.props.objecttype + "/" + slug + "';";
-
-            if (this.props.objecttype == 'components') {
-                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//';
-                var insert = "@import 'components/" + slug + "';";
-            } else if (this.props.objecttype == 'utilities') {
-                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | utilities -+++-//';
-                var insert = "@import 'base/utilities/" + slug + "';";
-            } else if (this.props.objecttype == 'areas') {
-                var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | specifics -+++-//';
-                var insert = "@import 'specifics/" + slug + "';";
-            }
+            var path   = 'src/sass/main.scss';
+            var file   = wiring.readFileAsString(path);
+            var slug   = this.props.objectname.replace(/ /g, '_');
+            var insert = "@import 'components/" + slug + "';";
+            var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//';
 
             if (file.indexOf(insert) === -1) {
               this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
             }
         }
     },
+    
     install: function() {
         // new compiled of css
         exec("grunt css");

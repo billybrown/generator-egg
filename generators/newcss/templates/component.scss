@@ -1,74 +1,22 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 // <%= name %>
-//
 // <%= description %>
-// <% if (link) { %>This whole element is wrapped in a single <a> tag.<% } %>
-// <% if (graphic) { %>
-//     CHANGE THIS IMAGE BELOW TO FIT YOUR NEW COMPONENT
-//     +-------------------+
-//     |                   |
-//     |                   |
-//     |       image       |
-//     |                   |
-//     |                   |
-//     +-------------------+
-//     |  Title            |
-//     +-------------------+
-//<% } %>
+//
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
 
-
-/////////////////////////////////////-+++-
-// Variables
-
-
-
-/////////////////////////////////////-+++-
-// Default styles
-
-
 .<%= name %> { 
 
-    <% if (link) { %>a {
-        display: block;
-
-        &:hover {
-
-        }
-    }
-
-    <% } 
-    %><% if (textgroup) { %>&__textGroup {
+    &__header {
 
     }
 
-    <% } 
-    %><% if (imagegroup) { %>&__imagegroup {
+    &__title {
 
     }
 
-    <% } 
-    %><% if (header) { %>&__header {
-
+    &__body {
+        
     }
-
-    <% } 
-    %><% if (title) { %>&__title {
-        margin-bottom: 10px;
-    }
-
-    <% } 
-    %><% if (footer) { %>&__footer {
-
-    }
-
-    <% } 
-    %><% if (content) { %>&__content {
-
-    }
-
-    <% } 
-    %>
 }

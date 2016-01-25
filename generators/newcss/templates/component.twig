@@ -1,19 +1,8 @@
-<<%= html %> class="<%= name %> {{ class }}">
-    <% if (link) { %><a href=""><% } 
-        %><% if (imagegroup) { %><div class="<%= name %>__imageGroup">
-        <img src="{{ post.img.rectangle.src }}" alt="" />
-    </div><!-- /.<%= name %>__imageGroup -->
-    <% } %><% if (textgroup) { %><div class="<%= name %>__textGroup">
-        <<%= htmltitle %> class="<%= name %>__title {{ titleClass }}">{{ post.heading.short }}</<%= htmltitle %>>
-    </div><!-- /.<%= name %>__textGroup -->
-    <% } %><% if (header) { %><header class="<%= name %>__header">
-        <<%= htmltitle %> class="<%= name %>__title {{ titleClass }}">{{ post.heading.short }}</<%= htmltitle %>>
-    </header><!-- /.<%= name %>__header -->
-    <% } %><% if (content) { %><div class="<%= name %>__content">
-
-    </div><!-- /.<%= name %>__content -->
-    <% } %><% if (footer) { %><footer class="<%= name %>__footer">
-
-    </footer><!-- /.<%= name %>__footer -->
-    <% } %><% if (link) { %></a><% } %>
-</<%= html %>>
+<article class="<%= name %>">
+    <header clas="<%= name %>__header">
+        <h3 class="<%= name %>__title">Lorem Ipsum</h3>
+    </header>
+    <div class="<%= name %>__body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta nisl in semper suscipit. Aenean pretium tincidunt erat eget efficitur.</p>
+    </div>
+</article>

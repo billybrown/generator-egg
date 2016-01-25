@@ -2,12 +2,12 @@
 
 require('shelljs/global');
 
-var yeoman = require('yeoman-generator');
+var generators = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var wiring = require('html-wiring');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = generators.Base.extend({
     prompting: function () { 
         var done = this.async();
 
@@ -55,6 +55,18 @@ module.exports = yeoman.generators.Base.extend({
                 name: 'FooterContact',
                 value: 'FooterContact',
                 checked: false
+            }, {
+                name: 'Pagination',
+                value: 'Pagination',
+                checked: false
+            }, {
+                name: 'Breadcrumbs',
+                value: 'Breadcrumbs',
+                checked: false
+            }, {
+                name: 'SocialList',
+                value: 'SocialList',
+                checked: false
             }]
         },
         {
@@ -83,7 +95,9 @@ module.exports = yeoman.generators.Base.extend({
             this.FooterLogo = hasAsset('FooterLogo');
             this.FooterContact = hasAsset('FooterContact');
             this.FooterMenu = hasAsset('FooterMenu');
-
+            this.Pagination = hasAsset('Pagination');
+            this.Breadcrumbs = hasAsset('Breadcrumbs');
+            this.SocialList = hasAsset('SocialList');
             done();
         }.bind(this));
     },
@@ -93,10 +107,6 @@ module.exports = yeoman.generators.Base.extend({
         projectfiles: function () {
 
             if (this.HeaderNewsletter == true) {
-                this.fs.copy(
-                    this.templatePath('_HeaderNewsletter.scss'),
-                    this.destinationPath('src/sass/specifics/_HeaderNewsletter.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('HeaderNewsletter.twig'),
@@ -105,10 +115,6 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.HeaderDonate == true) {
-                this.fs.copy(
-                    this.templatePath('_HeaderDonate.scss'),
-                    this.destinationPath('src/sass/specifics/_HeaderDonate.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('HeaderDonate.twig'),
@@ -117,10 +123,6 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.HeaderSocial == true) {
-                this.fs.copy(
-                    this.templatePath('_HeaderSocial.scss'),
-                    this.destinationPath('src/sass/specifics/_HeaderSocial.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('HeaderSocial.twig'),
@@ -129,10 +131,6 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.HeaderSearch == true) {
-                this.fs.copy(
-                    this.templatePath('_HeaderSearch.scss'),
-                    this.destinationPath('src/sass/specifics/_HeaderSearch.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('HeaderSearch.twig'),
@@ -142,10 +140,6 @@ module.exports = yeoman.generators.Base.extend({
             }
 
             if (this.PrimaryMenu == true) {
-                this.fs.copy(
-                    this.templatePath('_PrimaryMenu.scss'),
-                    this.destinationPath('src/sass/specifics/_PrimaryMenu.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('PrimaryMenu.twig'),
@@ -154,10 +148,6 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.SecondaryMenu == true) {
-                this.fs.copy(
-                    this.templatePath('_SecondaryMenu.scss'),
-                    this.destinationPath('src/sass/specifics/_SecondaryMenu.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('SecondaryMenu.twig'),
@@ -166,10 +156,6 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.HeaderLogo == true) {
-                this.fs.copy(
-                    this.templatePath('_HeaderLogo.scss'),
-                    this.destinationPath('src/sass/specifics/_HeaderLogo.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('HeaderLogo.twig'),
@@ -178,10 +164,6 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.FooterMenu == true) {
-                this.fs.copy(
-                    this.templatePath('_FooterMenu.scss'),
-                    this.destinationPath('src/sass/specifics/_FooterMenu.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('FooterMenu.twig'),
@@ -190,10 +172,6 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.FooterLogo == true) {
-                this.fs.copy(
-                    this.templatePath('_FooterLogo.scss'),
-                    this.destinationPath('src/sass/specifics/_FooterLogo.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('FooterLogo.twig'),
@@ -202,14 +180,48 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
             if (this.FooterContact == true) {
-                this.fs.copy(
-                    this.templatePath('_FooterContact.scss'),
-                    this.destinationPath('src/sass/specifics/_FooterContact.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('FooterContact.twig'),
                         this.destinationPath('patternlab/source/_layouts/footer/FooterContact.twig')
+                    );
+                }
+            }
+
+            if (this.Breadcrumbs == true) {
+                this.fs.copy(
+                    this.templatePath('_Breadcrumbs.scss'),
+                    this.destinationPath('src/sass/components/_Breadcrumbs.scss')
+                );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('Breadcrumbs.twig'),
+                        this.destinationPath('patternlab/source/_patterns/02-components/custom/Breadcrumbs.twig')
+                    );
+                }
+            }
+            if (this.Pagination == true) {
+                this.fs.copy(
+                    this.templatePath('_Pagination.scss'),
+                    this.destinationPath('src/sass/components/_Pagination.scss')
+                );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('Pagination.twig'),
+                        this.destinationPath('patternlab/source/_patterns/02-components/custom/Pagination.twig')
+                    );
+                }
+            }
+            
+            if (this.SocialList == true) {
+                this.fs.copy(
+                    this.templatePath('_SocialList.scss'),
+                    this.destinationPath('src/sass/components/_SocialList.scss')
+                );
+                if (this.props.patternlab == true) {
+                    this.fs.copy(
+                        this.templatePath('SocialList.twig'),
+                        this.destinationPath('patternlab/source/_patterns/02-components/custom/SocialList.twig')
                     );
                 }
             }
@@ -220,30 +232,6 @@ module.exports = yeoman.generators.Base.extend({
 
             for ( var item in this.props.components) {
 
-                // if its something that needs to go in "specifics" sass partial directory
-                // basically just all header/footer and page specific content:
-                if (    this.props.components[item] === "HeaderLogo" ||
-                        this.props.components[item] === "PrimaryMenu" ||
-                        this.props.components[item] === "SecondaryMenu" ||
-                        this.props.components[item] === "HeaderNewsletter" ||
-                        this.props.components[item] === "HeaderDonate" ||
-                        this.props.components[item] === "HeaderSearch" ||
-                        this.props.components[item] === "HeaderSocial" ||
-                        this.props.components[item] === "FooterLogo" ||
-                        this.props.components[item] === "FooterMenu" ||
-                        this.props.components[item] === "FooterContact"
-                ) {
-
-                    var specifichook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | specifics -+++-//',
-                        specificpath   = 'src/sass/main.scss',
-                        specificfile   = wiring.readFileAsString(specificpath),
-                        specificslug   = this.props.components[item].replace(/ /g, '_'),
-                        specificinsert = "@import 'specifics/" + specificslug + "';";
-
-                    if (specificfile.indexOf(specificinsert) === -1) {
-                      this.writeFileFromString(specificfile.replace(specifichook, specificinsert+'\n'+specifichook), specificpath);
-                    }
-                }
 
                 // if its something that needs to go into the header
                 if (    this.props.components[item] === "HeaderLogo" ||
@@ -255,14 +243,23 @@ module.exports = yeoman.generators.Base.extend({
                         this.props.components[item] === "HeaderSearch"
                  ) {
 
-                    var headerhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | header -+++-//-->',
-                        headerpath   = 'patternlab/source/_layouts/header/header.twig',
-                        headerfile   = wiring.readFileAsString(headerpath),
-                        headerslug   = this.props.components[item].replace(/ /g, '_'),
-                        headerinsert = "{% include 'header/" + headerslug + ".twig' %}"
+                    var headerhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | header -+++-//-->';
+                    var headerpath   = 'patternlab/source/_layouts/header/header.twig';
+                    var headerfile   = wiring.readFileAsString(headerpath);
+                    var headerslug   = this.props.components[item].replace(/ /g, '_');
+                    var headerinsert = "{% include 'header/" + headerslug + ".twig' %}";
 
                     if (headerfile.indexOf(headerinsert) === -1) {
                       this.writeFileFromString(headerfile.replace(headerhook, headerinsert+'\n'+'\t\t'+headerhook), headerpath);
+                    }
+
+                    var headerCSShook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | header -+++-//';
+                    var headerCSSpath   = 'src/sass/components/_Header.scss';
+                    var headerCSSfile   = wiring.readFileAsString(headerCSSpath);
+                    var headerCSSinsert = wiring.readFileAsString(this.templatePath('_' + this.props.components[item] + '.scss'));
+
+                    if (headerCSSfile.indexOf(headerCSSinsert) === -1) {
+                      this.writeFileFromString(headerCSSfile.replace(headerCSShook, '\n'+headerCSSinsert+'\n'+headerCSShook+'\n'), headerCSSpath);
                     }
                 }
 
@@ -272,14 +269,39 @@ module.exports = yeoman.generators.Base.extend({
                         this.props.components[item] === "FooterContact"
                  ) {
 
-                    var footerhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman -+++-//-->',
-                        footerpath   = 'patternlab/source/_layouts/footer/footer.twig',
-                        footerfile   = wiring.readFileAsString(footerpath),
-                        footerslug   = this.props.components[item].replace(/ /g, '_'),
-                        footerinsert = "{% include 'footer/" + footerslug + ".twig' %}"
+                    var footerhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman -+++-//-->';
+                    var footerpath   = 'patternlab/source/_layouts/footer/footer.twig';
+                    var footerfile   = wiring.readFileAsString(footerpath);
+                    var footerslug   = this.props.components[item].replace(/ /g, '_');
+                    var footerinsert = "{% include 'footer/" + footerslug + ".twig' %}";
 
                     if (footerfile.indexOf(footerinsert) === -1) {
                       this.writeFileFromString(footerfile.replace(footerhook, footerinsert+'\n'+'\t\t'+footerhook), footerpath);
+                    }
+
+                    var footerCSShook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | footer -+++-//';
+                    var footerCSSpath   = 'src/sass/components/_Footer.scss';
+                    var footerCSSfile   = wiring.readFileAsString(footerCSSpath);
+                    var footerCSSinsert = wiring.readFileAsString(this.templatePath('_' + this.props.components[item] + '.scss'));
+
+                    if (footerCSSfile.indexOf(footerCSSinsert) === -1) {
+                      this.writeFileFromString(footerCSSfile.replace(footerCSShook, '\n'+footerCSSinsert+'\n'+footerCSShook+'\n'), footerCSSpath);
+                    }
+                }
+
+                // if it has its own component scss partial
+                if (this.props.components[item] === "Pagination" ||
+                    this.props.components[item] === "Breadcrumbs"  ||
+                    this.props.components[item] === "SocialList" 
+                ) {
+                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//';
+                    var path   = 'src/sass/main.scss';
+                    var file   = wiring.readFileAsString(path);
+                    var slug   = this.props.components[item].replace(/ /g, '_');
+                    var insert = "@import 'components/" + slug + "';";
+
+                    if (file.indexOf(insert) === -1) {
+                      this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
                     }
                 }
             }

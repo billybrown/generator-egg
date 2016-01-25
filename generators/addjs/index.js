@@ -2,12 +2,12 @@
 
 require('shelljs/global');
 
-var yeoman = require('yeoman-generator');
+var generators = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var wiring = require('html-wiring');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = generators.Base.extend({
     prompting: function () { 
         var done = this.async();
 
@@ -36,28 +36,8 @@ module.exports = yeoman.generators.Base.extend({
                 value: 'Modal',
                 checked: false
             }, {
-                name: 'OwlCarousel',
-                value: 'OwlCarousel',
-                checked: false
-            }, {
-                name: 'StickyNav',
-                value: 'StickyNav',
-                checked: false
-            }, {
-                name: 'Waypoints',
-                value: 'Waypoints',
-                checked: false
-            }, {
-                name: 'Chosen',
-                value: 'Chosen',
-                checked: false
-            }, {
-                name: 'Enquire',
-                value: 'Enquire',
-                checked: false
-            }, {
-                name: 'EqualHeight',
-                value: 'EqualHeight',
+                name: 'ChosenSelect',
+                value: 'ChosenSelect',
                 checked: false
             }]
         },
@@ -82,12 +62,7 @@ module.exports = yeoman.generators.Base.extend({
             this.Cover = hasAsset('Cover');
             this.MoreAccordian = hasAsset('MoreAccordian');
             this.Modal = hasAsset('Modal');
-            this.OwlCarousel = hasAsset('OwlCarousel');
-            this.StickyNav = hasAsset('StickyNav');
-            this.Waypoints = hasAsset('Waypoints');
-            this.Chosen = hasAsset('Chosen');
-            this.Enquire = hasAsset('Enquire');
-            this.EqualHeight = hasAsset('EqualHeight');
+            this.ChosenSelect = hasAsset('ChosenSelect');
 
             done();
         }.bind(this));
@@ -100,22 +75,14 @@ module.exports = yeoman.generators.Base.extend({
             if (this.MobileMenuFullScreen == true) {
                 this.fs.copy(
                     this.templatePath('_MobileMenuFullScreen.scss'),
-                    this.destinationPath('src/sass/specifics/_MobileMenuFullScreen.scss')
-                );
-                this.fs.copy(
-                    this.templatePath('mobilemenufullscreen.js'),
-                    this.destinationPath('src/js/custom/mobilemenufullscreen.js')
+                    this.destinationPath('src/sass/components/_MobileMenuFullScreen.scss')
                 );
             }
 
             if (this.MobileMenuOffcanvas == true) {
                 this.fs.copy(
                     this.templatePath('_MobileMenuOffcanvas.scss'),
-                    this.destinationPath('src/sass/specifics/_MobileMenuOffcanvas.scss')
-                );
-                this.fs.copy(
-                    this.templatePath('mobilemenuoffcanvas.js'),
-                    this.destinationPath('src/js/custom/mobilemenuoffcanvas.js')
+                    this.destinationPath('src/sass/components/_MobileMenuOffcanvas.scss')
                 );
             }
 
@@ -124,7 +91,7 @@ module.exports = yeoman.generators.Base.extend({
             ) {
                 this.fs.copy(
                     this.templatePath('_Hamburger.scss'),
-                    this.destinationPath('src/sass/specifics/_Hamburger.scss')
+                    this.destinationPath('src/sass/components/_Hamburger.scss')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -137,11 +104,7 @@ module.exports = yeoman.generators.Base.extend({
             if (this.Cover == true) {
                 this.fs.copy(
                     this.templatePath('_Cover.scss'),
-                    this.destinationPath('src/sass/specifics/_Cover.scss')
-                );
-                this.fs.copy(
-                    this.templatePath('cover.js'),
-                    this.destinationPath('src/js/custom/cover.js')
+                    this.destinationPath('src/sass/components/_Cover.scss')
                 );
                 // cover markup comes by default
             }
@@ -150,10 +113,6 @@ module.exports = yeoman.generators.Base.extend({
                 this.fs.copy(
                     this.templatePath('_MoreAccordian.scss'),
                     this.destinationPath('src/sass/components/_MoreAccordian.scss')
-                );
-                this.fs.copy(
-                    this.templatePath('moreaccordian.js'),
-                    this.destinationPath('src/js/custom/moreaccordian.js')
                 );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
@@ -168,10 +127,6 @@ module.exports = yeoman.generators.Base.extend({
                     this.templatePath('_Modal.scss'),
                     this.destinationPath('src/sass/components/_Modal.scss')
                 );
-                this.fs.copy(
-                    this.templatePath('modal.js'),
-                    this.destinationPath('src/js/custom/modal.js')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('Modal.twig'),
@@ -180,35 +135,10 @@ module.exports = yeoman.generators.Base.extend({
                 }
             }
 
-            if (this.OwlCarousel == true) {
+            if (this.ChosenSelect == true) {
                 this.fs.copy(
-                    this.templatePath('owlcarousel.js'),
-                    this.destinationPath('src/js/custom/owlcarousel.js')
-                );
-            }
-
-            if (this.StickyNav == true) {
-                this.fs.copy(
-                    this.templatePath('stickynav.js'),
-                    this.destinationPath('src/js/custom/stickynav.js')
-                );
-            }
-
-            if (this.Waypoints == true) {
-                this.fs.copy(
-                    this.templatePath('waypoint.js'),
-                    this.destinationPath('src/js/custom/waypoint.js')
-                );
-            }
-
-            if (this.Chosen == true) {
-                this.fs.copy(
-                    this.templatePath('_select--chosen.scss'),
-                    this.destinationPath('src/sass/base/elements/_select--chosen.scss')
-                );
-                this.fs.copy(
-                    this.templatePath('chosen.js'),
-                    this.destinationPath('src/js/custom/chosen.js')
+                    this.templatePath('_ChosenSelect.scss'),
+                    this.destinationPath('src/sass/components/_ChosenSelect.scss')
                 );
             }
         },
@@ -218,39 +148,40 @@ module.exports = yeoman.generators.Base.extend({
             for ( var item in this.props.components) {
 
                 // if its something that needs to go in "components" sass partial directory
-                if (    this.props.components[item] === "MoreAccordian" ||
-                        this.props.components[item] === "Modal"
-                ) {
-
-                    var hook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//',
-                        path   = 'src/sass/main.scss',
-                        file   = wiring.readFileAsString(path),
-                        slug   = this.props.components[item].replace(/ /g, '_'),
-                        insert = "@import 'components/" + slug + "';";
-
-                    if (file.indexOf(insert) === -1) {
-                      this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
-                    }
-                }
-
-                // if its something that needs to go in "specifics" sass partial directory
                 // basically just all header/footer and page specific content:
-                if (    this.MobileMenuFullScreen == true ||
-                        this.MobileMenuOffcanvas == true
+                if (    this.props.components[item] === "MoreAccordian" ||
+                        this.props.components[item] === "Modal" ||
+                        this.props.components[item] === "MobileMenuFullScreen" ||
+                        this.props.components[item] === "MobileMenuOffcanvas"
                 ) {
 
-                    var specifichook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | specifics -+++-//',
-                        specificpath   = 'src/sass/main.scss',
-                        specificfile   = wiring.readFileAsString(specificpath),
-                        specificslug   = this.props.components[item].replace(/ /g, '_'),
-                        specificinsert = "@import 'specifics/" + specificslug + "';";
+                    var specifichook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//';
+                    var specificpath   = 'src/sass/main.scss';
+                    var specificfile   = wiring.readFileAsString(specificpath);
+                    var componentslug  = this.props.components[item].replace(/ /g, '_');
+                    var specificinsert = "@import 'components/" + componentslug + "';";
 
                     if (specificfile.indexOf(specificinsert) === -1) {
                       this.writeFileFromString(specificfile.replace(specifichook, specificinsert+'\n'+specifichook), specificpath);
                     }
 
+                    var jshook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | js -+++-//';
+                    var jspath   = 'src/js/custom.js';
+                    var jsfile   = wiring.readFileAsString(jspath);
+                    var jsinsert = wiring.readFileAsString(this.templatePath(this.props.components[item] + '.js'));
+                    //var jsinsert = "yo";
+
+                    if (jsfile.indexOf(jsinsert) === -1) {
+                      this.writeFileFromString(jsfile.replace(jshook, '\n'+jsinsert+'\n'+jshook+'\n'), jspath);
+                    }
+                }
+
+                // if this is a mobile menu
+                if (    this.props.components[item] === "MobileMenuFullScreen" ||
+                        this.props.components[item] === "MobileMenuOffcanvas"
+                ) {
                     // put in the hamburger
-                    this.writeFileFromString(specificfile.replace(specifichook, "@import 'specifics/Hamburger';"+'\n'+specifichook), specificpath);
+                    this.writeFileFromString(specificfile.replace(specifichook, "@import 'components/Hamburger';"+'\n'+specifichook), specificpath);
 
                     var headerhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | header -+++-//-->',
                         headerpath   = 'patternlab/source/_layouts/header/header.twig',
@@ -296,124 +227,23 @@ module.exports = yeoman.generators.Base.extend({
                     }
                 }
 
-                
-                if ( this.props.components[item] === "OwlCarousel" ) {
+                // if chosen
+                if ( this.props.components[item] === "ChosenSelect") {
 
-                    var owlhook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | owlcarousel-copy -+++-//',
-                        owlpath   = 'config/javascript.js',
-                        owlfile   = wiring.readFileAsString(owlpath),
-                        owlslug   = this.props.components[item].replace(/ /g, '_'),
-                        owlinsert = "owlPlayButton: {\n"+
-                                        "files: [\n" +
-                                            "{ expand: true, cwd: 'bower_components/OwlCarousel2/dist/assets', src: ['owl.video.play.png'], dest: 'build/css/'}\n" +
-                                        "]\n" +
-                                    "},\n"
-
-                    if (owlfile.indexOf(owlinsert) === -1) {
-                      this.writeFileFromString(owlfile.replace(owlhook, owlinsert), owlpath);
-                    }
-                }
-
-                if ( this.Chosen == true ) {
-
-                    var chosenhook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | chosen-main -+++-//',
-                        chosenpath   = 'config/javascript.js',
-                        chosenfile   = wiring.readFileAsString(chosenpath),
-                        chosenslug   = this.props.components[item].replace(/ /g, '_'),
-                        choseninsert = "'chosen' : ['chosen.jquery.min.js', 'chosen.min.css'],\n"
+                    var chosenhook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//';
+                    var chosenpath   = 'src/sass/main.scss';
+                    var chosenfile   = wiring.readFileAsString(chosenpath);
+                    var chosenslug   = this.props.components[item].replace(/ /g, '_');
+                    var choseninsert = "@import 'components/" + chosenslug + "';";
 
                     if (chosenfile.indexOf(choseninsert) === -1) {
-                      this.writeFileFromString(chosenfile.replace(chosenhook, choseninsert), chosenpath);
-                    }
-
-                    var chosenSasshook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | elements -+++-//',
-                        chosenSasspath   = 'src/sass/main.scss',
-                        chosenSassfile   = wiring.readFileAsString(chosenSasspath),
-                        chosenSassinsert = "@import 'base/elements/select--chosen';";
-
-                    if (chosenSassfile.indexOf(chosenSassinsert) === -1) {
-                      this.writeFileFromString(chosenSassfile.replace(chosenSasshook, chosenSassinsert+'\n'+chosenSasshook), chosenSasspath);
-                    }
-
-                    var chosenSpritehook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | chosen-sprite -+++-//',
-                        chosenSpritepath   = 'config/javascript.js',
-                        chosenSpritefile   = wiring.readFileAsString(chosenSpritepath),
-                        chosenSpriteslug   = this.props.components[item].replace(/ /g, '_'),
-                        chosenSpriteinsert = "chosensprite: { files: [ { expand: true, cwd: 'bower_components/chosen', src: ['*.png'], dest: 'build/css/'} ] },"
-
-                    if (chosenSpritefile.indexOf(chosenSpriteinsert) === -1) {
-                      this.writeFileFromString(chosenSpritefile.replace(chosenSpritehook, chosenSpriteinsert), chosenSpritepath);
-                    }
-                }
-
-                if (    this.props.components[item] === "StickyNav" || 
-                        this.props.components[item] === "Waypoints"
-                ) {
-
-                    var waypointshook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | waypoints-main -+++-//',
-                        waypointspath   = 'config/javascript.js',
-                        waypointsfile   = wiring.readFileAsString(waypointspath),
-                        waypointsslug   = this.props.components[item].replace(/ /g, '_'),
-                        waypointsinsert = "'waypoints': ['lib/jquery.waypoints.min.js'],\n"
-
-                    if (waypointsfile.indexOf(waypointsinsert) === -1) {
-                      this.writeFileFromString(waypointsfile.replace(waypointshook, waypointsinsert), waypointspath);
-                    }
-                }
-
-                if ( this.props.components[item] === "Enquire" ) {
-
-                    var enquirehook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | enquire-main -+++-//',
-                        enquirepath   = 'config/javascript.js',
-                        enquirefile   = wiring.readFileAsString(enquirepath),
-                        enquireslug   = this.props.components[item].replace(/ /g, '_'),
-                        enquireinsert = "'matchmedia': ['./matchMedia.js', './matchMedia.addListener.js'],\n"
-
-                    if (enquirefile.indexOf(enquireinsert) === -1) {
-                      this.writeFileFromString(enquirefile.replace(enquirehook, enquireinsert), enquirepath);
+                      this.writeFileFromString(chosenfile.replace(chosenhook, choseninsert+'\n'+chosenhook), chosenpath);
                     }
                 }
             }
         }
     },
     install: function() {
-
-        if (this.MoreAccordian == true) {
-            exec("bower install jquery.scrollTo --save");
-            exec("bower install imagesloaded --save");
-        }
-
-        if (this.OwlCarousel == true) {
-            exec("bower install OwlCarousel2 --save");
-        }
-
-        if (this.StickyNav == true || this.Waypoints == true) {
-            exec("bower install jquery-waypoints --save");
-        }
-
-        if (this.Chosen == true) {
-            exec("bower install chosen --save");
-        }
-
-        if (this.Enquire == true) {
-            exec("bower install enquire --save");
-            exec("bower install matchmedia --save");
-        }
-
-        if (this.EqualHeight == true) {
-            exec("bower install matchHeight --save");
-        }
-
-        if (this.MoreAccordian == true ||
-            this.OwlCarousel == true ||
-            this.StickyNav == true ||
-            this.Waypoints == true ||
-            this.Chosen == true ||
-            this.Enquire == true ||
-            this.EqualHeight == true
-            ) {
-            exec("grunt plugins");
-        }
 
         // new compiled of css
         exec("grunt css");

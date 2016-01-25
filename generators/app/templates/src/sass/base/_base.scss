@@ -26,32 +26,29 @@
 
 
 // import variables
-@import 'base/variables';
-
-// import sprites
-@import 'sprites';
+@import 'variables';
 
 // import css reset or normalize (and your custom reset additions)
-@import 'base/reset/normalize';
-@import 'base/reset/normalizeAdditions';
+@import 'reset/normalize';
+@import 'reset/normalizeAdditions';
 
 // import base utilities 
-@import 'base/utilities/misc';
-@import 'base/utilities/text';
-@import 'base/utilities/buttons';
-@import 'base/utilities/grid';
-@import 'base/utilities/layout';
-@import 'base/utilities/visuals';
+@import 'utilities/misc';
+@import 'utilities/text';
+@import 'utilities/buttons';
+@import 'utilities/grid';
+@import 'utilities/layout';
+@import 'utilities/visuals';
 
 // import html elements
-@import 'base/elements/body';
-@import 'base/elements/headings';
-@import 'base/elements/definitionlist';
-@import 'base/elements/a';
-@import 'base/elements/blockquote';
-@import 'base/elements/horizontalRule';
-@import 'base/elements/input';
-@import 'base/elements/table';
-@import 'base/elements/small';
-@import 'base/elements/mark';
+@import 'elements/body';
+@import 'elements/headings';
+@import 'elements/definitionlist';
+@import 'elements/a';
+@import 'elements/blockquote';
+@import 'elements/horizontalRule';
+@import 'elements/input';
+@import 'elements/table';
+@import 'elements/small';
+@import 'elements/mark';
 
