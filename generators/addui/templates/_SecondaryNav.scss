@@ -5,7 +5,7 @@
 
 
 // styles for both mobile menu version and desktop version
-.SecondaryMenu {
+.SecondaryNav {
 
     ul {
         list-style: none;
@@ -16,11 +16,19 @@
     a {
         display: block;
     }
+
+    // active state
+    li.active,
+    li.active-trail {
+        a {
+
+        }
+    }
 }
 
 
 // desktop only version
-.SiteHeader .SecondaryMenu {
+.SiteHeader .SecondaryNav {
     li {
         display: inline-block;
         vertical-align: top;
@@ -33,5 +41,5 @@
 
 
 // mobile only version
-.MobileMenu .SecondaryMenu {
+.MobileMenu .SecondaryNav {
 }

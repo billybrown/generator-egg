@@ -16,7 +16,7 @@
 
 .BrowseHappy {
     @include u-absolute(0, null, null, 0);
-    background: $link-color;
+    background: $linkColor;
     padding: 10px;
     color: $text;
     width: 100%;

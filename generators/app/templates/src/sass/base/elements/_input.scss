@@ -47,7 +47,7 @@ button {
     width: auto;
 
     &:focus {
-        background: $link-colorHover;
+        background: $linkColorHover;
     }
 }
 
@@ -80,9 +80,9 @@ label {
 //
 
 
-$checkbox-border: $link-color;
+$checkbox-border: $linkColor;
 $checkbox-background: #fff;
-$checkbox-color: $link-color;
+$checkbox-color: $linkColor;
 
 
 input[type="checkbox"],
@@ -134,13 +134,13 @@ input[type="radio"] + span:after {
 
 input[type="checkbox"]:checked + span,
 input[type="radio"]:checked + span {
-    color: $link-color;
+    color: $linkColor;
 }
 
 input[type="checkbox"]:checked + span:after,
 input[type="radio"]:checked + span:after {
     color: $link-color;
-    border-color: $link-color;
+    border-color: $linkColor;
 }
 
 input[type="checkbox"]:checked + span:before {

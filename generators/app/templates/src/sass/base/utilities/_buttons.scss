@@ -22,14 +22,14 @@
 }
 
 %u-primaryButtonColors {
-	background: $link-color;
-	border-color: $link-color;
+	background: $linkColor;
+	border-color: $linkColor;
 	color: $white;
 	font-weight: 600;
 
 	&:hover {
-     	background: darken($link-color, 10%);
-        border-color: darken($link-color, 10%);
+     	background: darken($linkColor, 10%);
+        border-color: darken($linkColor, 10%);
 		color: $white;
 	}
 }

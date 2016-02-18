@@ -12,6 +12,7 @@
 .u-alignRight   { text-align: right; }
 .u-alignLeft    { text-align: left; }
 .u-alignCenter  { text-align: center; }
+.u-alignBlockCenter { margin-right: auto; margin-left: auto;}
 
 
 
@@ -70,6 +71,14 @@ $float-bp: small-bp;
 .u-block { display: block; }
 .u-inlineblock { display: inline-block; }
 .u-inline { display: inline; }
+
+
+.u-middleText {
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 
 
 /////////////////////////////////////-+++-
@@ -248,10 +257,10 @@ $float-bp: small-bp;
 .u-margin__40   { margin-bottom: 40px; }
 .u-margin__50   { margin-bottom: 50px; }
 .u-margin__60   { margin-bottom: 60px; }
-.u-margin__70   { margin-bottom: 70px; }
-.u-margin__80   { margin-bottom: 80px; }
-.u-margin__90   { margin-bottom: 90px; }
-.u-margin__100  { margin-bottom: 100px; }
+.u-margin__70   { margin-bottom: 30px; @include mq($from: small-bp) { margin-bottom: 70px; } }
+.u-margin__80   { margin-bottom: 30px; @include mq($from: small-bp) { margin-bottom: 80px; } }
+.u-margin__90   { margin-bottom: 35px; @include mq($from: small-bp) { margin-bottom: 90px; } }
+.u-margin__100  { margin-bottom: 35px; @include mq($from: small-bp) { margin-bottom: 100px; } }
 
 .u-marginTop__5     { margin-top: 5px; }
 .u-marginTop__10    { margin-top: 10px; }

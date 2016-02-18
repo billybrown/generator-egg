@@ -72,10 +72,6 @@
             }
         }
     }
-
-    img {
-        width: 100%;
-    }
 }
 
 
@@ -89,7 +85,6 @@
     @include mq($from: $bp) {
         margin-left: -$gutter;
         width: calc(100% + #{$gutter});
-        overflow: hidden;
 
         .no-flexbox & {
             width: 100%;
@@ -104,12 +99,9 @@
         }
 
         &:not(:last-child) {
-            @include mq($from: $bp) {
-                margin-bottom: $gutter;
-            }
+            margin-bottom: $gutter;
         }
     }
-
 }
 
 
@@ -120,6 +112,10 @@
 @mixin u-multiRowGrid--rowBorder($bp, $gutter, $bordercolor, $borderwidth, $width: 100%, $bp2: '', $width2: '', $bp3: '', $width3: '', $bp4: '', $width4: '') {
     @include u-multiRowGrid--gutter($bp, $gutter, $width, $bp2, $width2, $bp3, $width3, $bp4, $width4);
     padding-bottom: 1px;
+
+    @include mq($from: $bp) {
+        overflow: hidden;
+    }
 
     & > div,
     & > li {

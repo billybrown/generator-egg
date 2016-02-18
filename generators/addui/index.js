@@ -36,20 +36,20 @@ module.exports = generators.Base.extend({
                 value: 'HeaderLogo',
                 checked: false
             }, {
-                name: 'PrimaryMenu',
-                value: 'PrimaryMenu',
+                name: 'PrimaryNav',
+                value: 'PrimaryNav',
                 checked: false
             }, {
-                name: 'SecondaryMenu',
-                value: 'SecondaryMenu',
+                name: 'SecondaryNav',
+                value: 'SecondaryNav',
                 checked: false
             }, {
                 name: 'FooterLogo',
                 value: 'FooterLogo',
                 checked: false
             }, {
-                name: 'FooterMenu',
-                value: 'FooterMenu',
+                name: 'FooterNav',
+                value: 'FooterNav',
                 checked: false
             }, {
                 name: 'FooterContact',
@@ -90,11 +90,11 @@ module.exports = generators.Base.extend({
             this.HeaderSocial = hasAsset('HeaderSocial');
             this.HeaderSearch = hasAsset('HeaderSearch');
             this.HeaderLogo = hasAsset('HeaderLogo');
-            this.PrimaryMenu = hasAsset('PrimaryMenu');
-            this.SecondaryMenu = hasAsset('SecondaryMenu');
+            this.PrimaryNav = hasAsset('PrimaryNav');
+            this.SecondaryNav = hasAsset('SecondaryNav');
             this.FooterLogo = hasAsset('FooterLogo');
             this.FooterContact = hasAsset('FooterContact');
-            this.FooterMenu = hasAsset('FooterMenu');
+            this.FooterNav = hasAsset('FooterNav');
             this.Pagination = hasAsset('Pagination');
             this.Breadcrumbs = hasAsset('Breadcrumbs');
             this.SocialList = hasAsset('SocialList');
@@ -139,19 +139,19 @@ module.exports = generators.Base.extend({
                 }
             }
 
-            if (this.PrimaryMenu == true) {
+            if (this.PrimaryNav == true) {
                 if (this.props.patternlab == true) {
                     this.fs.copy(
-                        this.templatePath('PrimaryMenu.twig'),
-                        this.destinationPath('patternlab/source/_layouts/header/PrimaryMenu.twig')
+                        this.templatePath('PrimaryNav.twig'),
+                        this.destinationPath('patternlab/source/_layouts/header/PrimaryNav.twig')
                     );
                 }
             }
-            if (this.SecondaryMenu == true) {
+            if (this.SecondaryNav == true) {
                 if (this.props.patternlab == true) {
                     this.fs.copy(
-                        this.templatePath('SecondaryMenu.twig'),
-                        this.destinationPath('patternlab/source/_layouts/header/SecondaryMenu.twig')
+                        this.templatePath('SecondaryNav.twig'),
+                        this.destinationPath('patternlab/source/_layouts/header/SecondaryNav.twig')
                     );
                 }
             }
@@ -163,11 +163,11 @@ module.exports = generators.Base.extend({
                     );
                 }
             }
-            if (this.FooterMenu == true) {
+            if (this.FooterNav == true) {
                 if (this.props.patternlab == true) {
                     this.fs.copy(
-                        this.templatePath('FooterMenu.twig'),
-                        this.destinationPath('patternlab/source/_layouts/footer/FooterMenu.twig')
+                        this.templatePath('FooterNav.twig'),
+                        this.destinationPath('patternlab/source/_layouts/footer/FooterNav.twig')
                     );
                 }
             }
@@ -235,8 +235,8 @@ module.exports = generators.Base.extend({
 
                 // if its something that needs to go into the header
                 if (    this.props.components[item] === "HeaderLogo" ||
-                        this.props.components[item] === "PrimaryMenu" ||
-                        this.props.components[item] === "SecondaryMenu" ||
+                        this.props.components[item] === "PrimaryNav" ||
+                        this.props.components[item] === "SecondaryNav" ||
                         this.props.components[item] === "HeaderNewsletter" ||
                         this.props.components[item] === "HeaderDonate" ||
                         this.props.components[item] === "HeaderSocial" ||
@@ -265,7 +265,7 @@ module.exports = generators.Base.extend({
 
                 // if its something that needs to go into the footer
                 if (    this.props.components[item] === "FooterLogo" ||
-                        this.props.components[item] === "FooterMenu" ||
+                        this.props.components[item] === "FooterNav" ||
                         this.props.components[item] === "FooterContact"
                  ) {
 

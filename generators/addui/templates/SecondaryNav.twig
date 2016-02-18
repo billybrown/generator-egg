@@ -1,0 +1,9 @@
+<div class="SecondaryNav">
+    <ul>
+        {% for post in secondarynav %}
+            {% if post.title != null %}
+              <li class="{% if post.active == "true" %}active{% endif %}" ><a href="">{{ post.title }}</a></li>
+            {% endif %}
+        {% endfor %} 
+    </ul>
+</div><!--/.SecondaryNav-->

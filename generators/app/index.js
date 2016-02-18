@@ -232,7 +232,7 @@ module.exports = yeoman.generators.Base.extend({
         if (this.props.patternlab == true) {
           this.fs.copy(
             this.templatePath('wysiwyg-drupal.twig'),
-            this.destinationPath('patternlab/source/_patterns/02-organisms/90-wysiwyg.twig')
+            this.destinationPath('patternlab/source/_patterns/02-components/misc/90-wysiwyg.twig')
           );
         }
       } else if (this.props.cms == "Wordpress") {
@@ -254,7 +254,7 @@ module.exports = yeoman.generators.Base.extend({
         if (this.props.patternlab == true) {
           this.fs.copy(
             this.templatePath('wysiwyg-wordpress.twig'),
-            this.destinationPath('patternlab/source/_patterns/02-organisms/90-wysiwyg.twig')
+            this.destinationPath('patternlab/source/_patterns/02-components/misc/90-wysiwyg.twig')
           );
         }
       } else {

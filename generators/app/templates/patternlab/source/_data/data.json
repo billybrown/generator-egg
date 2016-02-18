@@ -2,7 +2,7 @@
 	"path": "../../../../",
 	"logo" : "Egg",
     "name" : "Egg",
-	"primarymenu": [
+	"primarynav": [
 		{ "title": "Item 1",
           "submenu": [
             { "title" : "Item 1.1"},
@@ -13,7 +13,7 @@
 		{ "title": "Item 2" },
 		{ "title": "Item 3" }
 	],
-	"secondarymenu": [
+	"secondarynav": [
 		{ "title": "Item 1" },
 		{ "title": "Item 2" },
 		{ "title": "Item 3" }

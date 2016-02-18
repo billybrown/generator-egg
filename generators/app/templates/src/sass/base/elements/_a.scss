@@ -13,7 +13,7 @@
 
 a,
 .u-fakeLink {
-    color: $link-color;
+    color: $linkColor;
     text-decoration: none;
     transition: color $animation;
     
@@ -21,6 +21,6 @@ a,
     &:hover {
         text-decoration: none;
         cursor: pointer;
-        color: $link-colorHover;
+        color: $linkColorHover;
     }
 }

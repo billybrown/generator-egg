@@ -23,20 +23,33 @@
 }
 
 %u-title {
-    color: black;
-    font-size: 32px;
-    line-height: 38px;
-    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+
+    @include mq($from: small-bp) {
+        font-size: 30px;
+        line-height: 38px;
+    }
 }
 
 %u-title--large {
-    font-size: 38px;
-    line-height: 42px;
+    font-size: 26px;
+    line-height: 32px;
+
+    @include mq($from: small-bp) {
+        font-size: 40px;
+        line-height: 48px;
+    }
 }
 
 %u-title--small {
-    font-size: 26px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 22px;
+
+    @include mq($from: small-bp) {
+        font-size: 26px;
+        line-height: 30px;
+    }
 }
 
 %u-label {

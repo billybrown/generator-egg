@@ -10,6 +10,7 @@
 @import 'mixins/vendor/ems';
 @import 'mixins/vendor/placeholder';
 @import 'mixins/vendor/triangles';
+@import 'mixins/vendor/brand-colors';
 
 // import custom mixins (edit these if you want) 
 @import 'mixins/custom/absolute';
@@ -38,13 +39,14 @@ $blue: dodgerblue;
 $black: #000000;
 $white: #ffffff;
 $gray: #888888;
-$gray-light: #eeeeee;
+$grayLight: #eeeeee;
 
 $background: #fff;
 $text: $black;
 
-$link-color: $blue;
-$link-colorHover: lighten($link-color, 10%);
+$linkColor: $blue;
+$linkColorHover: lighten($linkColor, 10%);
+$linkHoverColor: $linkColorHover;
 
 
 

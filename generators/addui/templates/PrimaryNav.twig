@@ -1,0 +1,10 @@
+<nav class="PrimaryNav">
+    <h2 class="u-visuallyHidden">Primary Nav</h2>
+    <ul>
+        {% for post in primarynav %}
+            {% if post.title != null %}
+              <li class="{% if post.active == "true" %}active{% endif %}" ><a href="">{{ post.title }}</a></li>
+            {% endif %}
+        {% endfor %} 
+    </ul>
+</nav><!--/.PrimaryNav-->

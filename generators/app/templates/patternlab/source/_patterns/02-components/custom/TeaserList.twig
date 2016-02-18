@@ -1,11 +1,13 @@
 <section class="TeaserList {{ class }}">
-    <header class="u-relative">
-        <h2 class="u-label">{{ list.title }}</h2>
+    <header class="TeaserList__header u-relative">
+        <h2 class="TeaserList__title u-label">{{ list.title }}</h2>
         {% if more == true %}<div class="u-topRight"><span class="u-arrowButton"><a href="">See More</a></span></div>{% endif %}
     </header>
-    <ul class="u-mediumStack">
-        {% for post in list.items %}
-              <li>{% include "02-components/custom/Teaser" %}</li>
-        {% endfor %} 
-    </ul>
+    <div class="TeaserList__content">
+        <ul class="u-mediumStack">
+            {% for post in list.items %}
+                  <li>{% include "02-components/custom/Teaser" %}</li>
+            {% endfor %} 
+        </ul>
+    </div>
 </section>

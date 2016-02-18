@@ -4,18 +4,18 @@
 
 
 // background colors
-.u-grayBg { background: $gray; }
 .u-whiteBg { background: $white; }
 .u-blackBg { background: $black; }
-.u-lightgrayBg{ background: $gray-light; }
+.u-grayBg { background: $gray; }
+.u-grayLightBg{ background: $grayLight; }
 
 
 // text colors
 .u-text { color: $text; }
-.u-gray { color: $gray; }
 .u-white { color: $white; }
 .u-black { color: $black; }
-.u-lightgray { color: $gray-light; }
+.u-gray { color: $gray; }
+.u-grayLight { color: $grayLight; }
 
 
 

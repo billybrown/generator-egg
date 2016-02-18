@@ -3,9 +3,9 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
-$PrimaryMenu-bp: mobilemenu-bp;
+$PrimaryNav-bp: mobilemenu-bp;
 
-.PrimaryMenu {
+.PrimaryNav {
 
     ul {
         list-style: none;
@@ -17,7 +17,7 @@ $PrimaryMenu-bp: mobilemenu-bp;
             vertical-align: top;
             margin-right: 10px;
 
-            @include mq($from: $PrimaryMenu-bp) {
+            @include mq($from: $PrimaryNav-bp) {
                 margin-right: 40px;
             }
         }
@@ -27,9 +27,17 @@ $PrimaryMenu-bp: mobilemenu-bp;
         display: block;
         font-weight: 700;
 
-        @include mq($from: $PrimaryMenu-bp) {
+        @include mq($from: $PrimaryNav-bp) {
             font-size: 30px;
             line-height: 32px;
+        }
+    }
+
+    // active state
+    li.active,
+    li.active-trail {
+        a {
+
         }
     }
 }
