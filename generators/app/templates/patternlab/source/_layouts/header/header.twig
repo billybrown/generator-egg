@@ -1,10 +1,10 @@
 <header class="SiteHeader">
-    <div class="Frame">
-        <div class="Frame__inside">
-            <h1>Egg</h1>
+    {% embed "misc-Frame" with { frameclass : "Frame--dark" } %}
+        {% block frame_content %}
+            <div class="u-alignCenter">This is the header</div>
             <!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | header -+++-//-->
-        </div>
-    </div>
+        {% endblock %}
+    {% endembed %}
 </header><!--/.SiteHeader-->
 
 <!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | mobilemenu -+++-//-->

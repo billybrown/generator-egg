@@ -1,0 +1,44 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// global
+// Some additional reset/normalize type styles that aren't included in the 
+// official normalize
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+// All elements will adopt `box-sizing:border-box;`
+// as per paulirish.com/2012/box-sizing-border-box-ftw
+* {
+    &,
+    &:before,
+    &:after { 
+        box-sizing: border-box; 
+    }
+} 
+
+// Remove gap between elements and the bottom of their containers
+audio,
+canvas,
+img,
+svg,
+video { 
+    vertical-align: middle; 
+}
+
+// default fluid images
+img {
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+}
+
+// default responsive iframes
+iframe {
+    width: 100%;
+}
+
+// default selection color
+// https://css-tricks.com/overriding-the-default-text-selection-color-with-css/
+::selection {
+  background: black;
+}

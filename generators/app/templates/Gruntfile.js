@@ -18,7 +18,6 @@
     grunt watch (watch for changes to .scss or the pattern library and compile on save)
     grunt sprites (create an svg sprite and corrasponding scss partial)
     grunt build (recompiled everything - sass, sprites, javascript, etc.)
-    grunt stats (get some stats on your theme assets)
     grunt patternlab (compile the pattern library)
 
     All commands are detailed by running the following:
@@ -63,7 +62,6 @@ module.exports = function(grunt) {
     grunt.registerTask('js_vendor', ['copy:modernizr', 'uglify:vendorjs']);
     grunt.registerTask('patternlab', ['shell:patternlab']);
     grunt.registerTask('sprites', ['dr-svg-sprites']);
-    grunt.registerTask('stats', ['stylestats']);
     
     grunt.registerTask('build', [
         'clean:build',

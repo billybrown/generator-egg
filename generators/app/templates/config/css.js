@@ -60,16 +60,6 @@ module.exports.tasks = {
                 'build/css/plugins.min.css': ['src/vendorcss/*.css']
             }
         }
-    },
-
-    stylestats: {
-      options: {
-        propertiesCount: 10,
-        mediaQueries: false,
-        uniqueColor: false,
-        uniqueFontSize: false
-      },
-      src: ['build/css/main.min.css']
     }
 
 };

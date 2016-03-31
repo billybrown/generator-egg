@@ -2,12 +2,21 @@
 
 {% block main %}
 
-    {% embed "02-components/misc/Frame"  with {"frameclass": "MainFrame"} %}
+    {% embed "misc-Frame" %}
         {% block frame_content %}
 
             <div><strong>Region: "Main"</strong></div>
-            <div>- Dummy Component 1</div>
-            <div>- Dummy Component 2</div>
+            <div>- Lorem Ipsum Component 1</div>
+            <div>- Lorem Ipsum Component 2</div>
+
+        {% endblock %}
+    {% endembed %}
+
+    {% embed "misc-Frame" %}
+        {% block frame_content %}
+
+            <div><strong>Region: "Secondary"</strong></div>
+            <div>- Lorem Ipsum Component 3</div>
 
         {% endblock %}
     {% endembed %}

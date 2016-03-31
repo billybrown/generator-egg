@@ -1,0 +1,62 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Teaser
+// Basic teaser
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+.Teaser {
+
+    a {
+        display: block;
+    }
+
+    &__grid {
+        display: table;
+
+        > div {
+            display: table-cell;
+            vertical-align: top;
+        }
+    }
+
+    &__label {
+        @include label;
+        color: $text;
+        margin-bottom: 5px;
+    }
+
+    &__title {
+        @include title-s;
+        margin-bottom: 10px;
+        color: $red;
+    }
+
+    &__excerpt {
+        @include text-s; 
+        color: $text;
+        margin-bottom: 20px;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    &__image {
+        img {
+            display: none;
+
+            @include mq($from: 800px) {
+                display: block;
+                min-width: 300px;
+                margin: 0 0 0 40px;
+            }
+        }
+    }
+
+    &__link span {
+        @include button-s;
+        @include button-red;
+    }
+}
+

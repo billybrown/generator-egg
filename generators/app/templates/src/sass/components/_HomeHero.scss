@@ -1,0 +1,54 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// HomeHero
+// Big hero image on the homepage
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+.HomeHero { 
+
+    &__logo {
+        margin-bottom: 20px;
+
+        svg {
+            width: 100%;
+            max-width: 210px;
+            height: auto;
+        }
+
+        path {
+            fill: $white;
+        }
+
+    }
+
+    &__grid {
+        @include u-grid-fixedFluid(800px, "left", 70px, 50px, "first", 210px);
+    }
+
+    &__quote {
+        color: $red;
+        margin-bottom: 80px;
+
+        p {
+            @include title-l;
+            margin: 0 0 20px;
+        }
+
+        footer {
+            @include label;
+            color: $red;
+            margin-top: 50px;
+        }
+    }
+
+    &__body {
+        @include nub-top;
+        color: $red; 
+
+        a {
+            margin-top: 10px;
+            @include button-l;
+        }
+    }
+}

@@ -1,0 +1,113 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Text
+// This is the default, sitewide font and its varients
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+/////////////////////////////////////-+++-
+// basic text styles
+//
+
+// a mixin for all basic text mixins
+@mixin text-defaults {
+    font-family: $SansSerif;
+    font-weight: 600;
+}
+
+@mixin text {
+    @include text-defaults;
+    font-size: 18px;
+    line-height: 1.55em;
+
+    @include mq($from: small-bp) {
+        font-size: 20px;
+    }
+}
+
+@mixin text-s {
+    @include text-defaults;
+    font-size: 16px;
+    line-height: 1.6em;
+}
+
+@mixin text-l {
+    @include text-defaults;
+    font-size: 20px;
+    line-height: 1.55em;
+
+    @include mq($from: small-bp) {
+        font-size: 24px;
+    }
+}
+
+
+
+
+/////////////////////////////////////-+++-
+// Title styles
+//
+
+
+// a mixin to apply to all title mixins
+@mixin title-defaults {
+    font-family: $Serif;
+}
+
+@mixin title {
+    @include title-defaults;
+    font-size: 28px;
+    line-height: 1.1em;
+
+    @include mq($from: small-bp) {
+        font-size: 42px;
+    }
+}
+
+@mixin title-s {
+    @include title-defaults;
+    font-size: 20px;
+
+    @include mq($from: small-bp) {
+        font-size: 28px;
+        line-height: 32px;
+    }
+}
+
+@mixin title-l {
+    @include title-defaults;
+    font-size: 32px;
+    line-height: 1.15em;
+
+    @include mq($from: small-bp) {
+        font-size: 44px;
+    }
+}
+
+
+
+
+/////////////////////////////////////-+++-
+// label styles
+//
+
+@mixin label-defaults {
+    font-family: $SansSerif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+@mixin label {
+    @include label-defaults;
+    font-size: 14px;
+    line-height: 1.1em;
+}
+
+@mixin label-s {
+    @include label-defaults;
+    font-size: 12px;
+}
+
+
+

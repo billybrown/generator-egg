@@ -1,0 +1,35 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Teaser List
+// a list of teasers
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+.TeaserList {
+
+    &__header {
+        position: relative;
+        margin-bottom: 50px;
+    }
+
+    &__title {
+        @include title-l; 
+        margin-bottom: 10px;
+    }
+
+
+    &__content {
+        margin-bottom: 40px;
+
+        ul {
+            @include borderStack-m($navy);
+
+            // this is a hack, since grid classes are utilities and not semantic. @TODO - refactor grid classes to be semantic
+            &.u-grid--singleRow--t {
+                margin-left: -50px;
+            }
+        }
+    }
+}
+
+

@@ -1,8 +1,8 @@
 <footer class="SiteFooter">
-    <div class="Frame Frame--gray">
-    	<div class="Frame__inside">
-    		<p>This is the Footer</p>
+    {% embed "misc-Frame" %}
+        {% block frame_content %}
+            <div class="u-alignCenter">This is the footer</div>
             <!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman -+++-//-->
-    	</div>
-    </div>
+        {% endblock %}
+    {% endembed %}
 </footer>

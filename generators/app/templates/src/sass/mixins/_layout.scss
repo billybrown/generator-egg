@@ -1,0 +1,237 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Layout utility styles 
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+/////////////////////////////////////-+++-
+// List mixins
+
+@mixin noList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin stack {
+    @include noList;
+}
+
+@mixin stack-t {
+    @include noList;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: 20px; 
+    }    
+}
+
+@mixin stack-s {
+    @include noList;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: 30px; 
+    }    
+}
+
+@mixin stack-m {
+    @include noList;
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: 50px; 
+    }    
+}
+
+@mixin stack-l {
+    @include noList;
+    
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: 90px; 
+    }    
+}
+
+@mixin borderStack-m($color) {
+    @include noList;
+    
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        margin-bottom: 30px; 
+        padding-bottom: 30px;
+        border-bottom: 4px solid $color;
+    }  
+}
+
+
+@mixin inlineList {
+    @include noList;
+
+    > li,
+    > div {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+
+@mixin inlineList-s {
+    @include noList;
+
+    > div,
+    > li {       
+        margin-bottom: 14px;
+
+        @include mq($from: small-bp) {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+
+    > div:not(:last-child),
+    > li:not(:last-child) {        
+        @include mq($from: small-bp) {
+            margin-right: 14px;
+        }
+    }
+}
+
+@mixin inlineList-m {
+    @include noList;
+
+    > div,
+    > li {       
+        margin-bottom: 14px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    > div:not(:last-child),
+    > li:not(:last-child) {        
+           margin-right: 25px;
+    }
+}
+
+
+@mixin inlineList-l {
+    @include noList;
+    
+    > div,
+    > li,
+    > dl {       
+        margin-bottom: 6px;
+
+        @include mq($from: small-bp) {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+
+    > div:not(:last-child),
+    > li:not(:last-child),
+    > dl:not(:last-child) {        
+        @include mq($from: small-bp) {
+            margin-right: 59px;
+        }
+    }
+}
+
+@mixin commaList {
+   @include noList;
+
+    > li,
+    > div {
+         display: inline;
+         vertical-align: top;
+    }
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+
+        &:after {
+            content: ',';
+        }
+    }
+}
+
+@mixin pipeList {
+    @include noList;
+    line-height: 1em; // this is experimental .. maybe cause problems later
+
+    > li,
+    > div {
+         display: inline-block;
+         vertical-align: top;
+    }
+
+    > li:not(:last-child),
+    > div:not(:last-child) {
+        border-right: 1px solid #D8D8D8;
+        margin-right: 8px;
+        padding-right: 10px;
+    }    
+}
+
+
+/////////////////////////////////////-+++-
+// some misc. spacing utility classes
+
+
+
+@mixin padding {
+    padding: 20px 20px 40px;
+
+    @include mq($from: 450px) {
+        padding: 36px 36px 53px;
+    }
+}
+
+@mixin padding-l {
+    padding: 23px 30px;
+
+    @include mq($from: $grid-bp-small) {
+        padding: 43px 50px 57px;
+    }
+}
+
+
+
+/////////////////////////////////////-+++-
+// Clearfix
+// Some styles for clearing floats
+//
+// This method is via html5boilerplate
+
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    `contenteditable` attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that receive the `clearfix` class.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+// 3. For IE 6/7 only
+//    Include this rule to trigger hasLayout and contain floats.
+// 
+
+
+// a mixin for applying a clearfix after a certain breakpoint
+@mixin clearfix($bp) {
+    @include mq($from: $bp) {
+        *zoom: 1; //3
+    }
+
+    &:before,
+    &:after {
+        @include mq($from: $bp) {
+            content: " "; //1
+            display: table; //2     
+        } 
+    }
+
+    &:after {
+        @include mq($from: $bp) {
+            clear: both;
+        }
+    }    
+}
+

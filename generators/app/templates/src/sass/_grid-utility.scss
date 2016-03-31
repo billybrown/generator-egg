@@ -1,0 +1,126 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Grid
+//
+// This is a purely utilitarian grid. Your main site grid structure should be 
+// a custom solution depending on the individual content's needs. 
+// This grid should only be used for small one-off things where you just need an
+// easy grid layout for a specific thing (like a webform or something similar)
+//
+// @TODO - consider replacing this grid with a vendor grid. Or something a little more
+// simple.
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+// default inline grid
+$grid-bp: mobilemenu-bp;
+$grid-bp-small: 980px;
+$grid-small-bp: $grid-bp-small; // just in case you forget
+$grid-tiny-bp: 600px;
+
+
+.u-grid {
+    @include u-grid-multiRow--gutter($grid-tiny-bp, 50px);
+
+    @include mq($from: $grid-tiny-bp) {
+        .u-grid--t__75 { width: 75%; }
+        .u-grid--t__66 { width: 66.66666666%; }
+        .u-grid--t__60 { width: 60%; }
+        .u-grid--t__50 { width: 50%; }
+        .u-grid--t__40 { width: 40%; }
+        .u-grid--t__33 { width: 33.33333333%; }
+        .u-grid--t__25 { width: 25%; }
+    }
+
+    @include mq($from: $grid-small-bp) {
+        .u-grid--s__80 { width: 80%; }
+        .u-grid--s__75 { width: 75%; }
+        .u-grid--s__66 { width: 66.66666666%; }
+        .u-grid--s__60 { width: 60%; }
+        .u-grid--s__50 { width: 50%; }
+        .u-grid--s__40 { width: 40%; }
+        .u-grid--s__33 { width: 33.33333333%; }
+        .u-grid--s__25 { width: 25%; }
+        .u-grid--s__20 { width: 20%; }
+        .u-grid--s__16 { width: 16.66666%; }
+        .u-grid--s__10 { width: 10%; }
+        .u-grid--s__8 { width: 8.33333%; }
+    }
+
+    // some default inline grid layouts
+    @include mq($from: $grid-bp) {
+        .u-grid__80 { width: 80%; }
+        .u-grid__75 { width: 75%; }
+        .u-grid__66 { width: 66.66666666%; }
+        .u-grid__60 { width: 60%; }
+        .u-grid__50 { width: 50%; }
+        .u-grid__40 { width: 40%; }
+        .u-grid__33 { width: 33.33333333%; }
+        .u-grid__25 { width: 25%; }
+        .u-grid__20 { width: 20%; }
+        .u-grid__16 { width: 16.66666%; }
+        .u-grid__10 { width: 10%; }
+        .u-grid__8 { width: 8.33333%; }
+    }
+
+    // if its just a single row grid, we want to truncate the bottom margin
+    // on desktop.
+    &--singleRow {
+        > div:not(:last-child),
+        > li:not(:last-child) {
+            @include mq($from: $grid-bp) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // same as above except for smaller screens
+    &--singleRow--s {
+        > div:not(:last-child),
+        > li:not(:last-child) {
+            @include mq($from: $grid-small-bp) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &--singleRow--t {
+        > div:not(:last-child),
+        > li:not(:last-child) {
+            @include mq($from: $grid-tiny-bp) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &--singleRow--always {
+        > div:not(:last-child),
+        > li:not(:last-child) {
+            margin-bottom: 0;
+        }
+    }
+
+    // this is for situations where we want a certain grid column to be optional.
+    // so when it doesn't exist that remaining column goes full width.
+    // this only works when there is only 2 columns
+    &--optional {
+        display: table;
+
+        > div,
+        > li {
+            display: table-cell;
+            vertical-align: top;
+        }
+    }
+
+    //no gutters
+    &--noGutter {
+        width: 100%;
+        margin-left: 0;
+
+        > div,
+        > li {
+            padding-left: 0;
+        }
+    }
+}

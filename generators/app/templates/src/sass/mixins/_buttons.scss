@@ -1,0 +1,90 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Links 
+// some styles for different types of links (buttons, tags, special misc links)
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+// Some default button classes that buttons extend
+
+@mixin button-defaults {
+    border: none;
+    border: 2px solid transparent;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 800;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }   
+}
+
+@mixin button-color-blue {
+    background: $white;
+    color: $navy;
+    border-color: $white;
+    transition: background $animation, border $animation, color $animation;
+
+    &:hover {
+        border-color: $red;
+        background: $red;
+        color: $white; 
+    }
+}
+
+@mixin button-color-red {
+    background: $red;
+    color: $white;
+    border-color: $red;
+
+    &:hover {
+        border-color: $white;
+        background: $white;
+        color: $red; 
+    }
+}
+
+@mixin button-size {
+    font-size: 16px;
+    line-height: 18px;
+    padding: 9px 30px 9px 30px;
+    border-radius: 20px;
+}
+
+@mixin button-size-l {
+    font-size: 18px;
+    line-height: 1em;
+    padding: 13px 35px 13px 35px;
+    border-radius: 25px;
+}
+
+@mixin button-size-s {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 6px 30px 6px 30px;
+    border-radius: 20px;
+}
+
+// some of the real button classes
+@mixin button {
+    @include button-defaults;
+    @include button-size;
+    @include button-color-blue;
+}
+
+@mixin button-s {
+    @include button-defaults;
+    @include button-size-s;
+    @include button-color-blue;
+}
+
+@mixin button-l {
+    @include button-defaults;
+    @include button-size-l;
+    @include button-color-blue;
+}
+
+@mixin button-red {
+    @include button-color-red;
+}
+

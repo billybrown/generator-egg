@@ -1,0 +1,41 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// h1-h6 headings
+//
+// Represent headings and subheadings
+// All should have text utility placeholders applied to them as defaults - but 
+// often the styles will get overriden elsewhere in the CSS depending on the
+// object they contain. Headings have SEO and site-outline significance, so
+// their placement in the markup is more important then their appearance.
+//
+// http://html5doctor.com/element-index/#h1
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+h1 { @include text-l; }
+h2 { @include text-l; }
+h3 { @include text-l; }
+h4 { @include text-l; }
+h5 { @include text-l; }
+h6 { @include text-l; }
+
+
+
+
+/////////////////////////////////////-+++-
+// Default text spacing.
+// If we ever want to try better alignment site wide with text, those styles would go here.
+
+$spacing: 30px;
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+p,
+blockquote,
+input {
+    margin: 0 0 $spacing; // need full margin values here to reset browser defaults
+}

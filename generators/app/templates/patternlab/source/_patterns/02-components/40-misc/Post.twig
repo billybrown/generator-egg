@@ -1,0 +1,19 @@
+<article class="Post {{ class }}" >
+    
+    <header class="Post__header">
+        <h2 class="post__title">{{ post.title }}</h2>
+    </header><!-- /.Post__header -->
+
+
+    <div class="Post__content">
+
+        <div class="Post__body">
+            {% block post_body %}
+                {% include "misc-wysiwyg" %}
+            {% endblock %}
+        </div><!-- /.Post__body -->
+
+    </div><!-- /.Post__content -->
+
+</article><!-- /.Post -->
+

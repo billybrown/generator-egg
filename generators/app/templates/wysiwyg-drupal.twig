@@ -1,9 +1,15 @@
-<div class="WYSIWYG">
+<div class="u-WYSIWYG">
 
 <p>The markup here should replicate the markup a basic WYSIWYG might output for things like blockquotes, floated images, text alignment, etc.</p>
 
 
-{% include 'molecules-image' with { class : "align-left" } %}
+<figure class="CaptionImage align-left">
+    <div class="CaptionImage__creditWrapper">
+       <img src="http://dummyimage.com/400x300/888/fff.png" alt="">
+       <div class="CaptionImage__credit">{{ post.author }}</div>
+    </div><!-- /.CaptionImage__creditWrapper -->
+    <figcaption class="CaptionImage__caption"><p>{{ post.excerpt.long }} </p></figcaption>
+</figure><!-- /.CaptionImage -->
 
 <p>Lorem ipsum dolor sit amet, <strong>bold example</strong>&nbsp;adipiscing elit. Cras semper <em>italics example</em>, at venenatis lacus semper eget <del>strikethrough example</del>. Praesent vestibulum ac lectus vel maximus. Nunc vitae nibh quis mi porttitor scelerisque nec sed sem. <a href="http://google.com">Link example</a>, tincidunt purus ac, lacinia nunc. <span style="text-decoration: underline;">Underline example</span> Praesent felis sapien, eleifend a urna id, dictum commodo lacus.<span style="color: #ff0000;"> Example of text with color</span>. Ut varius sagittis ex, in tincidunt dolor viverra laoreet. Maecenas nibh neque, mollis quis luctus eleifend, aliquet at magna. Nam blandit leo pretium, pretium neque id, scelerisque nunc. Sed sit amet vulputate sem. Sed at purus et justo aliquam tristique ut et nulla. Quisque quis erat non urna pulvinar feugiat. Nulla facilisi. Sed rutrum nisl erat.</p>
 

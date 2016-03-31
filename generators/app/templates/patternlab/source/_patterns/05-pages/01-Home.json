@@ -1,3 +1,40 @@
 {
-	"title" : "Home Page"
+    "title" : "Home Page",
+    "bodyClass" : "page--home",
+    "page" : {
+        "type" : "homepage",
+        "title": "Egg"
+    },
+    "eggHero" : {
+        "logo" : "<svg xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 42 42'><title>Egg</title><path d='M41.8 21c0-15.2-16.5-25.5-30.1-18.7C-1.8 9-3.8 28 8 37.4c7 5.6 17.1 6 24.6 1 .6-.3 1-.6 1.5-1.1 4.6-3.9 7.7-9.7 7.7-16.3zm-3.4 0c0 4.1-1.4 7.9-3.9 10.9-1.1-1.6-3.2-2-5.1-1.9h-2.1c-.7 0-5.1-.3-3-2l.1.1c2.6 1.1 6.4.9 8.3-1.5 1.8-2.3.9-5.6-1.8-6.6-.1-.5.5-1.7.9-.9l.3.5c1.2 1.9 3.8-.7 2.2-2.5-1.2-1.4-3.9-1.3-5.2-.1v-.8c0-.5-.3-2 .6-2h.6c1.5 0 1.4-2.5.4-3.1-1.1-.6-2.9.1-4.1 0-1.1-.1-2.9-.7-3.8.2-1 1-.3 2.7 1.1 2.5h.2c1.3 0 1.1 1.7.4 2.3-1 .9-2.5.7-3.4-.1-1.8-1.6-1.6-5.3-.8-7.4.8-2.1 3.9-3.2 5-.7.5 1.2.5 2.4 2.2 2.3 1.4-.1 1.7-1.1 1.6-2.3-.2-.7 0-1.6.1-2.3 5.5 3 9.2 8.8 9.2 15.4zM24 34.5c0-.5.4-1 1.3-1.3.7.1 1.2.1 1.7.1h.8c.8 0 2.2-.2 2.8.6.5.7.1 1.4-.6 1.8-1.3.6-6 .9-6-1.2zM27.5 22c2.4 0 2.4 3.8 0 3.8s-2.4-3.8 0-3.8zM20.1 3.5c-3.7 1.2-4.8 5.2-4.7 8.7-3.2.2-6.5.2-9.7 0 3-5 8.3-8.4 14.4-8.7-.1 0-.1 0 0 0zm-15.5 22c-.3-.1-.4-.1-.6-.1-.8-3.2-.8-6.7.3-9.9 1.3-.2 1.5.2 1.5 1.5v6.9c0 1-.1 1.9-1.2 1.6-.3 0 .2.1 0 0zm.7 3.3l1.2-.1c.5 0 1.2-.1 2.1-.1h2.2c2.4 0 4.9.4 7.3.2 2.3-.2 1.2-3 1.4-4.7.1-1 .3-2.4-.6-3.1-.7-.5-1.9-.4-2.5.2-.9.9-.2 2-.4 3.1-.2 1.3-1.8 1.2-2.8 1.2h-1.4c-1 0-1.5-.4-1.5-1.5v-1.9c0-.6.5-1 1.1-.8.6.2.6.6.6 1.2v.1c0 1.1 1.2 1.7 2.1 1 1-.8.3-3 .3-4 0-.9.6-2.7-.1-3.5-1-.9-2.2 0-2.2 1.1v.3c0 1-1.7 1.1-1.7 0v-1.4c0-.5.1-.8.4-1 .2-.1.5-.1 1.1-.1h2.4c2.3 0 1.1 1.3 1.4 2.9.3 1.6 2.4 2 3.3.7 2.2 1.3 5 1.2 7.1-.4v.1c0 .2 0 .4.1.5-3.2.5-6.4 4.1-3.7 7.1-1.4.6-2.4 1.5-2.3 3.2.1 1.3 1 2.1 2.3 2.4-3.6 1.1-3.6 5-.4 6.7-7.1.7-13.7-3.2-16.8-9.4z'/></svg>",
+        "quote" : "<p>It may be hard for an egg to turn into a bird: it would be a jolly sight harder for it to learn to fly while remaining an egg.</p><p>We are like eggs at present. And you cannot go on indefinitely being just an ordinary, decent egg.</p><p>We must be hatched or go bad.</p>",
+        "attribution" : "C.S. Lewis",
+        "excerpt" : "<p>Egg is a bunch of html, css, and js for your website. Currently in active development.</p><p><a href='patternlab/public/index.html'>Visit your pattern library</a></p>"
+
+    },
+    "eggTeasers": {
+        "title": "Lorem Ipsum Teasers",
+        "teasers": [
+            {
+                "tag" : "Lorem Ipsum",
+                "title" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+                "excerpt" : "Rem alias fuga cumque libero nihil corporis, ratione voluptas ea, ipsa ipsum atque est omnis molestias iure cupiditate reprehenderit blanditiis minima, consequatur."
+            },
+            {
+                "tag" : "Consectetur",
+                "title" : "Ratione voluptas ea, ipsa ipsum atque est",
+                "excerpt" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus aut esse distinctio vitae, labore, accusantium officiis, nam harum velit voluptates ullam, consequuntur quidem sapiente ipsa aperiam maiores eum temporibus pariatur.",
+                "img" : {
+                    "img300xAuto" : {
+                        "src" : "http://dummyimage.com/300x200/000/fff.png"
+                    }
+                }
+            },
+            {
+                "tag" : "Ipsa Ipsum Atque",
+                "title" : "Consectetur adipisicing elit",
+                "excerpt" : "Ratione voluptas ea, ipsa ipsum atque est omnis molestias iure cupiditate reprehenderit blanditiis minima, consequatur."
+            }
+        ]
+    }
 }

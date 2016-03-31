@@ -1,0 +1,21 @@
+<article class="Teaser {{ class }}">
+	<a href="">
+		<div class="Teaser__grid">
+			<div class="Teaser__text">
+				<div class="Teaser__label">{{ post.tag }}</div>
+				<h3 class="Teaser__title">{{ post.title}}</h3>
+				<div class="Teaser__excerpt">
+					<p>{{ post.excerpt }}</p>
+				</div>
+				<div class="Teaser__link">
+					<span>Read More</span>
+				</div>
+			</div>
+			<div class="Teaser__image">
+				{% if post.img %}
+					<img src="{{ post.img.img300xAuto.src }}" alt="" />
+				{% endif %}
+			</div><!-- /.Teaser__image -->
+		</div>
+	</a>
+</article>

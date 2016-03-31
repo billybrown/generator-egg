@@ -1,0 +1,14 @@
+<section class="TeaserList {{ class }}">
+    <header class="TeaserList__header">
+        <h2 class="TeaserList__title">{{ post.title }}</h2>
+    </header>
+    <div class="TeaserList__content">
+        {% block teaser %}
+            <ul>
+                {% for post in post.teasers %}
+                    <li>{% include "components-Teaser" %}</li>
+                {% endfor %} 
+            </ul>
+        {% endblock %}
+    </div>
+</section>

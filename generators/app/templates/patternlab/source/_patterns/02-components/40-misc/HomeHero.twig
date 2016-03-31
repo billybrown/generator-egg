@@ -1,0 +1,21 @@
+<article class="HomeHero">
+            
+    <div class="HomeHero__grid">
+        <div class="HomeHero__logo">
+            <a href="/">
+                {{ post.logo|raw }}
+            </a>
+        </div>
+        <div class="HomeHero__textGroup">
+                <blockquote class="HomeHero__quote">
+                    {{ post.quote|raw }}
+                    <footer>— {{ post.attribution }}</footer>
+                </blockquote>
+
+            <div class="HomeHero__body">
+                {{ post.excerpt|raw }}
+            </div>
+        </div><!--/.HomeHero__text-->
+    </div><!--.HomeHero__grid-->  
+
+</article>

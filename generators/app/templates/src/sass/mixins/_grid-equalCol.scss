@@ -1,0 +1,163 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Equal column row
+//
+// A mixing for applying a grid to a single row of elements. Every element will be
+// equal width, no matter the amount of columns. Each column will also be equal height.
+//
+// This method uses flexbox with a float fallback using the nth-child trick, modernizr,
+// and an equal height js script.
+//
+// Supports ie9+. For ie8 and lower be sure to include selectivizr - selectivizr.com
+//
+// use the mixin like so:
+//
+//      .MyExampleClass {
+//          @include u-grid-equalCol--gutter($bp, $gutter);
+//      }
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+// $bp = the breakpoint where you want the grid to turn on
+
+@mixin u-grid-equalCol($bp) {
+    @extend %u-noList;
+    width: 100%;
+    
+    @include mq($from: $bp) {
+        display: flex;
+    }
+
+    .no-flexbox & {
+        @include u-clearfix($bp);
+    }
+
+    & > div,
+    & > li {
+
+        @include mq($from: $bp) {
+            flex-grow: 1;
+            flex: 1 0 0px;
+
+            .no-flexbox & {
+                float: left;
+                width: 100%;
+
+                // quanitity queries
+                // https://css-tricks.com/quantity-queries-for-css/
+                &:nth-last-child(n+2),
+                &:nth-last-child(n+2) ~ li,
+                &:nth-last-child(n+2) ~ div { width: 50%; }
+
+                &:nth-last-child(n+3),
+                &:nth-last-child(n+3) ~ li,
+                &:nth-last-child(n+3) ~ div { width: 33.3333%; }
+
+                &:nth-last-child(n+4),
+                &:nth-last-child(n+4) ~ li,
+                &:nth-last-child(n+4) ~ div { width: 25%; }
+
+                &:nth-last-child(n+5),
+                &:nth-last-child(n+5) ~ li,
+                &:nth-last-child(n+5) ~ div { width: 20%; }
+
+                &:nth-last-child(n+6),
+                &:nth-last-child(n+6) ~ li,
+                &:nth-last-child(n+6) ~ div { width: 16.6666%; }
+            }
+        }
+
+        // this is a flexbox bug in firefox where the img breaks the container otherwise
+        img {
+            width: 100%;
+        }
+    }
+}
+
+
+/////////////////////////////////////-+++-
+// Gutters
+//
+// $gutter = the width of the gutter
+
+@mixin u-grid-equalCol--gutter($bp, $gutter) {
+  @include u-grid-equalCol($bp);
+
+  @include mq($from: $bp) {
+    width: calc(100% + #{$gutter}); // doesnt work in ie8, but its ok. Not breaking or anything.
+    margin-left: -$gutter*.5;
+  }
+
+  & > div,
+  & > li {
+
+    @include mq($from: $bp) {
+      padding-right: $gutter*.5;
+      padding-left: $gutter*.5;
+    }
+
+    &:not(:last-child) { 
+      margin-bottom: $gutter;
+
+      @include mq($from: $bp) {
+        margin-bottom: 0;
+      }
+    }
+  }  
+}
+
+
+/////////////////////////////////////-+++-
+// border
+//
+// $border = color of the border
+// $borderwidth = width of the border
+
+@mixin u-grid-equalCol--border($bp, $gutter, $border, $borderwidth: 1px) {
+  @include u-grid-equalCol--gutter($bp, $gutter);
+
+  .no-flexbox & {
+    overflow: hidden; // see note about padding bottom trick below
+  }
+
+  & > div,
+  & > li {
+    position: relative;
+
+
+    &:not(:last-child) { 
+      margin-bottom: $gutter;
+      border-bottom: $borderwidth solid $border;
+      padding-bottom: $gutter;
+
+      @include mq($from: $bp) {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+        
+        // padding bottom trick
+        // http://stackoverflow.com/questions/1205159/html-css-making-two-floating-divs-the-same-height
+        .no-flexbox & {
+            padding-bottom: 2000px;
+            margin-bottom: -2000px;
+        }
+      }
+
+      &:after {
+        content: '';
+        height: 100%;
+        width: $borderwidth;
+        background: $border;
+        display: none;
+
+        @include mq($from: $bp) {
+          display: block;
+          position: absolute;
+          top: 0;
+          right: -($borderwidth *.5);
+        }
+      }
+    }
+  }
+}

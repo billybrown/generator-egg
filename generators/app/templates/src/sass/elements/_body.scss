@@ -1,0 +1,17 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// body
+//
+// default styles for the (almost) most global element of the page
+//
+// http://html5doctor.com/element-index/#body
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+
+body {
+    @include text;
+    color: $text;
+    -webkit-font-smoothing: antialiased;
+    background: $background;
+}

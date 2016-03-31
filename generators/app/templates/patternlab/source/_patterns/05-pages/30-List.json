@@ -1,9 +1,0 @@
-{
-    "title" : "Filtered List Page",
-    "page" : {
-        "type": "list",
-        "heading": "Lorem etta Ipsum Dolor Sit Vivamus id Mollis",
-        "filters": true,
-        "summary": "Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Phasellus molestie magna non est bibendum non."
-    }
-}

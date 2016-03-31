@@ -6,12 +6,12 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var wiring = require('html-wiring');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
 
   prompting: function () {
     var done = this.async();
 
-    // Have Yeoman greet the user.
+    // Have Yeoman greet the user with some custom ASCII!
     this.log(
       '\n ' + '+-----------------+' +
       '\n ' + '        ___        ' + 
@@ -24,7 +24,7 @@ module.exports = yeoman.generators.Base.extend({
       ' +-----------------+\n'
     );
 
-    // Get our info
+    // Ask a bunch of questions of the user
     var prompts = [
       {
         type: 'input',
@@ -39,29 +39,23 @@ module.exports = yeoman.generators.Base.extend({
         default: 'Echo & Co.'
       },
       {
-        type: 'input',
-        name: 'short',
-        message: 'What is project short code?\n',
-        default: 'eco'
+        type: 'list',
+        name: 'cms',
+        message: 'What is the CMS?',
+        choices: [ "Drupal", "Wordpress", "none" ],
+        default: 'none'
       },
       {
         type: 'input',
         name: 'theme',
         message: 'What is the theme name?\n',
-        default: 'Echokit'
+        default: 'Egg'
       },
       {
         type: 'input',
         name: 'description',
         message: 'Short (one sentence) description of project:\n',
         default: 'Only the best frickin theme ever'
-      },
-      {
-        type: 'list',
-        name: 'cms',
-        message: 'What is the CMS?',
-        choices: [ "Drupal", "Wordpress", "none" ],
-        default: 'none'
       },
       {
         type: 'confirm',
@@ -74,48 +68,22 @@ module.exports = yeoman.generators.Base.extend({
         name: 'patternlab',
         message: 'Do you want a pattern library?',
         default: true
-      },
-      {
-        type: 'checkbox',
-        name: 'gruntplugins',
-        message: 'What extra grunt build tools do you need?',
-        choices: [{
-            name: 'gruntsprites',
-            value: 'gruntsprites',
-            checked: true
-        }]
-      },
-      {
-        type: 'confirm',
-        name: 'installitall',
-        message: 'Do you want to install all grunt depenencies?',
-        default: false
       }
     ];
 
     this.prompt(prompts, function (props) {
       this.props = props;
-
-      var gruntplugins = props.gruntplugins;
-
-      function hasGruntPlugin(feat) {
-        return gruntplugins.indexOf(feat) !== -1;
-      }
-
-      this.sprites = hasGruntPlugin('gruntsprites');
-
       done();
     }.bind(this));
   },
 
-  // write our files
+  // write our files - copy and paste things and integrate the info we gathered above
   writing: {
     app: function () {
       this.fs.copyTpl(
         this.templatePath('_package.json'),
         this.destinationPath('package.json'),
             { 
-              sprites: this.sprites,
               cms: this.props.cms
             }
       );
@@ -145,10 +113,6 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(
         this.templatePath('config/javascript.js'),
         this.destinationPath('config/javascript.js')
-      );
-      this.fs.copy(
-        this.templatePath('config/patternlab.js'),
-        this.destinationPath('config/patternlab.js')
       );
       this.fs.copy(
         this.templatePath('config/sprites.js'),
@@ -186,6 +150,24 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('src')
       );
 
+      this.fs.copyTpl(
+        this.templatePath('main.scss'),
+        this.destinationPath('src/sass/main.scss'),
+          { 
+            cms: this.props.cms
+          }
+      );
+
+      this.fs.copy(
+        this.templatePath('favicon.png'),
+        this.destinationPath('favicon.png')
+      );
+
+      this.fs.copy(
+        this.templatePath('img'),
+        this.destinationPath('img')
+      );
+
       this.fs.copy(
         this.templatePath('.nvmrc'),
         this.destinationPath('.nvmrc')
@@ -195,6 +177,11 @@ module.exports = yeoman.generators.Base.extend({
         this.fs.copy(
           this.templatePath('patternlab'),
           this.destinationPath('patternlab')
+        );
+
+        this.fs.copy(
+          this.templatePath('config/patternlab.js'),
+          this.destinationPath('config/patternlab.js')
         );
 
         // for some reason these directories aren't getting copied over
@@ -229,10 +216,12 @@ module.exports = yeoman.generators.Base.extend({
           this.templatePath('screenshot-drupal.png'),
           this.destinationPath('screenshot.png')
         );
+
+
         if (this.props.patternlab == true) {
           this.fs.copy(
             this.templatePath('wysiwyg-drupal.twig'),
-            this.destinationPath('patternlab/source/_patterns/02-components/misc/90-wysiwyg.twig')
+            this.destinationPath('patternlab/source/_patterns/03-misc/wysiwyg.twig')
           );
         }
       } else if (this.props.cms == "Wordpress") {
@@ -254,9 +243,10 @@ module.exports = yeoman.generators.Base.extend({
         if (this.props.patternlab == true) {
           this.fs.copy(
             this.templatePath('wysiwyg-wordpress.twig'),
-            this.destinationPath('patternlab/source/_patterns/02-components/misc/90-wysiwyg.twig')
+            this.destinationPath('patternlab/source/_patterns/03-misc/wysiwyg.twig')
           );
         }
+
       } else {
 
         this.fs.copyTpl(
@@ -264,13 +254,21 @@ module.exports = yeoman.generators.Base.extend({
           this.destinationPath('index.html'),
             { 
               description: this.props.description,
-              title: this.props.client
+              title: this.props.theme
             }
         );
+
+        if (this.props.patternlab == true) {
+          this.fs.copy(
+            this.templatePath('wysiwyg-default.twig'),
+            this.destinationPath('patternlab/source/_patterns/03-misc/wysiwyg.twig')
+          );
+        }
 
       }
     }
   },
+
   install: function() {
     if (this.props.patternlab == true) {
       if (!which('php')) {
@@ -281,10 +279,6 @@ module.exports = yeoman.generators.Base.extend({
           console.log('Program output:', output);
         });
       }
-    }
-
-    if (this.props.installitall == true) {
-      this.installDependencies();
     }
   }
 

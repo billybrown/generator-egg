@@ -37,7 +37,7 @@
 
 $Frame-small: 25px;
 $Frame-medium: 70px;
-$Frame-large: 80px;
+$Frame-large: 110px;
 
 .Frame {
     padding: $Frame-medium $Frame-small;
@@ -72,14 +72,21 @@ $Frame-large: 80px;
         }
     }
 
-	// Frame with no padding (for when content spans height of container)
-	&--noSpacing {
-	    padding-top: 0;
-	    padding-bottom: 0;
-	}
+    // Frame with no padding (for when content spans height of container)
+    &--noSpacing {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 
-    &--gray {
-        background: #888;
-        color: #fff;
+    &--noSpacingBottom {
+        padding-bottom: 0;
+    }
+    
+    &--dark {
+        background: darken($navy, 2%);
+    }
+
+    &--light {
+        background: lighten($navy, 2%);
     }
 }

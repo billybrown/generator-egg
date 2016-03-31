@@ -1,0 +1,35 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Visual Embellishments
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+// crop a square image into a circle
+@mixin circle {
+    img {
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+@mixin borderBottom {
+    border-bottom: 2px solid $gray;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+@mixin nub-top {
+    position: relative;
+    padding-top: 70px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 10px;
+        background: $red;
+    }
+}
+
+//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | visuals -+++-//

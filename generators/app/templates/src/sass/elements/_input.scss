@@ -1,0 +1,281 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// <input/> and <form> styles.
+//
+// http://html5doctor.com/element-index/#input
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+
+$placeholder-default: $text;
+
+%u-defaultInput {
+    @extend %u-text;
+    line-height: 22px;
+    color: $text;
+    background: transparent;
+    border: 2px solid $text;
+    border-radius: 0;
+    padding: 7px 14px;
+    height: 42px; // need to put height here for firefox
+    -webkit-appearance: none;
+    transition: background $animation, border $animation;
+
+    &:focus {
+        outline: none;
+        background: #fff;
+        border-color: $linkColor;
+    }
+
+    &::-webkit-input-placeholder {  color: $placeholder-default; }
+    &:-moz-placeholder {            color: $placeholder-default; }
+    &::-moz-placeholder {           color: $placeholder-default; }
+    &:-ms-input-placeholder {       color: $placeholder-default; }
+}
+
+// default input styles
+input,
+textarea {
+    @extend %u-smallText;
+    @extend %u-defaultInput;
+    width: 100%;
+}
+
+input[type="submit"],
+button {
+    @extend %u-button;
+    width: auto;
+
+    &:focus {
+        background: $linkColorHover;
+    }
+}
+
+input[type="search"] {
+    box-sizing: border-box; // for some reason normalize has this as 'contenet-box'
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+// default label style
+label {
+    @extend %u-smallText;
+}
+
+
+
+
+/////////////////////////////////////-+++-
+// Checkboxes and Radio form elements
+//
+// The CSS below assumes we will be totally removing the default checkbox/radio styles
+// and creating our own look.
+//
+// They take markup like this:
+//
+//    <label>
+//        <input type="checkbox">
+//        <span>About Us</span>
+//    </label>
+//
+
+
+$checkbox-border: $linkColor;
+$checkbox-background: #fff;
+$checkbox-color: $linkColor;
+
+
+input[type="checkbox"],
+input[type="radio"] {
+    display: none;
+}
+
+label input[type="checkbox"] + span,
+label input[type="radio"] + span {
+    position: relative;
+    padding-left: 27px;
+    display: block;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-transform: none;
+    color: $text;
+
+}
+
+input[type="checkbox"] + span:after,
+input[type="radio"] + span:after{
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    text-align: center;
+    border: 1px solid $checkbox-border;
+    background: $checkbox-background;
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    color: $checkbox-color;
+}
+
+input[type="checkbox"] + span:before,
+input[type="radio"] + span:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: 1;
+}
+
+input[type="checkbox"] + span:after {
+    border-radius: 0;
+}
+
+input[type="radio"] + span:after {
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked + span,
+input[type="radio"]:checked + span {
+    color: $linkColor;
+}
+
+input[type="checkbox"]:checked + span:after,
+input[type="radio"]:checked + span:after {
+    color: $linkColor;
+    border-color: $linkColor;
+}
+
+input[type="checkbox"]:checked + span:before {
+    @extend .svg-check;
+    top: 6px;
+    left: 5px;
+}
+
+input[type="radio"]:checked + span:before {
+    @extend .svg-circle;
+    top: 7px;
+    left: 7px;
+}
+
+
+
+/////////////////////////////////////-+++-
+// Styles for advanced html5 form elements
+
+
+input[type="color"],
+input[type="range"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="datetime"],
+input[type="datetime-local"] {
+    width: auto;
+    display: block;
+}
+
+input[type="color"] {
+    width: 50px;
+    height: 50px;
+    padding: 6px 8px;
+}
+
+input[type="range"] {
+    -webkit-appearance: slider-horizontal;
+    appearance: slider-horizontal;
+}
+
+
+
+/////////////////////////////////////-+++-
+// Input groups
+//
+//
+//    Lorem Ipsum Label
+//    +----------------------------------+
+//    | Input placeholder text ...       |
+//    +----------------------------------+
+//
+//            +---------------------+
+//    Label   | Input text ...      |
+//            +---------------------+
+
+
+.InputGroup {
+    margin-bottom: 14px;
+
+    label {
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    &--inline {
+        > label,
+        > input,
+        > .InputGroup__group {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        > label {
+            width: 130px;
+            padding-right: 20px;
+        }
+
+        > input {
+            width: auto;
+        }
+    }
+
+    // submit button usually don't need the margin at the bottom
+    &--submit {
+        input {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+/////////////////////////////////////-+++-
+// Full Form styles
+
+// this is the width of the search button
+$search-width: 60px;
+
+.Form--search {
+    position: relative;
+      
+    input[type="search"] {
+        padding-right: $search-width;
+    }
+    
+    .InputGroup--submit {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+// email signup
+.Form--newsletter {
+    .InputGroup {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: -.35em;
+        margin-bottom: 0;
+
+        input {
+            margin-bottom: 0;
+        }
+    }
+
+    .Form__label {
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 9px;
+        margin-top: 5px;
+    }
+}

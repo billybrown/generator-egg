@@ -1,0 +1,67 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Global Variables
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+/////////////////////////////////////-+++
+// fonts
+
+
+$SansSerif : 'Raleway', $helvetica-font-stack;
+$Serif: 'Neuton', $georgia-font-stack;
+
+
+/////////////////////////////////////-+++
+// colors
+
+$blue: #0074D9;
+$navy: #001F3F;
+$red: #FF4136;
+
+$black: #000000;
+$white: #ffffff;
+$gray: #888888;
+$grayLight: #eeeeee;
+
+$background: $navy;
+$text: #ddd;  
+
+$linkColor: $blue;
+$linkColorHover: lighten($linkColor, 10%);
+$linkHoverColor: $linkColorHover;
+
+
+
+/////////////////////////////////////-+++
+// breakpoints
+
+
+$mq-breakpoints: (
+    tiny-bp:         450px,
+    small-bp:        600px,
+    mobilemenu-bp:   1230px,
+    large-bp:        1600px
+) !default;
+
+$mq-static-breakpoint: large-bp;
+
+
+
+/////////////////////////////////////-+++
+// Misc. values
+
+
+$comp-max-width: 1588px; // if working from a PSD or other static comp
+$content-max-width: 890px; // content cap. Lines of text shouldnt ever span longer then this.
+$page-max-width: 2000px;  // if the page doesn't span to the windows edge at very large screens
+
+$animation-speed: .2s;
+$animation-easing: ease;
+$animation: $animation-speed $animation-easing;
+
+
+// flag for ie8 support or not. Used in layout mixins. @TODO - better incorpoate with egg
+$ie8: false;
+
+
