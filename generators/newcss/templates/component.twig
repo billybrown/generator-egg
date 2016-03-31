@@ -1,8 +1,39 @@
-<article class="<%= name %>">
+<<%= element %> class="<%= name %>">
+
     <header clas="<%= name %>__header">
-        <h3 class="<%= name %>__title">Lorem Ipsum</h3>
+        <% if ( label ) { %>
+        <div class="<%= name %>__label">
+            {{ post.label }}
+        </div><!--/.<%= name %>__label--><% } %>
+        <% if ( labellist ) { %>
+        {% if post.labellist %}
+            <div class="<%= name %>__labellist">
+                {% for item in post.labellist %}
+                    <div>{{ item.title }}</div>
+                {% endfor %} 
+            </div><!--/.<%= name %>__labellist-->
+        {% endif %}<% } %>
+
+        <<%= title %> class="<%= name %>__title">{{ post.title }}</<%= title %>>
+
     </header>
+
     <div class="<%= name %>__body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porta nisl in semper suscipit. Aenean pretium tincidunt erat eget efficitur.</p>
-    </div>
-</article>
+        <% if ( img ) { %>
+        <div class="<%= name %>__img">
+            {% if post.img %}
+                <img src="{{ post.img.img300xAuto.src }}" alt="" />
+            {% endif %}
+        </div><!-- /.<%= name %>__image --><% } %>
+        <% if ( excerpt ) { %>
+        <div class="<%= name %>__excerpt">
+            {{ post.excerpt|raw }}
+        </div><!--/.<%= name %>__exerpt--><% } %>
+        <% if ( link ) { %>
+        <div class="<%= name %>__link">
+            <span>{{ post.link }}</span>
+        </div><!--/.<%= name %>__link--><% } %>
+
+    </div><!--/.<%= name %>__body-->
+
+</<%= element %>><!--/.<%= name %>-->

@@ -11,15 +11,16 @@
 
 
 table {
-    background: #fff;
+    background: $white;
     width: 100%;
     text-align: left;
     @include text-s;
+    color: $navy;
 }
 
 th,
 td {
-    padding: 6px 0;
+    padding: 6px 8px;
 }
 
 th {
@@ -28,14 +29,16 @@ th {
     }
 }
 
-tbody tr {
-    border-top: 1px solid $grayLight;
+thead {
+    background: $red;
+    color: $white;
+}
 
-    &:last-child {
-        border-bottom: 4px solid $grayLight;
-    }
+tbody {
+    background: #ddd;
+}
 
-    &:first-child {
-        border-top-width: 4px;
-    }
+tfoot {
+    background: $gray;
+    color: $white;
 }

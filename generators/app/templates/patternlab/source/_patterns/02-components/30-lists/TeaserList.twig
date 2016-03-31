@@ -5,7 +5,7 @@
     <div class="TeaserList__content">
         {% block teaser %}
             <ul>
-                {% for post in post.teasers %}
+                {% for post in post.teasers|slice(0, 3) %}
                     <li>{% include "components-Teaser" %}</li>
                 {% endfor %} 
             </ul>

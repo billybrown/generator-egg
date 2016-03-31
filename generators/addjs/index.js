@@ -24,10 +24,6 @@ module.exports = generators.Base.extend({
                 value: 'MobileMenuOffcanvas',
                 checked: false
             }, {
-                name: 'Cover',
-                value: 'Cover',
-                checked: false
-            }, {
                 name: 'MoreAccordian',
                 value: 'MoreAccordian',
                 checked: false
@@ -45,7 +41,7 @@ module.exports = generators.Base.extend({
             type: 'confirm',
             name: 'patternlab',
             message: 'Are you using a pattern library?',
-            default: false
+            default: true
         }];
 
         this.prompt(prompts, function (props) {
@@ -59,7 +55,6 @@ module.exports = generators.Base.extend({
 
             this.MobileMenuFullScreen = hasAsset('MobileMenuFullScreen');
             this.MobileMenuOffcanvas = hasAsset('MobileMenuOffcanvas');
-            this.Cover = hasAsset('Cover');
             this.MoreAccordian = hasAsset('MoreAccordian');
             this.Modal = hasAsset('Modal');
             this.ChosenSelect = hasAsset('ChosenSelect');
@@ -89,24 +84,12 @@ module.exports = generators.Base.extend({
             if (this.MobileMenuFullScreen == true ||
                 this.MobileMenuOffcanvas == true
             ) {
-                this.fs.copy(
-                    this.templatePath('_Hamburger.scss'),
-                    this.destinationPath('src/sass/components/_Hamburger.scss')
-                );
                 if (this.props.patternlab == true) {
                     this.fs.copy(
                         this.templatePath('MobileMenuTriggers.twig'),
                         this.destinationPath('patternlab/source/_layouts/header/MobileMenuTriggers.twig')
                     );
                 }
-            }
-
-            if (this.Cover == true) {
-                this.fs.copy(
-                    this.templatePath('_Cover.scss'),
-                    this.destinationPath('src/sass/components/_Cover.scss')
-                );
-                // cover markup comes by default
             }
 
             if (this.MoreAccordian == true) {
@@ -162,7 +145,7 @@ module.exports = generators.Base.extend({
                     var specificinsert = "@import 'components/" + componentslug + "';";
 
                     if (specificfile.indexOf(specificinsert) === -1) {
-                      this.writeFileFromString(specificfile.replace(specifichook, specificinsert+'\n'+specifichook), specificpath);
+                        require("html-wiring").writeFileFromString(specificfile.replace(specifichook, specificinsert+'\n'+specifichook), specificpath);
                     }
 
                     var jshook   = '//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | js -+++-//';
@@ -172,7 +155,7 @@ module.exports = generators.Base.extend({
                     //var jsinsert = "yo";
 
                     if (jsfile.indexOf(jsinsert) === -1) {
-                      this.writeFileFromString(jsfile.replace(jshook, '\n'+jsinsert+'\n'+jshook+'\n'), jspath);
+                      require("html-wiring").writeFileFromString(jsfile.replace(jshook, '\n'+jsinsert+'\n'+jshook+'\n'), jspath);
                     }
                 }
 
@@ -180,8 +163,6 @@ module.exports = generators.Base.extend({
                 if (    this.props.components[item] === "MobileMenuFullScreen" ||
                         this.props.components[item] === "MobileMenuOffcanvas"
                 ) {
-                    // put in the hamburger
-                    this.writeFileFromString(specificfile.replace(specifichook, "@import 'components/Hamburger';"+'\n'+specifichook), specificpath);
 
                     var headerhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | header -+++-//-->',
                         headerpath   = 'patternlab/source/_layouts/header/header.twig',
@@ -189,7 +170,7 @@ module.exports = generators.Base.extend({
                         headerinsert = "{% include 'header/MobileMenuTriggers.twig' %}"
 
                     if (headerfile.indexOf(headerinsert) === -1) {
-                      this.writeFileFromString(headerfile.replace(headerhook, headerinsert+'\n'+'\t\t'+headerhook), headerpath);
+                      require("html-wiring").writeFileFromString(headerfile.replace(headerhook, headerinsert+'\n'+'\t\t'+headerhook), headerpath);
                     }
 
                     var afterheaderhook   = '<!--//-+++- DONT REMOVE THIS COMMENT! its used by yeoman | mobilemenu -+++-//-->',
@@ -199,13 +180,13 @@ module.exports = generators.Base.extend({
                         afterheaderinsert = "<div id='MobileMenu__content' class='MobileMenu__content MobileMenu'>\n" +
                                                 "\t<div class='MobileMenu__inside'>\n" +
                                                     "\t\t{% block mobilemenu %}\n" +
-
+                                                        "\t\t\t\t<p class='u-alignCenter'>put your mobile stuff here</p>\n" +
                                                     "\t\t{% endblock %}\n" +
                                                 "\t</div><!-- /.MobileMenu__inside -->\n" +
                                             "</div><!-- /.MobileMenu__content -->\n"
 
                     if (afterheaderfile.indexOf(afterheaderinsert) === -1) {
-                      this.writeFileFromString(afterheaderfile.replace(afterheaderhook, afterheaderinsert), afterheaderpath);
+                      require("html-wiring").writeFileFromString(afterheaderfile.replace(afterheaderhook, afterheaderinsert), afterheaderpath);
                     }
                 }
 
@@ -219,11 +200,10 @@ module.exports = generators.Base.extend({
                         afterFooterinsert = '<div id="ModalCage" class="ModalCage">\n' +
                                                 '\t{% block modals %}\n' +
                                                     '\t\t{% endblock %}\n' +
-                                                '\t</div>\n' +
-                                            '<div id="Cover" class="Cover"></div>\n'
+                                                '\t</div>\n'
 
                     if (afterFooterfile.indexOf(afterFooterinsert) === -1) {
-                      this.writeFileFromString(afterFooterfile.replace(afterFooterhook, afterFooterinsert), afterFooterpath);
+                      require("html-wiring").writeFileFromString(afterFooterfile.replace(afterFooterhook, afterFooterinsert), afterFooterpath);
                     }
                 }
 
@@ -237,7 +217,7 @@ module.exports = generators.Base.extend({
                     var choseninsert = "@import 'components/" + chosenslug + "';";
 
                     if (chosenfile.indexOf(choseninsert) === -1) {
-                      this.writeFileFromString(chosenfile.replace(chosenhook, choseninsert+'\n'+chosenhook), chosenpath);
+                      require("html-wiring").writeFileFromString(chosenfile.replace(chosenhook, choseninsert+'\n'+chosenhook), chosenpath);
                     }
                 }
             }

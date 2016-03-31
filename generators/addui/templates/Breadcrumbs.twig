@@ -2,7 +2,42 @@
     <h3 class="u-visuallyHidden">Breadcrumbs</h3>
     <ul>
         <li><a href="">Home</a></li>
-        <li><a href="">Breadcrumb 1</a></li>
-        <li><span>Breadcrumb 2</span></li>
+        {% if page.primaryactive == page.title or page.primaryactive == page.breadcrumbtitle %}
+            <li>
+                {% if page.primaryactive %}
+                    <span>{{ page.primaryactive }}</span>
+                {% else %}
+                    <span>Breadcrumb</span>
+                {% endif %}
+            </li>
+        {% else %}
+            {% if page.primaryactive %}
+                <li>
+                    <a href="">{{ page.primaryactive }}</a>
+                </li>
+            {% endif %}
+            {% if page.secondaryactive == page.title %}
+                <li>
+                    <span>{{ page.secondaryactive }}</span>
+                </li>
+            {% else %}
+                {% if page.secondaryactive %}
+                    <li>
+                        <a href="">{{ page.secondaryactive }}</a>
+                    </li>
+                {% endif %}
+                <li>
+                    <span>
+                        {% if page.breadcrumbtitle %}
+                            {{ page.breadcrumbtitle }}
+                        {% elseif page.title %}
+                            {{ page.title }}
+                        {% else %}
+                            Breadcrumb
+                        {% endif %}
+                    </span>
+                </li>
+            {% endif %}
+        {% endif %}
     </ul>
 </nav><!--/.Breadcrumbs-->

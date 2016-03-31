@@ -16,7 +16,8 @@
     }
 
     &__title {
-
+        @include title-l; 
+        color: $white;
     }
 
     &__content {
@@ -27,4 +28,34 @@
         
     }
 
+}
+
+
+
+/////////////////////////////////////-+++-
+// unique styles for the wysiwyg content
+//
+
+.u-WYSIWYG {
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    p + .CaptionImage {
+        margin-top: 50px;
+    }
+
+
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: $spacing * 2;
+    }
+
+    hr {
+        margin: $spacing * 2 0;
+    }
+
+    blockquote {
+        margin-bottom: $spacing;
+    }
 }

@@ -7,7 +7,9 @@
 
 
 .ModalWrapper {
-    @include u-absolute(0, null, null, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 102;
     width: 100%; 
     visibility: hidden;
@@ -22,9 +24,11 @@
     }
 
     .Modal__close {
-        @include u-absolute(20px, 20px, null, null);
+        position: absolute;
+        top: 20px;
+        right: 20px;
         font-size: 31px;
-        color: $link-color;
+        color: $linkColor;
         transition: color $animation;
 
         i {
@@ -34,7 +38,7 @@
         }
 
         &:hover {
-            color: $link-colorHover;
+            color: $linkColorHover;
             cursor: pointer;
         }
     }

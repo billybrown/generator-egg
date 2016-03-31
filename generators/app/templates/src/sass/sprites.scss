@@ -1,0 +1,27 @@
+.svg-caret_down {
+    width: 12px;
+    height: 8px;
+    background-position: 0 0;
+}
+
+.svg-check {
+    width: 16px;
+    height: 12px;
+    background-position: -20px 0;
+}
+
+.svg-circle {
+    width: 10px;
+    height: 10px;
+    background-position: -45px 0;
+}
+
+.svg-caret_down, .svg-check, .svg-circle {
+    background-size: 60px 20px;
+    background-repeat: no-repeat;
+    background-image: url("../../build/sprite.png");
+}
+
+.svg .svg-caret_down, .svg .svg-check, .svg .svg-circle {
+    background-image: url("../../build/sprite.svg");
+}

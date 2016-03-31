@@ -2,10 +2,10 @@
 
 {% block main %}
 
-    {% embed "02-components/misc/Frame"  with {"frameclass": "MainFrame"} %}
+    {% embed "misc-Frame" %}
         {% block frame_content %}
 
-            {% embed "02-components/custom/Post" %}
+            {% embed "components-Post" %}
             {% endembed %}
 
         {% endblock %}

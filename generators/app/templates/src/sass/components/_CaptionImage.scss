@@ -1,0 +1,65 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Caption Image
+// This element shows up in the WYSIWYG when you float things right or left
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+$CaptionMargin: 45px;
+$CaptionImage-bp: small-bp;
+
+.CaptionImage {
+    margin: $CaptionMargin 0;
+    position: relative;
+    display: table;
+
+    &__caption {
+        @include text-s;
+        background: rgba(255,255,255,.15);
+        padding: 10px 13px;
+        display: table-caption;
+        caption-side: bottom;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+
+/////////////////////////////////////-+++-
+// Some utility classes to float the image 
+// right of left and apply appropriate spacing
+//
+
+.u-captionImageLeft,
+.u-captionImageRight {
+    position: relative;
+
+    @include mq($from: $CaptionImage-bp) {
+        max-width: 50%;
+        margin-bottom: $CaptionMargin;
+    }
+
+    @include mq($from: 1250px) {
+        max-width: 469px;
+    }
+}
+
+.u-captionImageRight {
+
+    @include mq($from: $CaptionImage-bp) {
+        float: right;
+        margin-left: $CaptionMargin;
+    }
+}
+
+.u-captionImageLeft {
+
+    @include mq($from: $CaptionImage-bp) {
+        float: left;
+        margin-right: $CaptionMargin;
+    }
+}

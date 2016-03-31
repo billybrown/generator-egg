@@ -20,7 +20,7 @@ $grid-tiny-bp: 600px;
 
 
 .u-grid {
-    @include u-grid-multiRow--gutter($grid-tiny-bp, 50px);
+    @include u-grid-multiRow--gutter($grid-tiny-bp, 20px);
 
     @include mq($from: $grid-tiny-bp) {
         .u-grid--t__75 { width: 75%; }

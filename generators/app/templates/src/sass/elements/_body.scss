@@ -15,3 +15,10 @@ body {
     -webkit-font-smoothing: antialiased;
     background: $background;
 }
+
+
+p {
+    strong {
+        font-weight: 800;  
+    }
+}

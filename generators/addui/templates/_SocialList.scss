@@ -7,10 +7,10 @@
 /////////////////////////////////////-+++-
 // sharing links in the header
 
-.HeaderSocial {  
+.SocialList {  
 
     ul {
-        @extend %u-inlineList;
+        @include inlineList;
     }
 
     li {
@@ -20,14 +20,14 @@
     a {
 
         path {
-            fill: $link-color;
+            fill: $linkColor;
             transition: fill $animation;
         }
 
         &:hover {
 
             path {
-                fill: $link-colorHover;
+                fill: $linkColorHover;
             }
         }
     }

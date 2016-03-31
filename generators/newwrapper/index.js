@@ -19,7 +19,7 @@ module.exports = generators.Base.extend({
                     type: 'input',
                     name: 'pagename',
                     message: 'What is the page wrapper name?\n',
-                    default: 'Post-bio'
+                    default: 'Bio'
                 }
             ];
 

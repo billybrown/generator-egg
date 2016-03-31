@@ -97,3 +97,8 @@
 .sg-label {
   line-height: 1;
 }
+
+/* hide the misc category */
+.sg-nav-misc {
+    display: none !important;
+}

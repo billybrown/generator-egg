@@ -11,12 +11,10 @@
 //    │
 //    ├── /vendor: Vendor css (don't edit these manually - replace them fully)
 //    │
-<% if (cms == "Drupal") { %>
-//    ├── _drupal.scss - css unique to the CMS or WYSIWYG
-<% } else if (cms == "Wordpress") { %>
-//    ├── _wordpress.scss - css unique to the CMS or WYSIWYG
-<% } %>
+<% if (cms == "Drupal") { %>//    ├── _drupal.scss - css unique to the CMS or WYSIWYG
 //    │
+<% } else if (cms == "Wordpress") { %>//    ├── _wordpress.scss - css unique to the CMS or WYSIWYG
+//    │<% } %>
 //    ├── _global.scss - some custom global CSS to help "reset" or "normalize" all browsers
 //    │
 //    ├── _grid-utility.scss - a default grid (remember to use semantic grids with mixins whenever possible)
@@ -39,7 +37,7 @@
 
 
 // import grunt-generated sprite partial
-@import '_sprites.scss';
+@import 'sprites.scss';
 
 // import vendor mixins (dont edit these) 
 @import 'vendor/mq';
@@ -88,6 +86,7 @@
 @import 'components/BrowseHappy';
 @import 'components/Teaser';
 @import 'components/TeaserList';
+@import 'components/CaptionImage';
 @import 'components/Post';
 @import 'components/HomeHero';
 //-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | components -+++-//

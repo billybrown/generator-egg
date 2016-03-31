@@ -1,23 +1,4 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 // Styles for drupal specific stuff - anything unique to random drupal stuff
-// Like WYSIWYG styles etc.
+// 
 /////////////////////////////////////-+++-/////////////////////////////////////////
-
-// unique styles for the wysiwyg content
-
-.u-WYSIWYG {
-
-    p:last-child {
-        margin-bottom: 0;
-    }
-
-
-    p + .CaptionImage {
-        margin-top: 50px;
-    }
-
-    img {
-        display: block;
-        margin: 30px 0;
-    }
-}

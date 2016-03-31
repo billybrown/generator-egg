@@ -27,7 +27,6 @@
     }
 
     &__quote {
-        color: $red;
         margin-bottom: 80px;
 
         p {
@@ -36,8 +35,6 @@
         }
 
         footer {
-            @include label;
-            color: $red;
             margin-top: 50px;
         }
     }
@@ -46,6 +43,9 @@
         @include nub-top;
         color: $red; 
 
+    }
+
+    &__link {
         a {
             margin-top: 10px;
             @include button-l;

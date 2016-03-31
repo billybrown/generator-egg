@@ -12,7 +12,7 @@
 // a mixin for all basic text mixins
 @mixin text-defaults {
     font-family: $SansSerif;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 @mixin text {
@@ -56,11 +56,11 @@
 
 @mixin title {
     @include title-defaults;
-    font-size: 28px;
+    font-size: 27px;
     line-height: 1.1em;
 
     @include mq($from: small-bp) {
-        font-size: 42px;
+        font-size: 39px;
     }
 }
 

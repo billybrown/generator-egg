@@ -3,13 +3,8 @@
 <p>The markup here should replicate the markup a basic WYSIWYG might output for things like blockquotes, floated images, text alignment, etc.</p>
 
 
-<figure class="CaptionImage align-left">
-    <div class="CaptionImage__creditWrapper">
-       <img src="http://dummyimage.com/400x300/888/fff.png" alt="">
-       <div class="CaptionImage__credit">{{ post.author }}</div>
-    </div><!-- /.CaptionImage__creditWrapper -->
-    <figcaption class="CaptionImage__caption"><p>{{ post.excerpt.long }} </p></figcaption>
-</figure><!-- /.CaptionImage -->
+{% include 'components-CaptionImage' with { captionclass : "u-captionImageRight " } %}
+
 
 <p>Lorem ipsum dolor sit amet, <strong>bold example</strong>&nbsp;adipiscing elit. Cras semper <em>italics example</em>, at venenatis lacus semper eget <del>strikethrough example</del>. Praesent vestibulum ac lectus vel maximus. Nunc vitae nibh quis mi porttitor scelerisque nec sed sem. <a href="http://google.com">Link example</a>, tincidunt purus ac, lacinia nunc. <span style="text-decoration: underline;">Underline example</span> Praesent felis sapien, eleifend a urna id, dictum commodo lacus.<span style="color: #ff0000;"> Example of text with color</span>. Ut varius sagittis ex, in tincidunt dolor viverra laoreet. Maecenas nibh neque, mollis quis luctus eleifend, aliquet at magna. Nam blandit leo pretium, pretium neque id, scelerisque nunc. Sed sit amet vulputate sem. Sed at purus et justo aliquam tristique ut et nulla. Quisque quis erat non urna pulvinar feugiat. Nulla facilisi. Sed rutrum nisl erat.</p>
 
@@ -21,7 +16,7 @@
 
 <p>Curabitur ac nunc nibh. Nunc accumsan finibus tincidunt. Donec ornare nisi sapien. Vestibulum tempus mauris ut orci luctus mollis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent mattis neque et velit imperdiet, in venenatis lacus tempus. Mauris id gravida risus.</p>
 
-<h1>Heading 1 example</h1>
+<h2>Heading 1 example</h2>
 
 <p>Pellentesque quis ipsum velit. Morbi dolor risus, porttitor eu ipsum in, efficitur egestas magna. Mauris tincidunt elementum tempus. Sed eget bibendum ligula. Ut ac risus vitae orci aliquam tincidunt id et neque. Nunc id risus diam. Aliquam semper leo libero, vel tincidunt felis iaculis nec. Sed faucibus tellus eget imperdiet euismod.</p>
 
@@ -33,7 +28,7 @@
 
 <p>Ut ac felis dui. Aliquam ut sem imperdiet, condimentum magna vitae, pellentesque ligula. Praesent condimentum dictum ante, vel ultricies odio porttitor ut. Donec vitae magna in tortor auctor sollicitudin. Vestibulum dapibus mattis magna, a interdum nulla efficitur sed. Proin blandit sem at eleifend eleifend. Aenean egestas, neque rutrum tincidunt ullamcorper, lacus dolor molestie est, nec vulputate velit lacus dapibus augue.</p>
 
-<h2>Heading 2 example</h2>
+<h3>Heading 2 example</h3>
 
 <p>Cras ut massa sit amet turpis congue ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer nulla nibh, imperdiet non mauris nec, lobortis euismod lorem. Proin aliquet odio ipsum, sed ornare quam laoreet ac. Suspendisse at augue ac mi imperdiet dictum. Etiam placerat sollicitudin lacus eu dictum. In imperdiet est eget tincidunt porttitor.</p>
 
@@ -49,19 +44,17 @@
 
 <p>Ut ac felis dui. Aliquam ut sem imperdiet, condimentum magna vitae, pellentesque ligula. Praesent condimentum dictum ante, vel ultricies odio porttitor ut. Donec vitae magna in tortor auctor sollicitudin. Vestibulum dapibus mattis magna, a interdum nulla efficitur sed. Proin blandit sem at eleifend eleifend. Aenean egestas, neque rutrum tincidunt ullamcorper, lacus dolor molestie est, nec vulputate velit lacus dapibus augue.</p>
 
-<h3>Heading 3 example</h3>
+<h4>Heading 3 example</h4>
 
 <p>Vestibulum dapibus mattis magna, a interdum nulla efficitur sed. Proin blandit sem at eleifend eleifend.</p>
 
-<h4>Heading 4 example</h4>
+<h5>Heading 4 example</h5>
 
 <p>Aenean egestas, neque rutrum tincidunt ullamcorper, lacus dolor molestie est, nec vulputate velit lacus dapibus augue.</p>
 
-<h5>Heading 5 example</h5>
+<h6>Heading 5 example</h6>
 
 <p>Ut ac felis dui. Aliquam ut sem imperdiet, condimentum magna vitae, pellentesque ligula</p>
-
-<h6>Heading 6 example</h6>
 
 <p>Cras ut massa sit amet turpis congue ultrices. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer nulla nibh, imperdiet non mauris nec, lobortis euismod lorem. Proin aliquet odio ipsum, sed ornare quam laoreet ac. Suspendisse at augue ac mi imperdiet dictum. Etiam placerat sollicitudin lacus eu dictum. In imperdiet est eget tincidunt porttitor.</p>
 

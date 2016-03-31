@@ -1,0 +1,27 @@
+<article class="TeaserCard {{ teasercardclass }}">
+    <a href="">
+        {% if post.img %}
+            <div clas="TeaserCard__imageGroup">
+                <div class="TeaserCard__image">
+                    {% block image %}
+                        <img src="{{ post.img.img300xAuto.src }}" alt="{{ post.title }}" />
+                    {% endblock %}
+                </div>
+            </div>
+        {% endif %}
+        <div class="TeaserCard__text">
+            {% if post.tag %}
+                <div class="TeaserCard__label">{{ post.tag }}</div>
+            {% endif %}
+            <h3 class="TeaserCard__title">{{ post.title }}</h3>
+            <div class="TeaserCard__excerpt">
+                <p>{{ post.excerpt|raw }}</p>
+            </div>
+            {% if post.link %}
+            <div class="TeaserCard__link">
+                <span class="u-fakeLink">{{ post.link }}</span>
+            </div>
+            {% endif %}
+        </div>
+    </a>
+</article>

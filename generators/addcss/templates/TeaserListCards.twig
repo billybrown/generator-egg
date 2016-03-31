@@ -1,0 +1,12 @@
+<article class="TeaserListCards">
+    <h2 class="TeaserListCards__title">{{ post.title|raw }}</h2>
+    <div class="TeaserListCards__body">
+        <ul>
+            {% for post in post.teasers|slice(0,3) %}
+                <li>
+                    {% include "components-TeaserCard" with { post : post } %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</article>

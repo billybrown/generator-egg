@@ -12,12 +12,12 @@
 
 
 
-h1 { @include text-l; }
-h2 { @include text-l; }
-h3 { @include text-l; }
-h4 { @include text-l; }
-h5 { @include text-l; }
-h6 { @include text-l; }
+h1 { @include title-l; }
+h2 { @include title; }
+h3 { @include title-s; }
+h4 { @include text;}
+h5 { @include label; }
+h6 { @include label-s; }
 
 
 
@@ -36,6 +36,6 @@ h5,
 h6, 
 p,
 blockquote,
-input {
+.InputGroup {
     margin: 0 0 $spacing; // need full margin values here to reset browser defaults
 }

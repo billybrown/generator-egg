@@ -25,8 +25,7 @@
 }
 
 .sg-main .sg-pattern-head {
-    background: #eee;
-    color: #333;
+    background: rgba(255,255,255,.1);
     padding: 8px 20px;
     text-align: left;
 }
@@ -42,7 +41,7 @@
 .sg-main .sg-pattern-head a {
     margin: 0;
     padding: 0;
-    color: #333 !important;
+    color: #fff !important;
     padding: 5px 8px;
     display: inline-block !important;
     text-decoration: none;
@@ -83,9 +82,11 @@
 }
 
 .sg-layoutDemo > div > div > span {
-        display: block;
-        padding: 10px;
-        text-align: center;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: #222;
+
 }
 
 .sg-layoutDemo > div > div:nth-child(odd) > span {

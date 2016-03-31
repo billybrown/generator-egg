@@ -5,9 +5,13 @@
 
 
 .Breadcrumbs {
+
+    ul {
+        @include inlineList;
+    }
     
     li {
-        @extend %u-text--small;
+        @include text-s;
 
         &:not(:last-child) {
 

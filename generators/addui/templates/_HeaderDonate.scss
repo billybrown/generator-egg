@@ -5,5 +5,11 @@
 
 
 .HeaderDonate {
+    margin-bottom: 20px;
+
+    a {
+        @include button;
+        @include button-red;
+    }
 
 }

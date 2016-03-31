@@ -19,4 +19,28 @@
     &__body {
         
     }
+    <% if ( label ) { %>
+    &__label {
+        
+    }
+    <% } %><% if ( labellist ) { %>
+    &__labellist {
+        
+    }
+    <% } %><% if ( img ) { %>
+    &__img {
+        
+    }
+    <% } %><% if ( excerpt ) { %>
+    &__excerpt {
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+    <% } %><% if ( link ) { %>
+    &__link {
+        
+    }
+    <% } %>
 }

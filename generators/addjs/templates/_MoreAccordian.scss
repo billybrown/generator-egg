@@ -33,7 +33,9 @@
 }
 
 .MoreAccordian__trigger {
-    @include u-absolute(null, null, 0, 0);
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
     text-align: center;
     background: rgba(255,255,255,.95);
@@ -43,7 +45,7 @@
 
     &:hover {
         cursor: pointer;
-        color: $link-color;
+        color: $linkColor;
     }
 
     .is-out & {

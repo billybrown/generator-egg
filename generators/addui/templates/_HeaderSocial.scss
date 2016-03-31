@@ -8,26 +8,27 @@
 // sharing links in the header
 
 .HeaderSocial {  
+    margin-bottom: 20px;
 
     ul {
-        @extend %u-inlineList;
+        @include inlineList;
     }
 
     li {
         margin-bottom: 14px;
+        margin-right: 14px;
     }
 
     a {
 
         path {
-            fill: $link-color;
             transition: fill $animation;
         }
 
         &:hover {
 
             path {
-                fill: $link-colorHover;
+                fill: $linkColorHover;
             }
         }
     }
@@ -59,4 +60,3 @@
         }
     }
 }
-

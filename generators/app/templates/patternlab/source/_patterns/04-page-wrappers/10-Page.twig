@@ -12,7 +12,7 @@
         {% endblock %}
     {% endembed %}
 
-    {% embed "misc-Frame" %}
+    {% embed "misc-Frame"  with { frameclass : "Frame--dark" } %}
         {% block frame_content %}
 
             <div><strong>Region: "Secondary"</strong></div>
@@ -20,5 +20,7 @@
 
         {% endblock %}
     {% endembed %}
+
+
 
 {% endblock %}

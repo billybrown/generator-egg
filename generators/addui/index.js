@@ -73,7 +73,7 @@ module.exports = generators.Base.extend({
             type: 'confirm',
             name: 'patternlab',
             message: 'Are you using a pattern library?',
-            default: false
+            default: true
         }];
 
         this.prompt(prompts, function (props) {
@@ -99,6 +99,7 @@ module.exports = generators.Base.extend({
             this.Breadcrumbs = hasAsset('Breadcrumbs');
             this.SocialList = hasAsset('SocialList');
             done();
+            
         }.bind(this));
     },
 
@@ -250,7 +251,7 @@ module.exports = generators.Base.extend({
                     var headerinsert = "{% include 'header/" + headerslug + ".twig' %}";
 
                     if (headerfile.indexOf(headerinsert) === -1) {
-                      this.writeFileFromString(headerfile.replace(headerhook, headerinsert+'\n'+'\t\t'+headerhook), headerpath);
+                      require("html-wiring").writeFileFromString(headerfile.replace(headerhook, headerinsert+'\n'+'\t\t'+headerhook), headerpath);
                     }
 
                     var headerCSShook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | header -+++-//';
@@ -259,7 +260,7 @@ module.exports = generators.Base.extend({
                     var headerCSSinsert = wiring.readFileAsString(this.templatePath('_' + this.props.components[item] + '.scss'));
 
                     if (headerCSSfile.indexOf(headerCSSinsert) === -1) {
-                      this.writeFileFromString(headerCSSfile.replace(headerCSShook, '\n'+headerCSSinsert+'\n'+headerCSShook+'\n'), headerCSSpath);
+                      require("html-wiring").writeFileFromString(headerCSSfile.replace(headerCSShook, '\n'+headerCSSinsert+'\n'+headerCSShook+'\n'), headerCSSpath);
                     }
                 }
 
@@ -276,7 +277,7 @@ module.exports = generators.Base.extend({
                     var footerinsert = "{% include 'footer/" + footerslug + ".twig' %}";
 
                     if (footerfile.indexOf(footerinsert) === -1) {
-                      this.writeFileFromString(footerfile.replace(footerhook, footerinsert+'\n'+'\t\t'+footerhook), footerpath);
+                      require("html-wiring").writeFileFromString(footerfile.replace(footerhook, footerinsert+'\n'+'\t\t'+footerhook), footerpath);
                     }
 
                     var footerCSShook   = '//-+++- DONT REMOVE THIS COMMENT! its used by Yeoman | footer -+++-//';
@@ -285,7 +286,7 @@ module.exports = generators.Base.extend({
                     var footerCSSinsert = wiring.readFileAsString(this.templatePath('_' + this.props.components[item] + '.scss'));
 
                     if (footerCSSfile.indexOf(footerCSSinsert) === -1) {
-                      this.writeFileFromString(footerCSSfile.replace(footerCSShook, '\n'+footerCSSinsert+'\n'+footerCSShook+'\n'), footerCSSpath);
+                      require("html-wiring").writeFileFromString(footerCSSfile.replace(footerCSShook, '\n'+footerCSSinsert+'\n'+footerCSShook+'\n'), footerCSSpath);
                     }
                 }
 
@@ -301,7 +302,7 @@ module.exports = generators.Base.extend({
                     var insert = "@import 'components/" + slug + "';";
 
                     if (file.indexOf(insert) === -1) {
-                      this.writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
+                      require("html-wiring").writeFileFromString(file.replace(hook, insert+'\n'+hook), path);
                     }
                 }
             }

@@ -5,11 +5,14 @@
 
 
 .HeaderSearch {
+    margin-bottom: 20px;
 
     .InputGroup {
         display: inline-block;
         vertical-align: top;
-        margin-right: -.35em;
+        margin-right: 20px;
+        padding-right: 0;
+        margin-bottom: 0;
 
         input {
             margin-bottom: 0;

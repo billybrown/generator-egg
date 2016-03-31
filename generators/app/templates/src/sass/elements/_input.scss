@@ -7,24 +7,26 @@
 
 
 
-$placeholder-default: $text;
+$placeholder-default: $navy;
+$input-height: 42px;
 
-%u-defaultInput {
-    @extend %u-text;
+
+@mixin input-defaults {
+    @include text-s;
     line-height: 22px;
-    color: $text;
-    background: transparent;
-    border: 2px solid $text;
+    color: $navy;
+    background: rgba(255,255,255,.75);
+    border: 2px solid transparent;
     border-radius: 0;
-    padding: 7px 14px;
-    height: 42px; // need to put height here for firefox
+    padding: 7px 9px;
+    height: $input-height; // need to put height here for firefox
     -webkit-appearance: none;
     transition: background $animation, border $animation;
 
     &:focus {
         outline: none;
         background: #fff;
-        border-color: $linkColor;
+        border-color: transparent;
     }
 
     &::-webkit-input-placeholder {  color: $placeholder-default; }
@@ -36,19 +38,17 @@ $placeholder-default: $text;
 // default input styles
 input,
 textarea {
-    @extend %u-smallText;
-    @extend %u-defaultInput;
+    @include input-defaults;
     width: 100%;
+}
+textarea {
+    min-height: $input-height * 2;
 }
 
 input[type="submit"],
 button {
-    @extend %u-button;
+    @include button;
     width: auto;
-
-    &:focus {
-        background: $linkColorHover;
-    }
 }
 
 input[type="search"] {
@@ -59,7 +59,7 @@ input[type="search"] {
 
 // default label style
 label {
-    @extend %u-smallText;
+    @include label;
 }
 
 
@@ -97,7 +97,6 @@ label input[type="radio"] + span {
     display: block;
     font-size: 16px;
     line-height: 24px;
-    font-weight: 700;
     letter-spacing: normal;
     text-transform: none;
     color: $text;
@@ -126,6 +125,7 @@ input[type="radio"] + span:before {
     top: 2px;
     left: 2px;
     z-index: 1;
+    display: block;
 }
 
 input[type="checkbox"] + span:after {
@@ -191,6 +191,17 @@ input[type="range"] {
 
 
 /////////////////////////////////////-+++-
+// Styles for fieldsets
+// reset by default
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/////////////////////////////////////-+++-
 // Input groups
 //
 //
@@ -205,11 +216,10 @@ input[type="range"] {
 
 
 .InputGroup {
-    margin-bottom: 14px;
 
     label {
         display: block;
-        margin-bottom: 4px;
+        margin-bottom: 7px;
     }
 
     &--inline {
@@ -243,12 +253,12 @@ input[type="range"] {
 // Full Form styles
 
 // this is the width of the search button
-$search-width: 60px;
+$search-width: 100px;
 
 .Form--search {
     position: relative;
-      
-    input[type="search"] {
+
+    .InputGroup--search {
         padding-right: $search-width;
     }
     
@@ -278,4 +288,19 @@ $search-width: 60px;
         padding-right: 9px;
         margin-top: 5px;
     }
+}
+
+
+/////////////////////////////////////-+++-
+// Default select styles
+// these will probably get overridden with a jquery tool called chosen.
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: $input-height;
+    @include input-defaults;
+    background: $white url("../../img/caret_down.svg") no-repeat center right;
+    padding-right: 30px;
+
 }

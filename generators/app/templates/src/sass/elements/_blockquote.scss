@@ -24,14 +24,26 @@
 
 
 blockquote {
-	margin: 0;
+    margin: 0;
+    color: $red;
 
-	p:last-child {
-		margin: 0;
-	}
+    p {
+        @include title;
+    }
 
-	footer {
-		@extend %u-text--strong;
-		color: $gray;
-	}
+    p:last-child {
+        margin: 0;
+    }
+
+    footer {
+        @include label;
+    }
+
+    a {
+        color: $white;
+
+        &:hover {
+            color: $linkColorHover;
+        }
+    }
 }

@@ -1,0 +1,10 @@
+<figure class="CaptionImage {{ captionclass }}">
+    {% if post.img %}
+        <img src="{{ post.img.img300xAuto.src }}" alt="" />
+    {% elseif post.iframe %}
+        {{ post.iframe|raw }}
+    {% endif %}
+    <figcaption class="CaptionImage__caption">
+        <p>{{ post.caption }}</p>
+    </figcaption>
+</figure>

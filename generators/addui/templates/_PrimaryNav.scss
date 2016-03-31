@@ -4,6 +4,7 @@
 
 
 $PrimaryNav-bp: mobilemenu-bp;
+$PrimaryNav-height: 52px;
 
 .PrimaryNav {
 
@@ -16,9 +17,42 @@ $PrimaryNav-bp: mobilemenu-bp;
             display: inline-block;
             vertical-align: top;
             margin-right: 10px;
+            position: relative;
+            height: $PrimaryNav-height;
+            transition: background .2s ease;
 
             @include mq($from: $PrimaryNav-bp) {
-                margin-right: 40px;
+                margin-right: 20px;
+            }
+        }
+
+        ul {
+            position: absolute;
+            top: $PrimaryNav-height;
+            left: 0;
+            background: $white;
+            padding: 30px;
+            min-width: 260px;
+            z-index: 10;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility .2s ease, opacity .2s ease;
+            display: none;
+            text-align: left;
+
+            @include mq($from: mobilemenu-bp) {
+                display: block;
+            }
+
+            li {
+                padding: 0;
+                display: block;
+                height: auto;
+            }
+
+            a {
+                font-size: 20px;
+                padding: 0;
             }
         }
     }
@@ -26,10 +60,23 @@ $PrimaryNav-bp: mobilemenu-bp;
     a {
         display: block;
         font-weight: 700;
+        padding: 10px 20px;
 
         @include mq($from: $PrimaryNav-bp) {
             font-size: 30px;
-            line-height: 32px;
+        }
+    }
+
+    > ul {
+        margin-left: -14px;
+        
+        > li:hover {
+            background: $white;
+
+            ul {
+                visibility: visible; 
+                opacity: 1;
+            }
         }
     }
 
@@ -41,3 +88,4 @@ $PrimaryNav-bp: mobilemenu-bp;
         }
     }
 }
+

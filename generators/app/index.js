@@ -150,6 +150,11 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('src')
       );
 
+      this.fs.copy(
+        this.templatePath('build'),
+        this.destinationPath('build')
+      );
+
       this.fs.copyTpl(
         this.templatePath('main.scss'),
         this.destinationPath('src/sass/main.scss'),
@@ -217,6 +222,10 @@ module.exports = yeoman.Base.extend({
           this.destinationPath('screenshot.png')
         );
 
+        this.fs.copy(
+          this.templatePath('_drupal.scss'),
+          this.destinationPath('src/sass/_drupal.scss')
+        );
 
         if (this.props.patternlab == true) {
           this.fs.copy(
@@ -240,6 +249,13 @@ module.exports = yeoman.Base.extend({
           this.templatePath('screenshot-wordpress.png'),
           this.destinationPath('screenshot.png')
         );
+
+
+        this.fs.copy(
+          this.templatePath('_wordpress.scss'),
+          this.destinationPath('src/sass/_wordpress.scss')
+        );
+
         if (this.props.patternlab == true) {
           this.fs.copy(
             this.templatePath('wysiwyg-wordpress.twig'),
@@ -249,23 +265,23 @@ module.exports = yeoman.Base.extend({
 
       } else {
 
-        this.fs.copyTpl(
-          this.templatePath('index.html'),
-          this.destinationPath('index.html'),
-            { 
-              description: this.props.description,
-              title: this.props.theme
-            }
-        );
-
         if (this.props.patternlab == true) {
           this.fs.copy(
             this.templatePath('wysiwyg-default.twig'),
             this.destinationPath('patternlab/source/_patterns/03-misc/wysiwyg.twig')
           );
         }
-
       }
+
+      this.fs.copyTpl(
+        this.templatePath('index.html'),
+        this.destinationPath('index.html'),
+          { 
+            description: this.props.description,
+            title: this.props.theme,
+            patternlab: this.props.patternlab
+          }
+      );
     }
   },
 
@@ -279,6 +295,8 @@ module.exports = yeoman.Base.extend({
           console.log('Program output:', output);
         });
       }
+
+      this.installDependencies();
     }
   }
 

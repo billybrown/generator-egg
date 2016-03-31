@@ -3,7 +3,18 @@
     <ul>
         {% for post in primarynav %}
             {% if post.title != null %}
-              <li class="{% if post.active == "true" %}active{% endif %}" ><a href="">{{ post.title }}</a></li>
+                <li class="{% if post.active == "true" or page.primaryactive == post.title %}active{% endif %}" >
+                    <a href="">{{ post.title|raw }}</a>
+                    {% if post.submenu %}
+                        <ul>
+                            {% for post2 in post.submenu %}
+                                <li class="{% if post2.active == "true" %}active{% endif %}" >
+                                    <a href="">{{ post2.title|raw }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
             {% endif %}
         {% endfor %} 
     </ul>

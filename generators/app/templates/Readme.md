@@ -18,41 +18,41 @@ It uses a few core tools:
 
 # Directory Structure
 
-  <%= theme %>
-    │  
-    ├── /build: all production ready assets. All compiled by grunt. Do not edit manually.
-    │
-    ├── /config: These hold all the grunt tasks. Where we tell grunt to do the things it does.
-    │
-    ├── /img: your images
-    │
-    ├── /node_modules: npm packages downloaded from package.json. DONT EDIT THIS BY HAND
-    │
-    ├── /src: all source files for your custom front-end assets
-    │   │
-    │   ├── /js: javascripts
-    │   │   │
-    │   │   ├── /vendor: this will all be concatenated and minified by grunt
-    │   │   │
-    │   │   ├── custom.js - all of your custom scripts
-    │   │   │
-    │   │   └── modernizr.js - a custom build, needs to be its own file since it goes in the <head>
-    │   │
-    │   ├── /sass: Sass files. Read more about sass in this theme on /src/sass/main.scss
-    │   │
-    │   └── /sprites: SVGs to be turned into a sprite by grunt. No png fallback necessary.
-    │
-    <% if (patternlab) { %>├── /patternlab: Pattern library files
-    │<% } %>
-    ├── .editorconfig - configurations for text editors
-    │
-    ├── .gitignore - theme level gitignore
-    │
-    ├── .nvmrc - a version of node that this front-end setup will work with
-    │
-    ├── Gruntfile.js - defines all your grunt tasks
-    │
-    └── package.json - manifest of all your npm modules
+    <%= theme %>
+      │  
+      ├── /build: all production ready assets. All compiled by grunt. Do not edit manually.
+      │
+      ├── /config: These hold all the grunt tasks. Where we tell grunt to do the things it does.
+      │
+      ├── /img: your images
+      │
+      ├── /node_modules: npm packages downloaded from package.json. DONT EDIT THIS BY HAND
+      │
+      ├── /src: all source files for your custom front-end assets
+      │   │
+      │   ├── /js: javascripts
+      │   │   │
+      │   │   ├── /vendor: this will all be concatenated and minified by grunt
+      │   │   │
+      │   │   ├── custom.js - all of your custom scripts
+      │   │   │
+      │   │   └── modernizr.js - a custom build, needs to be its own file since it goes in the <head>
+      │   │
+      │   ├── /sass: Sass files. Read more about sass in this theme on /src/sass/main.scss
+      │   │
+      │   └── /sprites: SVGs to be turned into a sprite by grunt. No png fallback necessary.
+      │
+      <% if (patternlab) { %>├── /patternlab: Pattern library files
+      │<% } %>
+      ├── .editorconfig - configurations for text editors
+      │
+      ├── .gitignore - theme level gitignore
+      │
+      ├── .nvmrc - a version of node that this front-end setup will work with
+      │
+      ├── Gruntfile.js - defines all your grunt tasks
+      │
+      └── package.json - manifest of all your npm modules
 
 
 <% if (patternlab) { %>

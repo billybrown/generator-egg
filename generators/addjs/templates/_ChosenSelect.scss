@@ -10,21 +10,21 @@
 
 
 $chosen-border-width: 2px;
-$chosen-border-color: $gray-light;
+$chosen-border-color: $grayLight;
 $chosen-border: $chosen-border-width solid $chosen-border-color;
 $chosen-background: #fff;
 $chosen-color: $text;
 
 
 .chosen-container {
-    @extend %u-text;
+    @include text;
     width: auto !important;
 }
 
 .chosen-container-single .chosen-single,
 .chosen-container-active.chosen-with-drop .chosen-single,
 .chosen-container .chosen-drop {
-    @extend %u-defaultInput;
+    @include input-defaults;
     color: $chosen-color;
     box-shadow: none;
     background: $chosen-background;
@@ -67,7 +67,7 @@ $chosen-color: $text;
 }
 
 .chosen-container .chosen-results li.active-result.highlighted {
-    background: $link-color;
+    background: $linkColor;
 }
 
 
@@ -91,13 +91,13 @@ $chosen-color: $text;
 
 
 $select-borderColor: $gray;
-$select-borderColorHover: $link-color;
+$select-borderColorHover: $linkColor;
 $select-background: #fff;
 
 
 .touch {
     .u-select {
-        @extend %u-defaultInput;
+        @include input-defaults;
         height: auto;
         box-shadow: none;
         background: #fff;

@@ -3,14 +3,18 @@
 /////////////////////////////////////-+++-/////////////////////////////////////////
 
 
-$MobileMenu-background: $gray-light;
+$MobileMenu-background: $red;
+$MobileMenu-color: $white;
 
 .MobileMenu__content {
-    @include u-absolute(0, null, null, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 100;
     width: 100%;
     height: 100%;
     background: $MobileMenu-background;
+    color: $MobileMenu-color;
     opacity: 0;
     visibility: hidden;
     transition: visibility .5s ease, opacity .5s ease;
@@ -76,3 +80,104 @@ $MobileMenu-background: $gray-light;
     margin-right: auto;
     margin-left: auto;
 }
+
+
+
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// Hamburger menu
+//
+// Basic hamburger menu. With animation to X.
+//
+// Expects markup like this:
+//
+//  <div class="Hamburger">
+//      <span class="Hamburger__icon"><span></span></span>
+//      <span class="Hamburger__text">Menu</span>
+//  </div>
+//
+// It turns into an X when the body gets a class of 'active-MobileMenu'
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+$Hamburger-color: #fff;
+$Hamburger-hoverColor: #fff;
+$Hamburger-barWidth: 4px;
+$Hamburger-spacing: 7px;
+$Hamburger-animation: .2s;
+
+
+.Hamburger {
+    margin-bottom: 20px;
+
+    @include mq($from: mobilemenu-bp) {
+        display: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &__text {
+        @include label;
+        display: block;
+        color: #fff;
+        opacity: 1;
+        transition: background $animation, opacity .5s ease;
+        z-index: 101;
+        position: relative;
+        margin-top: 10px;
+    }
+
+    &__iconWrapper {
+        display: block;
+        transition: background $animation;
+        width: 45px;
+        z-index: 101;
+        position: relative;
+    }
+
+    &__icon {
+        height: ($Hamburger-barWidth * 3) + ($Hamburger-spacing * 2);
+        transition: margin $Hamburger-animation;
+
+        span,
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: $Hamburger-barWidth;
+            background: $Hamburger-color;
+            transform: translateY(0) rotate(0);
+            opacity: 1;
+            transition: all $Hamburger-animation;
+            border-radius: 2px;
+        }
+
+        &:before,
+        span {
+            margin-bottom: $Hamburger-spacing;
+        }
+    }
+
+    .active-MobileMenu & {
+
+        .Hamburger__icon:before {
+            transform: translateY(($Hamburger-spacing + $Hamburger-barWidth)) rotate(-45deg);
+        }
+
+        .Hamburger__icon:after {
+            transform: translateY(-($Hamburger-spacing + $Hamburger-barWidth)) rotate(45deg);
+        }
+
+        .Hamburger__icon span {
+            opacity: 0;
+        }
+
+        .Hamburger__icon {
+            margin-top: 8px;
+        }
+    }
+}
+

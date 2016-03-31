@@ -1,0 +1,22 @@
+/////////////////////////////////////-+++-/////////////////////////////////////////
+// TeaserListCards
+// This is a list of card shaped teasers, shows up on the homepage.
+//
+/////////////////////////////////////-+++-/////////////////////////////////////////
+
+
+
+.TeaserListCards { 
+
+    &__title {
+
+    }
+
+    &__body {
+
+        > ul {
+            @include u-grid-multiRow--gutter( 700px, 30px, 33.3333% );
+        }
+
+    }
+}
